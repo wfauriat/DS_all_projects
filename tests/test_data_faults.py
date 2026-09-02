@@ -36,7 +36,7 @@ def rows(store, sql, *args):
 
 
 def api(lab, client_factory, hostility=0):
-    st = lab.state(hostility=hostility)
+    st = lab.state(hostility=hostility, advance_days=10_000, clock_name="api.json")
     return st, client_factory(st)
 
 

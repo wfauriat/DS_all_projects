@@ -21,8 +21,8 @@ def _as_of(lab) -> str:
     return (lab.cfg.clock.sim_start + dt.timedelta(days=430)).isoformat()
 
 
-def _state(lab, hostility):
-    st = lab.state(hostility=hostility)
+def _state(lab, hostility, advance_days=10_000, clock_name="api.json"):
+    st = lab.state(hostility=hostility, advance_days=advance_days, clock_name=clock_name)
     st.latency_spike_s = 0.02
     st.hang_s = 0.02
     return st
@@ -88,16 +88,48 @@ def test_auth_is_required(clean_lab, client_factory):
     assert c.get("/v1/orders", headers={"Authorization": "Bearer nope"}).status_code == 401
 
 
-def test_single_order_defaults_to_simulated_now(clean_lab, client_factory):
-    """A row that has not become knowable yet simply is not there."""
+def test_a_row_is_absent_before_it_became_knowable(clean_lab, client_factory):
     st = _state(clean_lab, 0)
     c = client_factory(st)
     tok = st.cfg.api.token
     ao = _as_of(clean_lab)
-    oid = json.loads(naive(c, "orders", tok, ao, limit=5)[-1])["order_id"]
-    assert c.get(f"/v1/orders/{oid}", headers={"Authorization": f"Bearer {tok}"}).status_code == 404
-    assert c.get(f"/v1/orders/{oid}", params={"as_of": ao},
+    row = json.loads(naive(c, "orders", tok, ao, limit=5)[-1])
+    oid, kt = row["order_id"], row["knowledge_time"]
+    before = (dt.datetime.fromisoformat(kt) - dt.timedelta(seconds=1)).isoformat()
+    assert c.get(f"/v1/orders/{oid}", params={"as_of": before},
+                 headers={"Authorization": f"Bearer {tok}"}).status_code == 404
+    assert c.get(f"/v1/orders/{oid}", params={"as_of": kt},
                  headers={"Authorization": f"Bearer {tok}"}).status_code == 200
+
+
+def test_as_of_cannot_run_ahead_of_the_clock(clean_lab, client_factory):
+    """This system cannot tell you what it is going to know."""
+    st = _state(clean_lab, 0, advance_days=120, clock_name="clamp.json")
+    st.clock.pause()          # otherwise "now" moves between the two requests
+    c = client_factory(st)
+    hdr = {"Authorization": f"Bearer {st.cfg.api.token}"}
+    now = st.clock.now().isoformat()
+    future = (clean_lab.cfg.sim_end + dt.timedelta(days=99)).isoformat()
+
+    asked = c.get("/v1/orders", params={"as_of": future, "limit": 5}, headers=hdr).json()
+    plain = c.get("/v1/orders", params={"limit": 5}, headers=hdr).json()
+    assert asked["as_of"] <= now
+    assert asked["total_count"] == plain["total_count"]
+    assert [o["order_id"] for o in asked["data"]] == [o["order_id"] for o in plain["data"]]
+
+    # and the whole horizon is not reachable from day 120
+    assert asked["total_count"] < st.store.count(
+        "orders", clean_lab.cfg.sim_end.isoformat(), None, None)
+
+
+def test_a_timezone_offset_on_as_of_does_not_break_ordering(clean_lab, client_factory):
+    st = _state(clean_lab, 0)
+    c = client_factory(st)
+    hdr = {"Authorization": f"Bearer {st.cfg.api.token}"}
+    ao = _as_of(clean_lab)
+    naive_res = c.get("/v1/orders", params={"as_of": ao, "limit": 5}, headers=hdr).json()
+    aware = c.get("/v1/orders", params={"as_of": ao + "+00:00", "limit": 5}, headers=hdr).json()
+    assert naive_res["total_count"] == aware["total_count"] > 0
 
 
 def test_health_answers(clean_lab, client_factory):

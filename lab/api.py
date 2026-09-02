@@ -294,9 +294,25 @@ def _parse_ts(value: str | None, field: str) -> str | None:
     if value is None:
         return None
     try:
-        return dt.datetime.fromisoformat(value).replace(microsecond=0).isoformat()
+        # the world keeps wall time; an offset is accepted and then ignored,
+        # rather than producing a string that sorts against nothing
+        return (
+            dt.datetime.fromisoformat(value)
+            .replace(microsecond=0, tzinfo=None)
+            .isoformat()
+        )
     except ValueError:
         raise ValueError(f"bad {field}")
+
+
+def _knowledge_cutoff(state: LabState, requested: str | None) -> str:
+    """Resolve ``as_of``, which can never run ahead of the present.
+
+    This system cannot tell you what it is going to know. A request for a
+    future moment is answered as of now.
+    """
+    now = state.clock.now().isoformat()
+    return min(requested, now) if requested else now
 
 
 def collection(state: LabState, endpoint: str, request: Request) -> Response:
@@ -324,7 +340,7 @@ def collection(state: LabState, endpoint: str, request: Request) -> Response:
         total = c.get("n")
     else:
         try:
-            as_of = _parse_ts(q.get("as_of"), "as_of") or state.clock.now().isoformat()
+            as_of = _knowledge_cutoff(state, _parse_ts(q.get("as_of"), "as_of"))
             since = _parse_ts(q.get("since"), "since")
             until = _parse_ts(q.get("until"), "until")
         except ValueError as exc:
@@ -459,7 +475,7 @@ def get_order(order_id: str, request: Request):
     if early is not None:
         return early
     try:
-        as_of = _parse_ts(request.query_params.get("as_of"), "as_of") or state.clock.now().isoformat()
+        as_of = _knowledge_cutoff(state, _parse_ts(request.query_params.get("as_of"), "as_of"))
     except ValueError as exc:
         return _err(400, str(exc))
     row = state.store.one("orders", order_id, as_of)

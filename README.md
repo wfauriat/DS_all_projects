@@ -141,16 +141,34 @@ so skipping most of it is visible in your own result.
 
 ## Configuration
 
-`lab.toml`. Two classes of setting:
+`lab.toml`, plus one thing that lives in code. Three classes of setting:
 
 **Free to change between restarts** — `[api].hostility`,
 `[clock].sim_days_per_real_hour`, `[drop].path`. These change how the source
 behaves towards you, not what it contains.
 
 **Part of the run's identity** — `[world].scale`, `[world].horizon_sim_days`,
-`[clock].sim_start`, `[faults].n_sampled`. The service refuses to start if these
-no longer match the sealed ledger. Changing them means `init --force`, a new
-run-id, and a clean slate.
+`[clock].sim_start`, `[faults].n_sampled`, and the lab's own `WORLD_SCHEMA`. The
+service refuses to start if these no longer match the sealed ledger. Changing
+them means `init --force`, a new run-id, and a clean slate.
+
+**Decided before `init`, and *not* protected** — `ALWAYS_ON` in
+`lab/faults/catalog.py`. It lists the faults drawn into every run, currently
+`label_censoring` and `backfill_restatement`, and it counts against
+`[faults].n_sampled`.
+
+This one is a trap, so it is worth stating plainly: the fingerprint does not
+cover it. Editing it while a run is live changes nothing and warns you about
+nothing — the sealed ledger already holds the fault list, and that is what the
+service and the grader both read. It takes effect at the next `init` and only
+then.
+
+Change it if you are switching what the exercise is *about*. `label_censoring`
+only bites someone who reads `/v1/labels`; if you repoint the lab at revenue or
+demand forecasting you will never query that endpoint, so it becomes an
+unfindable fault costing you a mark for no reason. Swapping it for something
+that shows up in the data you actually consume — `late_arriving_events`, say —
+keeps the always-on slot honest.
 
 `[api].hostility` runs 0–3 and is the single most useful dial you have.
 Level 0 is a clean, well-behaved source. Level 3 is a bad day at a bad vendor.
@@ -194,7 +212,8 @@ Base path `/v1`. JSON. All collection endpoints take the same parameters.
   `since` is inclusive, `until` exclusive.
 - `as_of` filters on **knowledge time** — when this system could first have told
   you. It defaults to the current simulated moment. A read with `as_of` in the
-  past reproduces what we would have told you then.
+  past reproduces what we would have told you then. An `as_of` in the future is
+  answered as of now: we cannot tell you what we are going to know.
 - `limit` defaults to 200.
 
 Response envelope:
@@ -274,10 +293,9 @@ in one period predict their orders in the next.
 
 Two warnings if you go that way. `customers.lifetime_value_cents` is drawn
 independently of the order stream and correlates with actual spend at about
--0.01 — it is a decoy, not a target. And `label_censoring` is in every ledger:
-if you never query `/v1/labels` you will never find it, so change `ALWAYS_ON`
-in `lab/faults/catalog.py` before you `init` (it has no effect on a run already
-sealed).
+-0.01 — it is a decoy, not a target. And you will want to change `ALWAYS_ON`
+before you `init`; see **Configuration** above for why, and why doing it later
+is silently useless.
 
 ---
 

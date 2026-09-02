@@ -50,20 +50,33 @@ class Lab:
         cfgmod.set_state_dir(self.state_dir)
         return self
 
-    def state(self, hostility: int = 0, effects=None, run_drop: bool = False):
+    def state(self, hostility: int = 0, effects=None, run_drop: bool = False,
+              advance_days: float | None = None, clock_name: str = "clock.json"):
+        """A lab state. ``advance_days`` moves the clock before returning.
+
+        The API will not read past the clock, so a test that wants to see the
+        far end of the horizon has to let the world get there first.
+
+        Clock position is persisted per file, and labs are shared across the
+        whole session, so a test that moves the clock a long way should ask for
+        its own ``clock_name`` rather than dragging everyone else forward.
+        """
         from lab import api as apimod
         from lab.clock import Clock
         from lab.faults.effects import Effects
         from lab.world import Store
 
         self.activate()
-        return apimod.build_state(
+        st = apimod.build_state(
             cfg=self.cfg,
             store=Store(self.state_dir / "world.db"),
-            clock=Clock(self.cfg, path=self.state_dir / "clock.json"),
+            clock=Clock(self.cfg, path=self.state_dir / clock_name),
             effects=effects if effects is not None else Effects(self.plan),
             hostility=hostility,
         )
+        if advance_days:
+            st.clock.advance(advance_days)
+        return st
 
 
 class LabFactory:
