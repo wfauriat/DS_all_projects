@@ -87,6 +87,20 @@ the clock, the drop directory and every result you have measured.
 At default scale `init` takes about fifteen seconds and produces roughly 150k
 orders, 145k payments, 730k events and 50k customers across a six-year horizon.
 
+### Getting a feel for the source
+
+`./explore.sh` is a curl cookbook with the arguments filled in — a set of single
+requests that show `as_of`, `since`/`until`, cursors, label maturation and the
+drop files. It does not retry, re-page or validate anything; that part is yours.
+
+```bash
+./explore.sh scratch          # build a throwaway world in /tmp/labplay
+./explore.sh probe -a 300     # probe a running instance, after a 300-day jump
+```
+
+Explore on the scratch world, not your sealed run: `--advance` spends horizon and
+is recorded in the jump log the grader reports.
+
 ---
 
 ## Time
@@ -201,6 +215,10 @@ with, so a pull that spans a long time still returns a consistent picture.
 `customers` is a slowly-changing dimension: one row per validity interval, so a
 customer id appears more than once. `valid_to` is null on the open interval.
 
+`products` is the current range. `active_from` is when a SKU was listed and
+`discontinued_from`, when set, is when it stopped being sold; delisted SKUs stay
+in the catalogue.
+
 `labels` carries the refund outcome for an order. A refunded order gets a label
 once the refund settles. A **non-refunded order gets no label row at all until
 the 30-day refund window closes**, at which point a negative one appears. Near
@@ -217,8 +235,49 @@ drop/catalog/product_catalog_YYYY-MM-DD.csv
 
 The payments extract for day D contains what settlement told us about on day D,
 which is not the same as what happened on day D. The catalogue file is a full
-snapshot. There is no manifest, no checksum and no notification. Files are
-simply there, or not.
+snapshot of the current range: a SKU appears once it launches, and a delisted
+one stays in the file with `discontinued_from` set rather than disappearing.
+There is no manifest, no checksum and no notification. Files are simply there,
+or not.
+
+---
+
+## What the world looks like
+
+Baseline behaviour, documented so you don't file it as a fault. None of this is
+in the ledger; all of it is always on.
+
+- **Trade is weekday-heavy.** Weekends run at about three quarters of a weekday.
+- **The business grows**, around 18% a year, compounding across the horizon.
+- **There is an annual cycle**, with a Q4 peak, a January hangover and a summer
+  bump.
+- **A handful of days a year are not like the others.** The Friday after the
+  fourth Thursday in November runs at roughly 3x, the Monday after at 2.3x,
+  and 25 December and 1 January nearly stop. These are calendar-predictable.
+- **Good and bad weeks persist.** Day-to-day demand carries an autocorrelated
+  shock rather than fresh noise each morning, so a quiet fortnight is normal.
+- **The catalogue turns over.** Roughly half the range predates the horizon and
+  the rest launches during it; about a fifth is eventually delisted. Demand is
+  concentrated — the top tenth of SKUs carry about a third of units — but no
+  single SKU dominates.
+
+All of that shapes **volume**. Basket value is deliberately left flat, so a step
+change in order value is never the seasonality talking.
+
+### A second exercise, if you want one
+
+Because the volume series carries a trend, an annual cycle, holiday spikes and
+genuine autocorrelation, this same source supports a **revenue or demand
+forecasting** exercise instead of, or alongside, refund scoring. Per-customer
+spend is also predictable: activity is persistent, and a customer's web events
+in one period predict their orders in the next.
+
+Two warnings if you go that way. `customers.lifetime_value_cents` is drawn
+independently of the order stream and correlates with actual spend at about
+-0.01 — it is a decoy, not a target. And `label_censoring` is in every ledger:
+if you never query `/v1/labels` you will never find it, so change `ALWAYS_ON`
+in `lab/faults/catalog.py` before you `init` (it has no effect on a run already
+sealed).
 
 ---
 
@@ -242,11 +301,14 @@ required; the rest is for you. Log the moment you *noticed*, not the moment you
 understood — that is what mean-time-to-detect measures.
 
 Naming the fault correctly is full credit, whenever you noticed it. Getting only
-the family right is partial credit if you logged it **within 60 simulated days
-of the fault starting** — recognising that *something* broke is most of the
-skill, but the credit is for noticing while the symptom is still live. That
-window does not shrink for short faults: a six-hour outage still gives you 60
-simulated days to file it.
+the family right is partial credit if you logged it while the symptom was still
+live — recognising that *something* broke is most of the skill.
+
+"Still live" means **60 simulated days from the fault starting, or as long as
+the fault actually lasts, whichever is longer**. It never shrinks for short
+faults: a six-hour outage still gives you 60 days to file it. And the two
+always-on faults run for the whole horizon, so they stay creditable for the
+whole horizon.
 
 A claim dated before the fault started is a false positive, not a detection.
 
@@ -288,6 +350,7 @@ is expected to be robust to it from the first day.
 ```
 lab.py            CLI: up / init / serve
 grade.py          scoring and unsealing
+explore.sh        curl probes for hand-testing the API
 lab/
   config.py       lab.toml
   clock.py        simulated time

@@ -41,12 +41,19 @@ PROCESSORS = ["northpay", "swiftpay", "orbit"]
 CATEGORIES = ["apparel", "electronics", "home", "beauty", "outdoor"]
 EVENT_TYPES = ["page_view", "search", "add_to_cart", "remove_from_cart", "checkout_start"]
 
+# A European marketplace, so the range is not all ASCII. That matters: the
+# catalogue extract has to carry characters an encoding can get wrong.
 PRODUCT_WORDS = {
-    "apparel": ["Merino", "Oxford", "Linen", "Quilted", "Rib-Knit", "Poplin"],
-    "electronics": ["Compact", "Wireless", "Studio", "Portable", "Desktop", "Travel"],
-    "home": ["Ceramic", "Stoneware", "Oak", "Brushed", "Woven", "Enamel"],
-    "beauty": ["Botanical", "Hydrating", "Mineral", "Vitamin", "Overnight", "Daily"],
-    "outdoor": ["Trail", "Alpine", "Packable", "Ripstop", "All-Weather", "Summit"],
+    "apparel": ["Merino", "Oxford", "Linen", "Quilted", "Rib-Knit", "Poplin",
+                "Mérinos", "Piqué", "Bouclé"],
+    "electronics": ["Compact", "Wireless", "Studio", "Portable", "Desktop", "Travel",
+                    "Öko", "Éclat", "Präzision"],
+    "home": ["Ceramic", "Stoneware", "Oak", "Brushed", "Woven", "Enamel",
+             "Provençal", "Küche", "Grönsk"],
+    "beauty": ["Botanical", "Hydrating", "Mineral", "Vitamin", "Overnight", "Daily",
+               "Crème", "Sérum", "Naturël"],
+    "outdoor": ["Trail", "Alpine", "Packable", "Ripstop", "All-Weather", "Summit",
+                "Fjäll", "Gévaudan", "Bergström"],
 }
 PRODUCT_NOUNS = {
     "apparel": ["Shirt", "Jacket", "Trousers", "Scarf", "Jumper"],
@@ -58,6 +65,24 @@ PRODUCT_NOUNS = {
 
 REFUND_WINDOW_DAYS = 30
 _BASELINE_DAYS = 180.0  # the density the operator's original generator produced
+
+# Calendar shape of trade. These drive *volume*; basket value is left flat, so a
+# step change in basket value stays a distinct signal from the seasonal cycle.
+WEEKEND_FACTOR = 0.72
+ANNUAL_GROWTH = 0.18        # per year, compounding
+ANNUAL_AMPLITUDE = 0.12     # peak-to-mean of the yearly sinusoid
+SHOCK_RHO = 0.88            # AR(1) persistence of day-to-day shocks
+SHOCK_SIGMA = 0.06
+
+# Product catalogue dynamics.
+# Popularity is concentrated but bounded, and drawn independently of price. An
+# unbounded tail would let a single SKU carry the basket, and the average order
+# value would then drift as the catalogue turned over -- a baseline signal
+# indistinguishable from a planted covariate shift. Concentration is a feature;
+# a dominant SKU is not.
+PRODUCT_POPULARITY_SIGMA = 0.9   # lognormal spread of per-SKU demand
+PRODUCT_LIVE_AT_START = 0.45     # the rest launch during the horizon
+PRODUCT_DISCONTINUE_RATE = 0.22  # of those, this share are eventually delisted
 
 
 def sigmoid(x: float) -> float:
@@ -91,14 +116,84 @@ class World:
         return out
 
 
-def _day_weights(sim_start: dt.datetime, horizon_days: int) -> np.ndarray:
-    """Trade is weekday-heavy; weekends run at about three quarters."""
+def _calendar_weights(sim_start: dt.datetime, horizon_days: int) -> np.ndarray:
+    """The deterministic part of demand: everything you could know in advance.
+
+    Weekday-heavy, growing, with an annual cycle, a Q4 peak and a handful of
+    promo days. Kept separate from the random shock so that the calendar can be
+    reconstructed exactly -- which is what makes it possible to check that the
+    shock, and only the shock, is what carries the day-to-day memory.
+    """
     days = np.arange(horizon_days)
-    weekday = np.array(
-        [(sim_start + dt.timedelta(days=int(d))).weekday() for d in days]
-    )
-    w = np.where(weekday >= 5, 0.72, 1.0)
+    dates = [sim_start.date() + dt.timedelta(days=int(d)) for d in days]
+    weekday = np.array([d.weekday() for d in dates])
+    doy = np.array([d.timetuple().tm_yday for d in dates])
+
+    w = np.where(weekday >= 5, WEEKEND_FACTOR, 1.0)
+
+    # the business grows
+    w *= (1.0 + ANNUAL_GROWTH) ** (days / 365.25)
+
+    # and breathes once a year, with a Q4 peak and a January hangover
+    w *= 1.0 + ANNUAL_AMPLITUDE * np.sin(2 * np.pi * (doy - 80) / 365.25)
+    month = np.array([d.month for d in dates])
+    dom = np.array([d.day for d in dates])
+    w *= np.where((month == 11) & (dom >= 15), 1.45, 1.0)
+    w *= np.where((month == 12) & (dom <= 22), 1.75, 1.0)
+    w *= np.where((month == 12) & (dom >= 25), 0.45, 1.0)
+    w *= np.where((month == 1) & (dom <= 15), 0.80, 1.0)
+
+    # a couple of days a year that are not like the others
+    for i, d in enumerate(dates):
+        if d in _PROMO_DAYS:
+            w[i] *= _PROMO_DAYS[d]
+
+    return w
+
+
+def _day_weights(
+    rng: np.random.Generator, sim_start: dt.datetime, horizon_days: int
+) -> np.ndarray:
+    """The calendar, plus the part nobody can forecast.
+
+    Good weeks and bad weeks persist, so the shock is autocorrelated rather than
+    fresh noise every morning. Orders and web traffic share this curve: a busy
+    day is busy on both channels.
+    """
+    w = _calendar_weights(sim_start, horizon_days)
+
+    eps = rng.normal(0.0, SHOCK_SIGMA, size=horizon_days)
+    shock = np.empty(horizon_days)
+    s = 0.0
+    for i in range(horizon_days):
+        s = SHOCK_RHO * s + eps[i]
+        shock[i] = s
+    w = w * np.exp(shock)
+
     return w / w.sum()
+
+
+def _nth_weekday(year: int, month: int, weekday: int, n: int) -> dt.date:
+    d = dt.date(year, month, 1)
+    d += dt.timedelta(days=(weekday - d.weekday()) % 7)
+    return d + dt.timedelta(weeks=n - 1)
+
+
+def _promo_calendar(first_year: int, last_year: int) -> dict[dt.date, float]:
+    """The handful of dates a retailer plans its year around."""
+    out: dict[dt.date, float] = {}
+    for y in range(first_year - 1, last_year + 2):
+        thanksgiving = _nth_weekday(y, 11, 3, 4)          # 4th Thursday
+        out[thanksgiving + dt.timedelta(days=1)] = 3.1    # the Friday
+        out[thanksgiving + dt.timedelta(days=4)] = 2.3    # the Monday
+        out[dt.date(y, 7, 16)] = 1.9                      # midsummer sale
+        out[dt.date(y, 12, 25)] = 0.15
+        out[dt.date(y, 12, 26)] = 1.6
+        out[dt.date(y, 1, 1)] = 0.35
+    return out
+
+
+_PROMO_DAYS = _promo_calendar(2020, 2040)
 
 
 def _timestamps(
@@ -135,6 +230,44 @@ def _weighted_prefix_pick(
     return np.minimum(idx, k - 1)
 
 
+def _live_product_picker(
+    rng: np.random.Generator,
+    launch: np.ndarray,
+    discontinue: np.ndarray,
+    popularity: np.ndarray,
+    horizon_days: int,
+    bucket_days: int = 30,
+):
+    """Draw products for a list of moments, honouring the catalogue's lifecycle.
+
+    A SKU cannot be bought before it launches or after it is delisted, and the
+    popular ones are bought far more often. Eligibility is resolved a month at a
+    time, which is plenty given a product's life is measured in months.
+    """
+    n_buckets = int(np.ceil(horizon_days / bucket_days)) + 1
+    tables = []
+    for b in range(n_buckets):
+        t = b * bucket_days + bucket_days / 2.0
+        live = np.flatnonzero((launch <= t) & (discontinue > t))
+        if live.size == 0:                       # never leave the shelves empty
+            live = np.array([int(np.argmin(launch))])
+        tables.append((live, np.cumsum(popularity[live])))
+
+    def draw(day_offsets: np.ndarray) -> np.ndarray:
+        offsets = np.asarray(day_offsets, dtype=float)
+        out = np.empty(len(offsets), dtype=int)
+        buckets = np.clip((offsets / bucket_days).astype(int), 0, n_buckets - 1)
+        for b in np.unique(buckets):
+            mask = buckets == b
+            live, cum = tables[int(b)]
+            u = rng.random(int(mask.sum())) * cum[-1]
+            idx = np.searchsorted(cum, u, side="left").clip(0, live.size - 1)
+            out[mask] = live[idx]
+        return out
+
+    return draw
+
+
 def build_world(
     rng: np.random.Generator,
     pyrng: random.Random,
@@ -148,13 +281,29 @@ def build_world(
     n_cust = max(50, int(2000 * scale * span))
     n_orders = max(200, int(12000 * scale * span))
     n_events = max(1000, int(60000 * scale * span))
-    n_products = max(40, int(240 * scale))
+    n_products = max(40, int(400 * scale))
 
     world = World(sim_start=sim_start, sim_end=sim_end)
 
     # ---- product catalogue ------------------------------------------------
+    # Some of the range predates the horizon; the rest is launched during it and
+    # a minority is eventually delisted. Popularity is heavy-tailed, so a few
+    # SKUs carry most of the volume and most of them barely move.
+    launch = np.where(
+        rng.random(n_products) < PRODUCT_LIVE_AT_START,
+        -rng.uniform(30, 400, size=n_products),
+        rng.uniform(0, horizon_days * 0.95, size=n_products),
+    )
+    popularity = rng.lognormal(0.0, PRODUCT_POPULARITY_SIGMA, size=n_products)
+    discontinue = np.full(n_products, np.inf)
+    for i in range(n_products):
+        if rng.random() < PRODUCT_DISCONTINUE_RATE:
+            life = float(rng.uniform(180, 1200))
+            if launch[i] + life < horizon_days:
+                discontinue[i] = launch[i] + life
+
     seen_sku: set[str] = set()
-    for _ in range(n_products):
+    for i in range(n_products):
         cat = pyrng.choices(CATEGORIES, weights=[28, 20, 20, 18, 14])[0]
         while True:
             sku = f"{cat[:3].upper()}-{int(rng.integers(1000, 9999))}"
@@ -162,6 +311,7 @@ def build_world(
                 seen_sku.add(sku)
                 break
         price = int(max(199, rng.lognormal(8.4, 0.7)))
+        launched = sim_start + dt.timedelta(days=float(launch[i]))
         world.products.append(
             {
                 "sku": sku,
@@ -169,18 +319,29 @@ def build_world(
                 "category": cat,
                 "product_name": f"{pyrng.choice(PRODUCT_WORDS[cat])} {pyrng.choice(PRODUCT_NOUNS[cat])}",
                 "list_price_cents": price,
-                "active_from": (sim_start - dt.timedelta(days=int(rng.integers(30, 400)))).date().isoformat(),
-                "knowledge_time": sim_start,
+                "active_from": launched.date().isoformat(),
+                # a SKU is not in the catalogue before it is launched
+                "knowledge_time": max(sim_start, launched.replace(microsecond=0)),
+                "discontinued_from": (
+                    None if not np.isfinite(discontinue[i])
+                    else (sim_start + dt.timedelta(days=float(discontinue[i]))).date().isoformat()
+                ),
                 "_deleted": 0,
             }
         )
 
-    # list prices are revised now and then; the daily catalogue snapshot moves
-    for base in list(world.products):
-        n_rev = int(rng.poisson(0.5 * horizon_days / 365.25))
+    # list prices are revised now and then; the daily catalogue snapshot moves.
+    # Only while the product is on sale: nothing is repriced before it launches
+    # or after it is delisted.
+    for i, base in enumerate(list(world.products)):
+        lo = max(0.0, float(launch[i]))
+        hi = min(float(horizon_days), float(discontinue[i]))
+        if hi - lo < 30.0:
+            continue
+        n_rev = int(rng.poisson(0.5 * (hi - lo) / 365.25))
         for t in sorted(
             sim_start + dt.timedelta(days=float(d))
-            for d in rng.uniform(0, horizon_days, size=min(n_rev, 6))
+            for d in rng.uniform(lo, hi, size=min(n_rev, 6))
         ):
             rev = dict(base)
             rev["version"] = base["version"] + 1
@@ -272,7 +433,10 @@ def build_world(
     )
     cust_ids = [f"{i:07d}" for i in range(1, n_cust + 1)]
 
-    dayw = _day_weights(sim_start, horizon_days)
+    dayw = _day_weights(rng, sim_start, horizon_days)
+    pick_product = _live_product_picker(
+        rng, launch, discontinue, popularity, horizon_days
+    )
 
     # ---- orders -----------------------------------------------------------
     o_days = rng.choice(horizon_days, size=n_orders, p=dayw)
@@ -292,7 +456,7 @@ def build_world(
 
     n_items = rng.integers(1, 5, size=n_orders)
     total_items = int(n_items.sum())
-    item_prod = rng.integers(0, n_products, size=total_items)
+    item_prod = pick_product(np.repeat(o_day_frac, n_items))
     item_qty = rng.integers(1, 4, size=total_items)
     item_disc = rng.random(size=total_items)
     channels = rng.choice(len(CHANNELS), size=n_orders, p=np.array([52, 40, 8]) / 100.0)
@@ -450,8 +614,9 @@ def build_world(
     e_elig = np.searchsorted(signup_days, e_day_frac, side="right")
     e_cust = _weighted_prefix_pick(rng, cum_weights, e_elig)
     e_types = rng.choice(len(EVENT_TYPES), size=n_events, p=np.array([55, 18, 14, 6, 7]) / 100.0)
-    e_sku = rng.integers(0, n_products, size=n_events)
+
     e_sess = rng.integers(1, 10**7, size=n_events)
+    e_prod = pick_product(e_day_frac)
     e_lag = rng.integers(30, 900, size=n_events)
     e_slow = rng.random(n_events)
     e_slow_h = rng.uniform(1, 6, size=n_events)
@@ -470,7 +635,7 @@ def build_world(
                 "knowledge_time": ts + lag,
                 "_deleted": 0,
                 "event_type": EVENT_TYPES[int(e_types[i])],
-                "sku": world.products[int(e_sku[i])]["sku"],
+                "sku": world.products[int(e_prod[i])]["sku"],
             }
         )
 

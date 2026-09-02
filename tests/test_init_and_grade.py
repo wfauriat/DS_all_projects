@@ -303,3 +303,26 @@ def test_a_claim_before_the_fault_fired_is_a_false_positive():
     ])
     res = grade.score(led, inc, bad)
     assert not res.matches and len(res.false_positives) == 1
+
+
+def test_an_always_on_fault_stays_creditable_for_the_whole_run():
+    """A defect that is still happening is still fresh."""
+    import grade
+
+    led = _synthetic_ledger([
+        _fault("label_censoring", "2026-01-01T00:00:00", "2032-01-10T00:00:00"),
+    ])
+    for when in ("2026-01-20T00:00:00", "2028-06-01T00:00:00", "2031-11-01T00:00:00"):
+        inc, bad = grade.load_incidents_from([
+            {"detected_at_sim": when, "symptom": "orders near the edge have no label row",
+             "suspected_family": "statistical"}
+        ])
+        res = grade.score(led, inc, bad)
+        assert len(res.matches) == 1, when
+        assert not res.matches[0].exact
+    # ...but still not before it started
+    inc, bad = grade.load_incidents_from([
+        {"detected_at_sim": "2025-06-01T00:00:00", "symptom": "x",
+         "suspected_family": "statistical"}
+    ])
+    assert not grade.score(led, inc, bad).matches

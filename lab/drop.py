@@ -67,6 +67,7 @@ FEEDS: dict[str, FeedSpec] = {
             ("category", "category"),
             ("list_price_cents", "list_price_cents"),
             ("active_from", "active_from"),
+            ("discontinued_from", "discontinued_from"),
         ),
         snapshot=True,
     ),

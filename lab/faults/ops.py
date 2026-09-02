@@ -89,11 +89,23 @@ class StorePlanter:
 
     def silent_row_deletion(self, pf):
         t0 = pf.sim_start
+        sim_start = self.cfg.clock.sim_start
         span = float(self.rng.uniform(3, 10))
-        lo = t0 - dt.timedelta(days=float(self.rng.uniform(30, 400)) + span)
+        # keep the window inside the horizon; a window before the world began
+        # would delete nothing and leave the fault with no signature at all
+        available = max(span + 1.0, (t0 - sim_start).total_seconds() / 86400.0 - span)
+        back = float(self.rng.uniform(min(30.0, available * 0.25), min(400.0, available)))
+        lo = max(sim_start, t0 - dt.timedelta(days=back + span))
         hi = lo + dt.timedelta(days=span)
-        victims = [o for o in self.world.orders
-                   if lo <= o["occurred_at"] < hi and o["version"] == 1]
+
+        def in_window(a, b):
+            return [o for o in self.world.orders
+                    if a <= o["occurred_at"] < b and o["version"] == 1]
+
+        victims = in_window(lo, hi)
+        if not victims:
+            lo, hi = sim_start, t0
+            victims = in_window(lo, hi)
         keep = float(self.rng.uniform(0.30, 0.60))
         picks = _sample(self.rng, victims, len(victims) * keep)
         highest = {}

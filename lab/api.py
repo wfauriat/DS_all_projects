@@ -84,11 +84,15 @@ def verify_run(cfg) -> dict:
     ledger = sched.read_ledger(cfgmod.LEDGER_PATH)
     if ledger.get("config_fingerprint") != cfg.fingerprint:
         raise RunMismatch(
-            "lab.toml no longer describes the world this run was sealed against.\n"
-            "  [world].scale, [world].horizon_sim_days, [clock].sim_start and\n"
-            "  [faults].n_sampled are part of the run's identity.\n"
-            "Put them back, or run `python lab.py init --force` to draw a new run\n"
-            "(which discards the current world and everything measured against it)."
+            "This world is not the one the sealed ledger was drawn against.\n"
+            "\n"
+            "A run's identity is [world].scale, [world].horizon_sim_days,\n"
+            "[clock].sim_start, [faults].n_sampled, and the lab's own world schema\n"
+            "version. One of them has moved.\n"
+            "\n"
+            "Put the config back, or run `python lab.py init --force` to draw a new\n"
+            "run. Forcing discards the current world, its clock, its drop files and\n"
+            "everything measured against it."
         )
     return ledger
 
@@ -124,7 +128,7 @@ def _sign(secret: str, body: str) -> str:
 
 
 def issue_token(secret: str, sim_now: dt.datetime, ttl_hours: float) -> tuple[str, dt.datetime]:
-    exp = sim_now + dt.timedelta(hours=ttl_hours)
+    exp = (sim_now + dt.timedelta(hours=ttl_hours)).replace(microsecond=0)
     body = base64.urlsafe_b64encode(
         json.dumps({"exp": exp.isoformat(), "iat": sim_now.isoformat()}).encode()
     ).decode().rstrip("=")

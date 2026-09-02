@@ -119,14 +119,20 @@ def load_incidents_from(lines) -> tuple[list[Incident], list[tuple[int, str]]]:
 def _window(fault: dict) -> tuple[dt.datetime, dt.datetime]:
     """How long a symptom-based claim stays creditable.
 
-    Deliberately independent of how long the effect itself lasted. A six-hour
-    outage is not detectable within six hours by a consumer that reads once a
-    simulated day, and a one-day gap in a feed is often only noticed at the next
-    weekly reconciliation. Naming the fault outright is credited whenever it was
-    noticed; this window only bounds the partial credit.
+    At least ``DETECTION_WINDOW_DAYS`` from the moment it started, however
+    briefly it lasted: a six-hour outage is not detectable within six hours by a
+    consumer that reads once a simulated day, and a one-day gap in a feed is
+    often only noticed at the next weekly reconciliation.
+
+    And never less than the time the fault is actually live. A defect that is
+    still happening is still fresh, so the two always-on faults -- which run for
+    the whole horizon -- stay creditable for the whole horizon.
+
+    Naming the fault outright is credited whenever it was noticed; this window
+    only bounds the partial credit.
     """
     start = _dt(fault["sim_start"])
-    return start, start + dt.timedelta(days=DETECTION_WINDOW_DAYS)
+    return start, max(start + dt.timedelta(days=DETECTION_WINDOW_DAYS), _dt(fault["sim_end"]))
 
 
 def _family_ok(inc: Incident, fault: dict) -> bool:

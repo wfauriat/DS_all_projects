@@ -76,7 +76,7 @@ SPECS: dict[str, TableSpec] = {
     "products": TableSpec(
         "products", ("sku",), "active_from",
         ("sku", "version", "active_from", "knowledge_time", "_deleted",
-         "category", "product_name", "list_price_cents"),
+         "category", "product_name", "list_price_cents", "discontinued_from"),
     ),
 }
 
@@ -113,7 +113,8 @@ ALLOWLIST: dict[str, tuple[str, ...]] = {
                "event_type", "sku", "version", "knowledge_time"),
     "labels": ("order_id", "resolved_at", "refund_at", "refunded_within_30d",
                "version", "knowledge_time"),
-    "products": ("sku", "category", "product_name", "list_price_cents", "active_from"),
+    "products": ("sku", "category", "product_name", "list_price_cents",
+                 "active_from", "discontinued_from"),
 }
 
 # Fields the serving layer is permitted to introduce on top of the stored

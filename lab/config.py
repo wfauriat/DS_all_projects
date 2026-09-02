@@ -26,6 +26,12 @@ WORLD_PATH = STATE_DIR / "world.db"
 RUN_PATH = STATE_DIR / "run.json"
 
 
+# Part of the run fingerprint. Bump it if the generator ever changes what the
+# world contains -- new columns, different dynamics, a changed catalogue -- so
+# that a ledger and the world it was drawn against cannot drift apart in silence.
+WORLD_SCHEMA = 1
+
+
 class ConfigError(RuntimeError):
     pass
 
@@ -76,6 +82,7 @@ class Config:
         hashed here can be retuned between restarts.
         """
         material = {
+            "world_schema": WORLD_SCHEMA,
             "scale": self.world.scale,
             "horizon_sim_days": self.world.horizon_sim_days,
             "sim_start": self.clock.sim_start.isoformat(),
