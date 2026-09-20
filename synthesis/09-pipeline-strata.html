@@ -1,0 +1,1376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+/* Standalone reset — replaces the host page skeleton this file was authored against. */
+:root{color-scheme:light dark;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Pipeline Strata</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#e9ecf1; --surface:#f7f9fc; --surface-2:#eef1f6; --edge:#c9d0dc;
+  --ink:#151a23; --ink-2:#4e5a6b; --ink-3:#7d8798;
+  --idea:#b4632c; --idea-soft:#b4632c22;
+  --tool:#1f6f79; --tool-soft:#1f6f7920;
+  --rock:#4453a0; --rock-soft:#4453a018;
+  --p-de:#2f6fc4; --p-me:#c24a34; --p-ep:#2e8a5c; --p-rl:#7a4fb8;
+  --band-1:#dfe4ec; --band-2:#e6eaf1; --band-3:#e1e6ee; --band-4:#e4e9f0; --band-5:#dbe0ea;
+  --shadow:0 1px 2px #151a2310, 0 8px 24px #151a2312;
+  --font-display:"Archivo Narrow",ui-sans-serif,system-ui,sans-serif;
+  --font-body:"Instrument Sans",ui-sans-serif,system-ui,sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0e1117; --surface:#161b25; --surface-2:#1c222e; --edge:#2c3542;
+  --ink:#e7ecf4; --ink-2:#9aa7ba; --ink-3:#6f7d92;
+  --idea:#e0964f; --idea-soft:#e0964f26;
+  --tool:#54b6c0; --tool-soft:#54b6c022;
+  --rock:#8e9be8; --rock-soft:#8e9be81c;
+  --p-de:#5b9ceb; --p-me:#e8705a; --p-ep:#46b97e; --p-rl:#a683e0;
+  --band-1:#141a24; --band-2:#181e29; --band-3:#151b26; --band-4:#171d28; --band-5:#121822;
+  --shadow:0 1px 2px #0006, 0 10px 30px #0007;
+}}
+:root[data-theme="dark"]{
+  --ground:#0e1117; --surface:#161b25; --surface-2:#1c222e; --edge:#2c3542;
+  --ink:#e7ecf4; --ink-2:#9aa7ba; --ink-3:#6f7d92;
+  --idea:#e0964f; --idea-soft:#e0964f26;
+  --tool:#54b6c0; --tool-soft:#54b6c022;
+  --rock:#8e9be8; --rock-soft:#8e9be81c;
+  --p-de:#5b9ceb; --p-me:#e8705a; --p-ep:#46b97e; --p-rl:#a683e0;
+  --band-1:#141a24; --band-2:#181e29; --band-3:#151b26; --band-4:#171d28; --band-5:#121822;
+  --shadow:0 1px 2px #0006, 0 10px 30px #0007;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--font-body);
+  overflow:hidden;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+
+/* ── chrome ───────────────────────────────────────────────── */
+#bar{position:fixed;left:0;right:0;top:0;z-index:30;display:flex;align-items:center;
+  gap:14px;flex-wrap:wrap;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px));
+  background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--edge)}
+#brand{display:flex;align-items:baseline;gap:10px;margin-right:auto}
+#brand h1{margin:0;font-family:var(--font-display);font-weight:700;font-size:17px;
+  letter-spacing:.14em;text-transform:uppercase}
+#brand span{font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.group{display:flex;align-items:center;gap:6px}
+.glab{font-family:var(--font-display);font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ink-3);margin-right:2px}
+.chip{border:1px solid var(--edge);background:var(--surface);border-radius:999px;
+  padding:4px 10px;font-size:11.5px;font-family:var(--font-mono);letter-spacing:.02em;
+  color:var(--ink-2);line-height:1.4}
+.chip:hover{border-color:var(--ink-3);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--ground);border-color:var(--ink)}
+.chip.de[aria-pressed="true"]{background:var(--p-de);border-color:var(--p-de);color:#fff}
+.chip.me[aria-pressed="true"]{background:var(--p-me);border-color:var(--p-me);color:#fff}
+.chip.ep[aria-pressed="true"]{background:var(--p-ep);border-color:var(--p-ep);color:#fff}
+.chip.rl[aria-pressed="true"]{background:var(--p-rl);border-color:var(--p-rl);color:#fff}
+#q{border:1px solid var(--edge);background:var(--surface);border-radius:999px;
+  padding:5px 12px;font:inherit;font-size:12.5px;color:var(--ink);width:170px}
+#q::placeholder{color:var(--ink-3)}
+#q:focus-visible,.chip:focus-visible,button:focus-visible,#panel a:focus-visible,
+.node:focus-visible rect,.node:focus-visible circle{outline:2px solid var(--idea);outline-offset:2px}
+
+/* ── stage ────────────────────────────────────────────────── */
+#stage{position:fixed;inset:0;touch-action:none;cursor:grab}
+#stage.drag{cursor:grabbing}
+#atlas{width:100%;height:100%;display:block}
+
+.band rect{stroke:var(--edge);stroke-width:1}
+.band text{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.3em;
+  fill:var(--ink-3);font-size:22px;font-weight:600}
+.dist rect{fill:var(--surface);stroke:var(--edge);stroke-width:1.25}
+.dist .dt{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.17em;
+  fill:var(--ink);font-size:19px;font-weight:700}
+.dist .dg{font-size:12.5px;fill:var(--ink-3)}
+.dist .dtfar{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.09em;
+  fill:var(--ink);font-size:56px;font-weight:700;text-anchor:middle;opacity:0}
+.cluster text{font-family:var(--font-display);text-transform:uppercase;letter-spacing:.2em;
+  fill:var(--ink-3);font-size:12.5px;font-weight:600}
+.cluster line{stroke:var(--edge);stroke-width:1;stroke-dasharray:2 4}
+
+.flow{stroke:var(--ink-3);stroke-width:2.5;fill:none;opacity:.5}
+.flow.dash{stroke-dasharray:7 6}
+.flowlab{font-family:var(--font-mono);font-size:11px;fill:var(--ink-3)}
+
+.link{stroke:var(--idea);stroke-width:1.6;opacity:0;pointer-events:none;
+  transition:opacity .2s ease}
+.link.on{opacity:.62}
+
+.node{cursor:pointer}
+.node .mk{stroke-width:1.5}
+.node.idea .mk{fill:var(--idea-soft);stroke:var(--idea)}
+.node.tool .mk{fill:var(--tool-soft);stroke:var(--tool)}
+.node.rock .mk{fill:var(--rock-soft);stroke:var(--rock)}
+.node .lab{font-size:13.5px;fill:var(--ink);text-anchor:middle;opacity:0;
+  transition:opacity .18s ease;paint-order:stroke;stroke:var(--ground);stroke-width:3.5px}
+.node.tool .lab{font-family:var(--font-mono);font-size:12.5px;fill:var(--tool)}
+.node.rock .lab{font-size:15px;font-weight:600}
+.node:hover .mk{stroke-width:2.6}
+.node:hover .lab{opacity:1!important}
+.node.sel .mk{stroke-width:3}
+.node.sel .lab{opacity:1!important;font-weight:600}
+.node .halo{fill:none;stroke:var(--idea);stroke-width:2;opacity:0}
+.node.sel .halo{opacity:.85}
+
+[data-z="mid"] .node.t0 .lab{opacity:1}
+[data-z="near"] .node .lab{opacity:1}
+[data-z="far"] .node{opacity:.5}
+[data-z="far"] .dist .dt,[data-z="far"] .dist .dg,
+[data-z="far"] .cluster,[data-z="far"] .flowlab{opacity:0}
+[data-z="far"] .dist .dtfar{opacity:1}
+[data-z="near"] .band text{opacity:.35}
+
+#stage[data-kind="idea"] .node.tool,#stage[data-kind="tool"] .node.idea{opacity:.13;pointer-events:none}
+#stage[data-kind="tool"] .node.rock{opacity:.13;pointer-events:none}
+#stage[data-lens] .node{opacity:.12;pointer-events:none}
+#stage[data-lens="de"] .node.p-de,#stage[data-lens="me"] .node.p-me,
+#stage[data-lens="ep"] .node.p-ep,#stage[data-lens="rl"] .node.p-rl{opacity:1;pointer-events:auto}
+#stage[data-lens="de"] .node.p-de .lab,#stage[data-lens="me"] .node.p-me .lab,
+#stage[data-lens="ep"] .node.p-ep .lab,#stage[data-lens="rl"] .node.p-rl .lab{opacity:1}
+#stage.searching .node{opacity:.1;pointer-events:none}
+#stage.searching .node.hit{opacity:1;pointer-events:auto}
+#stage.searching .node.hit .lab{opacity:1}
+#stage.focused .node{opacity:.14}
+#stage.focused .node.near,#stage.focused .node.sel{opacity:1}
+#stage.focused .node.near .lab{opacity:1}
+
+/* ── panel ────────────────────────────────────────────────── */
+#panel{position:fixed;z-index:25;right:16px;top:calc(70px + env(safe-area-inset-top,0px));
+  width:330px;max-height:calc(100% - 100px - env(safe-area-inset-top,0px));overflow:auto;
+  background:var(--surface);border:1px solid var(--edge);border-radius:14px;
+  box-shadow:var(--shadow);padding:18px}
+#panel h2{margin:0 0 4px;font-size:19px;line-height:1.22;letter-spacing:-.01em;text-wrap:balance}
+#panel h2.mono{font-family:var(--font-mono);font-size:16.5px}
+#panel .meta{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+#panel .tag{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.04em;
+  border:1px solid var(--edge);border-radius:5px;padding:2px 6px;color:var(--ink-2)}
+#panel .tag.k-idea{color:var(--idea);border-color:var(--idea)}
+#panel .tag.k-tool{color:var(--tool);border-color:var(--tool)}
+#panel .tag.k-rock{color:var(--rock);border-color:var(--rock)}
+#panel p{margin:0 0 12px;font-size:13.5px;line-height:1.55;color:var(--ink-2)}
+#panel p.body{color:var(--ink)}
+#panel h3{margin:14px 0 6px;font-family:var(--font-display);font-size:11px;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ink-3)}
+#panel .where{font-family:var(--font-mono);font-size:11.5px;line-height:1.7;color:var(--ink-2)}
+#panel .rel{display:flex;flex-wrap:wrap;gap:6px}
+#panel .rel button{border:1px solid var(--edge);background:var(--surface-2);border-radius:7px;
+  padding:4px 8px;font-size:12px;text-align:left;color:var(--ink-2)}
+#panel .rel button:hover{border-color:var(--idea);color:var(--ink)}
+#panel ol{margin:0;padding-left:18px;font-size:13px;line-height:1.7;color:var(--ink-2)}
+#panel .legend{display:grid;gap:7px;font-size:12.5px;color:var(--ink-2)}
+#panel .legend div{display:flex;align-items:center;gap:9px}
+#panel .sw{width:13px;height:13px;border-radius:50%;flex:0 0 auto}
+#panel .sw.sq{border-radius:3px}
+#close{position:absolute;right:12px;top:12px;border:0;background:none;color:var(--ink-3);
+  font-size:20px;line-height:1;padding:2px 5px;border-radius:6px}
+#close:hover{color:var(--ink);background:var(--surface-2)}
+#tour{display:flex;align-items:center;gap:8px;margin-top:6px}
+#tour button{border:1px solid var(--edge);background:var(--surface-2);border-radius:7px;
+  padding:4px 10px;font-size:12px}
+#tour span{font-family:var(--font-mono);font-size:11.5px;color:var(--ink-3)}
+
+/* ── minimap + zoom ───────────────────────────────────────── */
+#mini{position:fixed;z-index:25;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  width:212px;background:var(--surface);border:1px solid var(--edge);border-radius:10px;
+  padding:7px;box-shadow:var(--shadow);cursor:crosshair}
+#mini svg{display:block;width:100%;height:auto}
+#mini .mb{stroke:var(--edge);stroke-width:2}
+#mini .md{fill:var(--ink-3);opacity:.3}
+#mini .vp{fill:var(--idea);opacity:.16;stroke:var(--idea);stroke-width:5}
+#zoom{position:fixed;z-index:25;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));
+  display:flex;gap:6px}
+#zoom button{width:34px;height:34px;border:1px solid var(--edge);background:var(--surface);
+  border-radius:9px;font-size:15px;box-shadow:var(--shadow);display:grid;place-items:center}
+#zoom button.wide{width:auto;padding:0 12px;font-size:12px;font-family:var(--font-mono)}
+#zoom button:hover{border-color:var(--ink-3)}
+
+@media (max-width:820px){
+  #brand span{display:none}
+  #panel{right:0;left:0;top:auto;bottom:0;width:auto;max-height:52%;border-radius:14px 14px 0 0}
+  #mini{display:none}
+  #zoom{bottom:calc(16px + env(safe-area-inset-bottom,0px));left:16px;right:auto}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div id="bar">
+  <div id="brand"><h1>Pipeline Strata</h1><span>an atlas of four codebases</span></div>
+  <div class="group"><span class="glab">Show</span>
+    <button class="chip" id="k-all" aria-pressed="true">all</button>
+    <button class="chip" id="k-idea" aria-pressed="false">ideas</button>
+    <button class="chip" id="k-tool" aria-pressed="false">tools</button>
+  </div>
+  <div class="group"><span class="glab">Lens</span>
+    <button class="chip de" data-lens="de" aria-pressed="false">DE</button>
+    <button class="chip me" data-lens="me" aria-pressed="false">ME</button>
+    <button class="chip ep" data-lens="ep" aria-pressed="false">EP</button>
+    <button class="chip rl" data-lens="rl" aria-pressed="false">RL</button>
+  </div>
+  <div class="group"><label class="glab" for="q">Find</label>
+    <input id="q" type="search" placeholder="watermark, dbt, censoring…" autocomplete="off">
+  </div>
+  <button class="chip" id="traverse">Guided traverse ▸</button>
+</div>
+
+<div id="stage" data-z="mid" data-kind="all">
+  <svg id="atlas" role="img" aria-label="An atlas of data-engineering ideas, tools and practices arranged in five strata: the streaming fast path, the main data chain, the machinery of orchestration, observation and machine learning, the surrounding engineering craft, and seven bedrock principles."></svg>
+</div>
+
+<aside id="panel" aria-live="polite"><div id="pbody"></div></aside>
+
+<div id="mini" title="Click to move the view"><svg id="minisvg" viewBox="0 0 620 284"></svg></div>
+
+<div id="zoom">
+  <button id="zin" aria-label="Zoom in">+</button>
+  <button id="zout" aria-label="Zoom out">−</button>
+  <button id="zfit" class="wide">fit</button>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   DATA
+   Keys: i id · l label (| = line break) · k kind · d district
+         x,y world position · t tier (1 = shown at mid zoom)
+         p projects · b body · w where to look · n related ids
+   ═══════════════════════════════════════════════════════════════════ */
+const W = 6200, H = 2840;
+
+const BANDS = [
+  {i:'s1', l:'The fast path',  x:2100, y:90,   w:2220, h:460, f:'var(--band-1)'},
+  {i:'s2', l:'The main chain', x:80,   y:590,  w:6040, h:630, f:'var(--band-2)'},
+  {i:'s3', l:'The machinery',  x:80,   y:1260, w:6040, h:680, f:'var(--band-3)'},
+  {i:'s4', l:'The craft',      x:80,   y:1960, w:6040, h:480, f:'var(--band-4)'},
+  {i:'s5', l:'Bedrock',        x:80,   y:2460, w:6040, h:300, f:'var(--band-5)'}
+];
+
+const DISTRICTS = [
+  {i:'stream',  l:'Streaming',        g:'unbounded, out of order, and you must decide when to stop waiting', x:2180,y:110,w:2060,h:410},
+  {i:'ingest',  l:'Ingestion',        g:'getting it in, from a source that does not care about you',        x:120, y:610,w:1180,h:590},
+  {i:'contract',l:'Contracts & shape',g:'what did we agree on, and what do we do when it breaks',           x:1360,y:610,w:1040,h:590},
+  {i:'store',   l:'Storage & model',  g:'keeping it, and keeping what it used to say',                      x:2460,y:610,w:1400,h:590},
+  {i:'transform',l:'Transformation',  g:'raw into something a person can query',                            x:3920,y:610,w:1080,h:590},
+  {i:'serve',   l:'Serving',          g:'handing it over without getting in the pipeline’s way',            x:5060,y:610,w:1020,h:590},
+  {i:'orch',    l:'Orchestration',    g:'what runs, when, in what order, and what happens when it fails',   x:120, y:1280,w:1780,h:640},
+  {i:'observe', l:'Observation & quality', g:'knowing it worked, and knowing your checks are worth trusting',x:1960,y:1280,w:1900,h:640},
+  {i:'ml',      l:'Machine learning', g:'mostly the discipline of not accidentally cheating',               x:3920,y:1280,w:2160,h:640},
+  {i:'craft',   l:'Engineering craft',g:'applies to every band above it',                                   x:120, y:1980,w:5960,h:440},
+  {i:'bedrock', l:'Bedrock',          g:'seven ideas everything above rests on',                            x:120, y:2480,w:5960,h:260}
+];
+
+const CLUSTERS = [
+  {l:'Configuration', x:180, y:2050, w:1120},
+  {l:'Environments',  x:1360,y:2050, w:1240},
+  {l:'Testing',       x:2660,y:2050, w:1240},
+  {l:'Delivery',      x:3960,y:2050, w:1180},
+  {l:'Documentation', x:5200,y:2050, w:820}
+];
+
+const FLOWS = [
+  {d:'M1300 900 H1360', l:''},
+  {d:'M2400 900 H2460', l:''},
+  {d:'M3860 900 H3920', l:''},
+  {d:'M5000 900 H5060', l:''},
+  {d:'M2900 610 V520', l:'events', dash:1},
+  {d:'M3400 520 V610', l:'alerts · files', dash:1},
+  {d:'M1000 1280 V1200', l:'schedules', dash:1},
+  {d:'M1750 1280 V1200', l:'', dash:1},
+  {d:'M2900 1280 V1200', l:'checks', dash:1},
+  {d:'M4400 1280 V1200', l:'features', dash:1},
+  {d:'M5600 1280 V1200', l:'predictions', dash:1}
+];
+
+const NODES = [];
+const A = (...a) => NODES.push(...a);
+
+/* ── BEDROCK ─────────────────────────────────────────────── */
+A(
+{i:'promises',l:'Every arrow|is a promise',k:'rock',d:'bedrock',x:500,y:2620,t:1,p:'de me ep rl',
+ b:'A pipeline is boxes and arrows, and the arrows are the work. Each one delivers at-most-once, at-least-once, exactly-once or not really at all. Almost everything in practice is at-least-once plus deduplication, because it is cheap and it degrades gracefully. Name the promise per hop and write the table down.',
+ w:'DE · TOUR.md §3 “delivery guarantees, hop by hop”',n:['idempotency','positions','dlq','dedup-two-counters','exactly-once-load']},
+{i:'clocks',l:'Time is not|one thing',k:'rock',d:'bedrock',x:1330,y:2620,t:1,p:'de me ep rl',
+ b:'One record carries five timestamps: when it happened, when the source published it, when you received it, when you stored it, when something computed over it. Add a sixth when the source changes its mind — what was true versus what was known. “How many orders on Tuesday” and “how many did we know about on Tuesday” are different questions, and one column called date answers neither reliably.',
+ w:'DE · TOUR.md §2 “the three clocks”',n:['watermark','incremental-landing','bitemporal','asof-join','tz-day','drift-reference']},
+{i:'keep-raw',l:'Keep the|original',k:'rock',d:'bedrock',x:2160,y:2620,t:1,p:'de me ep rl',
+ b:'Land exactly what arrived, then interpret. The reason is not storage prices: schema drift should break your model, never your ingestion. Keeping the bytes buys replay after a parsing fix, a way to answer “the number is wrong”, and — when duplicates are the thing you are hunting — the evidence itself.',
+ w:'RL · landing/ is never rewritten',n:['elt','landing-zone','dlq','bitemporal','file-drop']},
+{i:'idempotency',l:'Doing it twice|must be safe',k:'rock',d:'bedrock',x:2990,y:2620,t:1,p:'de me ep rl',
+ b:'Everything retries: networks drop, tasks fail, people run the script again. If a second run can corrupt the data you cannot operate the system, let alone leave it unattended. Not a property you hope for — a property you build, with a natural key and a conflict rule, a version guard, a whole-table replace, an atomic swap, or one transaction.',
+ w:'RL · every write is INSERT OR IGNORE or a version-guarded upsert',n:['natural-key','upsert','atomic-swap','transaction','resume-dont-repeat']},
+{i:'positions',l:'Remember where|you got to',k:'rock',d:'bedrock',x:3820,y:2620,t:1,p:'de ep rl',
+ b:'Any consumer of a sequence must record its position, or it misses things or re-reads forever. Checkpoint, offset, cursor, high-water mark — same idea. The interesting question is not what you store but where: store it with the data it covers and you get exactly-once; store it anywhere else and you get a window in which they can disagree.',
+ w:'DE · three consumers, three answers (TOUR.md §3)',n:['exactly-once-load','offset-retention','reset-together','bounded-slice']},
+{i:'belief',l:'Truth|changes',k:'rock',d:'bedrock',x:4650,y:2620,t:1,p:'de rl',
+ b:'A supplier says an order was €334, then a year later says €339. The naive UPDATE destroys your ability to reproduce last quarter’s report, to explain a model’s inputs, or to know how often they correct anything. The information was not wrong; it was superseded, and superseded is not the same as never having existed.',
+ w:'RL · src_* append-only + cur_* current belief',n:['bitemporal','tombstone','scd2','asof-join','restatement']},
+{i:'quality-means',l:'“Quality” is|six questions',k:'rock',d:'bedrock',x:5480,y:2620,t:1,p:'de me rl',
+ b:'Is it here (freshness)? Is it shaped as agreed (schema)? Are the values individually possible (domains)? Do the pieces agree (integrity, reconciliation)? Is it plausible given history (statistical)? Has the meaning shifted (semantic)? Six questions, six kinds of check, and different homes in the pipeline for each.',
+ w:'Guide §1.7',n:['freshness','tests-as-monitors','precision-recall','specificity','reconciliation','domains']}
+);
+
+/* ── INGESTION ───────────────────────────────────────────── */
+A(
+{i:'pull-push',l:'Pull or push,|batch or stream',k:'idea',d:'ingest',x:320,y:690,t:1,p:'de me ep rl',
+ b:'Two independent axes. Pull is easier to operate — you choose when, you can retry, you can go back. Push is lower latency and less work for the sender, but you must be available when they send and you must notice when they do not.',
+ w:'all four, one per quadrant',n:['whats-new','file-drop','sse','unbounded']},
+{i:'pagination',l:'Pagination|and cursors',k:'idea',d:'ingest',x:700,y:690,t:2,p:'me ep rl',
+ b:'Large results arrive in pages, by offset (“rows 5000–9999”) or by cursor (an opaque token you hand back). Cursors can misbehave: repeat, fail to move, or come with an empty page that still claims a successor. Validate them or loop forever.',
+ w:'RL · vendor.py pull() stops on every cursor anomaly',n:['defensive-client','whats-new']},
+{i:'sse',l:'Server-Sent|Events',k:'idea',d:'ingest',x:1080,y:690,t:2,p:'de',
+ b:'The simplest streaming protocol: an HTTP response that never ends, carrying id / event / data lines separated by blank lines, with comment lines as keepalives. Its best feature is built-in resume — a reconnecting client sends Last-Event-ID and continues. The whole client is about forty lines.',
+ w:'DE · ingest/bikeshare_bridge/sse.py',n:['positions','gap-notice','unbounded']},
+{i:'whats-new',l:'“What’s new since|last time?”',k:'idea',d:'ingest',x:320,y:800,t:1,p:'rl',
+ b:'The hardest question in ingestion, and very often the one your source cannot answer. It may let you filter by when things happened and by what it knew as of a date, and still give you no way to ask what became knowable since you last looked — while records are added late, corrected late, and removed.',
+ w:'RL · NOTES.md §4',n:['four-mechanisms','bisect','rolling-window','deep-audit','conditional-get']},
+{i:'four-mechanisms',l:'Four mechanisms,|not one',k:'idea',d:'ingest',x:700,y:800,t:1,p:'rl',
+ b:'Rolling re-pull of recent days catches ordinary lateness. Count reconciliation catches rows appearing and disappearing in the far past. A rotating deep audit catches corrections, which change no count and are invisible to reconciliation. A bootstrap establishes the initial state. Each exists because the others cannot see its case.',
+ w:'RL · pipeline/extract_api.py docstring',n:['whats-new','bisect','rolling-window','deep-audit','reconciliation']},
+{i:'defensive-client',l:'Absorb hostility|in one module',k:'idea',d:'ingest',x:1080,y:800,t:1,p:'rl me',
+ b:'Rate limits, token expiry mid-pull, 200 OK bodies that are really errors, headers that lie about compression, cursors that repeat — all handled in one place, so the rest of the codebase reads as if the source behaved. Count the noise; report only the events.',
+ w:'RL · pipeline/vendor.py',n:['retry-backoff','sniff-dont-trust','pagination','ambient-vs-event','probe-vs-fetch']},
+{i:'sniff-dont-trust',l:'Sniff,|don’t trust',k:'idea',d:'ingest',x:320,y:910,t:1,p:'rl',
+ b:'Gzip data starts with the two bytes 1f 8b. That fact is more reliable than any Content-Encoding header or .gz extension — and in a hostile source, the disagreement between them is itself one of the things you are hunting. The same applies to encoding: attempt a strict UTF-8 decode and record the fallback.',
+ w:'RL · vendor.py _sniff_decode, extract_drop.py DropFile',n:['defensive-client','file-drop','encoding']},
+{i:'bisect',l:'Bisect a count|mismatch',k:'idea',d:'ingest',x:700,y:910,t:2,p:'rl',
+ b:'Comparing counts over a wide date range costs one request. Finding which day differs by re-fetching every day costs hundreds. Split the range four ways and recurse only into the pieces that disagree, and you land on the offending day in a handful of calls.',
+ w:'RL · orchestrator.py _bisect',n:['four-mechanisms','reconciliation','count-is-a-hint']},
+{i:'retry-backoff',l:'Retry, backoff,|jitter',k:'idea',d:'ingest',x:1080,y:910,t:2,p:'me rl',
+ b:'Wait 1s, 2s, 4s, 8s — with randomness added, so that every client retrying after an outage does not arrive in the same instant. Honour a Retry-After header when the server sends one. Cap the total attempts, and make the failure after the cap a clear message.',
+ w:'RL · vendor.py _backoff',n:['defensive-client','probe-vs-fetch']},
+{i:'bounded-concurrency',l:'Bounded|concurrency',k:'idea',d:'ingest',x:320,y:1020,t:2,p:'me',
+ b:'Fifteen fetches in sequence wastes time; fifteen at once gets you rate-limited. One client, reused for connection pooling, plus a semaphore of eight in flight, plus a timeout on every request — otherwise one hung server hangs the whole run forever.',
+ w:'ME · app/ingest/fetcher.py fetch_all',n:['never-raise','retry-backoff','defensive-client']},
+{i:'never-raise',l:'A failure is a|result, not a throw',k:'idea',d:'ingest',x:700,y:1020,t:1,p:'me rl',
+ b:'If a failed fetch raises, one dead feed aborts the batch of fifteen. Return a result object carrying status 0 and the error text instead, and let the caller decide. The same instinct at row level: a row you cannot parse is written with nulls and counted, never dropped.',
+ w:'ME · fetcher.py returns FetchResult with error set',n:['bounded-concurrency','repair-and-record','monitor-never-breaks']},
+{i:'file-drop',l:'The file drop:|nothing tells you',k:'idea',d:'ingest',x:1080,y:1020,t:1,p:'rl',
+ b:'No manifest, no checksum, no notification. Nothing tells you a file is missing except your own expectation — so you keep a table of what is due and when, and compare. Everything else about the file has to be established from its bytes.',
+ w:'RL · extract_drop.py + the expected_drop table',n:['expectation-table','sniff-dont-trust','encoding','truncation']},
+{i:'expectation-table',l:'Detect absence|with expectation',k:'idea',d:'ingest',x:320,y:1130,t:2,p:'rl',
+ b:'Record what should arrive, when it became due, and — crucially — the cycle at which you first watched it be due. Lateness measured in elapsed days will call a file late because your own pipeline was stopped. Lateness measured in cycles you actually observed will not.',
+ w:'RL · NOTES.md §7, two false positives',n:['file-drop','runner-owns-clock','retraction']},
+{i:'httpx',l:'httpx',k:'tool',d:'ingest',x:700,y:1130,t:2,p:'de me',
+ b:'A Python HTTP client with a requests-like API plus async support. The feature that matters for testing: a pluggable transport, so you can serve scripted responses in tests with no network at all.',
+ w:'ME async fetching · DE bridge + tests',n:['bounded-concurrency','mocking-boundary']},
+{i:'feedparser',l:'feedparser',k:'tool',d:'ingest',x:1080,y:1130,t:2,p:'me',
+ b:'Parses RSS and Atom. Not a convenience over an XML library — real feeds are malformed in dozens of specific ways, use a dozen date formats and disagree about field names, and this knows them. You still need your own date discipline on top, which tells you how bad the raw situation is.',
+ w:'ME · app/ingest/parser.py',n:['tz-parsing','sanity-window']}
+);
+/* ── CONTRACTS & SHAPE ───────────────────────────────────── */
+A(
+{i:'schema-vs-contract',l:'A schema plus|a promise',k:'idea',d:'contract',x:1560,y:690,t:1,p:'de me',
+ b:'A schema describes a shape. A contract adds an agreement: it will be this, and breaking it is the producer’s fault. DE keeps two near-identical copies of its event models — one in the producer, one in the consumer — on purpose. Share the class and a producer change silently becomes a consumer change; keep two and the break shows up as a rejection, which is what should happen.',
+ w:'DE · source/…/schemas.py vs ingest/…/contract.py',n:['strictness','dlq','syntax-vs-semantics','pydantic']},
+{i:'strictness',l:'extra=forbid,|strict=true',k:'idea',d:'contract',x:1880,y:690,t:2,p:'de',
+ b:'Two settings turn a validator into a contract enforcer. Forbidding extra fields means a renamed field is caught, because the old name is now missing and a new one is present. Strict typing means the string "754s" is not quietly accepted where an integer was promised.',
+ w:'DE · ingest/bikeshare_bridge/contract.py',n:['schema-vs-contract','renames','pydantic']},
+{i:'syntax-vs-semantics',l:'Syntax at the door,|semantics downstream',k:'idea',d:'contract',x:2200,y:690,t:1,p:'de',
+ b:'A station reporting −3 bikes is a shape violation, judgeable from the record alone: reject it at the front door. A station reporting 45 bikes when it has 40 docks needs the station’s capacity: that check belongs downstream, where reference data lives. Check too much at the door and your ingestion depends on another system being up.',
+ w:'DE · PLAN.md §7 and the bridge docstring',n:['schema-vs-contract','domains','asof-join','tests-as-monitors']},
+{i:'repair-and-record',l:'Reject, or repair|and record',k:'idea',d:'contract',x:1560,y:800,t:1,p:'de rl',
+ b:'Two valid strategies, and the projects do opposite things. Reject and dead-letter when you own the producer and can ask again — everything downstream may then assume well-formed records. Repair and record when the producer is external and indifferent and losing rows is unacceptable. Repair only works because of the recording: repair without counting is corruption you performed yourself.',
+ w:'DE dead-letters · RL repairs and tallies in NormStats',n:['dlq','never-drop-a-field','sentinels','renames','never-raise']},
+{i:'dlq',l:'Dead-letter|with the evidence',k:'idea',d:'contract',x:1880,y:800,t:1,p:'de',
+ b:'A rejected record goes to a separate destination carrying a classification of the error, the specific validation failures, the position it came from, and the original text — so it can be replayed once the bug is fixed. A dead-letter queue without the raw payload is a counter, not a queue.',
+ w:'DE · contract.py _dead_letter → bikeshare.dlq.v1',n:['repair-and-record','keep-raw','replay','promises']},
+{i:'never-drop-a-field',l:'Never drop|a field',k:'idea',d:'contract',x:2200,y:800,t:1,p:'rl',
+ b:'Unknown fields go to an extra_json column and raise a schema-drift signal. The reasoning, verbatim from the source: “A field we throw away is a fault we cannot see.” Silently discarding what you did not expect is how you become blind to exactly the change you most needed to notice.',
+ w:'RL · pipeline/normalize.py',n:['repair-and-record','renames','leakage-screen']},
+{i:'mojibake',l:'Mojibake needs|the pair',k:'idea',d:'contract',x:1560,y:910,t:2,p:'rl',
+ b:'Text encoded once and decoded with the wrong character set: Gijón becomes GijÃ³n. The tempting detector — “does it contain Ã?” — fires on Åland, a real place, and Ångström, a real word. Require the pair: an accented capital followed by another high character. That occurs in corruption and essentially never in real text, and they verified it against genuine accented city names.',
+ w:'RL · normalize.py looks_mojibake',n:['sentinels','encoding','specificity']},
+{i:'sentinels',l:'A sentinel is not|a null',k:'idea',d:'contract',x:1880,y:910,t:1,p:'rl',
+ b:'−999, 1900-01-01, N/A, TBD are values pretending to be data; they will poison any average. Map them to NULL and report them. But bare spellings of nothing — empty string, null, none — are not sentinels: “those are how a source says nothing.” Treat them as faults and you have built a false-positive generator for every optional field.',
+ w:'RL · normalize.py SENTINEL_TOKENS',n:['repair-and-record','specificity','domains']},
+{i:'renames',l:'Follow a rename|by similarity',k:'idea',d:'contract',x:2200,y:910,t:2,p:'rl',
+ b:'One expected field missing, one unfamiliar field present, same feed. Match them by string similarity plus a bonus for a shared underscore-separated word; above a threshold, carry the value across so downstream keeps working — and report the mapping. Continuity and visibility, rather than one or the other.',
+ w:'RL · normalize.py resolve_fields',n:['never-drop-a-field','strictness','confusable']},
+{i:'tz-parsing',l:'Naive timestamps|have a home zone',k:'idea',d:'contract',x:1560,y:1020,t:2,p:'me de rl',
+ b:'A timestamp with no offset is not UTC; it is in whatever zone the publisher was thinking in. A French newspaper means Paris. Decide, convert to UTC, and record whether the original carried an offset — because a feed where every timestamp is naive and suddenly one is not has told you something changed upstream.',
+ w:'ME · parser.py normalise_pubdate · RL · util.parse_ts',n:['clocks','sanity-window','tz-day']},
+{i:'sanity-window',l:'Reject the|absurd date',k:'idea',d:'contract',x:1880,y:1020,t:2,p:'me',
+ b:'Feeds contain nonsense dates. One article stamped in the year 3000 ruins every chart. Reject anything before 1990 or more than seven days in the future, and skip entries with no URL or no title — loudly enough to count.',
+ w:'ME · parser.py, _MIN_DATE and the +7 day bound',n:['tz-parsing','feedparser','domains']},
+{i:'domains',l:'Closed domains|and learned ones',k:'idea',d:'contract',x:2200,y:1020,t:2,p:'de rl',
+ b:'A value outside a documented set is never normal behaviour, which makes it the ideal detector: zero false positives by construction. Where the set is not documented, learn it — RL observes for 90 days and requires a novel value to be at least 2% of a day and seen ten times before it will claim anything.',
+ w:'RL · config.DOMAINS + monitors.m_domains',n:['specificity','confusable','quality-means','sentinels']},
+{i:'encoding',l:'Encoding and|truncation',k:'idea',d:'contract',x:1560,y:1130,t:2,p:'rl',
+ b:'Establish it from the bytes: a compressed stream that ends early, a file not ending in a newline, a last row with the wrong field count, a body that fails a strict UTF-8 decode. Salvage what you can, record what you salvaged, and treat the disagreement between claim and content as a finding.',
+ w:'RL · extract_drop.py DropFile',n:['sniff-dont-trust','file-drop','mojibake']},
+{i:'pydantic',l:'Pydantic',k:'tool',d:'contract',x:1880,y:1130,t:2,p:'de me ep',
+ b:'Validation driven by Python type hints. Declare a class with typed fields and it parses, converts and rejects with precise errors — so everything past that boundary can be trusted. pydantic-settings applies the same validation to configuration, so a bad value fails at startup rather than three hours into a loop.',
+ w:'DE, ME, EP · request models, event contracts, settings',n:['strictness','validate-config','schema-vs-contract']},
+{i:'zod',l:'Zod',k:'tool',d:'contract',x:2200,y:1130,t:2,p:'me',
+ b:'Schema validation for TypeScript, and the reason it matters: TypeScript’s types are erased before the code runs, so they cannot check that the API actually sent what it promised. Zod validates at runtime, and the TypeScript type is derived from the validator — one definition, not two.',
+ w:'ME · frontend/src/api/*.ts',n:['schema-vs-contract','react']}
+);
+
+/* ── STORAGE & MODELLING ─────────────────────────────────── */
+A(
+{i:'elt',l:'ELT, not ETL',k:'idea',d:'store',x:2650,y:690,t:1,p:'de me ep rl',
+ b:'Extract, Load, Transform: store it as it arrived, then clean it inside the database. One letter, a large change in philosophy. When a supplier renames a field, an ELT pipeline still lands every row and only the transformation fails — loudly, repairably. An ETL pipeline drops the rows, and they are gone.',
+ w:'DE · raw.* keeps payloads as text; dbt does the typing',n:['keep-raw','landing-zone','layers','elt-text']},
+{i:'landing-zone',l:'The raw layer|is sacred',k:'idea',d:'store',x:2990,y:690,t:1,p:'de me ep rl',
+ b:'One writer only — the loader. Never edited, never cleaned in place. DE goes further and keeps the message body as VARCHAR rather than a JSON type, “so that a malformed message can never block landing”: even the act of checking whether it is valid JSON is deferred.',
+ w:'DE · landing/warehouse.py _topic_table',n:['elt','keep-raw','replay','layers']},
+{i:'transaction',l:'One transaction,|no inside',k:'idea',d:'store',x:3330,y:690,t:1,p:'de me ep rl',
+ b:'A group of statements that either all take effect or none do. The oldest idea in databases and still the most useful, because it is what lets you make two facts — “the rows are stored” and “I have consumed them” — a single indivisible act. There is no window in which they can disagree.',
+ w:'DE · kafka_loader.land_topic',n:['exactly-once-load','idempotency','atomic-swap','audit-table']},
+{i:'natural-key',l:'Natural key +|conflict rule',k:'idea',d:'store',x:3670,y:690,t:1,p:'me ep rl',
+ b:'The columns that identify a record in the real world, not an auto-generated id, plus an instruction for what to do on collision. Then RETURNING id tells you whether you inserted or whether it was already there — and that difference is itself a metric: how much of what the source served you was new.',
+ w:'ME · (source_id, guid) · EP · (timestamp, region)',n:['idempotency','upsert','dedup-two-counters']},
+{i:'upsert',l:'Version-guarded|upsert',k:'idea',d:'store',x:2650,y:800,t:2,p:'rl ep',
+ b:'When records change, “do nothing on conflict” is wrong — the newer version should win, and only the newer one. ON CONFLICT DO UPDATE … WHERE excluded.version > current.version means replaying the whole feed ends in the same state, whatever order it arrives in.',
+ w:'RL · extract_api.upsert_current',n:['idempotency','bitemporal','restatement','natural-key']},
+{i:'atomic-swap',l:'Build elsewhere,|swap atomically',k:'idea',d:'store',x:2990,y:800,t:1,p:'de',
+ b:'Write the new file under a temporary name, then os.replace. Atomic on every operating system that matters: a reader sees the old file or the new one, never half of each — and on Linux a reader who already has the old one open keeps reading it until it closes. Used three separate times in DE, each with the same comment.',
+ w:'DE · serving/publish.py, state.pkl, the bridge checkpoint',n:['serving-copy','idempotency','cache-by-version','transaction']},
+{i:'bitemporal',l:'Two time axes:|true, and known',k:'idea',d:'store',x:3330,y:800,t:1,p:'rl',
+ b:'src_* is append-only, one row per (key, version) ever served, carrying the source’s own knowledge_time. cur_* is current belief, maintained by a version guard. Past belief becomes a query — knowledge_time <= X with the highest version — rather than an archive restore. Half of RL’s fault catalogue is invisible without it.',
+ w:'RL · pipeline/storage.py + asof.py',n:['belief','restatement','asof-join','tombstone','point-in-time','clocks']},
+{i:'tombstone',l:'Never delete,|tombstone',k:'idea',d:'store',x:3670,y:800,t:1,p:'rl',
+ b:'When the source stops serving a row you hold, mark it rather than removing it. Historical facts that referenced it still join, your old reports still reproduce, and the disappearance becomes queryable — which matters when “rows the source quietly stopped serving” is one of the things you are graded on detecting.',
+ w:'RL · cur_*.deleted_sim',n:['belief','bitemporal','reconciliation']},
+{i:'scd2',l:'SCD2: one row|per version',k:'idea',d:'store',x:2650,y:910,t:1,p:'de rl',
+ b:'A station has 36 docks, then 40. Overwrite the capacity and a year-old reading of 38 bikes looks fine when it was impossible. Keep one row per version with a validity window and you can judge each reading against the capacity that was valid at the time. Set the current row’s end to 9999-12-31 rather than NULL, and “valid at t” becomes a plain indexable range.',
+ w:'DE · snapshots/snap_stations.yml · RL · dim_customer',n:['belief','asof-join','fact-dim','snapshot','bitemporal']},
+{i:'asof-join',l:'The as-of|join',k:'idea',d:'store',x:2990,y:910,t:1,p:'de',
+ b:'Join to the version that was valid at a given time, not to the current one. In DE the same check exists twice: the stream processor looks up today’s capacities and the batch layer does the as-of join. Live they agree — but on a replay the stream version missed four genuine violations, because it judged year-old readings against today’s larger capacity.',
+ w:'DE · int_detections.sql, dbt_over_capacity CTE',n:['scd2','clocks','one-query-one-sink','bitemporal']},
+{i:'restatement',l:'Restatement|and version',k:'idea',d:'store',x:3330,y:910,t:2,p:'rl',
+ b:'The API announces a correction by incrementing a version. The file drop announces nothing at all — a corrected payment simply reappears in a later file. Having built the versioned store for one channel and a plain overwrite for the other, RL had exactly that blind spot: 375 stale amounts, and the bug first surfaced disguised as identifier reuse.',
+ w:'RL · NOTES.md §11, retraction 2',n:['belief','bitemporal','upsert','confusable','retraction']},
+{i:'fact-dim',l:'Facts and|dimensions',k:'idea',d:'store',x:3670,y:910,t:2,p:'de rl',
+ b:'A fact table holds things that happened: one row per event, long, append-only, never edited. A dimension holds things that are: one row per entity, short, changing slowly. Drawn with facts in the middle it looks like a star. The value is that it locates change — which is exactly why SCD2 exists for dimensions and not for facts.',
+ w:'DE · fct_trips, dim_stations · RL · fct_orders, dim_customer',n:['scd2','layers','partition']},
+{i:'partition',l:'Partition, and|rebuild one',k:'idea',d:'store',x:2650,y:1020,t:1,p:'de rl',
+ b:'Split a table or a directory by a column, usually a date. Two payoffs: a query for March reads only March, and you can recompute one day instead of everything. The second is what makes a 2,147-run loop affordable — and it hides the trap next door.',
+ w:'DE · lake/station_metrics/date=… · RL · dirty-partition rebuilds',n:['late-arriving-dimension','incremental-landing','parquet']},
+{i:'late-arriving-dimension',l:'The late-arriving|dimension trap',k:'idea',d:'store',x:2990,y:1020,t:1,p:'rl',
+ b:'A refund settling today belongs to an order placed weeks ago. Rebuild only the partitions today’s orders touched and that older day is never refreshed. RL’s matured label coverage read 22% when it should have read 100%, and the refund rate 44% instead of 17% — with correct data throughout. “Only the conformed layer was stale.”',
+ w:'RL · NOTES.md §8; late labels now mark their order’s day dirty',n:['partition','incremental-landing','clocks','audit-table']},
+{i:'single-writer',l:'One writer|at a time',k:'idea',d:'store',x:3330,y:1020,t:1,p:'de ep',
+ b:'An embedded database’s lock is a lock on a file. That single fact drives five mechanisms in DE: a scheduler pool with one slot, short connections with a retrying connect(), a published read-only copy for readers, a structure-only copy for documentation, and a rule that nothing else opens the live file.',
+ w:'DE · landing/warehouse.py connect()',n:['pool','serving-copy','duckdb','atomic-swap']},
+{i:'duckdb',l:'DuckDB',k:'tool',d:'store',x:3670,y:1020,t:2,p:'de ep',
+ b:'SQLite for analytics: an embedded, columnar database that also reads Parquet, CSV and JSON files directly, so a directory of files is queryable as a table. Two things to know before relying on it — one writer at a time, and it hands timestamps back in the machine’s local zone unless you SET TimeZone = UTC on connect.',
+ w:'DE warehouse · EP demand and predictions',n:['single-writer','parquet','sqlite','clocks']},
+{i:'sqlite',l:'SQLite',k:'tool',d:'store',x:2650,y:1130,t:2,p:'rl',
+ b:'A complete relational database in a library — no server, no port, no credentials. RL runs a 150,000-order warehouse on it and states the reasoning: the data fits, one file, crash-safe, nothing to babysit across an unattended multi-hour run. WAL journaling lets readers not block the writer.',
+ w:'RL · warehouse/wh.db',n:['duckdb','transaction','single-writer']},
+{i:'postgres',l:'PostgreSQL',k:'tool',d:'store',x:2990,y:1130,t:2,p:'me',
+ b:'The default serious server database: many concurrent clients, strong constraints, and a rich type system. ME uses it because it is a web application — several functions writing at once, a public API reading, small indexed lookups. JSONB with a GIN index, ON CONFLICT, AT TIME ZONE and array parameters all earn their keep.',
+ w:'ME · managed RDS instance',n:['single-writer','sqlalchemy','tz-day']},
+{i:'parquet',l:'Parquet',k:'tool',d:'store',x:3330,y:1130,t:2,p:'de ep',
+ b:'A columnar binary file format. Averaging one column reads only that column off disk, and because each column holds one type, compression beats CSV by five to ten times. The schema travels inside the file — unlike CSV, there is nothing to guess.',
+ w:'DE · Spark writes it, DuckDB reads it in place',n:['duckdb','partition','data-lake']},
+{i:'data-lake',l:'A lake is files|in directories',k:'idea',d:'store',x:3670,y:1130,t:2,p:'de',
+ b:'Not a product — a pattern. Files in a structured directory tree, in an open format, queried where they lie. DE has Spark write Parquet and DuckDB read it with read_parquet(…, hive_partitioning = true): two engines, one set of files, no copy and no load step.',
+ w:'DE · models/sources.yml, the lake external source',n:['parquet','partition','spark','elt']}
+);
+/* ── TRANSFORMATION ──────────────────────────────────────── */
+A(
+{i:'layers',l:'Layers, and one|job each',k:'idea',d:'transform',x:4120,y:690,t:1,p:'de rl',
+ b:'raw (what arrived) → staging (parsed, typed, deduplicated, no business logic) → intermediate (reusable building blocks, the heavy joins) → marts (what people query, named for the business). The value is not tidiness: a wrong number is a parsing bug, a logic bug or a presentation bug, and querying each layer tells you which.',
+ w:'DE · transform/models/{staging,intermediate,marts}, one schema each',n:['elt','landing-zone','dbt','materialisation','fact-dim']},
+{i:'incremental-landing',l:'Incremental on|landing time',k:'idea',d:'transform',x:4460,y:690,t:1,p:'de',
+ b:'The single most consequential line in the transformation layer: filter on when the row landed, not on when the event happened. Filter on event time and a record that arrived three hours late is never reprocessed — lost, silently, forever. Filter on landing time and late data is picked up automatically.',
+ w:'DE · fct_trips.sql, “loaded_at > (select max(loaded_at) from this)”',n:['clocks','late-data','late-arriving-dimension','materialisation','partition']},
+{i:'window-functions',l:'Window functions|earn their keep',k:'idea',d:'transform',x:4800,y:690,t:1,p:'de rl',
+ b:'Look at other rows from within a row, without a self-join. row_number() over (partition by … order by …) deduplicates in one clause. lag() compares a reading to the previous one — which is how an exact frozen-station check works, where a streaming window can only approximate. If you learn one piece of advanced SQL, learn these.',
+ w:'DE · int_status_sequence.sql, stg_trip_events.sql',n:['dedup-two-counters','sql','one-query-one-sink','asof-join']},
+{i:'materialisation',l:'View, table,|incremental',k:'idea',d:'transform',x:4120,y:800,t:1,p:'de',
+ b:'The same SELECT can be a view (recomputed on query, always current, free to store), a table (built once per run, fast to query) or incremental (only new rows) — by changing one setting, not by rewriting the query. Deciding which is a cost and freshness question, and it should not be a code question.',
+ w:'DE · dbt_project.yml: staging views, marts tables',n:['layers','incremental-landing','dbt']},
+{i:'dedup-two-counters',l:'Deduplicate, but|keep the reason',k:'idea',d:'transform',x:4460,y:800,t:1,p:'de',
+ b:'Removing duplicates normally throws away why there were duplicates. DE keeps two counters: how many times the id landed, and how many distinct source sequence numbers carried it. More than one sequence means the source duplicated it — a data fault. More copies than sequences means your own delivery re-sent it after a crash — working as designed. Same symptom, opposite diagnosis.',
+ w:'DE · stg_trip_events.sql, copies vs source_copies',n:['window-functions','promises','natural-key','confusable']},
+{i:'lineage',l:'ref() builds|a graph',k:'idea',d:'transform',x:4800,y:800,t:1,p:'de',
+ b:'Name another model through a reference rather than by table name, and the build system learns the dependency. From all of them it derives the build order, parallelises what it can, and draws you a diagram — which is the answer to both “if I change this, what breaks?” and “where did this number come from?”',
+ w:'DE · make dbt-docs, the raw → marts graph',n:['dbt','layers','materialisation']},
+{i:'seed',l:'Seed: config|as a table',k:'idea',d:'transform',x:4120,y:910,t:2,p:'de',
+ b:'A small CSV in version control, loaded as a table. Ideal for mappings that are editorial decisions rather than data. DE drives its whole detection scorecard from one: adding a detector means adding a row to a CSV, not rewriting SQL.',
+ w:'DE · seeds/detection_checks.csv',n:['config-as-data','precision-recall','dbt']},
+{i:'macro',l:'Macro: SQL|written by SQL',k:'idea',d:'transform',x:4460,y:910,t:2,p:'de',
+ b:'Reusable SQL in a templating language that runs before the SQL does. Two phases: the template renders, then the database executes. Almost every confusing error in a templated SQL project comes from forgetting which phase you are in.',
+ w:'DE · macros/haversine_km.sql, lake_file_count.sql',n:['dbt','jinja','sql']},
+{i:'snapshot',l:'Snapshot: SCD2|for free',k:'idea',d:'transform',x:4800,y:910,t:2,p:'de',
+ b:'Point the build tool at a table that gets overwritten, tell it which column marks a change, and it maintains full version history with validity windows — the machinery of SCD2 without writing it.',
+ w:'DE · snapshots/snap_stations.yml',n:['scd2','asof-join','dbt']},
+{i:'contract-enforced',l:'Enforce the|table’s shape',k:'idea',d:'transform',x:4120,y:1020,t:2,p:'de',
+ b:'Declare the columns and types a table must have, and fail the build if they change. Consumers of that table — a dashboard, a notebook, another team — can then rely on its shape instead of discovering a rename at read time.',
+ w:'DE · _marts.yml, contract: {enforced: true}',n:['schema-vs-contract','dbt','tests-as-monitors']},
+{i:'unit-test-sql',l:'Unit-test|the SQL',k:'idea',d:'transform',x:4460,y:1020,t:2,p:'de',
+ b:'Hand-written input rows and expected output rows, compared as tables. It checks the logic independently of what the warehouse happens to hold today — which is the only way to test a transformation before you trust it with real data.',
+ w:'DE · _intermediate.yml, int_trips unit test',n:['dbt','four-kinds','data-tests']},
+{i:'dbt',l:'dbt',k:'tool',d:'transform',x:4800,y:1020,t:1,p:'de',
+ b:'In one line: SQL files plus a build system. You write SELECTs; it wraps them, orders them by inferred dependencies, runs the tests, and generates docs. Before it, SQL transformations were stored procedures invisible to version control, or a pile of scripts with hand-maintained order. It makes transformation software.',
+ w:'DE · transform/ — essentially every feature it has',n:['layers','lineage','materialisation','tests-as-monitors','snapshot','seed','macro']},
+{i:'sql',l:'SQL',k:'tool',d:'transform',x:4120,y:1130,t:2,p:'de me rl',
+ b:'Declarative, and far more capable than the SQL most people were taught. These projects use QUALIFY, count(*) FILTER (WHERE …), GROUP BY ALL, list aggregation, JSON path extraction and time_bucket — none of which appear in a textbook, all of which remove a layer of Python.',
+ w:'DE transformation · ME timeseries endpoint · RL by hand',n:['window-functions','dbt','postgres','duckdb']},
+{i:'pandas',l:'pandas',k:'tool',d:'transform',x:4460,y:1130,t:2,p:'ep rl',
+ b:'Tables in memory: everything between “I have rows” and “I have a model”. The operations that matter for time series — shift(), rolling(), the .dt accessor, merge() — all depend entirely on row order, so sort first, always, and say so in a comment.',
+ w:'EP feature engineering · RL model features',n:['lag-features','leakage','temporal-split']},
+{i:'jinja',l:'Jinja',k:'tool',d:'transform',x:4800,y:1130,t:2,p:'de',
+ b:'Text with placeholders and logic, rendered before use. In a data project you meet it as the layer that makes SQL programmable: references, conditionals, loops and macros, all resolved into plain SQL before the database ever sees it.',
+ w:'DE · every .sql file in transform/',n:['macro','dbt','sql']}
+);
+
+/* ── SERVING ─────────────────────────────────────────────── */
+A(
+{i:'serving-copy',l:'Readers never take|the writer’s lock',k:'idea',d:'serve',x:5250,y:690,t:1,p:'de',
+ b:'Every five minutes a loading task holds the database lock for a few seconds. If the dashboard opens the same file, either it waits or the pipeline waits. So publish a second file containing only the marts, built under a temporary name and swapped atomically. Readers never queue, never make the pipeline wait, and can only see what they are meant to use.',
+ w:'DE · serving/publish.py → bikeshare_serving.duckdb',n:['atomic-swap','single-writer','cache-by-version','harlequin']},
+{i:'cache-by-version',l:'Cache by data|version, not clock',k:'idea',d:'serve',x:5570,y:690,t:1,p:'de',
+ b:'Key the cache on the published file’s modification time. A page reload then costs nothing until the pipeline actually publishes something new, and a small timer comparing that time refreshes the view when it does — the reader’s half of the atomic-swap handshake.',
+ w:'DE · dashboard/app.py, @st.cache_data(path, mtime)',n:['serving-copy','atomic-swap','streamlit']},
+{i:'honest-charts',l:'An honest|chart',k:'idea',d:'serve',x:5890,y:690,t:1,p:'de me',
+ b:'One entity keeps one colour in every chart, so the mapping is learned once. Colours chosen for colour-vision deficiency in both themes, checked with a validator rather than by eye. A table view under every chart. Explicit UTC on time axes. And a series that is almost all zeros becomes a short table — choosing not to draw a chart is a design decision.',
+ w:'DE · dashboard/app.py colour slots · ME · lib/colors.ts, lib/lean.ts',n:['altair','echarts','tz-day','url-as-state']},
+{i:'error-mapping',l:'Error codes are|the contract',k:'idea',d:'serve',x:5250,y:800,t:1,p:'ep me',
+ b:'503 when no model is loaded, 400 when there is not enough history to build features, 500 for anything else. A client can act on each of those. A generic 500 for all three tells the caller nothing and makes every incident a log-reading exercise.',
+ w:'EP · src/serving/api.py',n:['fastapi','aux-must-not-fail','schema-vs-contract']},
+{i:'ship-registries',l:'Ship the lookup|tables with the data',k:'idea',d:'serve',x:5570,y:800,t:2,p:'me',
+ b:'The time-series endpoint returns the data points plus the full candidate and source registries. The frontend renders names and colours from one request even when the window is empty — one round trip instead of three, and no “unknown candidate 7” flickering on screen.',
+ w:'ME · app/api/routers/timeseries.py',n:['fastapi','honest-charts','tanstack']},
+{i:'url-as-state',l:'The URL is the|state store',k:'idea',d:'serve',x:5890,y:800,t:2,p:'me',
+ b:'Keep every filter in the query string and refreshing or sharing a link reproduces the view exactly. One module owns parsing and serialising, including a documented tri-state: parameter missing means all, present-and-empty means none, a list means those.',
+ w:'ME · frontend/src/lib/url-state.ts',n:['react','honest-charts','tanstack']},
+{i:'tz-day',l:'Put the timezone|in the query',k:'idea',d:'serve',x:5250,y:910,t:1,p:'me',
+ b:'date_trunc(\'day\', published_at AT TIME ZONE :tz) — a “day” for a French newspaper is a Paris day, not a UTC day, and which zone is a parameter of the request rather than an assumption baked into the schema.',
+ w:'ME · the _TIMESERIES_SQL text block',n:['clocks','tz-parsing','postgres']},
+{i:'aux-must-not-fail',l:'Auxiliary work must|not fail the request',k:'idea',d:'serve',x:5570,y:910,t:2,p:'ep',
+ b:'Logging the prediction sits in its own try/except: if the log write fails, the caller still gets their prediction and a warning goes to the log. Decide deliberately which parts of a request are essential, rather than discovering it during an incident.',
+ w:'EP · api.py, the log_prediction call',n:['error-mapping','log-predictions','never-raise']},
+{i:'fastapi',l:'FastAPI',k:'tool',d:'serve',x:5890,y:910,t:2,p:'de me ep',
+ b:'Typed function signatures become validation rules, serialisation, error responses and a published API schema. A lifespan hook does startup work once — load the model, start a background task. One injected dependency carries the database session.',
+ w:'DE source API · EP predictions · ME public API',n:['pydantic','error-mapping','mangum','uvicorn']},
+{i:'streamlit',l:'Streamlit',k:'tool',d:'serve',x:5250,y:1020,t:2,p:'de ep',
+ b:'A Python script becomes a web app — no HTML, no JavaScript. The thing that confuses people: the entire script re-runs on every interaction, which is why caching decisions carry so much weight. Right for internal dashboards in an hour; wrong for a public product.',
+ w:'DE four-tab dashboard · EP monitoring dashboard',n:['cache-by-version','altair','serving-copy']},
+{i:'react',l:'React',k:'tool',d:'serve',x:5570,y:1020,t:2,p:'me',
+ b:'Interfaces built from composable components whose output is a function of their state. Chosen here because the audience is the public and the interactions are rich — the case where a script-becomes-an-app tool stops being the right answer.',
+ w:'ME · frontend/src/',n:['url-as-state','zod','tanstack','echarts']},
+{i:'altair',l:'Altair',k:'tool',d:'serve',x:5890,y:1020,t:2,p:'de',
+ b:'Declarative charting: describe what the data means and let it decide how to draw. Composition is the payoff — DE builds a hover crosshair by layering four charts rather than writing event handlers.',
+ w:'DE · dashboard/app.py line_chart()',n:['honest-charts','streamlit']},
+{i:'echarts',l:'ECharts',k:'tool',d:'serve',x:5250,y:1130,t:2,p:'me',
+ b:'A mature charting library for the browser. ME builds its option object inside a memo so it is recomputed only when the data changes, and does all aggregation in plain functions beforehand — which keeps the chart component declarative and the arithmetic testable.',
+ w:'ME · components/TimeSeriesChart.tsx, ShareOfVoiceChart.tsx',n:['react','honest-charts']},
+{i:'mangum',l:'Mangum',k:'tool',d:'serve',x:5570,y:1130,t:2,p:'me',
+ b:'An adapter that lets an ordinary web application run as a cloud function, translating the cloud’s event format into what the framework expects. One line, and the same FastAPI app runs locally and in production — no separate serverless codebase.',
+ w:'ME · app/api/mangum_handler.py',n:['fastapi','lambda-events','cold-start']},
+{i:'harlequin',l:'harlequin',k:'tool',d:'serve',x:5890,y:1130,t:2,p:'de',
+ b:'A SQL editor in the terminal. DE opens it read-only against the published copy, which means exploring can never block the pipeline or be blocked by it — a small illustration that the serving copy is for every reader, not only dashboards.',
+ w:'DE · make sql',n:['serving-copy','duckdb']}
+);
+
+/* ── STREAMING ───────────────────────────────────────────── */
+A(
+{i:'unbounded',l:'A stream|has no end',k:'idea',d:'stream',x:2400,y:220,t:1,p:'de',
+ b:'A batch can be sorted, counted and finished. A stream cannot: it is unbounded, it arrives out of order, and there is no moment at which you know nothing more is coming. Therefore every aggregate over it is a decision, not a fact.',
+ w:'DE · streaming/analyzer/main.py docstring',n:['windowing','watermark','late-data','pull-push']},
+{i:'windowing',l:'Cut it into|windows',k:'idea',d:'stream',x:2790,y:220,t:1,p:'de',
+ b:'“The average of this column” has no answer over a stream; “the average per 30 minutes of event time” does. Windowing is how an unbounded sequence gets a defined scope — and it immediately raises the only hard question: when is a window finished?',
+ w:'DE · rules.station_windows',n:['watermark','unbounded','stateful']},
+{i:'watermark',l:'A watermark is a|promise, not a fact',k:'idea',d:'stream',x:3180,y:220,t:1,p:'de',
+ b:'“I no longer expect anything older than now minus 30 minutes.” A decision you make, trading latency against completeness: a long watermark waits longer, catches more late data, holds more state, reports later. Anything behind it is dropped by windowed operations — so count the drops.',
+ w:'DE · WATERMARK env, progress.py dropped_late',n:['late-data','windowing','clocks','one-query-one-sink','count-the-drops']},
+{i:'late-data',l:'Late data,|and who sees it',k:'idea',d:'stream',x:3570,y:220,t:1,p:'de',
+ b:'The rule that flags “this arrived very late” must see late events. The windowed aggregations must ignore them past the watermark. Those are incompatible requirements in one job — which is the real reason DE runs four streaming queries rather than one.',
+ w:'DE · reference_rules has no watermark, on purpose',n:['watermark','one-query-one-sink','incremental-landing','clocks']},
+{i:'stateful',l:'Stateful or|stateless',k:'idea',d:'stream',x:3960,y:220,t:1,p:'de',
+ b:'Stateless: each record judged alone — cheap, restartable, no memory. Stateful: the answer depends on other records — windows, deduplication, joins — so the engine must remember things between batches, durably. DE keeps that state in RocksDB rather than on the heap, because it grows.',
+ w:'DE · conf/spark-defaults.conf, the state store provider',n:['windowing','stream-join','micro-batch','positions']},
+{i:'stream-join',l:'Joining two|streams',k:'idea',d:'stream',x:2400,y:340,t:2,p:'de',
+ b:'Pairing “trip started” with “trip ended” needs two things a batch join does not: a watermark on each side, and a time bound in the condition. Together they tell the engine when a start can no longer find its end — at which point it frees the memory and emits the unmatched row, which is precisely the orphan detection.',
+ w:'DE · rules.trip_pairs, full outer join with an INTERVAL bound',n:['stateful','watermark','pure-df']},
+{i:'one-query-one-sink',l:'One query,|one purpose',k:'idea',d:'stream',x:2790,y:340,t:1,p:'de',
+ b:'Four queries rather than one, and each shows a different pattern: stateless rules with refreshed reference data; watermark plus deduplication plus windows to an exactly-once file sink; longer windows for health heuristics; a bounded stream-stream join. A query has one sink, and stateful and stateless logic do not mix.',
+ w:'DE · streaming/analyzer/main.py, the four start_* functions',n:['late-data','stateful','pure-df','watermark','asof-join']},
+{i:'pure-df',l:'Rules as pure|functions',k:'idea',d:'stream',x:3180,y:340,t:1,p:'de',
+ b:'Because a stream is modelled as an unbounded table, a rule written as DataFrame-in, DataFrame-out runs unchanged on a live stream in production and on a five-row static table in a unit test. The single highest-leverage structural decision in the whole streaming layer.',
+ w:'DE · streaming/analyzer/rules.py + streaming/tests/',n:['spark','mocking-boundary','one-query-one-sink','four-kinds']},
+{i:'backpressure',l:'Backpressure|for free',k:'idea',d:'stream',x:3570,y:340,t:2,p:'de',
+ b:'When the queue is slow the producer’s local buffer fills, the send call blocks, and the pressure propagates back through the reader to the source. A slow consumer slowing the producer is a feature; a slow consumer buffering without limit is an outage waiting for a convenient moment.',
+ w:'DE · sink.py, BufferError → poll() → retry',n:['kafka','defensive-client']},
+{i:'micro-batch',l:'A stream is|small batches',k:'idea',d:'stream',x:3960,y:340,t:2,p:'de',
+ b:'Spark’s streaming is a rapid series of bounded batches, which is why per-batch progress is observable: rows in, rows per second, batch duration, current watermark, state size, rows dropped late, duplicates removed. One JSON line per batch is the log you will want at 3 a.m.',
+ w:'DE · analyzer/progress.py, a StreamingQueryListener',n:['stateful','structured-logs','count-the-drops','spark']},
+{i:'topic-partition-key',l:'The key decides|the order',k:'idea',d:'stream',x:2400,y:460,t:1,p:'de',
+ b:'A topic is split into partitions and order is guaranteed only within one. The message key picks the partition — so keying trip events by bike id keeps all events about one bike in order, without attempting a global order that would mean one partition and no parallelism.',
+ w:'DE · kafka/create-topics.sh, with the reasoning inline',n:['kafka','replay','promises']},
+{i:'replay',l:'Retention makes|replay possible',k:'idea',d:'stream',x:2790,y:460,t:1,p:'de',
+ b:'Messages are kept for a configured period whether or not anyone read them. So consumers are independent — the stream processor and the warehouse loader read the same topics at different speeds with separate positions — and a new consumer can start from the beginning and catch up. Replay and backfill come for free.',
+ w:'DE · seven-day retention; “Kafka is the fan-out point”',n:['kafka','positions','reset-together','keep-raw','backfill']},
+{i:'deterministic-id',l:'Deterministic ids|make repeats safe',k:'idea',d:'stream',x:3180,y:460,t:2,p:'de',
+ b:'A Kafka sink is at-least-once, so a replayed batch writes its rows again. Derive each alert’s id by hashing its type, entity and event, and a repeat is byte-identical — so the consumer removes it with one window function. Cheaper than making the sink transactional.',
+ w:'DE · rules.make_alerts, sha2 of the identity',n:['promises','dedup-two-counters','one-query-one-sink']},
+{i:'kafka',l:'Kafka',k:'tool',d:'stream',x:3570,y:460,t:1,p:'de',
+ b:'A distributed, durable, replayable log — not a queue where reading consumes. Producers append to topics; independent consumers read at their own pace. Declare topics explicitly and disable auto-creation, so a typo fails loudly instead of quietly creating a topic your messages vanish into.',
+ w:'DE · one KRaft node, four topics, a web console on :8081',n:['topic-partition-key','replay','backpressure','spark','exactly-once-load']},
+{i:'spark',l:'Spark',k:'tool',d:'stream',x:3960,y:460,t:1,p:'de',
+ b:'A distributed engine whose streaming mode treats a stream as an unbounded table, so the same DataFrame code serves both. Heavy — a JVM and real operational complexity — and DE is honest that for data fitting on one machine, DuckDB or pandas would be faster and far simpler.',
+ w:'DE · streaming/, local[4] standing in for a cluster',n:['pure-df','micro-batch','stateful','data-lake']}
+);
+/* ── ORCHESTRATION ───────────────────────────────────────── */
+A(
+{i:'why-not-cron',l:'Why cron is|not enough',k:'idea',d:'orch',x:330,y:1390,t:1,p:'de me',
+ b:'cron runs a command at a time. It does not know that B should run only after A succeeded, that a failure should be retried twice thirty seconds apart, that you want to re-run last Tuesday, or whether anything ran at all. An orchestrator is those four things plus somewhere to look.',
+ w:'ME ran on cron first; DE needed more',n:['dag','run-boundary','backfill','airflow','cron']},
+{i:'dag',l:'A DAG is|the shape',k:'idea',d:'orch',x:680,y:1390,t:2,p:'de ep',
+ b:'Tasks with dependencies and no cycles. In most tools it is also the unit of scheduling: one file, one pipeline, one run per interval. The graph is what lets retries, skips and backfills mean something precise rather than “run the script again”.',
+ w:'DE · orchestration/dags/*.py',n:['why-not-cron','airflow','task-factory','data-aware']},
+{i:'run-boundary',l:'What does one|run mean here?',k:'idea',d:'orch',x:1030,y:1390,t:1,p:'de me ep rl',
+ b:'The transferable question, rather than “which orchestrator”. A wall-clock interval (DE), an event — writing a file (ME), a manual invocation (EP), or a tick of a simulated clock your own code owns (RL). Four projects, four answers, each right for its setting.',
+ w:'the clearest single contrast across the four codebases',n:['why-not-cron','bounded-slice','runner-owns-clock','lambda-events','data-aware']},
+{i:'pool',l:'A pool is a|semaphore for tasks',k:'idea',d:'orch',x:1380,y:1390,t:1,p:'de',
+ b:'The database allows one writer, so create a named pool with one slot and have every writing task declare it. Tasks queue instead of colliding. A concurrency primitive expressed as configuration — and the idea generalises to any scarce resource several jobs contend for.',
+ w:'DE · airflow pools set duckdb 1, pool="duckdb" on each task',n:['single-writer','recovery-tuning','airflow']},
+{i:'data-aware',l:'Scheduled by data,|not by clock',k:'idea',d:'orch',x:1730,y:1390,t:1,p:'de',
+ b:'Rather than “transform at :05 and hope loading finished”, one pipeline declares it produces a dataset and the other declares it consumes it. No clock, no guessing, no gap. And the detail that is easy to miss: when a load brings zero rows the task skips itself, because a skipped task emits no event, so nothing downstream runs for nothing.',
+ w:'DE · schedule=(RAW_STREAM | RAW_API), outlets=[…]',n:['skip-no-event','dag','run-boundary','lineage']},
+{i:'exactly-once-load',l:'Exactly-once,|in five steps',k:'idea',d:'orch',x:330,y:1510,t:1,p:'de',
+ b:'Read the stored position from the warehouse. Snapshot the queue’s current end — that bounds the run. Consume the slice. Then ONE transaction: the rows, the new position, and an audit row. Only after the commit, report the position to the queue, for the lag display and never to resume. Crash before the commit and neither moved; crash after and both did.',
+ w:'DE · landing/kafka_loader.py — the docstring is the argument',n:['transaction','positions','promises','bounded-slice','reset-together','kafka']},
+{i:'bounded-slice',l:'A stream never ends;|a task must',k:'idea',d:'orch',x:680,y:1510,t:1,p:'de',
+ b:'Snapshot the end offsets when the task starts and consume only up to them. Messages arriving during the run simply wait for the next one. That single decision is what turns an unbounded source into something an orchestrator can schedule.',
+ w:'DE · plan_slices() then read_slices()',n:['exactly-once-load','run-boundary','positions','replay']},
+{i:'reset-together',l:'Reset progress and|outputs together',k:'idea',d:'orch',x:1030,y:1510,t:1,p:'de',
+ b:'Positions are relative to one stream. Delete and recreate a topic and it numbers from zero, while your stored position of 4,194 now points past the end — so the loader silently skips everything below it. DE’s reset deletes checkpoints, the files, the topic, and the warehouse rows landed from it, in one transaction, only after the queue confirms the topic is gone.',
+ w:'DE · make spark-reset + kafka_loader.forget_topic',n:['positions','replay','exactly-once-load','idempotency']},
+{i:'logic-out-of-orchestrator',l:'Keep the logic|out of it',k:'idea',d:'orch',x:1380,y:1510,t:1,p:'de ep',
+ b:'DE’s loading code is a plain package with no orchestrator import anywhere; the pipeline files only schedule it. Three payoffs, all immediate: you can unit-test without installing the orchestrator, you can run the same code from a script — and DE does, for its inspection tools — and changing orchestrator changes the thin layer, not the pipeline.',
+ w:'DE · orchestration/include/landing/ imports nothing from Airflow',n:['four-kinds','airflow','prefect','task-factory']},
+{i:'skip-no-event',l:'Skip, so nothing|runs for nothing',k:'idea',d:'orch',x:1730,y:1510,t:2,p:'de',
+ b:'A task that raises a skip emits no completion event, so a downstream pipeline scheduled on that event does not fire. Small, and it saves a great deal of pointless work over a day of five-minute intervals.',
+ w:'DE · report() raises AirflowSkipException when total == 0',n:['data-aware','audit-table']},
+{i:'conn-from-env',l:'Connections from|the environment',k:'idea',d:'orch',x:330,y:1630,t:1,p:'de',
+ b:'Addresses and credentials can live in the orchestrator’s own database and be edited in its web interface. DE refuses, and sets them as environment variables instead: “nothing is stored in the database, and nothing is clicked in the UI.” Configuration that lives only in a UI is configuration you will lose.',
+ w:'DE · AIRFLOW_CONN_* / AIRFLOW_VAR_* in docker-compose.yml',n:['layered-config','secrets','airflow','config-as-data']},
+{i:'task-factory',l:'A task factory|for fan-out',k:'idea',d:'orch',x:680,y:1630,t:2,p:'de',
+ b:'A closure returning a decorated task with a computed name, called in a list comprehension over the things to process. Four near-identical loading tasks declared once, and adding a fifth topic is one line in a dictionary.',
+ w:'DE · def land(topic, table) in stream_landing.py',n:['dag','logic-out-of-orchestrator']},
+{i:'runner-owns-clock',l:'The runner owns|the clock',k:'idea',d:'orch',x:1030,y:1630,t:1,p:'rl',
+ b:'Advance the clock outside the work, not inside it, so a run that fails is retried against the same interval rather than burning another one on every attempt. Translated out of the simulation: the thing that decides which interval you are processing should not be the thing that can fail.',
+ w:'RL · orchestrator.run(), the _retry_pending flag',n:['run-boundary','resume-dont-repeat','expectation-table','overlap-dead-time']},
+{i:'overlap-dead-time',l:'Overlap the|dead time',k:'idea',d:'orch',x:1380,y:1630,t:2,p:'rl',
+ b:'The largest cost per run was 1.6 seconds waiting for the supplier’s file writer — pure idleness, times 2,147 runs. It now runs in a background thread while the API is fetched. The discipline that makes it safe: only the filesystem is touched from the thread, and nothing is parsed or written until the main thread joins.',
+ w:'RL · orchestrator.start_drop_watch',n:['runner-owns-clock','file-drop']},
+{i:'resume-dont-repeat',l:'Resume,|don’t repeat',k:'idea',d:'orch',x:1730,y:1630,t:1,p:'rl de',
+ b:'RL’s unattended driver is four lines of shell that re-run the pipeline up to two hundred times. It works only because every write is append-only-if-absent or version-guarded. Idempotency is what buys you the right to leave something running.',
+ w:'RL · loop.sh',n:['idempotency','runner-owns-clock','service-vs-process','crash-only']},
+{i:'backfill',l:'Backfill and|catchup',k:'idea',d:'orch',x:330,y:1750,t:2,p:'de',
+ b:'Running past intervals deliberately, to fill a gap or apply a fix. Worth deciding explicitly: DE sets catchup off on every pipeline, because otherwise starting a five-minute schedule dated last January would immediately queue tens of thousands of runs.',
+ w:'DE · catchup=False, max_active_runs=1',n:['replay','why-not-cron','dag']},
+{i:'airflow',l:'Airflow',k:'tool',d:'orch',x:680,y:1750,t:1,p:'de',
+ b:'The common data orchestrator: pipelines defined in Python, a scheduler, a database, a web interface. Three of its ideas are worth knowing even if you use something else — pools, data-aware scheduling, and connections defined outside it. Also a real system to operate; for one job on one machine it is far too much.',
+ w:'DE · Airflow 3, LocalExecutor, Postgres metadata',n:['pool','data-aware','dag','conn-from-env','recovery-tuning']},
+{i:'prefect',l:'Prefect',k:'tool',d:'orch',x:1030,y:1750,t:2,p:'ep',
+ b:'A lighter workflow library: decorate functions and get retries, caching and observability without necessarily running a server. Note EP’s own honest caveat — the decorators are used, but nothing is scheduling the flows. A pipeline that can run, not one that does.',
+ w:'EP · src/workflows/ingest.py',n:['logic-out-of-orchestrator','run-boundary','dag']},
+{i:'cron',l:'cron',k:'tool',d:'orch',x:1380,y:1750,t:2,p:'me',
+ b:'Genuinely the right answer for one job with no dependencies. Never put the command in the crontab — cron’s environment is nearly empty. Write a wrapper that sets the environment, changes directory, waits for what it needs, captures the exit code and prints scannable markers.',
+ w:'ME · scripts/cron_ingest.sh + media27.cron',n:['why-not-cron','bash-discipline','structured-logs']},
+{i:'lambda-events',l:'Events instead of|a scheduler',k:'tool',d:'orch',x:1730,y:1750,t:2,p:'me',
+ b:'A schedule starts the chain; then writing a file to object storage triggers the next stage. No orchestrator to run or pay for. You lose the picture of the whole pipeline, dependency management, retry policy and backfills — a real trade, made deliberately here for cost.',
+ w:'ME · EventBridge cron + an S3 ObjectCreated trigger',n:['run-boundary','cost-as-constraint','mangum','why-not-cron']}
+);
+
+/* ── OBSERVATION & QUALITY ───────────────────────────────── */
+A(
+{i:'structured-logs',l:'One JSON line|per unit of work',k:'idea',d:'observe',x:2160,y:1390,t:1,p:'de rl',
+ b:'Not “processed 450 events” but {"msg":"throughput","received":450,"per_s":15.0,"source_lag":7}. Now grep is a query. The helper that produces it is six lines, and it is worth writing on day one of any project — because the fields you add are exactly the ones you will want when it misbehaves.',
+ w:'DE · bridge/logs.py JsonFormatter + event()',n:['audit-table','micro-batch','count-the-drops','ambient-vs-event']},
+{i:'audit-table',l:'An audit row|per run',k:'idea',d:'observe',x:2530,y:1390,t:1,p:'de me ep rl',
+ b:'Record what the pipeline did — which batch, from where to where, how many rows, how long — in the same database as the data, so “rows landed per hour and the delay from source to warehouse” is a join. ME writes its audit row in its own transaction, separate from the data: if a load fails and rolls back, the record that it failed still gets written.',
+ w:'DE raw._ingest_batches · ME ingest_runs · RL pull_log',n:['transaction','structured-logs','freshness','never-raise']},
+{i:'freshness',l:'How old is the|newest row?',k:'idea',d:'observe',x:2900,y:1390,t:1,p:'de',
+ b:'The cheapest high-value check there is, and it catches the failure that silently destroys trust: a pipeline that stopped while every dashboard keeps rendering yesterday as today. Note the nuance — DE disables it on the dead-letter and alert tables, where silence is good news. Applying a check where it does not apply is how alert fatigue starts.',
+ w:'DE · models/sources.yml, warn_after 15 min / error_after 60',n:['quality-means','audit-table','tests-as-monitors','dedupe-alerts']},
+{i:'tests-as-monitors',l:'A test that stores|its failures',k:'idea',d:'observe',x:3270,y:1390,t:1,p:'de',
+ b:'A data test is a query that should return zero rows; the rows it returns are the failure. Some tests are expected to find rows — the source injects impossible readings on purpose. Rather than delete the test, set it to warn and store its failures in an audit schema. Now it is a monitor with a SQL interface.',
+ w:'DE · tests/status_above_capacity.sql, store_failures=true',n:['dbt','data-tests','freshness','quality-means','contract-enforced']},
+{i:'precision-recall',l:'Measure your|own detectors',k:'idea',d:'observe',x:3640,y:1390,t:1,p:'de rl',
+ b:'Precision: of what you flagged, how much was real — are you crying wolf? Recall: of what was real, how much did you flag? They trade off. If you can generate the faults you can measure both, and DE builds a whole reporting table for it, seed-driven so adding a detector means adding a CSV row.',
+ w:'DE · mart_detection_scorecard.sql',n:['explained-by-other','judging-horizon','seed','specificity','state-your-gaps']},
+{i:'specificity',l:'Specificity beats|sensitivity',k:'idea',d:'observe',x:2160,y:1510,t:1,p:'rl',
+ b:'When a false claim costs something, prefer checks whose false-positive rate is zero by construction — a value outside a closed set, a truncated compressed file, a timestamp offset in a naive feed — over thresholds on noisy series. And enumerate the normal behaviour you must not fire on: seasonality, 18% growth, a Q4 peak, Black Friday at three times volume.',
+ w:'RL · NOTES.md §1 and monitors.py’s opening docstring',n:['domains','confusable','dedupe-alerts','no-second-name','retraction']},
+{i:'confusable',l:'Telling similar|causes apart',k:'idea',d:'observe',x:2530,y:1510,t:1,p:'rl',
+ b:'Detecting that something is wrong is often easy; saying what is wrong is the work. A rename versus a new category: did an established value stop at the same moment? Clock skew versus late arrival: minutes and all timestamps, or days and specific partitions? Identifier reuse versus a rename: immutable attributes of a few keys, or one field across the whole feed?',
+ w:'RL · NOTES.md §6, the confusable-pairs table',n:['specificity','no-second-name','retraction','renames','restatement']},
+{i:'dedupe-alerts',l:'One line per|named fault',k:'idea',d:'observe',x:2900,y:1510,t:1,p:'rl',
+ b:'A repeat increments a counter in the warehouse and appends nothing to the log. “A fault reported five times is not five detections, and repeated claims can only add false positives.” The same reasoning applies to any alerting system a human has to read.',
+ w:'RL · incidents.py, the dedupe_key',n:['specificity','freshness','mttd']},
+{i:'explained-by-other',l:'A false positive|with a real cause',k:'idea',d:'observe',x:3270,y:1510,t:1,p:'de',
+ b:'Some of the orphan-trip check’s apparent false alarms were not mistakes: the missing half of the trip had been rejected at the door because of a different injected fault. One fault appearing disguised as another. Rather than hide it, the report has a column for it — it is a finding, not noise.',
+ w:'DE · the explained_by_other_faults column',n:['precision-recall','confusable','no-second-name','dlq']},
+{i:'judging-horizon',l:'Decide what you may|judge yet',k:'idea',d:'observe',x:3640,y:1510,t:1,p:'de',
+ b:'A fault injected thirty seconds ago has not been missed; it has not been detected yet. Judge only faults older than a threshold, and only up to where the ground-truth record is itself complete. Without that bound one check looked 82% precise; with it, 100%.',
+ w:'DE · judge_after_hours, the judged_until CTE',n:['precision-recall','clocks','mttd']},
+{i:'retraction',l:'Retract with|a reason',k:'idea',d:'observe',x:2160,y:1630,t:1,p:'rl',
+ b:'Four claims turned out to be RL’s own detectors misfiring. They were written to a retractions file with their reasons, under one rule: an entry is removed only when the detector that produced it is found mis-specified and is fixed in the same change. Never because it turned out not to match. That rule separates correcting an error from improving your score.',
+ w:'RL · retractions.jsonl + NOTES.md §11',n:['poisson-arithmetic','no-second-name','common-support','confusable','state-your-gaps']},
+{i:'poisson-arithmetic',l:'Do the arithmetic|before deploying',k:'idea',d:'observe',x:2530,y:1630,t:1,p:'rl',
+ b:'A night hour holding 1.5% of a 500-event day is empty by chance about once in 2,000. The horizon contains 50,000 hour-checks, so ~25 empty hours are expected from noise alone. The detector was a false-positive generator by construction — and that is a calculation to do before shipping a rare-event check, not after.',
+ w:'RL · retraction 1, dst_duplicate_hour',n:['retraction','specificity','drift']},
+{i:'state-your-gaps',l:'State what you|would miss',k:'idea',d:'observe',x:2900,y:1630,t:1,p:'rl',
+ b:'A table with one row per possible fault, one column for the detector, one for the signal, and one headed “risk of missing it”. It concludes: 22 of 30 are deterministic and should not be missed; five rest on thresholds calibrated without a clean baseline; three have a structural gap left open on purpose. Worth more than a claim of completeness, because it tells a reader where to be sceptical.',
+ w:'RL · NOTES.md §13',n:['precision-recall','retraction','specificity','measure-it']},
+{i:'no-second-name',l:'Two detectors,|one event',k:'idea',d:'observe',x:3270,y:1630,t:1,p:'rl',
+ b:'A statistical detector reported that the distribution of payment methods had shifted. It had — arithmetically. But the cause was a new payment method that a deterministic detector had already correctly reported five weeks earlier. One real event, about to be claimed twice. A detector that re-reports another’s finding under a second name is not extra coverage; it is a guaranteed false positive.',
+ w:'RL · retraction 3, covariate_shift',n:['retraction','common-support','confusable','specificity','explained-by-other']},
+{i:'common-support',l:'Compare on the|common support',k:'idea',d:'observe',x:3640,y:1630,t:2,p:'rl',
+ b:'A population-stability statistic computed over the union of categories let a brand-new level contribute a near-zero denominator and dominate the score: 1.06. Over the categories present in both periods the same comparison gave 0.0003. A new level is a schema event, not a distribution shift, and belongs to a different detector.',
+ w:'RL · retraction 3, the corrected measurement',n:['no-second-name','drift','domains']},
+{i:'smoke-test',l:'Follow the data,|hop by hop',k:'idea',d:'observe',x:2160,y:1750,t:1,p:'de',
+ b:'Check the running system in pipeline order and stop at the first broken link: source healthy → messages in both topics → a triggered malformed event reaches the dead-letter queue → all four streaming jobs committing and a triggered fault raising an alert → pipelines run → everything present in the warehouse and republished. Six hops, no guessing which one broke.',
+ w:'DE · scripts/smoke.py',n:['four-kinds','never-resets','mttd','audit-table']},
+{i:'never-resets',l:'A check that never|resets anything',k:'idea',d:'observe',x:2530,y:1750,t:2,p:'de',
+ b:'“A target that resets on its own would wipe your world by accident.” And the second decision: the two faults the check triggers go into the ground-truth record like any other, so the quality report stays honest. A test that excludes its own side effects from measurement corrupts the measurement.',
+ w:'DE · smoke.py’s docstring',n:['smoke-test','precision-recall','reset-together']},
+{i:'count-the-drops',l:'Count what you|discard',k:'idea',d:'observe',x:2900,y:1750,t:2,p:'de',
+ b:'If the system drops data — rows behind a watermark, duplicates removed, messages dead-lettered — count the drops and put the count in the log. A system that discards silently is a system whose numbers you cannot defend.',
+ w:'DE · progress.py dropped_late, dropped_duplicates',n:['watermark','structured-logs','dedup-two-counters','micro-batch']},
+{i:'hides-its-own-failure',l:'What failure hides|your detection?',k:'idea',d:'observe',x:3270,y:1750,t:2,p:'rl',
+ b:'A run that dies in the HTTP client never reaches its monitors — so if a sustained outage kills the run, nothing records the outage. RL raises that particular incident from the exception handler too. The question to ask of any monitoring design: what failure would prevent my failure detection from running?',
+ w:'RL · orchestrator.run(), the VendorError branch',n:['monitor-never-breaks','ambient-vs-event','service-vs-process']},
+{i:'monitor-never-breaks',l:'A monitor must not|break the loop',k:'idea',d:'observe',x:3640,y:1750,t:2,p:'rl',
+ b:'Every detector runs inside a try/except that logs and continues. A crash in the twelfth of seventeen checks must not stop the other five, nor the pipeline they are watching. Observation is allowed to fail; the thing being observed is not.',
+ w:'RL · monitors.run(), the per-detector guard',n:['hides-its-own-failure','never-raise','structured-logs']},
+{i:'ambient-vs-event',l:'Weather, or|an event?',k:'idea',d:'observe',x:2160,y:1870,t:1,p:'rl',
+ b:'About 2.7% of requests return a rate-limit error. That is the environment, tallied in a counter — not an incident. Only a sustained outage is something a human should see. And the related distinction: the main fetch retries a 503 for seventeen seconds, while a separate un-retried probe answers “is it up right now?” Same call, different question, different behaviour.',
+ w:'RL · TransportStats vs the sustained_outage incident',n:['defensive-client','dedupe-alerts','specificity','hides-its-own-failure']},
+{i:'mttd',l:'Detect in|the loop',k:'idea',d:'observe',x:2530,y:1870,t:1,p:'rl',
+ b:'Time-to-detect only means something if the timestamp is honest, so every monitor runs inside the cycle and appends the moment it fires. Nothing is reconstructed at the end. That constraint — no post-hoc log — is what makes the measurement worth quoting.',
+ w:'RL · incidents.py writes during the run, never after',n:['dedupe-alerts','judging-horizon','smoke-test','precision-recall']}
+);
+/* ── MACHINE LEARNING ────────────────────────────────────── */
+A(
+{i:'leakage',l:'Leakage: using|the future',k:'idea',d:'ml',x:4110,y:1390,t:1,p:'ep rl',
+ b:'Using at training time what will not exist at prediction time — the commonest reason a model that looked excellent is useless in production. The textbook case: a rolling mean that includes the current row’s own value. The model learns to read the answer off the feature; your validation score is magnificent; at prediction time the value does not exist yet.',
+ w:'EP · src/features/lag.py — every window is shift(1)-ed first',n:['lag-features','temporal-split','leakage-screen','point-in-time','pandas']},
+{i:'temporal-split',l:'Never shuffle|time',k:'idea',d:'ml',x:4470,y:1390,t:1,p:'ep rl',
+ b:'Random splits let a model train on Thursday and Saturday and be tested on Friday — interpolating between neighbours rather than predicting forward. Split temporally: train on the past, validate on the future. For cross-validation use the growing-window variant. Any metric from shuffled time-series data is fiction.',
+ w:'EP · df.iloc[:split] and TimeSeriesSplit throughout',n:['leakage','baseline','optuna','prospective-eval']},
+{i:'censoring',l:'“Don’t know yet”|is not “no”',k:'idea',d:'ml',x:4830,y:1390,t:1,p:'rl',
+ b:'Some rows say refunded; the rest say nothing. But an order placed yesterday has nothing to say — its 30-day window has not closed. Half your “not refunded” rows are undetermined, and training on them teaches the model that recent orders are never refunded. That is not a fact about the world; it is a fact about your calendar.',
+ w:'RL · ml.py restricts training to orders with a matured label',n:['point-in-time','bitemporal','clocks','leakage','label-maturation']},
+{i:'point-in-time',l:'Features as of|the decision',k:'idea',d:'ml',x:5190,y:1390,t:1,p:'rl',
+ b:'“How many previous refunds has this customer had?” must count only those whose knowledge time preceded the order being scored. A refund that settled afterwards cannot have informed a prediction made before it. Without a store that records when you knew things, you cannot do this at all.',
+ w:'RL · ml.featurize, label_knowledge_time <= order time',n:['bitemporal','censoring','leakage','belief','prospective-eval']},
+{i:'baseline',l:'A baseline that|is one column',k:'idea',d:'ml',x:5550,y:1390,t:1,p:'ep',
+ b:'Predict that demand equals demand at the same hour yesterday. Log it to the tracker with the same metrics as the real model. RMSE 1927 → 564 → 501 is a result; “RMSE 501” alone is not. And the table tells you more: tuning bought 11%, having a model at all bought 71%. Spend your next day accordingly.',
+ w:'EP · src/models/baseline.py — y_pred = df["demand_lag_24h"]',n:['metrics-rmse','mlflow','temporal-split','measure-it']},
+{i:'train-serve-skew',l:'One definition|of a feature',k:'idea',d:'ml',x:5910,y:1390,t:1,p:'ep',
+ b:'Features computed one way in training and slightly differently at prediction time is a leading cause of “it worked in the notebook”. The fix is boring and total: the serving path imports the same functions, and one constant defines what counts as a feature for training, serving, monitoring and the dashboard.',
+ w:'EP · NON_FEATURE_COLS, imported four places',n:['feature-set-once','leakage','duplicated-constant','fastapi']},
+{i:'lag-features',l:'Lags, rolls,|and the shift',k:'idea',d:'ml',x:4110,y:1510,t:2,p:'ep',
+ b:'The value 1, 24, 48 and 168 hours ago; means and standard deviations over the last day and week; differences. For electricity, “the same hour yesterday” and “the same hour last week” carry enormous signal, because demand follows human rhythms. Every rolling and difference feature is shifted by one first.',
+ w:'EP · src/features/lag.py, and a test asserting the exact index',n:['leakage','cyclical','pandas','isolate-the-db']},
+{i:'cyclical',l:'Put the hour|on a circle',k:'idea',d:'ml',x:4470,y:1510,t:1,p:'ep',
+ b:'Hour-of-day as an integer 0–23 tells a model that 23 and 0 are 23 apart. sin and cos of 2π·hour/24 makes them neighbours in feature space — two columns instead of one, and the same treatment works for day of week, month, wind direction, any periodic quantity.',
+ w:'EP · src/features/temporal.py',n:['lag-features','leakage','xgboost']},
+{i:'registry-as-deploy',l:'Registering|is deploying',k:'idea',d:'ml',x:4830,y:1510,t:1,p:'ep me',
+ b:'The API resolves the highest registered version at startup and loads it. Retraining therefore promotes itself with no configuration change, no file copying, no deployment step. And the version lives in the data too — predictions carry the model version that produced them, so comparison is a GROUP BY and rollback is a WHERE.',
+ w:'EP · search_model_versions then max(version)',n:['mlflow','uncertainty-travels','log-predictions','drift']},
+{i:'uncertainty-travels',l:'The model and its|error travel together',k:'idea',d:'ml',x:5190,y:1510,t:2,p:'ep',
+ b:'At startup the API also fetches that specific run’s validation error and uses it to size the interval: prediction ± 1.96 × RMSE. You cannot deploy the model without its uncertainty. EP is also honest that this assumes constant error variance, and names quantile regression as the proper fix.',
+ w:'EP · api.py _fetch_run_rmse, predict.py margin',n:['registry-as-deploy','mlflow','metrics-rmse','honest-charts']},
+{i:'drift',l:'Three kinds|of drift',k:'idea',d:'ml',x:5550,y:1510,t:1,p:'ep',
+ b:'Covariate drift: the inputs moved. Label drift: the outcomes moved. Concept drift: the relationship between them changed — the only one that really matters, and the only one you cannot see without outcomes. Which is why the honest loop starts by logging every prediction.',
+ w:'EP · src/monitoring/drift.py',n:['log-predictions','drift-reference','evidently','common-support','poisson-arithmetic']},
+{i:'log-predictions',l:'Log every|prediction',k:'idea',d:'ml',x:5910,y:1510,t:1,p:'ep rl',
+ b:'Write each served prediction to a table keyed by what it was about. When the real outcome arrives, join the two: now you have measured error rather than a proxy for it. Require a minimum number of matched pairs — 48 here — before publishing any conclusion, so you do not report on noise.',
+ w:'EP · store.log_prediction + monitor._load_matched_predictions',n:['drift','prospective-eval','aux-must-not-fail','audit-table']},
+{i:'drift-reference',l:'Pin the reference|to the training cutoff',k:'idea',d:'ml',x:4110,y:1630,t:1,p:'ep',
+ b:'Training writes the maximum data timestamp to a file. Reference is what the model was trained on; current is what arrived since. Under that definition, monitoring immediately after a retrain correctly reports no drift — which a naive “last 20% of the data” split gets wrong, and then you spend a morning explaining a false alarm.',
+ w:'EP · data/train_cutoff.txt, read by run_monitoring',n:['drift','clocks','flag-file','judging-horizon']},
+{i:'prospective-eval',l:'The holdout is|a self-report',k:'idea',d:'ml',x:4470,y:1630,t:1,p:'rl',
+ b:'Verbatim: “Not the training holdout — that is a self-report.” The honest number scores every order with the value actually written at ingest, by whichever model was live then, against the outcome that arrived weeks later. It is almost always worse than the holdout, and it is what your users experienced.',
+ w:'RL · evaluate.py, with a hand-rolled tie-aware AUC and ECE',n:['log-predictions','point-in-time','horizon','measure-it','temporal-split']},
+{i:'horizon',l:'Know the horizon|you actually serve',k:'idea',d:'ml',x:4830,y:1630,t:1,p:'ep',
+ b:'One-hour-ahead error does not transfer to a 24-hour forecast, where each prediction must be fed back as an input because tomorrow’s inputs do not exist. EP implements the recursive version honestly in a comparison script, precisely so the difference is visible rather than assumed away.',
+ w:'EP · scripts/compare_models.py',n:['prospective-eval','lag-features','metrics-rmse']},
+{i:'leakage-screen',l:'Screen for a column|that knows',k:'idea',d:'ml',x:5190,y:1630,t:2,p:'rl',
+ b:'At every retrain, measure how well each feature alone separates the outcome; anything above 0.90 is treated as leakage, reported as an incident, and dropped. An honest single feature essentially never separates a real outcome that well. And the honest footnote: it has dropped nothing, which is correct if none was injected and a miss if one was.',
+ w:'RL · ml.train(), the univariate AUC screen',n:['leakage','never-drop-a-field','state-your-gaps','precision-recall']},
+{i:'feature-set-once',l:'Define the feature|set once',k:'idea',d:'ml',x:5550,y:1630,t:1,p:'ep',
+ b:'A single constant — everything except timestamp, region and the target — imported by training, serving, monitoring and the dashboard. The counter-example to duplicated thresholds: when the consumers share a process, define it once and import it.',
+ w:'EP · NON_FEATURE_COLS in features/pipeline.py',n:['train-serve-skew','duplicated-constant','leakage']},
+{i:'flag-file',l:'A flag file as a|control channel',k:'idea',d:'ml',x:5910,y:1630,t:2,p:'ep',
+ b:'The monitoring container is built without the training libraries. So: try to import the trainer and run it; on ImportError, leave a flag file and let the shell wrapper start the training container. One function does the right thing in two environments, and an ImportError is a deliberate signal. If training fails, the flag stays so the next run retries.',
+ w:'EP · monitor.py, data/retrain_needed',n:['per-service-images','drift-reference','resume-dont-repeat','registry-as-deploy']},
+{i:'metrics-rmse',l:'RMSE, MAE,|R², MAPE',k:'idea',d:'ml',x:4110,y:1750,t:2,p:'ep',
+ b:'RMSE: typical error in the target’s own units, punishing large errors. MAE: average absolute error, kinder to outliers. R²: share of variation explained, 1.0 perfect and 0 no better than the mean. MAPE: error as a percentage — intuitive, and undefined when the truth is zero.',
+ w:'EP · src/models/evaluate.py',n:['baseline','uncertainty-travels','prospective-eval']},
+{i:'xgboost',l:'XGBoost',k:'tool',d:'ml',x:4470,y:1750,t:1,p:'ep',
+ b:'Gradient-boosted trees: many small trees, each correcting the last. On tables — as opposed to images or text — it routinely beats neural networks, trains in minutes, handles missing values, needs no scaling, and tells you which features mattered. early_stopping_rounds is the main defence against overfitting, and it costs one line.',
+ w:'EP · src/models/xgboost_model.py',n:['optuna','sklearn','cyclical','temporal-split']},
+{i:'optuna',l:'Optuna',k:'tool',d:'ml',x:4830,y:1750,t:2,p:'ep',
+ b:'Hyperparameter search that learns from its own results, finding good configurations in tens of trials where a grid over eight parameters is hopeless. The detail that matters: the objective averages error across time-ordered folds, not random ones — tuning against a shuffled split tunes for a problem you do not have.',
+ w:'EP · tune_xgboost, TimeSeriesSplit inside the objective',n:['xgboost','temporal-split','mlflow']},
+{i:'mlflow',l:'MLflow',k:'tool',d:'ml',x:5190,y:1750,t:1,p:'ep',
+ b:'Two things: experiment tracking, so every run’s parameters, metrics and artefacts are comparable months later; and a model registry of named, versioned models. It cures model_final_v2_REAL.pkl and a score on a sticky note. One warning — the file-based backend stores absolute paths and breaks the moment a second machine is involved.',
+ w:'EP · a SQLite backend with --serve-artifacts',n:['registry-as-deploy','uncertainty-travels','absolute-paths','baseline']},
+{i:'evidently',l:'Evidently',k:'tool',d:'ml',x:5550,y:1750,t:2,p:'ep',
+ b:'Given a reference dataset and a current one, it reports which features drifted, with tests and an HTML report. What it does not decide is what to compare — which is the important decision, and where a library will faithfully report nonsense if you get it wrong.',
+ w:'EP · DataDriftPreset + RegressionPreset',n:['drift','drift-reference','common-support']},
+{i:'sklearn',l:'scikit-learn',k:'tool',d:'ml',x:5910,y:1750,t:2,p:'ep rl',
+ b:'Its lasting contribution is the interface, not the algorithms: everything has fit and predict, so models are interchangeable. These projects use it for metrics, the time-ordered cross-validation splitter, and a fast built-in gradient-boosting classifier that handles missing values natively.',
+ w:'EP metrics and splitting · RL HistGradientBoostingClassifier',n:['xgboost','temporal-split','metrics-rmse']}
+);
+
+/* ── CRAFT: configuration ────────────────────────────────── */
+A(
+{i:'config-vs-state',l:'Config is not|state',k:'idea',d:'craft',x:350,y:2090,t:1,p:'de me ep rl',
+ b:'Four things people confuse. Code: logic, in version control. Configuration: values that differ per environment. Secrets: credentials, in a secret store or injected at deploy. State: where the process got to, in a database or a checkpoint. The commonest mistakes are putting secrets in code and state in configuration.',
+ w:'DE separates config/source.toml from data/source/state.pkl',n:['layered-config','secrets','positions','env-file']},
+{i:'layered-config',l:'Defaults, file,|env, argument',k:'idea',d:'craft',x:700,y:2090,t:2,p:'de me ep',
+ b:'Each layer overrides the last, and the composed result is validated once at load. That last step is the one people skip: a typo in a number should fail at startup with a clear message, not three hours later inside a loop.',
+ w:'DE · load_settings: TOML → env overrides → validate',n:['validate-config','config-vs-state','pydantic','conn-from-env']},
+{i:'validate-config',l:'Validate config|at load',k:'idea',d:'craft',x:1050,y:2090,t:1,p:'de me ep',
+ b:'Configuration is input, and input from a person is the least trustworthy kind. Parse it into a typed object with bounds — speed must be positive, a start time must carry a timezone — and let the failure happen while someone is still looking at the terminal.',
+ w:'DE · pydantic models with Field(gt=0) and a tz validator',n:['layered-config','pydantic','config-vs-state']},
+{i:'config-as-data',l:'Config as data,|seeded in',k:'idea',d:'craft',x:350,y:2210,t:1,p:'me de',
+ b:'Which newspapers to read, which candidates to track, which name variants to search for — in YAML, loaded into the database. Even a domain rule (“only count ‘Le Pen’ if ‘Marine’ also appears”) is data rather than an if-statement. Adding a candidate becomes a file edit, not a deployment.',
+ w:'ME · seeds/candidates.yaml, sources.yaml',n:['seed','delete-and-reinsert','secrets','conn-from-env']},
+{i:'delete-and-reinsert',l:'Delete and reinsert,|so removal works',k:'idea',d:'craft',x:700,y:2210,t:2,p:'me',
+ b:'The loader deletes a candidate’s aliases and re-inserts them from the file. With an upsert-only loader, a line you delete from the config lives on in the database forever and nobody can work out why. Make the file the source of truth in both directions.',
+ w:'ME · app/sources/seed.py upsert_candidates',n:['config-as-data','idempotency','upsert']},
+{i:'duplicated-constant',l:'Duplicate it, and|comment both ends',k:'idea',d:'craft',x:1050,y:2210,t:1,p:'de',
+ b:'One value — how often stations report — must be known by three runtimes that cannot import each other. So duplicate it, and comment every copy with where its twins live. If they could share a constant, define it once instead. What you must never do is duplicate it silently.',
+ w:'DE · status_interval_min in three files, plus a “change X → edit Y” table',n:['both-ends','feature-set-once','config-as-data','six-genres']},
+{i:'secrets',l:'Secrets are not|configuration',k:'idea',d:'craft',x:350,y:2330,t:2,p:'me',
+ b:'Commit a template with every key and a safe default; never commit the real file. In the cloud, prefer a secret store — and when you genuinely cannot reach one, say so out loud: ME injects database credentials as plaintext environment variables because its isolated network has no path to the secret service, and records that as an accepted trade-off.',
+ w:'ME · .env.example committed, deploy-time token injection',n:['env-file','cost-as-constraint','oidc','config-vs-state']},
+{i:'env-file',l:'A committed|template',k:'idea',d:'craft',x:700,y:2330,t:2,p:'de me ep',
+ b:'Commit .env.example with every key documented; generate .env from it on setup, filling in what is machine-specific. DE fills in your user and group ids automatically, so files the containers write into mounted directories belong to you rather than root.',
+ w:'DE · make setup generates .env from the template',n:['secrets','compose','make','config-vs-state']},
+{i:'make',l:'Make',k:'tool',d:'craft',x:1050,y:2330,t:1,p:'de me ep',
+ b:'Used here not as a build tool but as the single list of what a human can do. The idiom worth copying everywhere: a help target that greps its own file for double-hash comments and prints every target with its description — so the list cannot drift out of date.',
+ w:'DE, ME, EP · make help in all three',n:['bash-discipline','compose','six-genres','env-file']}
+);
+
+/* ── CRAFT: environments ─────────────────────────────────── */
+A(
+{i:'lockfile',l:'A lockfile, not|a wish list',k:'idea',d:'craft',x:1520,y:2090,t:1,p:'de',
+ b:'requirements.txt with >= is a wish list. A lockfile records the exact version of every package and every transitive dependency, so the same command produces an identical environment anywhere — which is the whole of “works on my machine” solved.',
+ w:'DE · one uv.lock for a workspace of several packages',n:['uv','pinning-boundaries','per-service-images','docker']},
+{i:'pinning-boundaries',l:'Pin across|the boundary',k:'idea',d:'craft',x:1920,y:2090,t:1,p:'de',
+ b:'DE pins the database library to the identical version in the scheduler’s container and in the developer’s environment, with a comment in both places saying why: the file format must match. This is the kind of coupling that produces a baffling error a month later, in a component nobody changed.',
+ w:'DE · duckdb==1.5.5 in pyproject.toml and the Airflow image',n:['lockfile','both-ends','duplicated-constant','absolute-paths']},
+{i:'containers',l:'Image, container,|volume',k:'idea',d:'craft',x:2320,y:2090,t:1,p:'de me ep',
+ b:'An image is a frozen filesystem plus a default command; a container is a disposable running instance; a volume or bind mount is storage that outlives it. Each instruction in the recipe creates a cached layer — which is why you copy dependency files and install before copying your code.',
+ w:'DE, EP · Dockerfiles with the two-stage copy',n:['docker','layer-cache','compose','per-service-images']},
+{i:'per-service-images',l:'One image|per service',k:'idea',d:'craft',x:1520,y:2210,t:1,p:'ep',
+ b:'Four images from four requirement files. The serving image excludes the tuning and monitoring libraries; the monitoring image excludes all the machine-learning ones. The obvious benefit is size. The better one: the ImportError branch in the monitoring code becomes a designed path, not an accident.',
+ w:'EP · docker/Dockerfile.{ingest,train,monitor,serve}',n:['flag-file','containers','lockfile','layer-cache']},
+{i:'layer-cache',l:'Dependencies|before code',k:'idea',d:'craft',x:1920,y:2210,t:2,p:'de ep',
+ b:'Copy the dependency descriptions, install them, and only then copy the source. Every build after the first reuses the install layer, so changing a line of code does not re-download the internet. Ordering a recipe for the cache is a five-minute change with a daily payoff.',
+ w:'DE · the two uv sync steps in source/Dockerfile',n:['containers','lockfile','docker','uv']},
+{i:'absolute-paths',l:'Absolute paths|in metadata',k:'idea',d:'craft',x:2320,y:2210,t:1,p:'ep',
+ b:'Anything that stores an absolute path in its metadata breaks the moment two machines are involved — file-based model stores, pickled objects with file references, config files containing /home/yourname/. EP’s design note works the general case: move to a database-backed store and proxy the file transfers, so no host path is ever recorded.',
+ w:'EP · STRATEGY.md',n:['mlflow','pinning-boundaries','containers','six-genres']},
+{i:'uv',l:'uv',k:'tool',d:'craft',x:1520,y:2330,t:2,p:'de',
+ b:'A fast package manager and project tool. Its workspace feature matters here: one project with several member packages and one shared lockfile, so each container installs only its own member and still runs exactly the versions the tests ran against.',
+ w:'DE · a virtual root with source/ and ingest/ as members',n:['lockfile','layer-cache','per-service-images']},
+{i:'docker',l:'Docker',k:'tool',d:'craft',x:1920,y:2330,t:1,p:'de me ep',
+ b:'Packages an application with its entire environment, so the environment stops being an undocumented property of your laptop. The cost is a build step and a layer of indirection; the benefit is that “it works here” becomes a statement about a file rather than about a machine.',
+ w:'DE, EP · service images · ME · CDK bundling',n:['containers','compose','layer-cache','cdk']},
+{i:'compose',l:'Compose',k:'tool',d:'craft',x:2320,y:2330,t:1,p:'de ep',
+ b:'Several containers and their relationships in one file. Four features carry DE: profiles for optional subsystems, health checks with ordered startup, running as your own user so mounted files are yours, and YAML anchors so four services that share an image declare it once.',
+ w:'DE · eleven services, three profiles · EP · two run modes',n:['docker','containers','env-file','make']}
+);
+
+/* ── CRAFT: testing ──────────────────────────────────────── */
+A(
+{i:'four-kinds',l:'Four kinds,|four jobs',k:'idea',d:'craft',x:2820,y:2090,t:1,p:'de me ep rl',
+ b:'Unit: one function, no I/O — logic errors. Integration: real components with fake edges — wiring errors and wrong assumptions about a library. Data tests: assertions about the data in production — the data being wrong. End-to-end: is it working right now? They catch different things, and a perfect unit suite will not tell you two components disagree about a date format.',
+ w:'all four projects build all four layers',n:['isolate-the-db','mocking-boundary','data-tests','smoke-test','unit-test-sql']},
+{i:'isolate-the-db',l:'Isolate the|database first',k:'idea',d:'craft',x:3220,y:2090,t:1,p:'de ep rl',
+ b:'Four lines that redirect the database path to a temporary file for the duration of a test, and now no test can ever touch your real data, however wrong it is. A companion fixture seeds enough synthetic history for the longest lag feature to be non-null. Write these before the first test.',
+ w:'EP · tests/conftest.py tmp_duckdb + seed_demand',n:['four-kinds','fixtures','pytest','lag-features']},
+{i:'mocking-boundary',l:'Choose the boundary,|and say why',k:'idea',d:'craft',x:3620,y:2090,t:1,p:'de ep rl',
+ b:'Mock the network and the external service; never your own data layer or your own transformations — mock a transformation and you are testing your mock. EP fakes only the model load so real feature code runs; RL fakes only the drift report so the test is about flag-writing; DE fakes the network and nothing else. Each says so in a docstring.',
+ w:'DE bridgekit.py · EP test_api.py · RL test_monitor_integration.py',n:['four-kinds','fakes-that-fail','httpx','pure-df','isolate-the-db']},
+{i:'inject-the-clock',l:'Control time,|don’t wait for it',k:'idea',d:'craft',x:2820,y:2210,t:1,p:'de',
+ b:'Pass the clock in as a callable. A fake one never moves on its own, so a test advances simulated time and lets the engine catch up synchronously: six simulated hours in milliseconds, deterministically, with no sleeping. Any component whose behaviour depends on time should take its clock as a parameter.',
+ w:'DE · source/tests/simkit.py FakeWall and run_for',n:['clocks','four-kinds','fixtures','runner-owns-clock']},
+{i:'test-the-wiring',l:'Test the wiring,|not only the units',k:'idea',d:'craft',x:3220,y:2210,t:2,p:'rl',
+ b:'Four lines of glue were extracted into a named method for one stated reason: “those four lines are the wiring, the wiring is what failed once already, and wiring you cannot call from a test is wiring you are not testing.”',
+ w:'RL · orchestrator.merge_drop_evidence',n:['four-kinds','mocking-boundary','smoke-test']},
+{i:'data-tests',l:'Assertions about|the data',k:'idea',d:'craft',x:3620,y:2210,t:1,p:'de rl',
+ b:'Not “is my function right” but “is today’s data right”: not-null keys, completeness ratios, closed-domain membership, referential integrity, non-negative amounts, and a timestamp that is not in the future. Thresholds as ratios where the baseline is legitimately noisy. They run with the pipeline, every time.',
+ w:'DE dbt tests · RL · transform.test(), 14,862 pass / 335 fail',n:['tests-as-monitors','four-kinds','quality-means','unit-test-sql']},
+{i:'pytest',l:'pytest',k:'tool',d:'craft',x:2820,y:2330,t:2,p:'de me ep rl',
+ b:'Test functions are plain functions; assertions are plain asserts. The concept that repays learning is the fixture: named setup a test requests by naming it as a parameter, with a temporary directory and reversible patching built in.',
+ w:'all four projects',n:['fixtures','isolate-the-db','four-kinds']},
+{i:'fakes-that-fail',l:'A fake that can|be told to fail',k:'idea',d:'craft',x:3220,y:2330,t:2,p:'de',
+ b:'Testing the happy path is easy. DE’s fake message producer takes a list of topics to fail on, so the interesting logic — what happens when delivery is not acknowledged and the checkpoint must not move — is actually exercised.',
+ w:'DE · ingest/tests/bridgekit.py FakeProducer(fail_topics=…)',n:['mocking-boundary','promises','positions']},
+{i:'fixtures',l:'Fixtures, and|reversible patching',k:'idea',d:'craft',x:3620,y:2330,t:2,p:'de ep rl',
+ b:'Setup as a named, composable value rather than copied boilerplate — and patching that undoes itself when the test ends, so one test cannot leak configuration into the next. A shared helper module beats a pile of near-identical setup blocks.',
+ w:'EP conftest.py · DE simkit.py, bridgekit.py',n:['pytest','isolate-the-db','inject-the-clock']}
+);
+
+/* ── CRAFT: delivery ─────────────────────────────────────── */
+A(
+{i:'ci',l:'A clean machine|runs the checks',k:'idea',d:'craft',x:4110,y:2090,t:2,p:'me ep',
+ b:'On every push, a machine that is not yours checks out the code and runs lint, type checks and tests. The value is precisely that it is not your machine: it catches everything that worked because of something only you had installed.',
+ w:'ME · ci.yml — ruff, mypy --strict, pytest',n:['unit-only-in-ci','gh-actions','four-kinds']},
+{i:'unit-only-in-ci',l:'Unit tests must not|need a database',k:'idea',d:'craft',x:4420,y:2090,t:1,p:'me',
+ b:'ME runs only the unit tests in its pipeline, and its integration tests skip themselves when the database is unreachable. A suite that cannot run without infrastructure is a suite people stop running — and a suite people stop running is worse than none, because it still looks green.',
+ w:'ME · pytest tests/unit + a socket-probe skipif',n:['ci','four-kinds','isolate-the-db']},
+{i:'oidc',l:'No long-lived|cloud keys',k:'idea',d:'craft',x:4730,y:2090,t:1,p:'me',
+ b:'Instead of storing cloud credentials as secrets, the pipeline requests a short-lived identity token, and the cloud trusts tokens that say “this repository, this branch”. A stored key is a permanent secret that can leak and must be rotated; a federated token is valid for minutes and only for the run that asked.',
+ w:'ME · deploy.yml, permissions: id-token: write',n:['secrets','gh-actions','cdk','ci']},
+{i:'two-phase-deploy',l:'Deploy in the order|the values exist',k:'idea',d:'craft',x:5040,y:2090,t:2,p:'me',
+ b:'The frontend needs the API’s address, and the address only exists after the API is deployed. So: deploy the backend, read the resulting URL from the cloud’s own outputs, build the frontend with it compiled in, deploy the frontend. An ordering constraint, visible in the workflow file, which is where it belongs.',
+ w:'ME · deploy.yml, phases 1 and 2',n:['ci','cdk','react','gh-actions']},
+{i:'iac-three-artifacts',l:'Three artefacts,|three destinations',k:'idea',d:'craft',x:4110,y:2210,t:1,p:'me',
+ b:'Your code generates a template; the template creates resources. Generating is free and local, so iterate as much as you like. The state lives in the cloud, not your laptop: deploying computes a difference against what already exists and changes only what differs.',
+ w:'ME · dev/MENTAL-MODELS.md §1',n:['cdk','logical-id-trap','cross-stack-export','docker']},
+{i:'logical-id-trap',l:'Renaming destroys|the resource',k:'idea',d:'craft',x:4420,y:2210,t:1,p:'me',
+ b:'Rename a construct in your code and its logical identifier changes, so the deployment engine concludes the old resource disappeared — and destroys and recreates it. Described in ME’s own notes as “the #1 way to accidentally drop a production database.”',
+ w:'ME · dev/MENTAL-MODELS.md, key implications',n:['iac-three-artifacts','cdk','cross-stack-export']},
+{i:'cross-stack-export',l:'An export in use|cannot change',k:'idea',d:'craft',x:4730,y:2210,t:2,p:'me',
+ b:'Changing a shared component’s identifier made the exporting stack try to update a value two other stacks were importing. It refused, rolled back, and left the consumers pinned to the old one — resolvable only by deleting the consumers first, in dependency order. The suggested fix: publish such values into a parameter store and have consumers read them.',
+ w:'ME · CHECKPOINT-2026-05-17, crisis 4',n:['iac-three-artifacts','logical-id-trap','cdk']},
+{i:'migration',l:'Migrations, and|why they exist',k:'idea',d:'craft',x:5040,y:2210,t:2,p:'me',
+ b:'Changing a schema that already holds data, reproducibly, in version control. The valuable habit it enforces is a place to write why: ME’s migration removing a uniqueness constraint explains that it collapsed the same wire story republished by several outlets into one row, and that each pick-up is a distinct data point. That reasoning would otherwise be lost.',
+ w:'ME · app/db/migrations/versions/98d3055b30f7_*.py',n:['sqlalchemy','dedup-two-counters','six-genres','build-log']},
+{i:'cost-as-constraint',l:'Cost as an|architectural constraint',k:'idea',d:'craft',x:4110,y:2330,t:1,p:'me',
+ b:'Under $5/month → no network gateway ($32) → a private network with no internet route → the fetcher must live outside it → everything touching the database inside it → the secret service unreachable at runtime ($14.60 for an endpoint) → credentials injected at deploy → a documented, accepted trade-off. Every step reasonable; the whole thing nobody would design from first principles.',
+ w:'ME · network_stack.py and the CHECKPOINT notes',n:['secrets','lambda-events','cdk','state-your-gaps']},
+{i:'gh-actions',l:'GitHub Actions',k:'tool',d:'craft',x:4420,y:2330,t:2,p:'me ep',
+ b:'Pipelines as YAML files triggered by pushes, pull requests or schedules. Two useful habits from ME: exclude documentation-only changes from the deploy trigger, and document the one-time manual cloud setup as a comment block inside the workflow file itself.',
+ w:'ME · ci.yml and deploy.yml · EP · test.yml',n:['ci','oidc','two-phase-deploy']},
+{i:'cdk',l:'AWS CDK',k:'tool',d:'craft',x:4730,y:2330,t:2,p:'me',
+ b:'Infrastructure written in a real language, generating the cloud’s native template. You get loops, functions, and the ability to pass one resource to another as an object — instead of thousands of lines of repetitive template. Seven separate stacks here, so each deploys independently.',
+ w:'ME · infra/cdk/ — network, runtime, data, ingest, api, frontend, observability',n:['iac-three-artifacts','logical-id-trap','docker','oidc']},
+{i:'sqlalchemy',l:'SQLAlchemy',k:'tool',d:'craft',x:5040,y:2330,t:2,p:'me',
+ b:'A database toolkit with two layers: composable, injection-safe SQL, and an object mapper. ME uses the mapper for row-at-a-time work and drops to raw SQL for the one genuinely analytical query — which is the right instinct, since an object mapper helps with rows and hinders with aggregates.',
+ w:'ME · app/db/models.py, two engines (async and sync)',n:['migration','postgres','sql']}
+);
+
+/* ── CRAFT: documentation ────────────────────────────────── */
+A(
+{i:'six-genres',l:'Six documents,|six jobs',k:'idea',d:'craft',x:5410,y:2090,t:1,p:'de me ep rl',
+ b:'A plan of record with the original request verbatim. A build log written during the work. A guided tour with reproducible experiments. A mental-models reference, deliberately project-independent. A focused design note on one problem. A coverage table with explicit gaps. Six genres, each doing a job the others cannot.',
+ w:'DE PLAN/logging_build/TOUR · ME MENTAL-MODELS · EP STRATEGY · RL NOTES',n:['build-log','both-ends','measure-it','failure-table','state-your-gaps']},
+{i:'both-ends',l:'Comment both ends|of every wire',k:'idea',d:'craft',x:5810,y:2090,t:1,p:'de',
+ b:'A variable set in the container configuration carries a comment; so does the line in the module that reads it. And a table saying “to change X, edit Y, and keep Z in sync”. If two places must agree, each should say so — otherwise the agreement survives only in whoever wrote it.',
+ w:'DE · PLAN.md §11 makes it a rule; TOUR.md §3 is the table',n:['duplicated-constant','pinning-boundaries','six-genres','entry-docstring']},
+{i:'build-log',l:'Write it down|while you work',k:'idea',d:'craft',x:5410,y:2210,t:1,p:'de rl me',
+ b:'A dated journal of what was built, what was measured, every deviation with its reason, and every bug at full length. RL’s says so on the first line: “Written during the run, not after it.” After the fact you write the story you wish had happened; during, you write what actually did.',
+ w:'DE logging_build.md · RL NOTES.md · ME CHECKPOINT-*.md',n:['measure-it','six-genres','failure-table','retraction']},
+{i:'failure-table',l:'Put the failures|in the docstring',k:'idea',d:'craft',x:5810,y:2210,t:2,p:'de',
+ b:'The module that handles the failures lists them: source unreachable, gap notice, source was reset, delivery not acknowledged, shutdown signal — and what it does about each. That table is the design, and it sits where the next person will be reading anyway.',
+ w:'DE · ingest/bikeshare_bridge/bridge.py docstring',n:['entry-docstring','six-genres','state-your-gaps','defensive-client']},
+{i:'measure-it',l:'Record the numbers,|including the bad ones',k:'idea',d:'craft',x:5410,y:2330,t:1,p:'de rl ep',
+ b:'“Thirty-minute windows gave 8% precision; two-hour windows gave 86%” is worth more than any prose about window sizing. So is: “I keyed everything to the start of the world without checking whether the dimension predated it. Ten seconds of curl would have shown it — and the first probe I ran did show it. I had the evidence and did not use it.”',
+ w:'DE logging_build.md tuning table · RL NOTES.md §10',n:['build-log','baseline','state-your-gaps','precision-recall','prospective-eval']},
+{i:'entry-docstring',l:'Every entry point|explains itself',k:'idea',d:'craft',x:5810,y:2330,t:2,p:'de',
+ b:'Each runnable module’s docstring states its role in the flow, what is upstream and downstream, and how to run it on its own. Three sentences, written once, and the next reader — including you in four months — starts from the middle of the system instead of the beginning.',
+ w:'DE · every __main__.py and every DAG file',n:['both-ends','six-genres','failure-table','make']}
+);
+const TRAVERSE = ['promises','clocks','keep-raw','idempotency','positions','whats-new',
+  'repair-and-record','elt','bitemporal','exactly-once-load','incremental-landing','watermark',
+  'one-query-one-sink','tests-as-monitors','specificity','no-second-name','leakage','censoring',
+  'serving-copy','measure-it'];
+
+const PROJECTS = {de:['DE','DE_pipeline_stream'],me:['ME','mediaElection27'],
+  ep:['EP','energy_predML'],rl:['RL','refund-lab-autom']};
+
+/* Landmarks: the few labels worth reading before you have zoomed in. */
+const LANDMARKS = new Set(['promises','clocks','keep-raw','idempotency','positions','belief',
+  'quality-means','whats-new','defensive-client','four-mechanisms','syntax-vs-semantics',
+  'repair-and-record','dlq','elt','bitemporal','scd2','single-writer','atomic-swap','layers',
+  'incremental-landing','window-functions','dbt','serving-copy','honest-charts','watermark',
+  'one-query-one-sink','pure-df','kafka','exactly-once-load','run-boundary','pool','data-aware',
+  'logic-out-of-orchestrator','precision-recall','specificity','tests-as-monitors','retraction',
+  'no-second-name','audit-table','leakage','censoring','point-in-time','registry-as-deploy',
+  'drift','baseline','config-as-data','four-kinds','mocking-boundary','lockfile',
+  'cost-as-constraint','six-genres','measure-it','both-ends']);
+
+/* ═══════════════════════════════════════════════════════════════════
+   RENDER
+   ═══════════════════════════════════════════════════════════════════ */
+const NS = 'http://www.w3.org/2000/svg';
+const el = (t, a = {}) => { const n = document.createElementNS(NS, t);
+  for (const k in a) n.setAttribute(k, a[k]); return n; };
+const byId = Object.fromEntries(NODES.map(n => [n.i, n]));
+const distById = Object.fromEntries(DISTRICTS.map(d => [d.i, d]));
+
+const svg = document.getElementById('atlas');
+const world = el('g', {id: 'world'});
+svg.appendChild(world);
+
+const gBands = el('g'), gDist = el('g'), gFlow = el('g'), gLinks = el('g'), gNodes = el('g');
+world.append(gBands, gDist, gFlow, gLinks, gNodes);
+
+/* strata bands */
+for (const b of BANDS) {
+  const g = el('g', {class: 'band'});
+  g.append(el('rect', {x: b.x, y: b.y, width: b.w, height: b.h, rx: 18, fill: b.f}));
+  const t = el('text', {x: b.x + 26, y: b.y + 34});
+  t.textContent = b.l; g.append(t);
+  gBands.append(g);
+}
+
+/* districts */
+for (const d of DISTRICTS) {
+  const g = el('g', {class: 'dist'});
+  g.append(el('rect', {x: d.x, y: d.y, width: d.w, height: d.h, rx: 14}));
+  const t = el('text', {class: 'dt', x: d.x + 22, y: d.y + 36}); t.textContent = d.l;
+  const s = el('text', {class: 'dg', x: d.x + 22, y: d.y + 58}); s.textContent = d.g;
+  const f = el('text', {class: 'dtfar', x: d.x + d.w / 2, y: d.y + d.h / 2 + 20});
+  f.textContent = d.l;
+  g.append(t, s, f); gDist.append(g);
+}
+for (const c of CLUSTERS) {
+  const g = el('g', {class: 'cluster'});
+  const t = el('text', {x: c.x, y: c.y}); t.textContent = c.l;
+  g.append(t, el('line', {x1: c.x, y1: c.y + 12, x2: c.x + c.w, y2: c.y + 12}));
+  gDist.append(g);
+}
+
+/* backbone flow */
+const defs = el('defs');
+const mk = el('marker', {id: 'arw', viewBox: '0 0 10 10', refX: 9, refY: 5,
+  markerWidth: 7, markerHeight: 7, orient: 'auto-start-reverse'});
+mk.append(el('path', {d: 'M0 0 L10 5 L0 10 z', fill: 'currentColor'}));
+defs.append(mk); world.append(defs);
+for (const f of FLOWS) {
+  gFlow.append(el('path', {d: f.d, class: 'flow' + (f.dash ? ' dash' : ''),
+    'marker-end': 'url(#arw)', color: 'var(--ink-3)'}));
+  if (f.l) {
+    const m = f.d.match(/M(-?\d+) (-?\d+)/);
+    const t = el('text', {class: 'flowlab', x: +m[1] + 10, y: +m[2] - 6}); t.textContent = f.l;
+    gFlow.append(t);
+  }
+}
+
+/* links (hidden until a node is selected) */
+const seen = new Set(), linkEls = new Map();
+for (const n of NODES) for (const m of (n.n || [])) {
+  if (!byId[m]) continue;
+  const key = [n.i, m].sort().join('~');
+  if (seen.has(key)) continue; seen.add(key);
+  const a = byId[n.i], b = byId[m];
+  const ln = el('line', {class: 'link', x1: a.x, y1: a.y, x2: b.x, y2: b.y});
+  gLinks.append(ln);
+  for (const id of [n.i, m]) {
+    if (!linkEls.has(id)) linkEls.set(id, []);
+    linkEls.get(id).push(ln);
+  }
+}
+const neighbours = id => {
+  const s = new Set();
+  for (const m of (byId[id].n || [])) if (byId[m]) s.add(m);
+  for (const n of NODES) if ((n.n || []).includes(id)) s.add(n.i);
+  return s;
+};
+
+/* nodes */
+const nodeEls = {};
+for (const n of NODES) {
+  const cls = ['node', n.k, 't' + n.t, ...(LANDMARKS.has(n.i) ? ['t0'] : []),
+    ...(n.p || '').split(' ').filter(Boolean).map(p => 'p-' + p)];
+  const g = el('g', {class: cls.join(' '), transform: `translate(${n.x},${n.y})`,
+    tabindex: '0', role: 'button', 'aria-label': n.l.replace(/\|/g, ' ')});
+  g.append(el('circle', {class: 'halo', r: n.k === 'rock' ? 22 : 17}));
+  if (n.k === 'tool') g.append(el('rect', {class: 'mk', x: -8, y: -8, width: 16, height: 16, rx: 4}));
+  else g.append(el('circle', {class: 'mk', r: n.k === 'rock' ? 13 : 9}));
+  const lines = n.l.split('|');
+  const top = n.k === 'rock' ? 32 : 26;
+  const t = el('text', {class: 'lab', y: top});
+  lines.forEach((s, j) => {
+    const ts = el('tspan', {x: 0, dy: j ? 17 : 0}); ts.textContent = s; t.append(ts);
+  });
+  g.append(t);
+  g.addEventListener('click', e => { e.stopPropagation(); select(n.i); });
+  g.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault(); select(n.i); } });
+  gNodes.append(g); nodeEls[n.i] = g;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   VIEW: pan, zoom, semantic tiers
+   ═══════════════════════════════════════════════════════════════════ */
+const stage = document.getElementById('stage');
+let k = 0.35, tx = 0, ty = 0;
+
+function apply() {
+  world.setAttribute('transform', `translate(${tx},${ty}) scale(${k})`);
+  stage.dataset.z = k < 0.32 ? 'far' : (k < 0.72 ? 'mid' : 'near');
+  drawViewport();
+}
+function fit(pad = 40) {
+  const r = stage.getBoundingClientRect();
+  const top = 58;
+  k = Math.min((r.width - pad * 2) / W, (r.height - top - pad * 2) / H);
+  tx = (r.width - W * k) / 2;
+  ty = top + (r.height - top - H * k) / 2;
+  apply();
+}
+function zoomAt(cx, cy, f) {
+  const nk = Math.max(0.08, Math.min(2.2, k * f));
+  tx = cx - (cx - tx) * (nk / k); ty = cy - (cy - ty) * (nk / k); k = nk; apply();
+}
+stage.addEventListener('wheel', e => {
+  e.preventDefault();
+  zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * 0.0016));
+}, {passive: false});
+
+let drag = null;
+const touches = new Map();
+let pinch = null;
+const spread = () => {
+  const [a, b] = [...touches.values()];
+  return {d: Math.hypot(a.x - b.x, a.y - b.y), cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2};
+};
+stage.addEventListener('pointerdown', e => {
+  if (e.button !== 0) return;
+  touches.set(e.pointerId, {x: e.clientX, y: e.clientY});
+  stage.setPointerCapture(e.pointerId);
+  if (touches.size === 2) { drag = null; pinch = spread(); stage.classList.remove('drag'); return; }
+  drag = {x: e.clientX, y: e.clientY, tx, ty, moved: 0};
+  stage.classList.add('drag');
+});
+stage.addEventListener('pointermove', e => {
+  if (touches.has(e.pointerId)) touches.set(e.pointerId, {x: e.clientX, y: e.clientY});
+  if (pinch && touches.size === 2) {
+    const s = spread();
+    if (pinch.d > 0) zoomAt(s.cx, s.cy, s.d / pinch.d);
+    pinch = s; return;
+  }
+  if (!drag) return;
+  const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+  drag.moved = Math.max(drag.moved, Math.abs(dx) + Math.abs(dy));
+  tx = drag.tx + dx; ty = drag.ty + dy; apply();
+});
+function endPointer(e) {
+  touches.delete(e.pointerId);
+  if (touches.size < 2) pinch = null;
+  if (drag && drag.moved < 5 && e.target.closest('.node') === null) deselect();
+  drag = null; stage.classList.remove('drag');
+}
+stage.addEventListener('pointerup', endPointer);
+stage.addEventListener('pointercancel', endPointer);
+
+/* smooth move to a world point */
+let anim = null;
+function glide(wx, wy, nk) {
+  const r = stage.getBoundingClientRect();
+  const to = {k: nk, tx: r.width / 2 - wx * nk, ty: (r.height + 58) / 2 - wy * nk};
+  const from = {k, tx, ty}, t0 = performance.now(), dur =
+    matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 520;
+  cancelAnimationFrame(anim);
+  (function step(now) {
+    const p = dur ? Math.min(1, (now - t0) / dur) : 1;
+    const e = 1 - Math.pow(1 - p, 3);
+    k = from.k + (to.k - from.k) * e;
+    tx = from.tx + (to.tx - from.tx) * e;
+    ty = from.ty + (to.ty - from.ty) * e;
+    apply();
+    if (p < 1) anim = requestAnimationFrame(step);
+  })(t0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   SELECTION + PANEL
+   ═══════════════════════════════════════════════════════════════════ */
+const pbody = document.getElementById('pbody');
+let current = null, tourAt = -1;
+
+function deselect() {
+  current = null; tourAt = -1;
+  stage.classList.remove('focused');
+  document.querySelectorAll('.node.sel').forEach(n => n.classList.remove('sel'));
+  document.querySelectorAll('.node.near').forEach(n => n.classList.remove('near'));
+  document.querySelectorAll('.link.on').forEach(l => l.classList.remove('on'));
+  orientation();
+}
+function select(id, move) {
+  const n = byId[id]; if (!n) return;
+  current = id;
+  document.querySelectorAll('.node.sel').forEach(x => x.classList.remove('sel'));
+  document.querySelectorAll('.node.near').forEach(x => x.classList.remove('near'));
+  document.querySelectorAll('.link.on').forEach(l => l.classList.remove('on'));
+  nodeEls[id].classList.add('sel');
+  neighbours(id).forEach(m => nodeEls[m] && nodeEls[m].classList.add('near'));
+  (linkEls.get(id) || []).forEach(l => l.classList.add('on'));
+  stage.classList.add('focused');
+  if (move) glide(n.x, n.y, Math.max(k, 0.78));
+  panel(n);
+}
+const esc = s => s.replace(/[&<>]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;'}[c]));
+
+function panel(n) {
+  const tags = [`<span class="tag k-${n.k}">${n.k === 'rock' ? 'bedrock' : n.k}</span>`,
+    `<span class="tag">${esc(distById[n.d].l)}</span>`,
+    ...(n.p || '').split(' ').filter(Boolean)
+      .map(p => `<span class="tag" style="color:var(--p-${p});border-color:var(--p-${p})">${PROJECTS[p][0]}</span>`)];
+  const rel = [...neighbours(n.i)].map(m =>
+    `<button data-go="${m}">${esc(byId[m].l.replace(/\|/g, ' '))}</button>`).join('');
+  const tour = tourAt >= 0 ? `<div id="tour">
+      <button data-tour="-1">◂ Prev</button><button data-tour="1">Next ▸</button>
+      <span>${tourAt + 1} / ${TRAVERSE.length}</span>
+      <button data-tour="x" style="margin-left:auto">End</button></div>` : '';
+  pbody.innerHTML = `<button id="close" aria-label="Close">×</button>
+    <h2${n.k === 'tool' ? ' class="mono"' : ''}>${esc(n.l.replace(/\|/g, ' '))}</h2>
+    <div class="meta">${tags.join('')}</div>
+    <p class="body">${esc(n.b)}</p>
+    ${n.w ? `<h3>Where to look</h3><p class="where">${esc(n.w)}</p>` : ''}
+    ${rel ? `<h3>Connects to</h3><div class="rel">${rel}</div>` : ''}
+    ${tour}`;
+}
+
+function orientation() {
+  pbody.innerHTML = `<h2>How to read this map</h2>
+    <p>Five strata, bottom to top: the seven ideas everything rests on, the engineering craft
+    around them, the machinery that drives the pipeline, the chain a record travels along, and
+    streaming as a fast path overhead. Left to right is the journey of one record.</p>
+    <p>Position carries the relationships, so the links stay hidden — <strong>select any node</strong>
+    and only its own connections light up.</p>
+    <h3>Marks</h3>
+    <div class="legend">
+      <div><span class="sw" style="background:var(--rock-soft);border:1.5px solid var(--rock)"></span>
+        Bedrock idea — the seven foundations</div>
+      <div><span class="sw" style="background:var(--idea-soft);border:1.5px solid var(--idea)"></span>
+        Idea, practice or technique</div>
+      <div><span class="sw sq" style="background:var(--tool-soft);border:1.5px solid var(--tool)"></span>
+        A tool you would actually install</div>
+    </div>
+    <h3>Controls</h3>
+    <ol>
+      <li>Drag to pan, scroll to zoom. Labels appear as you zoom in.</li>
+      <li><strong>Lens</strong> dims everything a given project does not demonstrate — the fastest way
+      to see what is shared and what is specific.</li>
+      <li><strong>Find</strong> searches names and text.</li>
+      <li><strong>Guided traverse</strong> walks twenty stops in reading order.</li>
+    </ol>
+    <h3>The four codebases</h3>
+    <div class="legend">${Object.entries(PROJECTS).map(([k2, v]) =>
+      `<div><span class="sw" style="background:var(--p-${k2})"></span>
+        <strong>${v[0]}</strong>&nbsp;·&nbsp;${v[1]}</div>`).join('')}</div>
+    <p style="margin-top:14px;font-size:12.5px">${NODES.length} nodes across
+    ${DISTRICTS.length} districts.</p>`;
+}
+
+pbody.addEventListener('click', e => {
+  const go = e.target.closest('[data-go]');
+  if (go) { tourAt = -1; select(go.dataset.go, true); return; }
+  const t = e.target.closest('[data-tour]');
+  if (t) {
+    if (t.dataset.tour === 'x') { deselect(); return; }
+    tourAt = (tourAt + (+t.dataset.tour) + TRAVERSE.length) % TRAVERSE.length;
+    select(TRAVERSE[tourAt], true); return;
+  }
+  if (e.target.closest('#close')) deselect();
+});
+document.getElementById('traverse').addEventListener('click', () => {
+  tourAt = 0; select(TRAVERSE[0], true);
+});
+
+/* ═══════════════════════════════════════════════════════════════════
+   FILTERS
+   ═══════════════════════════════════════════════════════════════════ */
+for (const id of ['all', 'idea', 'tool']) {
+  document.getElementById('k-' + id).addEventListener('click', () => {
+    stage.dataset.kind = id;
+    ['all', 'idea', 'tool'].forEach(x =>
+      document.getElementById('k-' + x).setAttribute('aria-pressed', String(x === id)));
+  });
+}
+document.querySelectorAll('[data-lens]').forEach(b => {
+  b.addEventListener('click', () => {
+    const on = b.getAttribute('aria-pressed') === 'true';
+    document.querySelectorAll('[data-lens]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    if (on) delete stage.dataset.lens;
+    else { stage.dataset.lens = b.dataset.lens; b.setAttribute('aria-pressed', 'true'); }
+  });
+});
+
+const q = document.getElementById('q');
+q.addEventListener('input', () => {
+  const v = q.value.trim().toLowerCase();
+  document.querySelectorAll('.node.hit').forEach(n => n.classList.remove('hit'));
+  if (!v) { stage.classList.remove('searching'); return; }
+  stage.classList.add('searching');
+  let first = null;
+  for (const n of NODES) {
+    const hay = (n.l + ' ' + n.b + ' ' + (n.w || '') + ' ' + n.d).toLowerCase();
+    if (hay.includes(v)) { nodeEls[n.i].classList.add('hit'); first = first || n; }
+  }
+  q.dataset.first = first ? first.i : '';
+});
+q.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && q.dataset.first) { select(q.dataset.first, true); }
+  if (e.key === 'Escape') { q.value = ''; q.dispatchEvent(new Event('input')); q.blur(); }
+});
+
+/* ═══════════════════════════════════════════════════════════════════
+   MINIMAP + ZOOM BUTTONS
+   ═══════════════════════════════════════════════════════════════════ */
+const mini = document.getElementById('minisvg');
+for (const b of BANDS)
+  mini.append(el('rect', {class: 'mb', x: b.x / 10, y: b.y / 10, width: b.w / 10,
+    height: b.h / 10, rx: 2, fill: 'var(--surface-2)'}));
+for (const d of DISTRICTS)
+  mini.append(el('rect', {class: 'md', x: d.x / 10, y: d.y / 10, width: d.w / 10,
+    height: d.h / 10, rx: 1}));
+const vp = el('rect', {class: 'vp', rx: 3}); mini.append(vp);
+function drawViewport() {
+  const r = stage.getBoundingClientRect();
+  vp.setAttribute('x', (-tx / k) / 10); vp.setAttribute('y', (-ty / k) / 10);
+  vp.setAttribute('width', (r.width / k) / 10); vp.setAttribute('height', (r.height / k) / 10);
+}
+document.getElementById('mini').addEventListener('click', e => {
+  const r = mini.getBoundingClientRect();
+  glide((e.clientX - r.left) / r.width * W, (e.clientY - r.top) / r.height * H, Math.max(k, 0.5));
+});
+document.getElementById('zin').onclick = () => {
+  const r = stage.getBoundingClientRect(); zoomAt(r.width / 2, r.height / 2, 1.35); };
+document.getElementById('zout').onclick = () => {
+  const r = stage.getBoundingClientRect(); zoomAt(r.width / 2, r.height / 2, 1 / 1.35); };
+document.getElementById('zfit').onclick = () => fit();
+
+document.addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT') return;
+  const step = 90;
+  if (e.key === 'ArrowLeft') { tx += step; apply(); }
+  else if (e.key === 'ArrowRight') { tx -= step; apply(); }
+  else if (e.key === 'ArrowUp') { ty += step; apply(); }
+  else if (e.key === 'ArrowDown') { ty -= step; apply(); }
+  else if (e.key === '+' || e.key === '=') document.getElementById('zin').click();
+  else if (e.key === '-') document.getElementById('zout').click();
+  else if (e.key === 'Escape') deselect();
+  else if (e.key === '/') { e.preventDefault(); q.focus(); }
+  else return;
+  e.preventDefault();
+});
+window.addEventListener('resize', drawViewport);
+
+orientation();
+fit();
+</script>
+
+</body>
+</html>

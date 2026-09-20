@@ -16,9 +16,12 @@ material from scratch, using the codebases as pretexts for the underlying ideas.
 | 06 | [`06-COMPANION.md`](06-COMPANION.md) | **pass 3** — Part I: the skills/idiom catalogue along the pipeline. Part II: per-project navigation charts (entry points, architecture, module map, stack, reading path) | practitioner |
 | 07 | [`07-LEARNING-GUIDE.md`](07-LEARNING-GUIDE.md) | **the verbose pass** — the ideas explained from first principles, with the four projects as worked examples. Jargon is introduced and defined as it appears | learner |
 | 08 | [`08-TOOLS-AND-CONCEPTS.md`](08-TOOLS-AND-CONCEPTS.md) | the verbose index: *what is dbt? what is a watermark?* Every tool and term, with what problem it solves and where to see it working | learner / reference |
+| 09 | [`09-pipeline-strata.html`](09-pipeline-strata.html) | **Pipeline Strata** — the whole corpus as one navigable map: 213 ideas, tools and practices on an infinite canvas, in five strata. Open it in a browser | everyone |
 
 ## Suggested order
 
+- **To get oriented in ten minutes:** open 09 in a browser, zoom out once, read the five band names,
+  then click through the guided traverse.
 - **New to the field, or to part of it:** 07 straight through, dipping into 08 whenever a name is
   unfamiliar. Then open the projects using the charts in 06 Part II.
 - **Comfortable with the stacks:** 06 Part I → 05 → then 01–04 as needed.
@@ -30,6 +33,18 @@ material from scratch, using the codebases as pretexts for the underlying ideas.
 
 Shorthand used in 05, 06 and 08: **DE** = `DE_pipeline_stream`, **ME** = `mediaElection27`,
 **EP** = `energy_predML`, **RL** = `refund-lab-autom`.
+
+## Opening the atlas (09)
+
+It is one self-contained HTML file — no build step, no server, no dependencies:
+
+```bash
+xdg-open synthesis/09-pipeline-strata.html      # or just double-click it
+```
+
+The only thing it fetches from the network is three Google fonts; offline it falls back to system
+faces and everything still works. Drag to pan, scroll to zoom, click a node for its detail and its
+links, use the lens chips to see what each project does and does not demonstrate.
 
 ## Structure of the learning guide (07)
 
