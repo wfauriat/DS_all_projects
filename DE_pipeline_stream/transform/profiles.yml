@@ -1,0 +1,18 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# transform/profiles.yml: how dbt connects to the warehouse.
+#
+# dbt finds this file because DBT_PROFILES_DIR points at this folder: set in
+# docker-compose.yml for Airflow, and by the Makefile on the host. It lives in
+# the repo, not in ~/.dbt, because it holds no secret: just a file path.
+# ─────────────────────────────────────────────────────────────────────────────
+bikeshare:
+  target: warehouse
+  outputs:
+    warehouse:
+      type: duckdb
+      # The DuckDB file. In Airflow, DUCKDB_PATH=/data/warehouse/bikeshare.duckdb.
+      # On the host, run from this folder, the default points at the same file.
+      path: "{{ env_var('DUCKDB_PATH', '../data/warehouse/bikeshare.duckdb') }}"
+      threads: 4
+      settings:
+        TimeZone: UTC # every timestamp in this pipeline is UTC

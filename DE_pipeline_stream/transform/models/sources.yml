@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Sources: the tables dbt reads but does not build. Models reach them only
+# through {{ source('raw', 'trip_events') }}, which is how dbt draws lineage
+# from raw data to the marts (`make dbt-docs`).
+# ─────────────────────────────────────────────────────────────────────────────
+sources:
+  - name: raw
+    description: >
+      The landing zone, filled by Airflow (orchestration/include/landing). Kafka
+      topics keep each message as JSON text in `value`; API datasets are typed.
+    schema: raw
+    config:
+      # `dbt source freshness`: how long ago was the latest row landed (wall clock)?
+      loaded_at_field: loaded_at
+      freshness:
+        warn_after: { count: 15, period: minute }
+        error_after: { count: 60, period: minute }
+    tables:
+      - name: trip_events
+        description: Topic bikeshare.trip-events.v1 (trip_started, trip_ended), one row per Kafka message.
+      - name: station_status
+        description: Topic bikeshare.station-status.v1, one row per Kafka message.
+      - name: dlq
+        description: Topic bikeshare.dlq.v1, events the bridge rejected, with the reason.
+        config:
+          freshness: null # dead letters are rare: silence here is good news
+      - name: alerts
+        description: Topic bikeshare.alerts.v1, what the Spark analyzer detected.
+        config:
+          freshness: null
+      - name: stations
+        description: Current snapshot of GET /v1/stations, replaced at each extract.
+        config:
+          loaded_at_field: extracted_at
+      - name: bikes
+        config:
+          loaded_at_field: extracted_at
+          freshness: null
+      - name: weather
+        config:
+          loaded_at_field: extracted_at
+          freshness: null
+      - name: fault_log
+        description: The source's ground truth, every fault it injected (GET /admin/fault-log).
+        config:
+          loaded_at_field: extracted_at
+          freshness: null
+      - name: _ingest_batches
+        description: The landing audit log, one row per landed batch.
+        config:
+          loaded_at_field: finished_at
+          freshness: null
+
+  - name: lake
+    description: >
+      Parquet written by the Spark analyzer (streaming/), read in place by DuckDB:
+      no copy, no load step. dbt-duckdb turns `external_location` into the relation.
+    config:
+      # LAKE_DIR: /data/lake in Airflow's containers; the default works from transform/ on the host.
+      external_location: "read_parquet('{{ env_var('LAKE_DIR', '../data/lake') }}/{name}/*/*.parquet', hive_partitioning = true)"
+    tables:
+      - name: station_metrics
+        description: Spark's 30-minute per-station windows (query station_metrics).

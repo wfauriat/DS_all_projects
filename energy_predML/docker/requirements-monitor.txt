@@ -1,0 +1,15 @@
+# Monitoring-only dependencies (docker monitor service).
+# Excludes all ML training, serving, and orchestration packages.
+
+# Data
+pandas>=2.1.0
+duckdb>=0.9.0
+pyarrow>=14.0.0
+
+# Monitoring
+evidently>=0.4.0
+
+# Utils
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0

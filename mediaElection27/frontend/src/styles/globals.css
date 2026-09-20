@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-feature-settings:
+    "cv11" on,
+    "ss01" on;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Subtle focus ring across the app */
+:focus-visible {
+  outline: 2px solid theme("colors.indigo.500");
+  outline-offset: 2px;
+}

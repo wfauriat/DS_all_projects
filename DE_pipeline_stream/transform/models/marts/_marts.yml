@@ -1,0 +1,70 @@
+models:
+  - name: dim_stations
+    description: Stations as they are now (the current SCD2 version), with how many versions they went through.
+    columns:
+      - name: station_id
+        data_tests: [unique, not_null]
+
+  - name: fct_trips
+    description: Completed trips (incremental on landing time, so late events are included).
+    columns:
+      - name: trip_id
+        data_tests: [unique, not_null]
+      - name: start_station_id
+        data_tests:
+          - relationships:
+              arguments: { to: ref('dim_stations'), field: station_id }
+      - name: duration_s
+        data_tests:
+          - within_range:
+              arguments: { min_value: 0 }
+
+  - name: mart_station_usage_hourly
+    description: Departures, arrivals, occupancy and weather per station per simulated hour.
+    data_tests:
+      - unique:
+          arguments: { column_name: "station_id || '|' || hour" }
+
+  - name: mart_data_quality_daily
+    description: What arrived, what was wrong with it, and who noticed, per simulated day.
+    columns:
+      - name: day
+        data_tests: [unique, not_null]
+
+  - name: mart_detection_scorecard
+    description: Precision and recall of every check against the source's ground truth.
+    # An enforced CONTRACT: dbt checks the built table has exactly these columns and types,
+    # and fails the build otherwise. Consumers of this table can rely on its shape.
+    config:
+      contract: { enforced: true }
+    columns:
+      - { name: fault_type, data_type: varchar }
+      - { name: detector, data_type: varchar }
+      - { name: check_name, data_type: varchar }
+      - { name: detections, data_type: bigint }
+      - { name: true_detections, data_type: bigint }
+      - { name: explained_by_other_faults, data_type: bigint }
+      - name: precision
+        data_type: double
+        data_tests:
+          - within_range:
+              arguments: { min_value: 0, max_value: 1 }
+      - { name: faults_judged, data_type: bigint }
+      - { name: faults_found, data_type: bigint }
+      - name: recall
+        data_type: double
+        data_tests:
+          - within_range:
+              arguments: { min_value: 0, max_value: 1 }
+
+  - name: mart_pipeline_health
+    description: Landing batches and Kafka-to-DuckDB latency per wall-clock hour.
+    columns:
+      - name: landed_hour
+        data_tests: [unique, not_null]
+
+  - name: mart_stream_vs_batch
+    description: Spark's windows vs the same windows recomputed from the batch record, per simulated day.
+    columns:
+      - name: day
+        data_tests: [unique]

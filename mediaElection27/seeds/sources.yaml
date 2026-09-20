@@ -1,0 +1,133 @@
+# French media RSS sources for the 2027 election tracker.
+# Edit and re-run `python -m app.sources.seed` to apply.
+#
+# URLs were sourced from outlet-published feed lists and the Atlas des flux RSS
+# directory; the ingest code logs and gracefully skips any feed that returns
+# 4xx/5xx or unparseable XML. Adjust feed_url here without redeploying.
+
+sources:
+  - id: 1
+    slug: lemonde-politique
+    outlet: Le Monde
+    section: politique
+    feed_url: https://www.lemonde.fr/politique/rss_full.xml
+    lean: centre-left
+
+  - id: 2
+    slug: lefigaro-politique
+    outlet: Le Figaro
+    section: politique
+    feed_url: https://www.lefigaro.fr/rss/figaro_politique.xml
+    lean: centre-right
+
+  - id: 3
+    slug: liberation-politique
+    outlet: Libération
+    section: politique
+    feed_url: https://www.liberation.fr/arc/outboundfeeds/rss/category/politique/?outputType=xml
+    lean: left
+
+  - id: 4
+    slug: mediapart
+    outlet: Mediapart
+    section: une
+    feed_url: https://www.mediapart.fr/articles/feed
+    lean: left
+
+  - id: 5
+    slug: lepoint-politique
+    outlet: Le Point
+    section: politique
+    feed_url: https://www.lepoint.fr/arc/outboundfeeds/rss/category/politique/
+    lean: centre-right
+
+  - id: 6
+    slug: lexpress-politique
+    outlet: L'Express
+    section: politique
+    feed_url: https://www.lexpress.fr/arc/outboundfeeds/rss/politique.xml
+    lean: centre
+
+  - id: 7
+    slug: franceinfo-elections
+    outlet: France Info
+    section: élections
+    feed_url: https://www.franceinfo.fr/elections.rss
+    lean: public
+
+  - id: 8
+    slug: franceinfo-politique
+    outlet: France Info
+    section: politique
+    feed_url: https://www.franceinfo.fr/politique.rss
+    lean: public
+
+  - id: 9
+    slug: bfmtv-politique
+    outlet: BFM TV
+    section: politique
+    feed_url: https://www.bfmtv.com/rss/politique/
+    lean: centre-right
+
+  # Les Échos: their edge layer (Akamai) returns 403 to all server-side IPs
+  # regardless of User-Agent. Would need a headless-browser fetcher. Disabled.
+  - id: 10
+    slug: lesechos-france
+    outlet: Les Échos
+    section: france
+    feed_url: https://syndication.lesechos.fr/rss/rss_france.xml
+    lean: centre
+    is_active: false
+
+  # La Croix has removed their public RSS feeds (/RSS/une 302s to /choix_redac/rss
+  # which is 404). Left in seeds for visibility; reactivate when an alternative
+  # ingestion route is identified.
+  - id: 11
+    slug: lacroix-une
+    outlet: La Croix
+    section: une
+    feed_url: https://www.la-croix.com/RSS/une
+    lean: centre
+    is_active: false
+
+  - id: 12
+    slug: marianne-une
+    outlet: Marianne
+    section: une
+    feed_url: https://www.marianne.net/rss.xml
+    lean: sovereigntist
+
+  - id: 13
+    slug: humanite-politique
+    outlet: L'Humanité
+    section: politique
+    feed_url: https://www.humanite.fr/sections/politique/feed
+    lean: hard-left
+
+  - id: 14
+    slug: leparisien-politique
+    outlet: Le Parisien
+    section: politique
+    feed_url: https://feeds.leparisien.fr/leparisien/rss/politique
+    lean: centre
+
+  - id: 15
+    slug: 20minutes-politique
+    outlet: 20 Minutes
+    section: politique
+    feed_url: https://www.20minutes.fr/feeds/rss-politique.xml
+    lean: centre
+
+  - id: 16
+    slug: rfi-politique-fr
+    outlet: RFI
+    section: politique française
+    feed_url: https://www.rfi.fr/fr/tag/politique-fran%C3%A7aise/rss
+    lean: public
+
+  - id: 17
+    slug: nouvelobs-politique
+    outlet: Le Nouvel Obs
+    section: politique
+    feed_url: https://www.nouvelobs.com/politique/rss.xml
+    lean: left

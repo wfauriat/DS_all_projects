@@ -1,0 +1,32 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# bikeshare-sim: the synthetic upstream system (a fictional bike-share operator).
+#
+# This is the "vendor" the pipeline consumes. It runs a simulated clock, a
+# world of stations and bikes, an event generator and a fault layer. It
+# publishes all of it over HTTP:
+#   SSE stream  GET /v1/stream      continuous events, consumed by the bridge
+#   REST        GET /v1/stations…   reference data, pulled by Airflow
+#   admin       /admin/clock…       speed, pause, fast-forward, faults
+#
+# Installed locally as a workspace member (see ../pyproject.toml). In Docker
+# it is installed alone with `uv sync --package bikeshare-sim`.
+# ─────────────────────────────────────────────────────────────────────────────
+[project]
+name = "bikeshare-sim"
+version = "0.1.0"
+description = "Synthetic bike-share source: accelerated clock, event generator, fault injection, FastAPI + SSE"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "pydantic>=2.8",
+    "numpy>=2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+# Flat layout: the package sits at source/bikeshare_sim/, not source/src/…
+module-root = ""

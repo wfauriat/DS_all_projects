@@ -1,0 +1,12 @@
+# The build context of every image is the repo root (the Dockerfiles need uv.lock).
+# Keep that context small and free of secrets: the local venv alone is ~650 MB.
+.git
+.venv
+.env
+data
+**/__pycache__
+**/.pytest_cache
+.ruff_cache
+transform/target
+transform/logs
+transform/dbt_packages

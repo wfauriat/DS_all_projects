@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: media27-postgres
+    environment:
+      POSTGRES_USER: media27
+      POSTGRES_PASSWORD: media27
+      POSTGRES_DB: media27
+      TZ: UTC
+    ports:
+      - "5432:5432"
+    volumes:
+      - media27-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U media27 -d media27"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+volumes:
+  media27-pgdata:
