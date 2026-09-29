@@ -1,0 +1,11 @@
+category_id,category_name,parent_category_id
+1,Electronics,
+2,Home,
+3,Fashion,
+4,Phones,1
+5,Laptops,1
+6,Audio,1
+7,Kitchen,2
+8,Furniture,2
+9,Shoes,3
+10,Jackets,3

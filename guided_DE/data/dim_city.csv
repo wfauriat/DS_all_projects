@@ -1,0 +1,11 @@
+city_id,city_name,country_id
+1,Paris,1
+2,Lyon,1
+3,Berlin,2
+4,Munich,2
+5,Madrid,3
+6,Barcelona,3
+7,New York,4
+8,Austin,4
+9,Toronto,5
+10,Montreal,5

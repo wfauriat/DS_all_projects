@@ -1,0 +1,1500 @@
+{"order_id": 1, "paid_at": "2025-05-28T15:06:36Z", "method": "transfer", "amount": 425.85, "card": {"brand": "amex", "last4": "5295"}}
+{"order_id": 2, "paid_at": "2025-03-03T09:35:50Z", "method": "card", "amount": 291.26, "card": null}
+{"order_id": 3, "paid_at": "2025-01-08T07:35:44Z", "method": "paypal", "amount": 2704.1, "card": {"brand": "visa", "last4": "7381"}}
+{"order_id": 4, "paid_at": "2025-06-07T11:45:45Z", "method": "paypal", "amount": 720.74, "card": {"brand": "amex", "last4": "8564"}}
+{"order_id": 5, "paid_at": "2025-01-31T20:16:39Z", "method": "card", "amount": 1219.93, "card": null}
+{"order_id": 6, "paid_at": "2025-05-09T20:49:23Z", "method": "transfer", "amount": 538.16, "card": null}
+{"order_id": 7, "paid_at": "2025-06-07T21:53:56Z", "method": "paypal", "amount": 1017.8, "card": null}
+{"order_id": 8, "paid_at": "2025-01-31T02:31:48Z", "method": "card", "amount": 1394.71, "card": {"brand": "visa", "last4": "6731"}}
+{"order_id": 9, "paid_at": "2025-05-12T08:30:46Z", "method": "transfer", "amount": 2532.06, "card": null}
+{"order_id": 10, "paid_at": "2025-01-11T03:39:31Z", "method": "paypal", "amount": 1446.6, "card": {"brand": "mc", "last4": "0872"}}
+{"order_id": 11, "paid_at": "2025-04-08T11:52:21Z", "method": "paypal", "amount": 411.0, "card": {"brand": "visa", "last4": "0627"}}
+{"order_id": 12, "paid_at": "2025-06-28T03:46:33Z", "method": "transfer", "amount": 887.55, "card": {"brand": "visa", "last4": "4720"}}
+{"order_id": 13, "paid_at": "2025-02-28T11:47:58Z", "method": "transfer", "amount": 1434.27, "card": null}
+{"order_id": 14, "paid_at": "2025-04-22T16:16:55Z", "method": "transfer", "amount": 442.52, "card": null}
+{"order_id": 15, "paid_at": "2025-01-14T03:50:30Z", "method": "card", "amount": 843.78, "card": null}
+{"order_id": 16, "paid_at": "2025-05-08T14:35:42Z", "method": "transfer", "amount": 683.54, "card": null}
+{"order_id": 17, "paid_at": "2025-01-13T06:16:11Z", "method": "card", "amount": 2179.53, "card": {"brand": "mc", "last4": "4476"}}
+{"order_id": 18, "paid_at": "2025-06-05T05:30:20Z", "method": "paypal", "amount": 1506.41, "card": null}
+{"order_id": 19, "paid_at": "2025-03-05T16:15:03Z", "method": "transfer", "amount": 283.48, "card": {"brand": "mc", "last4": "7126"}}
+{"order_id": 20, "paid_at": "2025-05-05T04:20:34Z", "method": "paypal", "amount": 3166.45, "card": {"brand": "visa", "last4": "9913"}}
+{"order_id": 21, "paid_at": "2025-05-12T20:50:30Z", "method": "transfer", "amount": 530.16, "card": null}
+{"order_id": 22, "paid_at": "2025-01-06T01:00:53Z", "method": "card", "amount": 481.18, "card": {"brand": "mc", "last4": "8047"}}
+{"order_id": 23, "paid_at": "2025-01-24T19:53:54Z", "method": "paypal", "amount": 478.08, "card": {"brand": "amex", "last4": "1063"}}
+{"order_id": 24, "paid_at": "2025-04-16T06:59:06Z", "method": "card", "amount": 660.6, "card": null}
+{"order_id": 25, "paid_at": "2025-06-03T19:30:36Z", "method": "transfer", "amount": 244.07, "card": {"brand": "amex", "last4": "6730"}}
+{"order_id": 26, "paid_at": "2025-03-21T12:10:54Z", "method": "transfer", "amount": 86.18, "card": {"brand": "visa", "last4": "2114"}}
+{"order_id": 27, "paid_at": "2025-04-08T15:38:54Z", "method": "paypal", "amount": 349.06, "card": {"brand": "amex", "last4": "4653"}}
+{"order_id": 28, "paid_at": "2025-02-18T16:15:19Z", "method": "transfer", "amount": 3031.82, "card": null}
+{"order_id": 29, "paid_at": "2025-05-29T22:32:16Z", "method": "card", "amount": 979.49, "card": {"brand": "visa", "last4": "7202"}}
+{"order_id": 30, "paid_at": "2025-04-05T00:59:25Z", "method": "card", "amount": 442.68, "card": {"brand": "amex", "last4": "9202"}}
+{"order_id": 31, "paid_at": "2025-03-03T23:39:16Z", "method": "transfer", "amount": 784.96, "card": {"brand": "visa", "last4": "5364"}}
+{"order_id": 32, "paid_at": "2025-05-21T01:01:07Z", "method": "paypal", "amount": 1618.67, "card": null}
+{"order_id": 33, "paid_at": "2025-04-07T02:25:26Z", "method": "paypal", "amount": 657.54, "card": {"brand": "amex", "last4": "4582"}}
+{"order_id": 34, "paid_at": "2025-05-13T03:18:14Z", "method": "card", "amount": 351.1, "card": null}
+{"order_id": 35, "paid_at": "2025-03-19T22:55:57Z", "method": "transfer", "amount": 714.09, "card": null}
+{"order_id": 36, "paid_at": "2025-03-03T20:47:27Z", "method": "paypal", "amount": 2958.6, "card": null}
+{"order_id": 37, "paid_at": "2025-06-02T00:43:49Z", "method": "card", "amount": 767.1, "card": {"brand": "amex", "last4": "1800"}}
+{"order_id": 38, "paid_at": "2025-01-04T16:43:16Z", "method": "transfer", "amount": 627.3, "card": {"brand": "amex", "last4": "2262"}}
+{"order_id": 39, "paid_at": "2025-02-10T06:41:56Z", "method": "paypal", "amount": 3068.1, "card": {"brand": "amex", "last4": "8011"}}
+{"order_id": 40, "paid_at": "2025-04-04T04:32:45Z", "method": "paypal", "amount": 3006.59, "card": {"brand": "amex", "last4": "7849"}}
+{"order_id": 41, "paid_at": "2025-02-09T05:50:18Z", "method": "card", "amount": 625.56, "card": null}
+{"order_id": 42, "paid_at": "2025-02-13T19:43:21Z", "method": "transfer", "amount": 668.66, "card": {"brand": "visa", "last4": "6666"}}
+{"order_id": 43, "paid_at": "2025-06-21T00:36:52Z", "method": "card", "amount": 1166.14, "card": {"brand": "visa", "last4": "8767"}}
+{"order_id": 44, "paid_at": "2025-05-21T10:25:21Z", "method": "paypal", "amount": 928.56, "card": {"brand": "visa", "last4": "4742"}}
+{"order_id": 45, "paid_at": "2025-01-02T19:18:17Z", "method": "card", "amount": 639.11, "card": null}
+{"order_id": 46, "paid_at": "2025-03-31T02:58:47Z", "method": "paypal", "amount": 1145.91, "card": null}
+{"order_id": 47, "paid_at": "2025-01-19T12:56:36Z", "method": "paypal", "amount": 923.86, "card": {"brand": "mc", "last4": "9543"}}
+{"order_id": 48, "paid_at": "2025-04-22T06:11:07Z", "method": "card", "amount": 1739.79, "card": {"brand": "mc", "last4": "6021"}}
+{"order_id": 49, "paid_at": "2025-02-12T21:31:55Z", "method": "paypal", "amount": 764.06, "card": {"brand": "amex", "last4": "3578"}}
+{"order_id": 50, "paid_at": "2025-02-18T01:35:20Z", "method": "transfer", "amount": 774.7, "card": null}
+{"order_id": 51, "paid_at": "2025-06-15T22:37:36Z", "method": "card", "amount": 754.88, "card": {"brand": "amex", "last4": "6806"}}
+{"order_id": 52, "paid_at": "2025-04-20T12:24:59Z", "method": "card", "amount": 109.08, "card": {"brand": "visa", "last4": "6941"}}
+{"order_id": 53, "paid_at": "2025-05-17T00:29:48Z", "method": "paypal", "amount": 1318.47, "card": null}
+{"order_id": 54, "paid_at": "2025-03-18T07:55:09Z", "method": "paypal", "amount": 982.0, "card": null}
+{"order_id": 55, "paid_at": "2025-02-06T14:42:57Z", "method": "transfer", "amount": 460.1, "card": {"brand": "visa", "last4": "4009"}}
+{"order_id": 56, "paid_at": "2025-01-09T14:17:29Z", "method": "transfer", "amount": 428.66, "card": {"brand": "amex", "last4": "9796"}}
+{"order_id": 57, "paid_at": "2025-05-11T14:22:32Z", "method": "card", "amount": 549.09, "card": {"brand": "amex", "last4": "2869"}}
+{"order_id": 58, "paid_at": "2025-05-12T19:35:17Z", "method": "paypal", "amount": 393.88, "card": {"brand": "mc", "last4": "6167"}}
+{"order_id": 59, "paid_at": "2025-05-27T12:08:01Z", "method": "paypal", "amount": 852.9, "card": {"brand": "amex", "last4": "8683"}}
+{"order_id": 60, "paid_at": "2025-03-17T10:33:50Z", "method": "card", "amount": 493.72, "card": null}
+{"order_id": 61, "paid_at": "2025-05-11T19:39:19Z", "method": "paypal", "amount": 615.83, "card": null}
+{"order_id": 62, "paid_at": "2025-02-28T21:27:30Z", "method": "card", "amount": 159.62, "card": {"brand": "amex", "last4": "3350"}}
+{"order_id": 63, "paid_at": "2025-06-27T16:59:54Z", "method": "transfer", "amount": 338.89, "card": {"brand": "mc", "last4": "1615"}}
+{"order_id": 64, "paid_at": "2025-04-02T04:23:02Z", "method": "card", "amount": 782.68, "card": null}
+{"order_id": 65, "paid_at": "2025-04-24T10:03:09Z", "method": "transfer", "amount": 823.04, "card": {"brand": "amex", "last4": "5530"}}
+{"order_id": 66, "paid_at": "2025-05-29T05:36:06Z", "method": "transfer", "amount": 3028.94, "card": null}
+{"order_id": 67, "paid_at": "2025-01-30T07:51:57Z", "method": "card", "amount": 949.99, "card": {"brand": "mc", "last4": "8777"}}
+{"order_id": 68, "paid_at": "2025-01-04T08:02:25Z", "method": "paypal", "amount": 1302.45, "card": null}
+{"order_id": 69, "paid_at": "2025-03-31T03:34:04Z", "method": "transfer", "amount": 2690.06, "card": {"brand": "visa", "last4": "3463"}}
+{"order_id": 70, "paid_at": "2025-06-22T08:40:10Z", "method": "card", "amount": 211.39, "card": null}
+{"order_id": 71, "paid_at": "2025-01-04T01:20:19Z", "method": "transfer", "amount": 516.73, "card": null}
+{"order_id": 72, "paid_at": "2025-05-24T15:33:44Z", "method": "transfer", "amount": 5077.78, "card": {"brand": "mc", "last4": "1404"}}
+{"order_id": 73, "paid_at": "2025-05-01T03:02:32Z", "method": "transfer", "amount": 484.21, "card": null}
+{"order_id": 74, "paid_at": "2025-01-21T17:01:47Z", "method": "paypal", "amount": 487.04, "card": null}
+{"order_id": 75, "paid_at": "2025-03-17T07:21:36Z", "method": "card", "amount": 2210.03, "card": null}
+{"order_id": 76, "paid_at": "2025-03-23T18:39:44Z", "method": "transfer", "amount": 309.21, "card": null}
+{"order_id": 77, "paid_at": "2025-03-27T12:01:15Z", "method": "card", "amount": 964.16, "card": null}
+{"order_id": 78, "paid_at": "2025-06-08T13:33:24Z", "method": "transfer", "amount": 130.59, "card": null}
+{"order_id": 79, "paid_at": "2025-03-31T15:40:55Z", "method": "paypal", "amount": 11.76, "card": null}
+{"order_id": 80, "paid_at": "2025-02-17T00:13:01Z", "method": "paypal", "amount": 792.47, "card": {"brand": "amex", "last4": "6853"}}
+{"order_id": 81, "paid_at": "2025-01-08T03:45:17Z", "method": "card", "amount": 617.58, "card": {"brand": "mc", "last4": "2725"}}
+{"order_id": 82, "paid_at": "2025-04-29T23:18:09Z", "method": "paypal", "amount": 1726.85, "card": null}
+{"order_id": 83, "paid_at": "2025-06-28T18:20:44Z", "method": "paypal", "amount": 536.98, "card": null}
+{"order_id": 84, "paid_at": "2025-03-27T02:21:04Z", "method": "card", "amount": 186.04, "card": {"brand": "visa", "last4": "3996"}}
+{"order_id": 85, "paid_at": "2025-02-03T21:06:39Z", "method": "transfer", "amount": 1294.47, "card": {"brand": "mc", "last4": "0478"}}
+{"order_id": 86, "paid_at": "2025-04-30T06:22:44Z", "method": "card", "amount": 379.69, "card": {"brand": "amex", "last4": "3063"}}
+{"order_id": 87, "paid_at": "2025-03-05T07:24:59Z", "method": "transfer", "amount": 1244.11, "card": null}
+{"order_id": 88, "paid_at": "2025-03-09T13:45:46Z", "method": "card", "amount": 452.97, "card": {"brand": "mc", "last4": "1931"}}
+{"order_id": 89, "paid_at": "2025-03-01T07:24:26Z", "method": "card", "amount": 396.36, "card": {"brand": "amex", "last4": "2838"}}
+{"order_id": 90, "paid_at": "2025-02-02T09:54:58Z", "method": "card", "amount": 178.26, "card": null}
+{"order_id": 91, "paid_at": "2025-04-20T01:12:43Z", "method": "transfer", "amount": 378.99, "card": null}
+{"order_id": 92, "paid_at": "2025-02-12T20:02:31Z", "method": "transfer", "amount": 378.57, "card": null}
+{"order_id": 93, "paid_at": "2025-02-22T00:55:10Z", "method": "card", "amount": 878.52, "card": {"brand": "visa", "last4": "3882"}}
+{"order_id": 94, "paid_at": "2025-06-07T10:17:54Z", "method": "transfer", "amount": 689.42, "card": {"brand": "mc", "last4": "4794"}}
+{"order_id": 95, "paid_at": "2025-04-22T05:21:28Z", "method": "paypal", "amount": 1541.11, "card": null}
+{"order_id": 96, "paid_at": "2025-02-22T04:35:45Z", "method": "transfer", "amount": 699.66, "card": null}
+{"order_id": 97, "paid_at": "2025-03-30T07:17:07Z", "method": "transfer", "amount": 885.22, "card": {"brand": "mc", "last4": "1037"}}
+{"order_id": 98, "paid_at": "2025-03-19T05:48:25Z", "method": "card", "amount": 176.33, "card": {"brand": "mc", "last4": "5631"}}
+{"order_id": 99, "paid_at": "2025-05-29T00:36:40Z", "method": "paypal", "amount": 339.56, "card": null}
+{"order_id": 100, "paid_at": "2025-02-09T07:17:16Z", "method": "card", "amount": 1251.43, "card": {"brand": "visa", "last4": "1559"}}
+{"order_id": 101, "paid_at": "2025-02-11T10:47:53Z", "method": "card", "amount": 809.9, "card": {"brand": "mc", "last4": "2165"}}
+{"order_id": 102, "paid_at": "2025-01-14T18:18:01Z", "method": "card", "amount": 116.12, "card": {"brand": "amex", "last4": "2340"}}
+{"order_id": 103, "paid_at": "2025-04-14T00:25:51Z", "method": "card", "amount": 569.42, "card": {"brand": "mc", "last4": "5759"}}
+{"order_id": 104, "paid_at": "2025-03-03T01:51:35Z", "method": "transfer", "amount": 504.06, "card": null}
+{"order_id": 105, "paid_at": "2025-06-20T01:47:01Z", "method": "paypal", "amount": 1318.52, "card": {"brand": "visa", "last4": "8655"}}
+{"order_id": 106, "paid_at": "2025-03-12T03:15:22Z", "method": "paypal", "amount": 820.38, "card": {"brand": "visa", "last4": "0273"}}
+{"order_id": 107, "paid_at": "2025-01-14T03:06:28Z", "method": "transfer", "amount": 183.18, "card": {"brand": "mc", "last4": "6590"}}
+{"order_id": 108, "paid_at": "2025-05-05T09:29:12Z", "method": "transfer", "amount": 1001.17, "card": null}
+{"order_id": 109, "paid_at": "2025-03-26T23:05:57Z", "method": "paypal", "amount": 2111.22, "card": {"brand": "amex", "last4": "4247"}}
+{"order_id": 110, "paid_at": "2025-03-14T05:25:13Z", "method": "transfer", "amount": 2746.52, "card": {"brand": "mc", "last4": "7457"}}
+{"order_id": 111, "paid_at": "2025-03-11T22:29:56Z", "method": "paypal", "amount": 1855.25, "card": {"brand": "visa", "last4": "0579"}}
+{"order_id": 112, "paid_at": "2025-06-05T23:16:21Z", "method": "card", "amount": 1652.5, "card": null}
+{"order_id": 113, "paid_at": "2025-01-09T22:20:33Z", "method": "paypal", "amount": 149.28, "card": null}
+{"order_id": 114, "paid_at": "2025-02-26T15:19:53Z", "method": "transfer", "amount": 309.96, "card": {"brand": "visa", "last4": "2466"}}
+{"order_id": 115, "paid_at": "2025-03-21T15:11:24Z", "method": "card", "amount": 1094.45, "card": {"brand": "visa", "last4": "2332"}}
+{"order_id": 116, "paid_at": "2025-02-24T08:12:49Z", "method": "paypal", "amount": 1556.47, "card": null}
+{"order_id": 117, "paid_at": "2025-06-29T19:44:05Z", "method": "card", "amount": 952.92, "card": {"brand": "mc", "last4": "6660"}}
+{"order_id": 118, "paid_at": "2025-04-15T01:37:21Z", "method": "card", "amount": 1587.02, "card": {"brand": "mc", "last4": "2430"}}
+{"order_id": 119, "paid_at": "2025-05-19T02:15:01Z", "method": "paypal", "amount": 563.93, "card": {"brand": "amex", "last4": "9013"}}
+{"order_id": 120, "paid_at": "2025-01-19T09:28:06Z", "method": "card", "amount": 2201.0, "card": null}
+{"order_id": 121, "paid_at": "2025-03-28T02:47:23Z", "method": "card", "amount": 1116.92, "card": null}
+{"order_id": 122, "paid_at": "2025-03-26T02:48:18Z", "method": "paypal", "amount": 265.28, "card": {"brand": "visa", "last4": "0567"}}
+{"order_id": 123, "paid_at": "2025-05-01T05:42:18Z", "method": "transfer", "amount": 1414.08, "card": {"brand": "amex", "last4": "0319"}}
+{"order_id": 124, "paid_at": "2025-06-01T20:08:29Z", "method": "card", "amount": 193.3, "card": null}
+{"order_id": 125, "paid_at": "2025-02-12T13:01:29Z", "method": "paypal", "amount": 3318.9, "card": null}
+{"order_id": 126, "paid_at": "2025-02-04T05:04:13Z", "method": "paypal", "amount": 434.84, "card": {"brand": "amex", "last4": "2328"}}
+{"order_id": 127, "paid_at": "2025-02-06T13:19:56Z", "method": "paypal", "amount": 1174.08, "card": null}
+{"order_id": 128, "paid_at": "2025-04-24T22:10:48Z", "method": "transfer", "amount": 264.34, "card": null}
+{"order_id": 129, "paid_at": "2025-03-07T08:50:17Z", "method": "paypal", "amount": 570.86, "card": null}
+{"order_id": 130, "paid_at": "2025-05-15T16:32:32Z", "method": "paypal", "amount": 860.59, "card": {"brand": "amex", "last4": "0530"}}
+{"order_id": 131, "paid_at": "2025-04-27T23:44:04Z", "method": "paypal", "amount": 1877.9, "card": {"brand": "mc", "last4": "3435"}}
+{"order_id": 132, "paid_at": "2025-05-15T14:32:04Z", "method": "paypal", "amount": 257.0, "card": {"brand": "mc", "last4": "5754"}}
+{"order_id": 133, "paid_at": "2025-03-14T21:17:47Z", "method": "card", "amount": 416.4, "card": null}
+{"order_id": 134, "paid_at": "2025-02-20T17:25:35Z", "method": "card", "amount": 619.66, "card": null}
+{"order_id": 135, "paid_at": "2025-06-23T10:55:08Z", "method": "card", "amount": 592.93, "card": {"brand": "mc", "last4": "9078"}}
+{"order_id": 136, "paid_at": "2025-06-29T17:56:08Z", "method": "paypal", "amount": 278.48, "card": null}
+{"order_id": 137, "paid_at": "2025-01-01T17:53:54Z", "method": "card", "amount": 243.41, "card": {"brand": "visa", "last4": "7758"}}
+{"order_id": 138, "paid_at": "2025-03-01T21:13:51Z", "method": "paypal", "amount": 278.31, "card": null}
+{"order_id": 139, "paid_at": "2025-01-09T16:17:47Z", "method": "card", "amount": 1327.07, "card": null}
+{"order_id": 140, "paid_at": "2025-06-06T22:45:33Z", "method": "transfer", "amount": 2580.09, "card": null}
+{"order_id": 141, "paid_at": "2025-03-29T04:57:36Z", "method": "paypal", "amount": 1148.97, "card": {"brand": "visa", "last4": "9626"}}
+{"order_id": 142, "paid_at": "2025-06-01T19:25:09Z", "method": "card", "amount": 431.17, "card": {"brand": "visa", "last4": "4687"}}
+{"order_id": 143, "paid_at": "2025-06-20T21:52:48Z", "method": "paypal", "amount": 330.32, "card": null}
+{"order_id": 144, "paid_at": "2025-05-13T05:05:04Z", "method": "paypal", "amount": 1628.0, "card": {"brand": "visa", "last4": "5535"}}
+{"order_id": 145, "paid_at": "2025-03-02T09:31:43Z", "method": "paypal", "amount": 216.21, "card": {"brand": "mc", "last4": "4414"}}
+{"order_id": 146, "paid_at": "2025-03-22T22:46:06Z", "method": "paypal", "amount": 263.5, "card": {"brand": "amex", "last4": "2604"}}
+{"order_id": 147, "paid_at": "2025-03-02T10:03:19Z", "method": "card", "amount": 771.96, "card": {"brand": "visa", "last4": "0541"}}
+{"order_id": 148, "paid_at": "2025-01-10T19:43:23Z", "method": "paypal", "amount": 1553.28, "card": {"brand": "mc", "last4": "5640"}}
+{"order_id": 149, "paid_at": "2025-06-12T16:06:58Z", "method": "card", "amount": 1300.25, "card": null}
+{"order_id": 150, "paid_at": "2025-04-10T16:26:50Z", "method": "transfer", "amount": 1151.48, "card": {"brand": "mc", "last4": "6168"}}
+{"order_id": 151, "paid_at": "2025-03-31T03:22:08Z", "method": "transfer", "amount": 171.5, "card": {"brand": "mc", "last4": "9198"}}
+{"order_id": 152, "paid_at": "2025-04-26T07:38:50Z", "method": "paypal", "amount": 287.67, "card": null}
+{"order_id": 153, "paid_at": "2025-06-23T06:58:47Z", "method": "transfer", "amount": 1515.49, "card": null}
+{"order_id": 154, "paid_at": "2025-05-21T01:44:24Z", "method": "transfer", "amount": 758.08, "card": {"brand": "visa", "last4": "5622"}}
+{"order_id": 155, "paid_at": "2025-05-19T12:48:30Z", "method": "card", "amount": 685.1, "card": {"brand": "amex", "last4": "9159"}}
+{"order_id": 156, "paid_at": "2025-06-27T05:18:22Z", "method": "paypal", "amount": 749.89, "card": {"brand": "mc", "last4": "0879"}}
+{"order_id": 157, "paid_at": "2025-04-24T07:46:17Z", "method": "paypal", "amount": 828.75, "card": {"brand": "amex", "last4": "7496"}}
+{"order_id": 158, "paid_at": "2025-03-03T10:29:13Z", "method": "card", "amount": 465.72, "card": {"brand": "visa", "last4": "2762"}}
+{"order_id": 159, "paid_at": "2025-05-29T10:52:08Z", "method": "transfer", "amount": 1161.06, "card": null}
+{"order_id": 160, "paid_at": "2025-06-23T05:18:03Z", "method": "transfer", "amount": 1016.19, "card": {"brand": "amex", "last4": "5535"}}
+{"order_id": 161, "paid_at": "2025-06-22T10:16:32Z", "method": "card", "amount": 570.32, "card": null}
+{"order_id": 162, "paid_at": "2025-02-11T00:33:04Z", "method": "card", "amount": 1206.24, "card": {"brand": "amex", "last4": "0323"}}
+{"order_id": 163, "paid_at": "2025-05-14T22:50:00Z", "method": "transfer", "amount": 361.42, "card": null}
+{"order_id": 164, "paid_at": "2025-05-09T11:50:49Z", "method": "card", "amount": 577.14, "card": {"brand": "mc", "last4": "8571"}}
+{"order_id": 165, "paid_at": "2025-03-11T12:13:11Z", "method": "card", "amount": 721.21, "card": null}
+{"order_id": 166, "paid_at": "2025-01-18T07:13:59Z", "method": "card", "amount": 4377.31, "card": {"brand": "mc", "last4": "5901"}}
+{"order_id": 167, "paid_at": "2025-03-02T17:40:14Z", "method": "card", "amount": 840.7, "card": null}
+{"order_id": 168, "paid_at": "2025-05-01T18:10:50Z", "method": "card", "amount": 848.48, "card": null}
+{"order_id": 169, "paid_at": "2025-05-22T01:35:16Z", "method": "paypal", "amount": 2150.61, "card": null}
+{"order_id": 170, "paid_at": "2025-03-27T14:04:15Z", "method": "transfer", "amount": 74.77, "card": {"brand": "amex", "last4": "5542"}}
+{"order_id": 171, "paid_at": "2025-04-12T13:52:14Z", "method": "card", "amount": 797.6, "card": {"brand": "visa", "last4": "8283"}}
+{"order_id": 172, "paid_at": "2025-06-15T10:17:26Z", "method": "card", "amount": 439.53, "card": {"brand": "mc", "last4": "6607"}}
+{"order_id": 173, "paid_at": "2025-01-16T07:43:37Z", "method": "paypal", "amount": 948.44, "card": {"brand": "amex", "last4": "3389"}}
+{"order_id": 174, "paid_at": "2025-05-11T09:42:50Z", "method": "transfer", "amount": 59.09, "card": {"brand": "amex", "last4": "5952"}}
+{"order_id": 175, "paid_at": "2025-03-29T21:13:14Z", "method": "card", "amount": 1276.36, "card": {"brand": "amex", "last4": "6704"}}
+{"order_id": 176, "paid_at": "2025-02-19T09:27:26Z", "method": "paypal", "amount": 302.32, "card": null}
+{"order_id": 177, "paid_at": "2025-01-10T01:07:26Z", "method": "card", "amount": 2281.49, "card": {"brand": "visa", "last4": "2103"}}
+{"order_id": 178, "paid_at": "2025-03-17T05:41:27Z", "method": "card", "amount": 2213.97, "card": null}
+{"order_id": 179, "paid_at": "2025-05-16T22:40:10Z", "method": "paypal", "amount": 636.57, "card": {"brand": "visa", "last4": "2913"}}
+{"order_id": 180, "paid_at": "2025-04-16T08:34:36Z", "method": "paypal", "amount": 199.71, "card": {"brand": "amex", "last4": "4684"}}
+{"order_id": 181, "paid_at": "2025-06-06T23:08:23Z", "method": "transfer", "amount": 616.97, "card": null}
+{"order_id": 182, "paid_at": "2025-05-15T02:48:18Z", "method": "transfer", "amount": 242.07, "card": {"brand": "amex", "last4": "9195"}}
+{"order_id": 183, "paid_at": "2025-02-16T03:18:30Z", "method": "card", "amount": 1166.01, "card": {"brand": "visa", "last4": "7259"}}
+{"order_id": 184, "paid_at": "2025-06-26T23:53:03Z", "method": "card", "amount": 1476.16, "card": {"brand": "amex", "last4": "8418"}}
+{"order_id": 185, "paid_at": "2025-03-15T06:07:16Z", "method": "transfer", "amount": 386.5, "card": {"brand": "visa", "last4": "2518"}}
+{"order_id": 186, "paid_at": "2025-04-26T21:57:50Z", "method": "paypal", "amount": 1387.02, "card": null}
+{"order_id": 187, "paid_at": "2025-06-21T13:13:37Z", "method": "transfer", "amount": 7.81, "card": null}
+{"order_id": 188, "paid_at": "2025-03-09T04:47:39Z", "method": "transfer", "amount": 2102.74, "card": {"brand": "visa", "last4": "4856"}}
+{"order_id": 189, "paid_at": "2025-02-07T09:31:21Z", "method": "card", "amount": 361.81, "card": null}
+{"order_id": 190, "paid_at": "2025-05-31T05:31:16Z", "method": "card", "amount": 826.94, "card": null}
+{"order_id": 191, "paid_at": "2025-03-06T10:24:20Z", "method": "paypal", "amount": 489.0, "card": {"brand": "mc", "last4": "6626"}}
+{"order_id": 192, "paid_at": "2025-03-03T10:37:02Z", "method": "paypal", "amount": 746.05, "card": {"brand": "mc", "last4": "9937"}}
+{"order_id": 193, "paid_at": "2025-02-24T16:02:58Z", "method": "transfer", "amount": 534.24, "card": null}
+{"order_id": 194, "paid_at": "2025-02-27T06:53:57Z", "method": "card", "amount": 292.7, "card": {"brand": "amex", "last4": "2316"}}
+{"order_id": 195, "paid_at": "2025-01-09T02:45:37Z", "method": "card", "amount": 1128.1, "card": null}
+{"order_id": 196, "paid_at": "2025-06-12T02:27:33Z", "method": "transfer", "amount": 1324.4, "card": {"brand": "mc", "last4": "1103"}}
+{"order_id": 197, "paid_at": "2025-01-20T01:59:22Z", "method": "transfer", "amount": 487.66, "card": null}
+{"order_id": 198, "paid_at": "2025-01-30T14:35:43Z", "method": "transfer", "amount": 243.84, "card": {"brand": "mc", "last4": "5889"}}
+{"order_id": 199, "paid_at": "2025-05-12T23:07:23Z", "method": "transfer", "amount": 1522.56, "card": null}
+{"order_id": 200, "paid_at": "2025-06-14T23:39:49Z", "method": "paypal", "amount": 316.18, "card": {"brand": "amex", "last4": "7734"}}
+{"order_id": 201, "paid_at": "2025-05-31T12:57:51Z", "method": "transfer", "amount": 602.76, "card": null}
+{"order_id": 202, "paid_at": "2025-04-08T12:31:08Z", "method": "card", "amount": 375.18, "card": null}
+{"order_id": 203, "paid_at": "2025-05-09T01:13:19Z", "method": "card", "amount": 515.1, "card": null}
+{"order_id": 204, "paid_at": "2025-01-09T07:51:06Z", "method": "paypal", "amount": 766.13, "card": {"brand": "mc", "last4": "9480"}}
+{"order_id": 205, "paid_at": "2025-04-21T17:24:20Z", "method": "paypal", "amount": 2237.46, "card": {"brand": "visa", "last4": "8222"}}
+{"order_id": 206, "paid_at": "2025-03-27T10:27:35Z", "method": "card", "amount": 463.85, "card": {"brand": "mc", "last4": "5410"}}
+{"order_id": 207, "paid_at": "2025-01-23T00:13:47Z", "method": "card", "amount": 819.85, "card": {"brand": "visa", "last4": "2207"}}
+{"order_id": 208, "paid_at": "2025-04-10T13:27:19Z", "method": "paypal", "amount": 1281.56, "card": {"brand": "visa", "last4": "7359"}}
+{"order_id": 209, "paid_at": "2025-04-02T13:16:45Z", "method": "transfer", "amount": 367.16, "card": {"brand": "visa", "last4": "5614"}}
+{"order_id": 210, "paid_at": "2025-04-26T20:24:49Z", "method": "paypal", "amount": 264.74, "card": {"brand": "amex", "last4": "1577"}}
+{"order_id": 211, "paid_at": "2025-04-03T10:11:40Z", "method": "transfer", "amount": 761.97, "card": {"brand": "amex", "last4": "6892"}}
+{"order_id": 212, "paid_at": "2025-06-19T21:03:36Z", "method": "paypal", "amount": 116.41, "card": {"brand": "visa", "last4": "1373"}}
+{"order_id": 213, "paid_at": "2025-04-27T04:31:39Z", "method": "card", "amount": 362.88, "card": {"brand": "mc", "last4": "3365"}}
+{"order_id": 214, "paid_at": "2025-06-06T04:28:59Z", "method": "transfer", "amount": 796.38, "card": null}
+{"order_id": 215, "paid_at": "2025-05-13T04:07:08Z", "method": "paypal", "amount": 1111.55, "card": {"brand": "amex", "last4": "5641"}}
+{"order_id": 216, "paid_at": "2025-05-17T23:56:35Z", "method": "card", "amount": 349.96, "card": null}
+{"order_id": 217, "paid_at": "2025-06-02T15:38:12Z", "method": "card", "amount": 881.12, "card": null}
+{"order_id": 218, "paid_at": "2025-03-14T00:36:01Z", "method": "transfer", "amount": 638.32, "card": null}
+{"order_id": 219, "paid_at": "2025-06-09T06:39:34Z", "method": "card", "amount": 792.86, "card": {"brand": "amex", "last4": "8451"}}
+{"order_id": 220, "paid_at": "2025-02-14T23:58:53Z", "method": "card", "amount": 842.67, "card": {"brand": "amex", "last4": "1124"}}
+{"order_id": 221, "paid_at": "2025-04-17T17:27:14Z", "method": "paypal", "amount": 1382.89, "card": {"brand": "amex", "last4": "4222"}}
+{"order_id": 222, "paid_at": "2025-06-07T21:57:28Z", "method": "paypal", "amount": 835.29, "card": {"brand": "amex", "last4": "0448"}}
+{"order_id": 223, "paid_at": "2025-01-23T14:04:58Z", "method": "paypal", "amount": 583.83, "card": {"brand": "visa", "last4": "4314"}}
+{"order_id": 224, "paid_at": "2025-02-25T19:13:59Z", "method": "card", "amount": 228.66, "card": {"brand": "visa", "last4": "3847"}}
+{"order_id": 225, "paid_at": "2025-02-17T00:07:54Z", "method": "card", "amount": 1299.88, "card": {"brand": "amex", "last4": "8071"}}
+{"order_id": 226, "paid_at": "2025-01-02T07:01:06Z", "method": "paypal", "amount": 1685.03, "card": null}
+{"order_id": 227, "paid_at": "2025-01-25T22:03:10Z", "method": "card", "amount": 817.23, "card": null}
+{"order_id": 228, "paid_at": "2025-03-15T16:31:45Z", "method": "transfer", "amount": 269.0, "card": null}
+{"order_id": 229, "paid_at": "2025-04-07T20:45:12Z", "method": "card", "amount": 496.4, "card": {"brand": "amex", "last4": "3744"}}
+{"order_id": 230, "paid_at": "2025-05-20T23:19:36Z", "method": "paypal", "amount": 1060.91, "card": {"brand": "visa", "last4": "6906"}}
+{"order_id": 231, "paid_at": "2025-01-27T03:05:00Z", "method": "paypal", "amount": 2551.36, "card": null}
+{"order_id": 232, "paid_at": "2025-04-19T19:40:13Z", "method": "card", "amount": 1293.29, "card": null}
+{"order_id": 233, "paid_at": "2025-04-01T01:33:28Z", "method": "paypal", "amount": 324.77, "card": {"brand": "visa", "last4": "1296"}}
+{"order_id": 234, "paid_at": "2025-03-08T17:49:39Z", "method": "paypal", "amount": 747.53, "card": {"brand": "amex", "last4": "7377"}}
+{"order_id": 235, "paid_at": "2025-02-02T11:48:32Z", "method": "card", "amount": 424.21, "card": null}
+{"order_id": 236, "paid_at": "2025-01-19T13:23:45Z", "method": "card", "amount": 1847.49, "card": {"brand": "visa", "last4": "0468"}}
+{"order_id": 237, "paid_at": "2025-05-09T20:35:47Z", "method": "transfer", "amount": 1397.95, "card": {"brand": "amex", "last4": "5073"}}
+{"order_id": 238, "paid_at": "2025-04-04T12:49:34Z", "method": "card", "amount": 642.49, "card": {"brand": "mc", "last4": "9781"}}
+{"order_id": 239, "paid_at": "2025-06-04T17:36:18Z", "method": "transfer", "amount": 1062.26, "card": null}
+{"order_id": 240, "paid_at": "2025-02-12T20:24:06Z", "method": "paypal", "amount": 760.1, "card": null}
+{"order_id": 241, "paid_at": "2025-04-14T07:22:23Z", "method": "paypal", "amount": 20.85, "card": null}
+{"order_id": 242, "paid_at": "2025-04-06T13:01:03Z", "method": "card", "amount": 1219.8, "card": {"brand": "amex", "last4": "0134"}}
+{"order_id": 243, "paid_at": "2025-01-18T12:35:54Z", "method": "transfer", "amount": 199.44, "card": {"brand": "mc", "last4": "1314"}}
+{"order_id": 244, "paid_at": "2025-01-29T09:02:07Z", "method": "paypal", "amount": 1106.05, "card": null}
+{"order_id": 245, "paid_at": "2025-02-08T16:44:43Z", "method": "transfer", "amount": 3350.83, "card": {"brand": "mc", "last4": "7884"}}
+{"order_id": 246, "paid_at": "2025-02-28T00:57:11Z", "method": "transfer", "amount": 2016.2, "card": null}
+{"order_id": 247, "paid_at": "2025-01-18T09:02:23Z", "method": "card", "amount": 316.03, "card": null}
+{"order_id": 248, "paid_at": "2025-05-17T04:51:33Z", "method": "paypal", "amount": 379.23, "card": {"brand": "visa", "last4": "6189"}}
+{"order_id": 249, "paid_at": "2025-05-21T15:59:41Z", "method": "transfer", "amount": 1016.2, "card": null}
+{"order_id": 250, "paid_at": "2025-06-09T03:06:02Z", "method": "paypal", "amount": 828.72, "card": {"brand": "visa", "last4": "5254"}}
+{"order_id": 251, "paid_at": "2025-01-13T07:28:38Z", "method": "transfer", "amount": 632.7, "card": null}
+{"order_id": 252, "paid_at": "2025-02-04T16:53:01Z", "method": "paypal", "amount": 297.84, "card": {"brand": "amex", "last4": "9671"}}
+{"order_id": 253, "paid_at": "2025-01-10T13:14:20Z", "method": "paypal", "amount": 1856.78, "card": {"brand": "amex", "last4": "0955"}}
+{"order_id": 254, "paid_at": "2025-02-21T15:09:26Z", "method": "card", "amount": 818.83, "card": {"brand": "visa", "last4": "9149"}}
+{"order_id": 255, "paid_at": "2025-04-19T09:36:42Z", "method": "card", "amount": 748.58, "card": null}
+{"order_id": 256, "paid_at": "2025-04-17T19:19:29Z", "method": "paypal", "amount": 620.75, "card": {"brand": "mc", "last4": "7054"}}
+{"order_id": 257, "paid_at": "2025-03-04T19:43:25Z", "method": "card", "amount": 1003.19, "card": {"brand": "mc", "last4": "0107"}}
+{"order_id": 258, "paid_at": "2025-02-13T02:21:01Z", "method": "transfer", "amount": 890.44, "card": {"brand": "amex", "last4": "2534"}}
+{"order_id": 259, "paid_at": "2025-01-08T07:54:50Z", "method": "transfer", "amount": 386.37, "card": null}
+{"order_id": 260, "paid_at": "2025-05-23T14:22:38Z", "method": "card", "amount": 547.95, "card": {"brand": "mc", "last4": "0612"}}
+{"order_id": 261, "paid_at": "2025-06-06T23:22:34Z", "method": "card", "amount": 1007.3, "card": {"brand": "visa", "last4": "9868"}}
+{"order_id": 262, "paid_at": "2025-05-04T02:24:40Z", "method": "transfer", "amount": 348.27, "card": null}
+{"order_id": 263, "paid_at": "2025-05-11T19:36:03Z", "method": "paypal", "amount": 1824.54, "card": {"brand": "visa", "last4": "2165"}}
+{"order_id": 264, "paid_at": "2025-01-17T00:54:17Z", "method": "transfer", "amount": 590.01, "card": {"brand": "amex", "last4": "8589"}}
+{"order_id": 265, "paid_at": "2025-02-17T01:17:12Z", "method": "paypal", "amount": 1213.78, "card": null}
+{"order_id": 266, "paid_at": "2025-04-30T16:15:52Z", "method": "paypal", "amount": 1042.98, "card": null}
+{"order_id": 267, "paid_at": "2025-06-06T04:30:12Z", "method": "paypal", "amount": 487.51, "card": {"brand": "amex", "last4": "2315"}}
+{"order_id": 268, "paid_at": "2025-05-16T16:33:07Z", "method": "transfer", "amount": 519.54, "card": {"brand": "visa", "last4": "7617"}}
+{"order_id": 269, "paid_at": "2025-01-02T15:07:24Z", "method": "transfer", "amount": 521.4, "card": null}
+{"order_id": 270, "paid_at": "2025-04-05T02:54:21Z", "method": "transfer", "amount": 1229.47, "card": null}
+{"order_id": 271, "paid_at": "2025-05-13T21:25:19Z", "method": "paypal", "amount": 2296.61, "card": null}
+{"order_id": 272, "paid_at": "2025-06-24T05:30:24Z", "method": "card", "amount": 487.5, "card": {"brand": "amex", "last4": "2502"}}
+{"order_id": 273, "paid_at": "2025-03-02T16:14:33Z", "method": "card", "amount": 234.71, "card": {"brand": "mc", "last4": "8582"}}
+{"order_id": 274, "paid_at": "2025-03-25T12:44:41Z", "method": "transfer", "amount": 1788.13, "card": null}
+{"order_id": 275, "paid_at": "2025-02-06T11:58:02Z", "method": "transfer", "amount": 714.31, "card": null}
+{"order_id": 276, "paid_at": "2025-01-06T01:40:45Z", "method": "card", "amount": 1241.59, "card": null}
+{"order_id": 277, "paid_at": "2025-01-03T22:22:17Z", "method": "transfer", "amount": 3934.84, "card": {"brand": "amex", "last4": "0630"}}
+{"order_id": 278, "paid_at": "2025-01-22T05:42:03Z", "method": "card", "amount": 1961.31, "card": {"brand": "amex", "last4": "0893"}}
+{"order_id": 279, "paid_at": "2025-04-11T09:44:11Z", "method": "transfer", "amount": 520.95, "card": {"brand": "mc", "last4": "6775"}}
+{"order_id": 280, "paid_at": "2025-03-29T13:27:49Z", "method": "transfer", "amount": 285.03, "card": {"brand": "amex", "last4": "2686"}}
+{"order_id": 281, "paid_at": "2025-05-23T09:41:00Z", "method": "transfer", "amount": 659.36, "card": {"brand": "visa", "last4": "6204"}}
+{"order_id": 282, "paid_at": "2025-03-15T21:51:26Z", "method": "transfer", "amount": 230.1, "card": null}
+{"order_id": 283, "paid_at": "2025-03-02T02:30:35Z", "method": "transfer", "amount": 2906.43, "card": {"brand": "visa", "last4": "8967"}}
+{"order_id": 284, "paid_at": "2025-05-01T08:25:08Z", "method": "transfer", "amount": 2307.09, "card": null}
+{"order_id": 285, "paid_at": "2025-05-15T07:08:13Z", "method": "card", "amount": 2580.82, "card": {"brand": "amex", "last4": "1063"}}
+{"order_id": 286, "paid_at": "2025-04-02T10:12:55Z", "method": "paypal", "amount": 706.43, "card": {"brand": "amex", "last4": "4705"}}
+{"order_id": 287, "paid_at": "2025-04-29T05:41:17Z", "method": "transfer", "amount": 1318.28, "card": {"brand": "mc", "last4": "8069"}}
+{"order_id": 288, "paid_at": "2025-06-21T14:12:16Z", "method": "paypal", "amount": 1108.35, "card": null}
+{"order_id": 289, "paid_at": "2025-02-11T05:44:59Z", "method": "card", "amount": 276.77, "card": null}
+{"order_id": 290, "paid_at": "2025-03-08T06:56:37Z", "method": "paypal", "amount": 601.48, "card": null}
+{"order_id": 291, "paid_at": "2025-06-23T05:20:35Z", "method": "card", "amount": 738.39, "card": null}
+{"order_id": 292, "paid_at": "2025-03-07T20:47:53Z", "method": "card", "amount": 828.85, "card": {"brand": "visa", "last4": "6088"}}
+{"order_id": 293, "paid_at": "2025-06-11T01:40:07Z", "method": "card", "amount": 479.92, "card": {"brand": "visa", "last4": "7907"}}
+{"order_id": 294, "paid_at": "2025-01-30T22:07:16Z", "method": "card", "amount": 1706.29, "card": null}
+{"order_id": 295, "paid_at": "2025-05-14T10:18:45Z", "method": "paypal", "amount": 1034.24, "card": {"brand": "mc", "last4": "2446"}}
+{"order_id": 296, "paid_at": "2025-02-23T03:27:25Z", "method": "card", "amount": 2946.48, "card": null}
+{"order_id": 297, "paid_at": "2025-02-04T18:22:16Z", "method": "card", "amount": 1857.54, "card": {"brand": "amex", "last4": "7625"}}
+{"order_id": 298, "paid_at": "2025-02-15T00:16:23Z", "method": "transfer", "amount": 262.5, "card": null}
+{"order_id": 299, "paid_at": "2025-03-30T00:47:07Z", "method": "transfer", "amount": 122.32, "card": null}
+{"order_id": 300, "paid_at": "2025-03-20T18:54:01Z", "method": "paypal", "amount": 1252.71, "card": null}
+{"order_id": 301, "paid_at": "2025-06-08T01:29:19Z", "method": "transfer", "amount": 683.71, "card": null}
+{"order_id": 302, "paid_at": "2025-04-22T12:04:40Z", "method": "paypal", "amount": 51.6, "card": null}
+{"order_id": 303, "paid_at": "2025-05-14T03:08:07Z", "method": "card", "amount": 1545.73, "card": {"brand": "amex", "last4": "2444"}}
+{"order_id": 304, "paid_at": "2025-04-14T03:52:53Z", "method": "transfer", "amount": 1436.24, "card": null}
+{"order_id": 305, "paid_at": "2025-03-20T11:54:47Z", "method": "paypal", "amount": 1432.16, "card": null}
+{"order_id": 306, "paid_at": "2025-02-11T00:25:17Z", "method": "paypal", "amount": 351.29, "card": {"brand": "amex", "last4": "2056"}}
+{"order_id": 307, "paid_at": "2025-01-03T06:07:21Z", "method": "card", "amount": 1641.44, "card": {"brand": "mc", "last4": "7471"}}
+{"order_id": 308, "paid_at": "2025-04-28T08:58:44Z", "method": "transfer", "amount": 1138.58, "card": {"brand": "mc", "last4": "8948"}}
+{"order_id": 309, "paid_at": "2025-03-13T06:15:15Z", "method": "card", "amount": 421.9, "card": {"brand": "amex", "last4": "4578"}}
+{"order_id": 310, "paid_at": "2025-04-11T09:24:34Z", "method": "transfer", "amount": 1356.77, "card": {"brand": "amex", "last4": "5431"}}
+{"order_id": 311, "paid_at": "2025-03-10T12:48:03Z", "method": "transfer", "amount": 1238.25, "card": null}
+{"order_id": 312, "paid_at": "2025-06-07T01:52:39Z", "method": "card", "amount": 346.3, "card": {"brand": "mc", "last4": "4209"}}
+{"order_id": 313, "paid_at": "2025-05-24T23:27:37Z", "method": "transfer", "amount": 811.93, "card": null}
+{"order_id": 314, "paid_at": "2025-06-05T05:45:36Z", "method": "paypal", "amount": 1647.64, "card": {"brand": "visa", "last4": "7211"}}
+{"order_id": 315, "paid_at": "2025-05-04T19:43:47Z", "method": "transfer", "amount": 645.02, "card": null}
+{"order_id": 316, "paid_at": "2025-05-18T00:35:14Z", "method": "transfer", "amount": 643.55, "card": null}
+{"order_id": 317, "paid_at": "2025-05-13T14:54:03Z", "method": "paypal", "amount": 329.38, "card": null}
+{"order_id": 318, "paid_at": "2025-06-05T19:14:54Z", "method": "transfer", "amount": 699.15, "card": null}
+{"order_id": 319, "paid_at": "2025-06-11T12:06:14Z", "method": "card", "amount": 371.3, "card": null}
+{"order_id": 320, "paid_at": "2025-01-18T20:47:38Z", "method": "card", "amount": 632.08, "card": {"brand": "amex", "last4": "3018"}}
+{"order_id": 321, "paid_at": "2025-02-27T04:56:21Z", "method": "paypal", "amount": 3317.74, "card": null}
+{"order_id": 322, "paid_at": "2025-04-06T11:42:22Z", "method": "transfer", "amount": 279.59, "card": {"brand": "mc", "last4": "4243"}}
+{"order_id": 323, "paid_at": "2025-01-07T18:50:48Z", "method": "paypal", "amount": 616.63, "card": {"brand": "amex", "last4": "0060"}}
+{"order_id": 324, "paid_at": "2025-05-18T09:58:52Z", "method": "card", "amount": 738.15, "card": null}
+{"order_id": 325, "paid_at": "2025-06-08T20:04:51Z", "method": "transfer", "amount": 696.65, "card": {"brand": "amex", "last4": "1485"}}
+{"order_id": 326, "paid_at": "2025-04-14T19:50:20Z", "method": "card", "amount": 548.03, "card": {"brand": "amex", "last4": "3129"}}
+{"order_id": 327, "paid_at": "2025-05-16T03:09:47Z", "method": "card", "amount": 641.71, "card": null}
+{"order_id": 328, "paid_at": "2025-05-20T18:40:37Z", "method": "paypal", "amount": 295.44, "card": {"brand": "visa", "last4": "0606"}}
+{"order_id": 329, "paid_at": "2025-01-11T21:43:57Z", "method": "card", "amount": 1012.53, "card": null}
+{"order_id": 330, "paid_at": "2025-04-05T22:30:52Z", "method": "transfer", "amount": 818.22, "card": null}
+{"order_id": 331, "paid_at": "2025-06-09T09:11:19Z", "method": "transfer", "amount": 606.76, "card": {"brand": "visa", "last4": "1033"}}
+{"order_id": 332, "paid_at": "2025-03-24T18:42:21Z", "method": "paypal", "amount": 737.27, "card": null}
+{"order_id": 333, "paid_at": "2025-04-18T11:17:01Z", "method": "card", "amount": 248.43, "card": null}
+{"order_id": 334, "paid_at": "2025-01-16T16:37:40Z", "method": "paypal", "amount": 229.42, "card": {"brand": "visa", "last4": "2344"}}
+{"order_id": 335, "paid_at": "2025-02-22T15:03:02Z", "method": "card", "amount": 208.37, "card": {"brand": "mc", "last4": "5699"}}
+{"order_id": 336, "paid_at": "2025-01-01T21:34:52Z", "method": "card", "amount": 1037.58, "card": {"brand": "amex", "last4": "3409"}}
+{"order_id": 337, "paid_at": "2025-01-11T07:33:10Z", "method": "paypal", "amount": 1921.18, "card": null}
+{"order_id": 338, "paid_at": "2025-03-30T00:00:15Z", "method": "paypal", "amount": 550.43, "card": null}
+{"order_id": 339, "paid_at": "2025-06-24T11:12:13Z", "method": "paypal", "amount": 737.03, "card": null}
+{"order_id": 340, "paid_at": "2025-03-30T08:35:40Z", "method": "card", "amount": 635.41, "card": null}
+{"order_id": 341, "paid_at": "2025-01-12T14:19:49Z", "method": "card", "amount": 66.12, "card": {"brand": "amex", "last4": "2784"}}
+{"order_id": 342, "paid_at": "2025-04-18T08:28:40Z", "method": "paypal", "amount": 24.11, "card": null}
+{"order_id": 343, "paid_at": "2025-03-25T03:38:20Z", "method": "transfer", "amount": 509.5, "card": {"brand": "mc", "last4": "0724"}}
+{"order_id": 344, "paid_at": "2025-04-02T09:47:00Z", "method": "transfer", "amount": 840.06, "card": {"brand": "visa", "last4": "2174"}}
+{"order_id": 345, "paid_at": "2025-02-27T10:57:59Z", "method": "transfer", "amount": 1914.43, "card": null}
+{"order_id": 346, "paid_at": "2025-02-27T14:32:34Z", "method": "paypal", "amount": 151.93, "card": {"brand": "visa", "last4": "8433"}}
+{"order_id": 347, "paid_at": "2025-03-12T16:37:07Z", "method": "transfer", "amount": 5.48, "card": null}
+{"order_id": 348, "paid_at": "2025-05-31T05:34:23Z", "method": "card", "amount": 1805.19, "card": {"brand": "amex", "last4": "8730"}}
+{"order_id": 349, "paid_at": "2025-03-29T18:26:18Z", "method": "card", "amount": 2802.11, "card": null}
+{"order_id": 350, "paid_at": "2025-01-29T17:57:56Z", "method": "transfer", "amount": 2001.08, "card": {"brand": "mc", "last4": "9481"}}
+{"order_id": 351, "paid_at": "2025-05-08T08:13:55Z", "method": "transfer", "amount": 752.05, "card": null}
+{"order_id": 352, "paid_at": "2025-02-03T08:33:10Z", "method": "paypal", "amount": 1544.52, "card": {"brand": "visa", "last4": "2634"}}
+{"order_id": 353, "paid_at": "2025-04-14T22:51:23Z", "method": "transfer", "amount": 2312.58, "card": null}
+{"order_id": 354, "paid_at": "2025-03-20T13:48:49Z", "method": "transfer", "amount": 727.27, "card": {"brand": "amex", "last4": "7243"}}
+{"order_id": 355, "paid_at": "2025-05-14T19:59:27Z", "method": "card", "amount": 673.3, "card": {"brand": "visa", "last4": "5347"}}
+{"order_id": 356, "paid_at": "2025-04-29T02:28:24Z", "method": "paypal", "amount": 1750.97, "card": null}
+{"order_id": 357, "paid_at": "2025-04-28T03:23:04Z", "method": "paypal", "amount": 1446.51, "card": {"brand": "mc", "last4": "2683"}}
+{"order_id": 358, "paid_at": "2025-06-24T07:47:42Z", "method": "transfer", "amount": 2325.83, "card": {"brand": "amex", "last4": "2243"}}
+{"order_id": 359, "paid_at": "2025-02-06T03:07:09Z", "method": "transfer", "amount": 368.48, "card": {"brand": "visa", "last4": "0439"}}
+{"order_id": 360, "paid_at": "2025-01-30T22:09:13Z", "method": "transfer", "amount": 2681.17, "card": {"brand": "amex", "last4": "1959"}}
+{"order_id": 361, "paid_at": "2025-04-10T12:37:37Z", "method": "paypal", "amount": 277.25, "card": null}
+{"order_id": 362, "paid_at": "2025-03-12T03:34:37Z", "method": "paypal", "amount": 1966.13, "card": null}
+{"order_id": 363, "paid_at": "2025-05-14T16:00:40Z", "method": "transfer", "amount": 338.84, "card": null}
+{"order_id": 364, "paid_at": "2025-06-04T09:57:57Z", "method": "card", "amount": 1231.05, "card": {"brand": "mc", "last4": "5940"}}
+{"order_id": 365, "paid_at": "2025-06-08T16:05:34Z", "method": "paypal", "amount": 1404.82, "card": {"brand": "visa", "last4": "3217"}}
+{"order_id": 366, "paid_at": "2025-01-07T08:56:30Z", "method": "transfer", "amount": 651.52, "card": {"brand": "visa", "last4": "5759"}}
+{"order_id": 367, "paid_at": "2025-01-18T15:30:44Z", "method": "transfer", "amount": 714.93, "card": {"brand": "amex", "last4": "3555"}}
+{"order_id": 368, "paid_at": "2025-02-07T04:47:34Z", "method": "transfer", "amount": 507.46, "card": {"brand": "mc", "last4": "6004"}}
+{"order_id": 369, "paid_at": "2025-04-25T10:57:45Z", "method": "card", "amount": 1147.04, "card": {"brand": "mc", "last4": "5918"}}
+{"order_id": 370, "paid_at": "2025-02-25T23:36:29Z", "method": "transfer", "amount": 421.62, "card": {"brand": "mc", "last4": "3700"}}
+{"order_id": 371, "paid_at": "2025-03-21T02:09:21Z", "method": "paypal", "amount": 935.89, "card": {"brand": "amex", "last4": "1666"}}
+{"order_id": 372, "paid_at": "2025-06-29T16:13:55Z", "method": "card", "amount": 20.8, "card": {"brand": "amex", "last4": "8177"}}
+{"order_id": 373, "paid_at": "2025-05-29T12:27:20Z", "method": "card", "amount": 2013.49, "card": {"brand": "visa", "last4": "2001"}}
+{"order_id": 374, "paid_at": "2025-04-06T00:40:46Z", "method": "card", "amount": 848.69, "card": null}
+{"order_id": 375, "paid_at": "2025-01-19T17:14:50Z", "method": "card", "amount": 1144.11, "card": {"brand": "visa", "last4": "7051"}}
+{"order_id": 376, "paid_at": "2025-03-16T12:06:41Z", "method": "transfer", "amount": 1633.06, "card": {"brand": "amex", "last4": "9375"}}
+{"order_id": 377, "paid_at": "2025-04-03T10:16:22Z", "method": "paypal", "amount": 492.97, "card": {"brand": "mc", "last4": "5250"}}
+{"order_id": 378, "paid_at": "2025-01-06T11:39:28Z", "method": "transfer", "amount": 7.91, "card": null}
+{"order_id": 379, "paid_at": "2025-03-25T03:37:54Z", "method": "card", "amount": 180.67, "card": {"brand": "visa", "last4": "4995"}}
+{"order_id": 380, "paid_at": "2025-03-07T13:31:11Z", "method": "transfer", "amount": 877.75, "card": null}
+{"order_id": 381, "paid_at": "2025-01-19T23:37:04Z", "method": "card", "amount": 133.8, "card": {"brand": "mc", "last4": "7143"}}
+{"order_id": 382, "paid_at": "2025-04-07T12:09:46Z", "method": "card", "amount": 2036.51, "card": {"brand": "mc", "last4": "8268"}}
+{"order_id": 383, "paid_at": "2025-03-26T01:36:32Z", "method": "card", "amount": 303.52, "card": {"brand": "amex", "last4": "3056"}}
+{"order_id": 384, "paid_at": "2025-04-07T22:55:27Z", "method": "card", "amount": 1339.13, "card": {"brand": "mc", "last4": "4373"}}
+{"order_id": 385, "paid_at": "2025-05-06T11:00:37Z", "method": "transfer", "amount": 1050.13, "card": {"brand": "visa", "last4": "2610"}}
+{"order_id": 386, "paid_at": "2025-01-27T12:17:46Z", "method": "card", "amount": 830.22, "card": null}
+{"order_id": 387, "paid_at": "2025-06-18T09:43:48Z", "method": "paypal", "amount": 1523.85, "card": null}
+{"order_id": 388, "paid_at": "2025-05-24T04:04:13Z", "method": "paypal", "amount": 977.37, "card": {"brand": "visa", "last4": "5185"}}
+{"order_id": 389, "paid_at": "2025-03-24T07:09:50Z", "method": "paypal", "amount": 967.36, "card": null}
+{"order_id": 390, "paid_at": "2025-01-07T18:17:25Z", "method": "transfer", "amount": 1647.48, "card": {"brand": "mc", "last4": "6364"}}
+{"order_id": 391, "paid_at": "2025-06-26T16:04:28Z", "method": "card", "amount": 2583.72, "card": {"brand": "mc", "last4": "7718"}}
+{"order_id": 392, "paid_at": "2025-03-22T04:41:21Z", "method": "transfer", "amount": 776.22, "card": null}
+{"order_id": 393, "paid_at": "2025-04-27T22:10:49Z", "method": "transfer", "amount": 1190.05, "card": null}
+{"order_id": 394, "paid_at": "2025-01-16T23:35:44Z", "method": "paypal", "amount": 2015.74, "card": {"brand": "mc", "last4": "7397"}}
+{"order_id": 395, "paid_at": "2025-06-19T15:03:56Z", "method": "paypal", "amount": 351.16, "card": null}
+{"order_id": 396, "paid_at": "2025-06-12T02:08:10Z", "method": "card", "amount": 1064.16, "card": null}
+{"order_id": 397, "paid_at": "2025-01-10T16:04:19Z", "method": "card", "amount": 373.45, "card": {"brand": "mc", "last4": "7433"}}
+{"order_id": 398, "paid_at": "2025-04-06T23:18:05Z", "method": "transfer", "amount": 1073.19, "card": null}
+{"order_id": 399, "paid_at": "2025-03-21T08:13:37Z", "method": "transfer", "amount": 338.75, "card": {"brand": "visa", "last4": "7682"}}
+{"order_id": 400, "paid_at": "2025-06-19T05:43:15Z", "method": "card", "amount": 584.3, "card": {"brand": "mc", "last4": "9934"}}
+{"order_id": 401, "paid_at": "2025-06-05T19:03:56Z", "method": "card", "amount": 1065.89, "card": null}
+{"order_id": 402, "paid_at": "2025-04-06T17:08:00Z", "method": "paypal", "amount": 586.85, "card": {"brand": "mc", "last4": "2703"}}
+{"order_id": 403, "paid_at": "2025-05-24T02:12:34Z", "method": "card", "amount": 2443.36, "card": {"brand": "mc", "last4": "1900"}}
+{"order_id": 404, "paid_at": "2025-01-08T22:31:11Z", "method": "transfer", "amount": 2057.11, "card": null}
+{"order_id": 405, "paid_at": "2025-02-17T19:15:36Z", "method": "card", "amount": 1014.05, "card": null}
+{"order_id": 406, "paid_at": "2025-05-09T02:10:33Z", "method": "transfer", "amount": 810.7, "card": null}
+{"order_id": 407, "paid_at": "2025-06-05T15:44:51Z", "method": "paypal", "amount": 553.49, "card": null}
+{"order_id": 408, "paid_at": "2025-06-18T01:40:40Z", "method": "card", "amount": 672.73, "card": null}
+{"order_id": 409, "paid_at": "2025-05-23T21:41:33Z", "method": "transfer", "amount": 353.45, "card": null}
+{"order_id": 410, "paid_at": "2025-06-21T22:25:25Z", "method": "paypal", "amount": 48.29, "card": {"brand": "visa", "last4": "0662"}}
+{"order_id": 411, "paid_at": "2025-03-08T08:48:47Z", "method": "card", "amount": 812.56, "card": {"brand": "amex", "last4": "4921"}}
+{"order_id": 412, "paid_at": "2025-04-12T13:59:08Z", "method": "paypal", "amount": 1851.73, "card": {"brand": "amex", "last4": "0266"}}
+{"order_id": 413, "paid_at": "2025-05-24T19:13:19Z", "method": "paypal", "amount": 883.14, "card": {"brand": "mc", "last4": "7371"}}
+{"order_id": 414, "paid_at": "2025-06-06T21:02:46Z", "method": "paypal", "amount": 1075.27, "card": {"brand": "amex", "last4": "5910"}}
+{"order_id": 415, "paid_at": "2025-05-11T20:25:00Z", "method": "transfer", "amount": 472.65, "card": null}
+{"order_id": 416, "paid_at": "2025-03-26T15:03:17Z", "method": "card", "amount": 1485.4, "card": null}
+{"order_id": 417, "paid_at": "2025-01-10T21:37:52Z", "method": "transfer", "amount": 506.68, "card": {"brand": "mc", "last4": "0606"}}
+{"order_id": 418, "paid_at": "2025-03-19T14:41:43Z", "method": "paypal", "amount": 252.43, "card": {"brand": "mc", "last4": "7755"}}
+{"order_id": 419, "paid_at": "2025-04-07T02:03:58Z", "method": "transfer", "amount": 945.54, "card": {"brand": "amex", "last4": "7675"}}
+{"order_id": 420, "paid_at": "2025-06-21T12:16:10Z", "method": "transfer", "amount": 1489.55, "card": null}
+{"order_id": 421, "paid_at": "2025-01-26T01:46:00Z", "method": "card", "amount": 340.1, "card": {"brand": "visa", "last4": "5878"}}
+{"order_id": 422, "paid_at": "2025-03-11T08:10:42Z", "method": "card", "amount": 755.56, "card": {"brand": "visa", "last4": "9207"}}
+{"order_id": 423, "paid_at": "2025-04-05T11:05:35Z", "method": "transfer", "amount": 630.42, "card": {"brand": "amex", "last4": "1706"}}
+{"order_id": 424, "paid_at": "2025-01-10T19:19:01Z", "method": "card", "amount": 1756.97, "card": {"brand": "visa", "last4": "8311"}}
+{"order_id": 425, "paid_at": "2025-02-02T10:54:31Z", "method": "card", "amount": 1883.34, "card": null}
+{"order_id": 426, "paid_at": "2025-03-08T06:48:00Z", "method": "card", "amount": 670.48, "card": {"brand": "amex", "last4": "6909"}}
+{"order_id": 427, "paid_at": "2025-01-27T19:18:00Z", "method": "card", "amount": 1173.01, "card": {"brand": "visa", "last4": "8476"}}
+{"order_id": 428, "paid_at": "2025-01-17T11:35:42Z", "method": "transfer", "amount": 347.85, "card": null}
+{"order_id": 429, "paid_at": "2025-01-12T05:44:47Z", "method": "transfer", "amount": 1465.68, "card": {"brand": "amex", "last4": "5656"}}
+{"order_id": 430, "paid_at": "2025-03-20T13:08:59Z", "method": "card", "amount": 1199.17, "card": {"brand": "amex", "last4": "9707"}}
+{"order_id": 431, "paid_at": "2025-02-16T20:55:29Z", "method": "paypal", "amount": 1261.26, "card": {"brand": "mc", "last4": "2028"}}
+{"order_id": 432, "paid_at": "2025-05-27T22:15:29Z", "method": "transfer", "amount": 443.58, "card": {"brand": "amex", "last4": "8737"}}
+{"order_id": 433, "paid_at": "2025-02-15T10:02:48Z", "method": "transfer", "amount": 362.33, "card": null}
+{"order_id": 434, "paid_at": "2025-04-11T07:07:23Z", "method": "paypal", "amount": 950.18, "card": {"brand": "amex", "last4": "8172"}}
+{"order_id": 435, "paid_at": "2025-03-24T05:45:25Z", "method": "transfer", "amount": 1602.86, "card": null}
+{"order_id": 436, "paid_at": "2025-03-30T10:33:07Z", "method": "card", "amount": 1880.1, "card": null}
+{"order_id": 437, "paid_at": "2025-02-28T21:46:39Z", "method": "paypal", "amount": 431.76, "card": {"brand": "visa", "last4": "2999"}}
+{"order_id": 438, "paid_at": "2025-04-05T22:23:36Z", "method": "transfer", "amount": 834.79, "card": null}
+{"order_id": 439, "paid_at": "2025-04-09T00:33:12Z", "method": "transfer", "amount": 1593.58, "card": null}
+{"order_id": 440, "paid_at": "2025-06-22T20:04:06Z", "method": "transfer", "amount": 469.06, "card": {"brand": "amex", "last4": "9164"}}
+{"order_id": 441, "paid_at": "2025-02-07T08:47:24Z", "method": "paypal", "amount": 2087.9, "card": {"brand": "visa", "last4": "9495"}}
+{"order_id": 442, "paid_at": "2025-01-17T10:42:16Z", "method": "paypal", "amount": 900.52, "card": null}
+{"order_id": 443, "paid_at": "2025-04-16T04:58:27Z", "method": "card", "amount": 502.0, "card": {"brand": "mc", "last4": "2973"}}
+{"order_id": 444, "paid_at": "2025-05-19T12:15:18Z", "method": "card", "amount": 93.89, "card": null}
+{"order_id": 445, "paid_at": "2025-04-24T19:35:36Z", "method": "card", "amount": 1551.91, "card": null}
+{"order_id": 446, "paid_at": "2025-05-12T02:16:55Z", "method": "card", "amount": 624.78, "card": {"brand": "mc", "last4": "9095"}}
+{"order_id": 447, "paid_at": "2025-01-09T03:15:54Z", "method": "paypal", "amount": 407.52, "card": null}
+{"order_id": 448, "paid_at": "2025-06-13T00:28:46Z", "method": "transfer", "amount": 2199.24, "card": null}
+{"order_id": 449, "paid_at": "2025-05-18T10:52:23Z", "method": "transfer", "amount": 535.11, "card": null}
+{"order_id": 450, "paid_at": "2025-04-29T05:31:06Z", "method": "card", "amount": 1109.72, "card": null}
+{"order_id": 451, "paid_at": "2025-06-10T16:31:29Z", "method": "paypal", "amount": 1081.6, "card": {"brand": "mc", "last4": "0153"}}
+{"order_id": 452, "paid_at": "2025-05-25T07:28:14Z", "method": "transfer", "amount": 647.51, "card": null}
+{"order_id": 453, "paid_at": "2025-03-12T11:54:55Z", "method": "card", "amount": 109.91, "card": {"brand": "amex", "last4": "8197"}}
+{"order_id": 454, "paid_at": "2025-02-03T02:56:51Z", "method": "card", "amount": 817.68, "card": {"brand": "amex", "last4": "4494"}}
+{"order_id": 455, "paid_at": "2025-06-14T14:49:55Z", "method": "card", "amount": 1897.26, "card": {"brand": "visa", "last4": "0769"}}
+{"order_id": 456, "paid_at": "2025-06-28T08:24:52Z", "method": "card", "amount": 400.19, "card": {"brand": "mc", "last4": "1219"}}
+{"order_id": 457, "paid_at": "2025-02-08T05:49:44Z", "method": "transfer", "amount": 622.61, "card": {"brand": "mc", "last4": "4049"}}
+{"order_id": 458, "paid_at": "2025-04-02T23:26:35Z", "method": "transfer", "amount": 902.68, "card": {"brand": "visa", "last4": "7314"}}
+{"order_id": 459, "paid_at": "2025-01-25T05:45:59Z", "method": "paypal", "amount": 270.22, "card": null}
+{"order_id": 460, "paid_at": "2025-05-02T14:34:04Z", "method": "paypal", "amount": 525.83, "card": null}
+{"order_id": 461, "paid_at": "2025-06-02T22:04:54Z", "method": "transfer", "amount": 320.95, "card": {"brand": "visa", "last4": "7439"}}
+{"order_id": 462, "paid_at": "2025-03-05T17:58:36Z", "method": "transfer", "amount": 702.25, "card": null}
+{"order_id": 463, "paid_at": "2025-02-19T18:27:47Z", "method": "paypal", "amount": 302.0, "card": {"brand": "amex", "last4": "5861"}}
+{"order_id": 464, "paid_at": "2025-04-24T08:21:49Z", "method": "transfer", "amount": 552.93, "card": {"brand": "mc", "last4": "5633"}}
+{"order_id": 465, "paid_at": "2025-02-08T22:08:02Z", "method": "transfer", "amount": 172.0, "card": null}
+{"order_id": 466, "paid_at": "2025-04-20T22:20:10Z", "method": "paypal", "amount": 519.39, "card": {"brand": "visa", "last4": "7876"}}
+{"order_id": 467, "paid_at": "2025-05-30T04:57:47Z", "method": "card", "amount": 393.58, "card": null}
+{"order_id": 468, "paid_at": "2025-04-18T17:10:00Z", "method": "card", "amount": 374.58, "card": null}
+{"order_id": 469, "paid_at": "2025-06-21T22:37:48Z", "method": "paypal", "amount": 540.77, "card": {"brand": "visa", "last4": "2248"}}
+{"order_id": 470, "paid_at": "2025-05-08T04:16:41Z", "method": "card", "amount": 158.88, "card": {"brand": "amex", "last4": "7106"}}
+{"order_id": 471, "paid_at": "2025-01-13T16:51:52Z", "method": "card", "amount": 1213.8, "card": null}
+{"order_id": 472, "paid_at": "2025-06-19T12:11:58Z", "method": "transfer", "amount": 836.51, "card": null}
+{"order_id": 473, "paid_at": "2025-04-01T03:45:32Z", "method": "card", "amount": 1317.07, "card": {"brand": "mc", "last4": "3840"}}
+{"order_id": 474, "paid_at": "2025-02-12T10:58:14Z", "method": "paypal", "amount": 2275.01, "card": {"brand": "mc", "last4": "8151"}}
+{"order_id": 475, "paid_at": "2025-02-23T00:48:46Z", "method": "transfer", "amount": 100.14, "card": {"brand": "amex", "last4": "1280"}}
+{"order_id": 476, "paid_at": "2025-06-29T22:26:47Z", "method": "paypal", "amount": 7.09, "card": {"brand": "amex", "last4": "4496"}}
+{"order_id": 477, "paid_at": "2025-05-18T00:56:58Z", "method": "paypal", "amount": 49.62, "card": null}
+{"order_id": 478, "paid_at": "2025-06-02T02:02:31Z", "method": "paypal", "amount": 1078.25, "card": null}
+{"order_id": 479, "paid_at": "2025-03-02T19:14:04Z", "method": "card", "amount": 195.12, "card": {"brand": "visa", "last4": "5006"}}
+{"order_id": 480, "paid_at": "2025-01-02T21:33:02Z", "method": "card", "amount": 417.8, "card": {"brand": "visa", "last4": "5410"}}
+{"order_id": 481, "paid_at": "2025-05-03T07:33:50Z", "method": "card", "amount": 1898.2, "card": null}
+{"order_id": 482, "paid_at": "2025-04-28T04:14:46Z", "method": "transfer", "amount": 342.34, "card": null}
+{"order_id": 483, "paid_at": "2025-03-13T14:20:38Z", "method": "paypal", "amount": 815.42, "card": {"brand": "visa", "last4": "6373"}}
+{"order_id": 484, "paid_at": "2025-01-26T05:50:41Z", "method": "card", "amount": 450.45, "card": {"brand": "amex", "last4": "7519"}}
+{"order_id": 485, "paid_at": "2025-02-09T04:30:10Z", "method": "transfer", "amount": 357.68, "card": {"brand": "mc", "last4": "7580"}}
+{"order_id": 486, "paid_at": "2025-01-08T14:21:53Z", "method": "transfer", "amount": 1031.48, "card": {"brand": "visa", "last4": "6800"}}
+{"order_id": 487, "paid_at": "2025-02-04T21:02:40Z", "method": "transfer", "amount": 1397.66, "card": {"brand": "amex", "last4": "1093"}}
+{"order_id": 488, "paid_at": "2025-05-22T01:57:40Z", "method": "card", "amount": 432.61, "card": {"brand": "mc", "last4": "6719"}}
+{"order_id": 489, "paid_at": "2025-02-02T00:13:21Z", "method": "paypal", "amount": 333.65, "card": null}
+{"order_id": 490, "paid_at": "2025-03-05T12:31:41Z", "method": "paypal", "amount": 67.89, "card": {"brand": "visa", "last4": "2794"}}
+{"order_id": 491, "paid_at": "2025-04-28T21:08:18Z", "method": "paypal", "amount": 352.29, "card": null}
+{"order_id": 492, "paid_at": "2025-02-04T13:36:41Z", "method": "transfer", "amount": 165.42, "card": {"brand": "amex", "last4": "1684"}}
+{"order_id": 493, "paid_at": "2025-05-15T01:26:55Z", "method": "card", "amount": 403.72, "card": null}
+{"order_id": 494, "paid_at": "2025-03-23T21:37:02Z", "method": "transfer", "amount": 71.86, "card": null}
+{"order_id": 495, "paid_at": "2025-01-09T13:19:47Z", "method": "paypal", "amount": 497.82, "card": null}
+{"order_id": 496, "paid_at": "2025-01-21T13:30:40Z", "method": "transfer", "amount": 106.89, "card": {"brand": "amex", "last4": "6045"}}
+{"order_id": 497, "paid_at": "2025-01-14T02:13:11Z", "method": "transfer", "amount": 470.39, "card": null}
+{"order_id": 498, "paid_at": "2025-04-27T11:51:00Z", "method": "card", "amount": 830.79, "card": null}
+{"order_id": 499, "paid_at": "2025-06-27T02:50:33Z", "method": "card", "amount": 761.93, "card": {"brand": "visa", "last4": "5060"}}
+{"order_id": 500, "paid_at": "2025-05-24T07:08:30Z", "method": "card", "amount": 553.04, "card": {"brand": "visa", "last4": "9798"}}
+{"order_id": 501, "paid_at": "2025-05-24T13:31:51Z", "method": "paypal", "amount": 87.01, "card": {"brand": "visa", "last4": "5427"}}
+{"order_id": 502, "paid_at": "2025-02-17T01:05:43Z", "method": "transfer", "amount": 655.35, "card": {"brand": "amex", "last4": "5269"}}
+{"order_id": 503, "paid_at": "2025-03-27T21:40:04Z", "method": "card", "amount": 324.63, "card": null}
+{"order_id": 504, "paid_at": "2025-04-17T13:51:46Z", "method": "paypal", "amount": 2148.35, "card": null}
+{"order_id": 505, "paid_at": "2025-04-02T10:11:01Z", "method": "paypal", "amount": 2246.0, "card": {"brand": "visa", "last4": "9057"}}
+{"order_id": 506, "paid_at": "2025-02-04T02:54:05Z", "method": "transfer", "amount": 626.75, "card": {"brand": "visa", "last4": "3106"}}
+{"order_id": 507, "paid_at": "2025-01-03T11:51:43Z", "method": "paypal", "amount": 694.89, "card": {"brand": "visa", "last4": "6304"}}
+{"order_id": 508, "paid_at": "2025-02-01T12:55:48Z", "method": "transfer", "amount": 566.43, "card": {"brand": "amex", "last4": "0945"}}
+{"order_id": 509, "paid_at": "2025-03-16T20:01:57Z", "method": "transfer", "amount": 1210.8, "card": null}
+{"order_id": 510, "paid_at": "2025-04-27T22:43:09Z", "method": "card", "amount": 1234.81, "card": {"brand": "visa", "last4": "6993"}}
+{"order_id": 511, "paid_at": "2025-05-15T08:12:35Z", "method": "card", "amount": 3267.11, "card": null}
+{"order_id": 512, "paid_at": "2025-03-23T03:43:25Z", "method": "card", "amount": 1179.7, "card": null}
+{"order_id": 513, "paid_at": "2025-05-26T14:55:38Z", "method": "paypal", "amount": 1764.98, "card": null}
+{"order_id": 514, "paid_at": "2025-04-24T17:40:36Z", "method": "transfer", "amount": 235.82, "card": {"brand": "visa", "last4": "1586"}}
+{"order_id": 515, "paid_at": "2025-04-12T10:40:19Z", "method": "paypal", "amount": 2338.05, "card": {"brand": "mc", "last4": "6074"}}
+{"order_id": 516, "paid_at": "2025-06-22T20:36:35Z", "method": "paypal", "amount": 1851.9, "card": {"brand": "visa", "last4": "7486"}}
+{"order_id": 517, "paid_at": "2025-03-20T00:54:45Z", "method": "paypal", "amount": 1269.08, "card": null}
+{"order_id": 518, "paid_at": "2025-06-19T14:42:59Z", "method": "paypal", "amount": 1417.78, "card": {"brand": "amex", "last4": "2345"}}
+{"order_id": 519, "paid_at": "2025-06-20T03:57:47Z", "method": "transfer", "amount": 1574.11, "card": {"brand": "visa", "last4": "7125"}}
+{"order_id": 520, "paid_at": "2025-01-06T16:41:00Z", "method": "transfer", "amount": 1223.75, "card": {"brand": "amex", "last4": "1059"}}
+{"order_id": 521, "paid_at": "2025-03-08T15:36:53Z", "method": "card", "amount": 1895.55, "card": null}
+{"order_id": 522, "paid_at": "2025-02-06T12:53:20Z", "method": "paypal", "amount": 376.21, "card": null}
+{"order_id": 523, "paid_at": "2025-02-06T20:58:03Z", "method": "card", "amount": 558.08, "card": {"brand": "amex", "last4": "0562"}}
+{"order_id": 524, "paid_at": "2025-03-04T04:25:27Z", "method": "paypal", "amount": 1744.13, "card": {"brand": "mc", "last4": "2608"}}
+{"order_id": 525, "paid_at": "2025-04-17T09:59:56Z", "method": "paypal", "amount": 391.12, "card": null}
+{"order_id": 526, "paid_at": "2025-05-17T03:52:11Z", "method": "transfer", "amount": 248.68, "card": null}
+{"order_id": 527, "paid_at": "2025-02-01T18:59:17Z", "method": "transfer", "amount": 424.8, "card": {"brand": "mc", "last4": "9431"}}
+{"order_id": 528, "paid_at": "2025-05-12T17:32:24Z", "method": "transfer", "amount": 3092.29, "card": {"brand": "visa", "last4": "1946"}}
+{"order_id": 529, "paid_at": "2025-03-19T00:42:55Z", "method": "paypal", "amount": 668.5, "card": {"brand": "mc", "last4": "6018"}}
+{"order_id": 530, "paid_at": "2025-01-24T07:33:32Z", "method": "transfer", "amount": 555.23, "card": {"brand": "amex", "last4": "1549"}}
+{"order_id": 531, "paid_at": "2025-02-05T04:02:16Z", "method": "card", "amount": 1822.33, "card": {"brand": "visa", "last4": "2960"}}
+{"order_id": 532, "paid_at": "2025-05-16T00:00:27Z", "method": "transfer", "amount": 93.86, "card": null}
+{"order_id": 533, "paid_at": "2025-02-03T08:01:43Z", "method": "transfer", "amount": 1562.49, "card": null}
+{"order_id": 534, "paid_at": "2025-05-09T16:21:08Z", "method": "transfer", "amount": 370.66, "card": null}
+{"order_id": 535, "paid_at": "2025-02-23T20:50:27Z", "method": "transfer", "amount": 1142.97, "card": null}
+{"order_id": 536, "paid_at": "2025-05-23T06:43:45Z", "method": "card", "amount": 828.52, "card": {"brand": "visa", "last4": "1270"}}
+{"order_id": 537, "paid_at": "2025-01-25T04:59:37Z", "method": "card", "amount": 802.71, "card": null}
+{"order_id": 538, "paid_at": "2025-06-02T00:05:10Z", "method": "paypal", "amount": 1135.76, "card": {"brand": "mc", "last4": "9036"}}
+{"order_id": 539, "paid_at": "2025-04-28T23:22:04Z", "method": "transfer", "amount": 136.21, "card": {"brand": "mc", "last4": "7812"}}
+{"order_id": 540, "paid_at": "2025-01-25T18:56:46Z", "method": "card", "amount": 1377.61, "card": {"brand": "mc", "last4": "7500"}}
+{"order_id": 541, "paid_at": "2025-03-27T06:07:06Z", "method": "paypal", "amount": 1047.17, "card": {"brand": "amex", "last4": "1302"}}
+{"order_id": 542, "paid_at": "2025-05-22T18:15:39Z", "method": "card", "amount": 501.06, "card": {"brand": "mc", "last4": "8334"}}
+{"order_id": 543, "paid_at": "2025-01-27T12:02:08Z", "method": "transfer", "amount": 990.89, "card": {"brand": "mc", "last4": "4001"}}
+{"order_id": 544, "paid_at": "2025-05-09T09:31:40Z", "method": "paypal", "amount": 1613.49, "card": null}
+{"order_id": 545, "paid_at": "2025-01-22T23:55:23Z", "method": "card", "amount": 1046.6, "card": {"brand": "amex", "last4": "8446"}}
+{"order_id": 546, "paid_at": "2025-03-31T22:17:06Z", "method": "card", "amount": 1255.09, "card": {"brand": "mc", "last4": "0113"}}
+{"order_id": 547, "paid_at": "2025-05-30T10:19:08Z", "method": "paypal", "amount": 258.11, "card": null}
+{"order_id": 548, "paid_at": "2025-05-08T10:36:05Z", "method": "card", "amount": 215.6, "card": null}
+{"order_id": 549, "paid_at": "2025-01-26T23:25:43Z", "method": "transfer", "amount": 1089.77, "card": {"brand": "mc", "last4": "6551"}}
+{"order_id": 550, "paid_at": "2025-05-21T23:36:47Z", "method": "paypal", "amount": 1475.22, "card": null}
+{"order_id": 551, "paid_at": "2025-01-17T01:28:47Z", "method": "paypal", "amount": 815.53, "card": {"brand": "visa", "last4": "7031"}}
+{"order_id": 552, "paid_at": "2025-04-03T00:50:02Z", "method": "card", "amount": 1346.77, "card": null}
+{"order_id": 553, "paid_at": "2025-03-15T20:51:18Z", "method": "paypal", "amount": 2157.12, "card": {"brand": "mc", "last4": "1803"}}
+{"order_id": 554, "paid_at": "2025-03-12T14:25:15Z", "method": "transfer", "amount": 355.02, "card": {"brand": "visa", "last4": "4674"}}
+{"order_id": 555, "paid_at": "2025-02-24T09:42:13Z", "method": "transfer", "amount": 606.12, "card": null}
+{"order_id": 556, "paid_at": "2025-05-30T14:49:14Z", "method": "card", "amount": 757.98, "card": {"brand": "visa", "last4": "9573"}}
+{"order_id": 557, "paid_at": "2025-01-17T22:58:36Z", "method": "card", "amount": 291.09, "card": null}
+{"order_id": 558, "paid_at": "2025-06-29T17:20:44Z", "method": "paypal", "amount": 895.81, "card": {"brand": "amex", "last4": "1923"}}
+{"order_id": 559, "paid_at": "2025-01-14T03:55:40Z", "method": "card", "amount": 1480.72, "card": {"brand": "mc", "last4": "8110"}}
+{"order_id": 560, "paid_at": "2025-04-14T09:39:21Z", "method": "transfer", "amount": 1661.09, "card": null}
+{"order_id": 561, "paid_at": "2025-02-03T05:52:34Z", "method": "card", "amount": 1581.13, "card": {"brand": "visa", "last4": "5692"}}
+{"order_id": 562, "paid_at": "2025-04-28T12:24:52Z", "method": "paypal", "amount": 250.2, "card": {"brand": "amex", "last4": "0170"}}
+{"order_id": 563, "paid_at": "2025-02-12T13:59:01Z", "method": "transfer", "amount": 916.87, "card": {"brand": "mc", "last4": "4216"}}
+{"order_id": 564, "paid_at": "2025-05-04T04:09:41Z", "method": "paypal", "amount": 249.14, "card": null}
+{"order_id": 565, "paid_at": "2025-03-26T06:28:13Z", "method": "card", "amount": 1222.45, "card": null}
+{"order_id": 566, "paid_at": "2025-03-24T19:16:41Z", "method": "card", "amount": 2072.46, "card": null}
+{"order_id": 567, "paid_at": "2025-04-27T10:34:42Z", "method": "transfer", "amount": 2454.89, "card": null}
+{"order_id": 568, "paid_at": "2025-06-22T03:32:18Z", "method": "paypal", "amount": 771.2, "card": null}
+{"order_id": 569, "paid_at": "2025-03-16T17:31:09Z", "method": "card", "amount": 753.99, "card": {"brand": "visa", "last4": "7022"}}
+{"order_id": 570, "paid_at": "2025-03-07T00:59:11Z", "method": "paypal", "amount": 1413.93, "card": {"brand": "amex", "last4": "1251"}}
+{"order_id": 571, "paid_at": "2025-06-17T08:19:41Z", "method": "card", "amount": 485.74, "card": null}
+{"order_id": 572, "paid_at": "2025-05-22T02:58:12Z", "method": "transfer", "amount": 218.11, "card": {"brand": "amex", "last4": "5463"}}
+{"order_id": 573, "paid_at": "2025-06-05T18:22:51Z", "method": "paypal", "amount": 1945.3, "card": null}
+{"order_id": 574, "paid_at": "2025-03-12T09:17:56Z", "method": "card", "amount": 2462.47, "card": {"brand": "mc", "last4": "6089"}}
+{"order_id": 575, "paid_at": "2025-05-17T04:51:08Z", "method": "card", "amount": 985.0, "card": {"brand": "visa", "last4": "8641"}}
+{"order_id": 576, "paid_at": "2025-02-28T03:54:25Z", "method": "card", "amount": 554.86, "card": null}
+{"order_id": 577, "paid_at": "2025-05-13T00:42:48Z", "method": "paypal", "amount": 1214.35, "card": {"brand": "mc", "last4": "1506"}}
+{"order_id": 578, "paid_at": "2025-03-15T07:51:30Z", "method": "transfer", "amount": 148.06, "card": {"brand": "amex", "last4": "7674"}}
+{"order_id": 579, "paid_at": "2025-03-02T19:43:10Z", "method": "card", "amount": 632.85, "card": null}
+{"order_id": 580, "paid_at": "2025-04-28T03:24:11Z", "method": "card", "amount": 903.81, "card": {"brand": "mc", "last4": "3075"}}
+{"order_id": 581, "paid_at": "2025-02-09T04:32:39Z", "method": "paypal", "amount": 808.63, "card": null}
+{"order_id": 582, "paid_at": "2025-01-19T02:48:39Z", "method": "paypal", "amount": 653.0, "card": {"brand": "visa", "last4": "1595"}}
+{"order_id": 583, "paid_at": "2025-03-21T02:27:34Z", "method": "paypal", "amount": 1357.88, "card": null}
+{"order_id": 584, "paid_at": "2025-01-19T03:03:00Z", "method": "transfer", "amount": 418.78, "card": {"brand": "amex", "last4": "8573"}}
+{"order_id": 585, "paid_at": "2025-03-08T07:31:38Z", "method": "transfer", "amount": 660.39, "card": null}
+{"order_id": 586, "paid_at": "2025-04-29T12:42:38Z", "method": "transfer", "amount": 3238.53, "card": {"brand": "mc", "last4": "7753"}}
+{"order_id": 587, "paid_at": "2025-05-29T04:46:11Z", "method": "paypal", "amount": 2501.3, "card": {"brand": "amex", "last4": "5138"}}
+{"order_id": 588, "paid_at": "2025-01-17T05:06:38Z", "method": "card", "amount": 1137.06, "card": {"brand": "mc", "last4": "6157"}}
+{"order_id": 589, "paid_at": "2025-04-21T17:21:56Z", "method": "transfer", "amount": 639.63, "card": {"brand": "mc", "last4": "1787"}}
+{"order_id": 590, "paid_at": "2025-02-05T00:13:05Z", "method": "paypal", "amount": 908.42, "card": null}
+{"order_id": 591, "paid_at": "2025-03-04T04:25:40Z", "method": "paypal", "amount": 1918.46, "card": {"brand": "amex", "last4": "4250"}}
+{"order_id": 592, "paid_at": "2025-06-11T06:56:21Z", "method": "transfer", "amount": 1065.46, "card": null}
+{"order_id": 593, "paid_at": "2025-05-10T17:19:50Z", "method": "paypal", "amount": 1794.5, "card": null}
+{"order_id": 594, "paid_at": "2025-01-29T15:35:14Z", "method": "card", "amount": 2028.06, "card": {"brand": "amex", "last4": "9476"}}
+{"order_id": 595, "paid_at": "2025-01-08T02:16:13Z", "method": "paypal", "amount": 2016.07, "card": null}
+{"order_id": 596, "paid_at": "2025-03-24T16:59:03Z", "method": "transfer", "amount": 280.3, "card": {"brand": "mc", "last4": "1625"}}
+{"order_id": 597, "paid_at": "2025-06-06T12:27:05Z", "method": "transfer", "amount": 456.93, "card": null}
+{"order_id": 598, "paid_at": "2025-04-08T18:03:04Z", "method": "card", "amount": 1307.2, "card": null}
+{"order_id": 599, "paid_at": "2025-01-25T04:05:06Z", "method": "transfer", "amount": 793.87, "card": null}
+{"order_id": 600, "paid_at": "2025-05-11T18:08:33Z", "method": "transfer", "amount": 2960.68, "card": null}
+{"order_id": 601, "paid_at": "2025-06-05T14:45:34Z", "method": "card", "amount": 796.15, "card": {"brand": "visa", "last4": "2069"}}
+{"order_id": 602, "paid_at": "2025-01-24T00:04:24Z", "method": "transfer", "amount": 685.33, "card": null}
+{"order_id": 603, "paid_at": "2025-05-18T09:53:33Z", "method": "card", "amount": 2235.94, "card": {"brand": "amex", "last4": "1694"}}
+{"order_id": 604, "paid_at": "2025-03-31T03:57:24Z", "method": "paypal", "amount": 457.64, "card": {"brand": "visa", "last4": "6402"}}
+{"order_id": 605, "paid_at": "2025-04-06T08:52:53Z", "method": "paypal", "amount": 902.31, "card": {"brand": "mc", "last4": "2639"}}
+{"order_id": 606, "paid_at": "2025-02-28T00:29:56Z", "method": "paypal", "amount": 719.05, "card": {"brand": "amex", "last4": "8953"}}
+{"order_id": 607, "paid_at": "2025-01-31T18:25:34Z", "method": "card", "amount": 411.38, "card": null}
+{"order_id": 608, "paid_at": "2025-01-23T07:06:10Z", "method": "paypal", "amount": 703.83, "card": null}
+{"order_id": 609, "paid_at": "2025-03-09T16:31:35Z", "method": "paypal", "amount": 440.88, "card": null}
+{"order_id": 610, "paid_at": "2025-04-25T02:25:57Z", "method": "transfer", "amount": 1460.4, "card": null}
+{"order_id": 611, "paid_at": "2025-06-09T02:51:32Z", "method": "transfer", "amount": 643.36, "card": {"brand": "amex", "last4": "5771"}}
+{"order_id": 612, "paid_at": "2025-01-06T19:57:49Z", "method": "paypal", "amount": 1650.48, "card": {"brand": "amex", "last4": "1085"}}
+{"order_id": 613, "paid_at": "2025-02-25T01:55:17Z", "method": "paypal", "amount": 1010.95, "card": null}
+{"order_id": 614, "paid_at": "2025-06-05T21:17:13Z", "method": "paypal", "amount": 514.21, "card": null}
+{"order_id": 615, "paid_at": "2025-02-25T08:43:05Z", "method": "card", "amount": 1331.03, "card": null}
+{"order_id": 616, "paid_at": "2025-06-11T03:38:56Z", "method": "transfer", "amount": 1165.06, "card": {"brand": "visa", "last4": "6126"}}
+{"order_id": 617, "paid_at": "2025-01-20T23:03:11Z", "method": "card", "amount": 675.7, "card": null}
+{"order_id": 618, "paid_at": "2025-05-21T14:44:14Z", "method": "card", "amount": 515.13, "card": null}
+{"order_id": 619, "paid_at": "2025-01-15T14:12:18Z", "method": "paypal", "amount": 745.1, "card": {"brand": "amex", "last4": "2004"}}
+{"order_id": 620, "paid_at": "2025-04-13T10:47:33Z", "method": "paypal", "amount": 1000.77, "card": {"brand": "amex", "last4": "1356"}}
+{"order_id": 621, "paid_at": "2025-04-19T11:08:10Z", "method": "card", "amount": 521.55, "card": null}
+{"order_id": 622, "paid_at": "2025-02-11T23:32:51Z", "method": "paypal", "amount": 293.18, "card": {"brand": "mc", "last4": "7438"}}
+{"order_id": 623, "paid_at": "2025-01-30T21:58:13Z", "method": "card", "amount": 205.72, "card": {"brand": "visa", "last4": "1124"}}
+{"order_id": 624, "paid_at": "2025-03-24T04:09:39Z", "method": "card", "amount": 364.35, "card": null}
+{"order_id": 625, "paid_at": "2025-02-06T07:49:18Z", "method": "paypal", "amount": 357.76, "card": null}
+{"order_id": 626, "paid_at": "2025-04-08T12:52:36Z", "method": "paypal", "amount": 202.27, "card": null}
+{"order_id": 627, "paid_at": "2025-03-20T04:48:52Z", "method": "card", "amount": 252.38, "card": null}
+{"order_id": 628, "paid_at": "2025-06-23T19:39:29Z", "method": "paypal", "amount": 133.84, "card": null}
+{"order_id": 629, "paid_at": "2025-02-12T17:13:13Z", "method": "transfer", "amount": 1858.77, "card": null}
+{"order_id": 630, "paid_at": "2025-05-13T07:56:07Z", "method": "card", "amount": 593.37, "card": null}
+{"order_id": 631, "paid_at": "2025-06-21T02:58:27Z", "method": "transfer", "amount": 1553.64, "card": {"brand": "mc", "last4": "3740"}}
+{"order_id": 632, "paid_at": "2025-04-08T17:13:57Z", "method": "paypal", "amount": 334.11, "card": {"brand": "mc", "last4": "7970"}}
+{"order_id": 633, "paid_at": "2025-03-12T17:47:40Z", "method": "paypal", "amount": 1241.6, "card": {"brand": "visa", "last4": "9463"}}
+{"order_id": 634, "paid_at": "2025-05-16T02:50:28Z", "method": "transfer", "amount": 434.33, "card": {"brand": "mc", "last4": "8632"}}
+{"order_id": 635, "paid_at": "2025-02-21T12:32:51Z", "method": "card", "amount": 219.3, "card": {"brand": "amex", "last4": "5624"}}
+{"order_id": 636, "paid_at": "2025-01-24T21:32:27Z", "method": "transfer", "amount": 1253.56, "card": null}
+{"order_id": 637, "paid_at": "2025-01-30T04:07:43Z", "method": "paypal", "amount": 720.01, "card": null}
+{"order_id": 638, "paid_at": "2025-06-10T07:07:18Z", "method": "card", "amount": 350.65, "card": null}
+{"order_id": 639, "paid_at": "2025-06-02T11:43:31Z", "method": "card", "amount": 1111.93, "card": {"brand": "mc", "last4": "4075"}}
+{"order_id": 640, "paid_at": "2025-05-04T16:56:35Z", "method": "transfer", "amount": 544.44, "card": {"brand": "mc", "last4": "9472"}}
+{"order_id": 641, "paid_at": "2025-05-13T16:49:27Z", "method": "transfer", "amount": 315.93, "card": {"brand": "visa", "last4": "6159"}}
+{"order_id": 642, "paid_at": "2025-01-19T15:49:22Z", "method": "paypal", "amount": 90.27, "card": {"brand": "mc", "last4": "7557"}}
+{"order_id": 643, "paid_at": "2025-06-27T05:16:47Z", "method": "card", "amount": 1647.99, "card": null}
+{"order_id": 644, "paid_at": "2025-06-11T04:03:15Z", "method": "card", "amount": 48.9, "card": null}
+{"order_id": 645, "paid_at": "2025-05-11T23:20:32Z", "method": "paypal", "amount": 1024.36, "card": {"brand": "visa", "last4": "7945"}}
+{"order_id": 646, "paid_at": "2025-05-14T13:22:44Z", "method": "card", "amount": 804.08, "card": {"brand": "amex", "last4": "7271"}}
+{"order_id": 647, "paid_at": "2025-01-11T19:30:45Z", "method": "transfer", "amount": 1642.17, "card": {"brand": "amex", "last4": "2018"}}
+{"order_id": 648, "paid_at": "2025-01-29T09:51:26Z", "method": "card", "amount": 343.4, "card": {"brand": "mc", "last4": "4742"}}
+{"order_id": 649, "paid_at": "2025-01-20T10:21:31Z", "method": "paypal", "amount": 638.08, "card": null}
+{"order_id": 650, "paid_at": "2025-03-30T18:24:28Z", "method": "card", "amount": 277.87, "card": {"brand": "mc", "last4": "2282"}}
+{"order_id": 651, "paid_at": "2025-06-21T08:52:41Z", "method": "transfer", "amount": 651.9, "card": {"brand": "amex", "last4": "1028"}}
+{"order_id": 652, "paid_at": "2025-05-08T09:04:18Z", "method": "paypal", "amount": 723.38, "card": {"brand": "amex", "last4": "2955"}}
+{"order_id": 653, "paid_at": "2025-05-18T13:52:00Z", "method": "transfer", "amount": 767.35, "card": null}
+{"order_id": 654, "paid_at": "2025-05-10T04:40:27Z", "method": "paypal", "amount": 1205.51, "card": null}
+{"order_id": 655, "paid_at": "2025-01-15T03:54:11Z", "method": "paypal", "amount": 1193.23, "card": null}
+{"order_id": 656, "paid_at": "2025-04-22T10:14:25Z", "method": "transfer", "amount": 331.11, "card": {"brand": "visa", "last4": "1409"}}
+{"order_id": 657, "paid_at": "2025-01-05T17:22:50Z", "method": "transfer", "amount": 1847.3, "card": {"brand": "mc", "last4": "3115"}}
+{"order_id": 658, "paid_at": "2025-04-21T18:10:01Z", "method": "card", "amount": 918.84, "card": {"brand": "mc", "last4": "1653"}}
+{"order_id": 659, "paid_at": "2025-04-07T20:20:03Z", "method": "card", "amount": 744.82, "card": {"brand": "visa", "last4": "8482"}}
+{"order_id": 660, "paid_at": "2025-04-08T02:34:16Z", "method": "card", "amount": 757.9, "card": null}
+{"order_id": 661, "paid_at": "2025-06-08T14:43:18Z", "method": "card", "amount": 2306.63, "card": {"brand": "mc", "last4": "2121"}}
+{"order_id": 662, "paid_at": "2025-05-21T10:58:39Z", "method": "card", "amount": 693.41, "card": null}
+{"order_id": 663, "paid_at": "2025-04-14T17:54:11Z", "method": "paypal", "amount": 367.52, "card": {"brand": "mc", "last4": "6993"}}
+{"order_id": 664, "paid_at": "2025-01-27T18:33:24Z", "method": "card", "amount": 398.09, "card": null}
+{"order_id": 665, "paid_at": "2025-04-25T07:37:22Z", "method": "transfer", "amount": 981.46, "card": null}
+{"order_id": 666, "paid_at": "2025-01-15T21:12:10Z", "method": "card", "amount": 326.5, "card": {"brand": "mc", "last4": "2005"}}
+{"order_id": 667, "paid_at": "2025-01-15T22:06:54Z", "method": "transfer", "amount": 1279.34, "card": {"brand": "visa", "last4": "0884"}}
+{"order_id": 668, "paid_at": "2025-06-24T20:26:11Z", "method": "transfer", "amount": 3933.7, "card": null}
+{"order_id": 669, "paid_at": "2025-01-12T14:40:56Z", "method": "paypal", "amount": 1287.45, "card": null}
+{"order_id": 670, "paid_at": "2025-03-09T13:18:11Z", "method": "card", "amount": 1298.12, "card": {"brand": "amex", "last4": "6358"}}
+{"order_id": 671, "paid_at": "2025-05-12T15:54:01Z", "method": "paypal", "amount": 1892.88, "card": null}
+{"order_id": 672, "paid_at": "2025-02-18T15:35:35Z", "method": "paypal", "amount": 1421.67, "card": null}
+{"order_id": 673, "paid_at": "2025-02-23T16:40:48Z", "method": "card", "amount": 429.18, "card": null}
+{"order_id": 674, "paid_at": "2025-01-08T11:53:52Z", "method": "paypal", "amount": 1207.97, "card": {"brand": "visa", "last4": "9839"}}
+{"order_id": 675, "paid_at": "2025-03-09T21:52:29Z", "method": "paypal", "amount": 697.02, "card": {"brand": "mc", "last4": "5488"}}
+{"order_id": 676, "paid_at": "2025-06-24T06:39:03Z", "method": "card", "amount": 718.28, "card": {"brand": "visa", "last4": "1740"}}
+{"order_id": 677, "paid_at": "2025-02-11T01:46:59Z", "method": "transfer", "amount": 772.84, "card": null}
+{"order_id": 678, "paid_at": "2025-02-13T14:52:24Z", "method": "paypal", "amount": 2219.05, "card": {"brand": "visa", "last4": "3949"}}
+{"order_id": 679, "paid_at": "2025-05-23T07:21:15Z", "method": "transfer", "amount": 454.34, "card": null}
+{"order_id": 680, "paid_at": "2025-02-14T15:05:28Z", "method": "paypal", "amount": 779.87, "card": {"brand": "visa", "last4": "2947"}}
+{"order_id": 681, "paid_at": "2025-01-04T00:45:32Z", "method": "card", "amount": 280.75, "card": {"brand": "visa", "last4": "2735"}}
+{"order_id": 682, "paid_at": "2025-01-26T17:14:30Z", "method": "transfer", "amount": 829.55, "card": {"brand": "amex", "last4": "0741"}}
+{"order_id": 683, "paid_at": "2025-05-24T11:18:01Z", "method": "card", "amount": 2955.43, "card": {"brand": "mc", "last4": "7430"}}
+{"order_id": 684, "paid_at": "2025-03-04T05:48:38Z", "method": "paypal", "amount": 1949.06, "card": null}
+{"order_id": 685, "paid_at": "2025-03-03T21:10:56Z", "method": "card", "amount": 3616.43, "card": {"brand": "visa", "last4": "1572"}}
+{"order_id": 686, "paid_at": "2025-04-18T05:23:05Z", "method": "paypal", "amount": 642.41, "card": {"brand": "amex", "last4": "6987"}}
+{"order_id": 687, "paid_at": "2025-03-28T09:25:59Z", "method": "card", "amount": 1698.63, "card": {"brand": "mc", "last4": "2567"}}
+{"order_id": 688, "paid_at": "2025-03-07T02:54:04Z", "method": "transfer", "amount": 1405.57, "card": {"brand": "amex", "last4": "0583"}}
+{"order_id": 689, "paid_at": "2025-05-02T19:26:36Z", "method": "paypal", "amount": 1070.19, "card": {"brand": "amex", "last4": "8138"}}
+{"order_id": 690, "paid_at": "2025-01-26T14:32:41Z", "method": "paypal", "amount": 1536.97, "card": {"brand": "amex", "last4": "2950"}}
+{"order_id": 691, "paid_at": "2025-06-13T06:10:28Z", "method": "paypal", "amount": 319.42, "card": null}
+{"order_id": 692, "paid_at": "2025-06-21T01:39:08Z", "method": "card", "amount": 2966.41, "card": {"brand": "mc", "last4": "8014"}}
+{"order_id": 693, "paid_at": "2025-03-22T00:22:21Z", "method": "paypal", "amount": 859.62, "card": null}
+{"order_id": 694, "paid_at": "2025-03-21T20:38:59Z", "method": "transfer", "amount": 107.9, "card": {"brand": "mc", "last4": "7334"}}
+{"order_id": 695, "paid_at": "2025-02-12T23:33:46Z", "method": "card", "amount": 1321.78, "card": {"brand": "visa", "last4": "0345"}}
+{"order_id": 696, "paid_at": "2025-01-18T12:43:29Z", "method": "paypal", "amount": 544.0, "card": {"brand": "visa", "last4": "8776"}}
+{"order_id": 697, "paid_at": "2025-06-16T22:43:55Z", "method": "card", "amount": 940.93, "card": null}
+{"order_id": 698, "paid_at": "2025-05-27T15:15:21Z", "method": "transfer", "amount": 535.58, "card": {"brand": "visa", "last4": "0553"}}
+{"order_id": 699, "paid_at": "2025-05-26T15:05:32Z", "method": "card", "amount": 671.36, "card": null}
+{"order_id": 700, "paid_at": "2025-04-28T11:20:25Z", "method": "paypal", "amount": 1477.54, "card": {"brand": "amex", "last4": "0383"}}
+{"order_id": 701, "paid_at": "2025-02-23T05:23:51Z", "method": "transfer", "amount": 536.47, "card": null}
+{"order_id": 702, "paid_at": "2025-06-26T06:14:44Z", "method": "card", "amount": 2196.2, "card": {"brand": "mc", "last4": "9226"}}
+{"order_id": 703, "paid_at": "2025-05-05T20:04:05Z", "method": "card", "amount": 1800.89, "card": null}
+{"order_id": 704, "paid_at": "2025-04-30T17:25:40Z", "method": "transfer", "amount": 1551.0, "card": {"brand": "visa", "last4": "4393"}}
+{"order_id": 705, "paid_at": "2025-02-10T15:06:19Z", "method": "card", "amount": 567.17, "card": {"brand": "visa", "last4": "6155"}}
+{"order_id": 706, "paid_at": "2025-05-27T23:44:51Z", "method": "transfer", "amount": 804.07, "card": {"brand": "visa", "last4": "4861"}}
+{"order_id": 707, "paid_at": "2025-03-26T13:54:51Z", "method": "transfer", "amount": 617.19, "card": {"brand": "mc", "last4": "8509"}}
+{"order_id": 708, "paid_at": "2025-02-18T18:57:37Z", "method": "transfer", "amount": 465.62, "card": {"brand": "mc", "last4": "0160"}}
+{"order_id": 709, "paid_at": "2025-03-22T20:21:44Z", "method": "paypal", "amount": 349.22, "card": null}
+{"order_id": 710, "paid_at": "2025-04-02T00:25:22Z", "method": "paypal", "amount": 719.69, "card": {"brand": "mc", "last4": "9575"}}
+{"order_id": 711, "paid_at": "2025-03-01T09:12:59Z", "method": "card", "amount": 500.95, "card": null}
+{"order_id": 712, "paid_at": "2025-04-25T01:33:45Z", "method": "transfer", "amount": 819.55, "card": {"brand": "mc", "last4": "3429"}}
+{"order_id": 713, "paid_at": "2025-01-01T12:42:48Z", "method": "paypal", "amount": 611.77, "card": null}
+{"order_id": 714, "paid_at": "2025-03-03T13:12:46Z", "method": "paypal", "amount": 1575.63, "card": {"brand": "amex", "last4": "5668"}}
+{"order_id": 715, "paid_at": "2025-03-24T08:30:47Z", "method": "paypal", "amount": 1109.99, "card": null}
+{"order_id": 716, "paid_at": "2025-06-27T20:18:13Z", "method": "transfer", "amount": 1240.22, "card": {"brand": "visa", "last4": "7756"}}
+{"order_id": 717, "paid_at": "2025-06-19T21:57:04Z", "method": "card", "amount": 499.09, "card": null}
+{"order_id": 718, "paid_at": "2025-05-18T23:36:36Z", "method": "paypal", "amount": 243.83, "card": {"brand": "mc", "last4": "2772"}}
+{"order_id": 719, "paid_at": "2025-05-21T05:26:43Z", "method": "card", "amount": 835.06, "card": {"brand": "mc", "last4": "9970"}}
+{"order_id": 720, "paid_at": "2025-05-14T17:51:08Z", "method": "card", "amount": 784.75, "card": null}
+{"order_id": 721, "paid_at": "2025-06-12T08:38:04Z", "method": "card", "amount": 353.59, "card": null}
+{"order_id": 722, "paid_at": "2025-03-31T09:45:56Z", "method": "paypal", "amount": 2003.31, "card": null}
+{"order_id": 723, "paid_at": "2025-04-20T17:39:37Z", "method": "paypal", "amount": 325.21, "card": null}
+{"order_id": 724, "paid_at": "2025-03-10T23:10:00Z", "method": "transfer", "amount": 590.67, "card": null}
+{"order_id": 725, "paid_at": "2025-04-21T10:26:12Z", "method": "transfer", "amount": 2002.31, "card": {"brand": "mc", "last4": "3575"}}
+{"order_id": 726, "paid_at": "2025-02-20T15:49:48Z", "method": "transfer", "amount": 243.16, "card": null}
+{"order_id": 727, "paid_at": "2025-06-25T00:24:43Z", "method": "card", "amount": 1562.88, "card": {"brand": "visa", "last4": "0356"}}
+{"order_id": 728, "paid_at": "2025-06-07T03:16:41Z", "method": "card", "amount": 1379.22, "card": {"brand": "amex", "last4": "1767"}}
+{"order_id": 729, "paid_at": "2025-03-24T17:01:39Z", "method": "card", "amount": 2450.78, "card": {"brand": "amex", "last4": "2416"}}
+{"order_id": 730, "paid_at": "2025-06-21T11:00:02Z", "method": "card", "amount": 571.15, "card": {"brand": "mc", "last4": "0081"}}
+{"order_id": 731, "paid_at": "2025-01-31T22:58:50Z", "method": "paypal", "amount": 325.65, "card": {"brand": "visa", "last4": "6350"}}
+{"order_id": 732, "paid_at": "2025-03-03T19:58:59Z", "method": "paypal", "amount": 433.14, "card": {"brand": "mc", "last4": "8000"}}
+{"order_id": 733, "paid_at": "2025-05-24T18:55:59Z", "method": "card", "amount": 826.12, "card": {"brand": "mc", "last4": "1265"}}
+{"order_id": 734, "paid_at": "2025-02-14T16:27:12Z", "method": "card", "amount": 186.58, "card": null}
+{"order_id": 735, "paid_at": "2025-05-12T03:14:59Z", "method": "card", "amount": 322.32, "card": null}
+{"order_id": 736, "paid_at": "2025-01-20T16:56:55Z", "method": "paypal", "amount": 110.44, "card": null}
+{"order_id": 737, "paid_at": "2025-05-11T03:32:05Z", "method": "card", "amount": 913.64, "card": {"brand": "mc", "last4": "8711"}}
+{"order_id": 738, "paid_at": "2025-03-16T11:23:29Z", "method": "transfer", "amount": 449.81, "card": {"brand": "mc", "last4": "7125"}}
+{"order_id": 739, "paid_at": "2025-04-01T06:06:12Z", "method": "paypal", "amount": 314.78, "card": null}
+{"order_id": 740, "paid_at": "2025-05-29T22:06:15Z", "method": "paypal", "amount": 814.4, "card": null}
+{"order_id": 741, "paid_at": "2025-04-14T21:39:42Z", "method": "transfer", "amount": 938.09, "card": {"brand": "visa", "last4": "1253"}}
+{"order_id": 742, "paid_at": "2025-03-14T09:34:07Z", "method": "card", "amount": 1956.57, "card": null}
+{"order_id": 743, "paid_at": "2025-02-19T21:25:42Z", "method": "card", "amount": 1615.93, "card": null}
+{"order_id": 744, "paid_at": "2025-02-11T19:16:52Z", "method": "paypal", "amount": 375.45, "card": {"brand": "amex", "last4": "4668"}}
+{"order_id": 745, "paid_at": "2025-01-01T23:43:22Z", "method": "card", "amount": 251.36, "card": null}
+{"order_id": 746, "paid_at": "2025-05-18T16:34:08Z", "method": "transfer", "amount": 326.78, "card": null}
+{"order_id": 747, "paid_at": "2025-04-03T08:44:12Z", "method": "card", "amount": 160.66, "card": {"brand": "visa", "last4": "6390"}}
+{"order_id": 748, "paid_at": "2025-03-20T06:01:41Z", "method": "transfer", "amount": 1311.77, "card": {"brand": "visa", "last4": "4651"}}
+{"order_id": 749, "paid_at": "2025-05-25T11:36:01Z", "method": "paypal", "amount": 841.64, "card": null}
+{"order_id": 750, "paid_at": "2025-04-21T20:16:52Z", "method": "transfer", "amount": 2141.84, "card": null}
+{"order_id": 751, "paid_at": "2025-04-14T09:59:08Z", "method": "transfer", "amount": 915.98, "card": {"brand": "mc", "last4": "6722"}}
+{"order_id": 752, "paid_at": "2025-05-04T14:09:03Z", "method": "card", "amount": 126.24, "card": null}
+{"order_id": 753, "paid_at": "2025-02-02T07:58:16Z", "method": "transfer", "amount": 611.09, "card": {"brand": "visa", "last4": "2644"}}
+{"order_id": 754, "paid_at": "2025-03-13T16:00:51Z", "method": "card", "amount": 298.74, "card": null}
+{"order_id": 755, "paid_at": "2025-03-31T04:14:38Z", "method": "transfer", "amount": 2280.88, "card": {"brand": "visa", "last4": "0529"}}
+{"order_id": 756, "paid_at": "2025-05-12T10:50:14Z", "method": "card", "amount": 507.75, "card": {"brand": "amex", "last4": "0979"}}
+{"order_id": 757, "paid_at": "2025-06-07T14:43:15Z", "method": "paypal", "amount": 1152.58, "card": {"brand": "mc", "last4": "2325"}}
+{"order_id": 758, "paid_at": "2025-06-04T11:57:46Z", "method": "card", "amount": 193.79, "card": {"brand": "mc", "last4": "4838"}}
+{"order_id": 759, "paid_at": "2025-03-28T08:36:19Z", "method": "paypal", "amount": 387.3, "card": null}
+{"order_id": 760, "paid_at": "2025-04-20T10:39:02Z", "method": "paypal", "amount": 683.07, "card": null}
+{"order_id": 761, "paid_at": "2025-01-25T23:16:02Z", "method": "card", "amount": 277.12, "card": {"brand": "mc", "last4": "5966"}}
+{"order_id": 762, "paid_at": "2025-04-09T18:20:30Z", "method": "paypal", "amount": 1989.9, "card": null}
+{"order_id": 763, "paid_at": "2025-02-24T01:31:40Z", "method": "card", "amount": 1420.61, "card": {"brand": "mc", "last4": "0538"}}
+{"order_id": 764, "paid_at": "2025-05-02T15:42:42Z", "method": "card", "amount": 172.21, "card": {"brand": "visa", "last4": "7317"}}
+{"order_id": 765, "paid_at": "2025-04-12T13:30:04Z", "method": "transfer", "amount": 436.64, "card": {"brand": "visa", "last4": "9980"}}
+{"order_id": 766, "paid_at": "2025-04-18T04:39:34Z", "method": "paypal", "amount": 1543.07, "card": null}
+{"order_id": 767, "paid_at": "2025-03-03T22:18:15Z", "method": "card", "amount": 471.57, "card": {"brand": "mc", "last4": "9327"}}
+{"order_id": 768, "paid_at": "2025-04-23T23:14:53Z", "method": "transfer", "amount": 3228.24, "card": null}
+{"order_id": 769, "paid_at": "2025-02-28T04:53:39Z", "method": "transfer", "amount": 2005.49, "card": {"brand": "visa", "last4": "2929"}}
+{"order_id": 770, "paid_at": "2025-05-28T16:00:49Z", "method": "card", "amount": 419.28, "card": {"brand": "visa", "last4": "5033"}}
+{"order_id": 771, "paid_at": "2025-03-01T07:39:30Z", "method": "card", "amount": 645.21, "card": {"brand": "visa", "last4": "5335"}}
+{"order_id": 772, "paid_at": "2025-04-03T00:08:08Z", "method": "paypal", "amount": 1001.63, "card": null}
+{"order_id": 773, "paid_at": "2025-03-18T10:17:22Z", "method": "paypal", "amount": 116.29, "card": null}
+{"order_id": 774, "paid_at": "2025-02-09T06:39:52Z", "method": "paypal", "amount": 1116.06, "card": {"brand": "visa", "last4": "1219"}}
+{"order_id": 775, "paid_at": "2025-02-01T03:49:06Z", "method": "transfer", "amount": 694.02, "card": {"brand": "amex", "last4": "7979"}}
+{"order_id": 776, "paid_at": "2025-02-24T09:36:33Z", "method": "paypal", "amount": 993.73, "card": {"brand": "amex", "last4": "6779"}}
+{"order_id": 777, "paid_at": "2025-06-19T17:19:18Z", "method": "transfer", "amount": 541.31, "card": null}
+{"order_id": 778, "paid_at": "2025-06-08T17:07:26Z", "method": "paypal", "amount": 819.12, "card": {"brand": "mc", "last4": "3519"}}
+{"order_id": 779, "paid_at": "2025-03-04T09:36:48Z", "method": "card", "amount": 219.62, "card": null}
+{"order_id": 780, "paid_at": "2025-03-21T18:25:07Z", "method": "transfer", "amount": 1138.7, "card": null}
+{"order_id": 781, "paid_at": "2025-04-19T10:11:22Z", "method": "paypal", "amount": 570.93, "card": {"brand": "mc", "last4": "7393"}}
+{"order_id": 782, "paid_at": "2025-01-30T13:46:41Z", "method": "paypal", "amount": 439.25, "card": {"brand": "mc", "last4": "9416"}}
+{"order_id": 783, "paid_at": "2025-01-02T05:55:41Z", "method": "transfer", "amount": 757.54, "card": {"brand": "amex", "last4": "7499"}}
+{"order_id": 784, "paid_at": "2025-05-10T05:11:50Z", "method": "card", "amount": 1036.34, "card": null}
+{"order_id": 785, "paid_at": "2025-02-14T16:46:42Z", "method": "paypal", "amount": 580.73, "card": null}
+{"order_id": 786, "paid_at": "2025-01-24T21:59:04Z", "method": "paypal", "amount": 588.88, "card": null}
+{"order_id": 787, "paid_at": "2025-05-30T17:28:40Z", "method": "transfer", "amount": 2889.26, "card": null}
+{"order_id": 788, "paid_at": "2025-04-09T19:04:41Z", "method": "paypal", "amount": 407.25, "card": {"brand": "visa", "last4": "7113"}}
+{"order_id": 789, "paid_at": "2025-02-28T09:25:15Z", "method": "card", "amount": 2921.62, "card": null}
+{"order_id": 790, "paid_at": "2025-01-25T20:38:56Z", "method": "paypal", "amount": 201.07, "card": null}
+{"order_id": 791, "paid_at": "2025-06-09T20:43:34Z", "method": "paypal", "amount": 119.28, "card": {"brand": "visa", "last4": "2660"}}
+{"order_id": 792, "paid_at": "2025-04-07T14:57:34Z", "method": "card", "amount": 931.1, "card": {"brand": "visa", "last4": "2364"}}
+{"order_id": 793, "paid_at": "2025-01-10T00:57:11Z", "method": "paypal", "amount": 1123.37, "card": {"brand": "amex", "last4": "7215"}}
+{"order_id": 794, "paid_at": "2025-06-16T09:46:59Z", "method": "paypal", "amount": 462.7, "card": {"brand": "amex", "last4": "3215"}}
+{"order_id": 795, "paid_at": "2025-02-12T14:20:50Z", "method": "transfer", "amount": 1199.25, "card": {"brand": "mc", "last4": "2157"}}
+{"order_id": 796, "paid_at": "2025-03-23T23:06:36Z", "method": "card", "amount": 691.94, "card": {"brand": "visa", "last4": "0234"}}
+{"order_id": 797, "paid_at": "2025-05-04T05:50:35Z", "method": "card", "amount": 918.1, "card": {"brand": "mc", "last4": "8943"}}
+{"order_id": 798, "paid_at": "2025-01-23T21:08:36Z", "method": "transfer", "amount": 991.4, "card": {"brand": "amex", "last4": "4306"}}
+{"order_id": 799, "paid_at": "2025-06-01T20:25:15Z", "method": "paypal", "amount": 537.15, "card": {"brand": "visa", "last4": "8269"}}
+{"order_id": 800, "paid_at": "2025-03-19T05:03:18Z", "method": "paypal", "amount": 1872.42, "card": {"brand": "amex", "last4": "8697"}}
+{"order_id": 801, "paid_at": "2025-03-14T17:18:59Z", "method": "card", "amount": 839.5, "card": {"brand": "mc", "last4": "4857"}}
+{"order_id": 802, "paid_at": "2025-06-24T22:48:43Z", "method": "paypal", "amount": 127.73, "card": {"brand": "amex", "last4": "5105"}}
+{"order_id": 803, "paid_at": "2025-06-29T05:57:05Z", "method": "card", "amount": 1489.12, "card": {"brand": "mc", "last4": "9689"}}
+{"order_id": 804, "paid_at": "2025-02-18T06:48:07Z", "method": "card", "amount": 490.54, "card": null}
+{"order_id": 805, "paid_at": "2025-05-11T13:11:23Z", "method": "paypal", "amount": 586.12, "card": null}
+{"order_id": 806, "paid_at": "2025-02-28T01:03:44Z", "method": "paypal", "amount": 684.81, "card": null}
+{"order_id": 807, "paid_at": "2025-03-24T17:07:13Z", "method": "paypal", "amount": 2704.13, "card": null}
+{"order_id": 808, "paid_at": "2025-06-18T00:07:17Z", "method": "card", "amount": 2468.28, "card": {"brand": "amex", "last4": "7993"}}
+{"order_id": 809, "paid_at": "2025-04-28T19:13:00Z", "method": "transfer", "amount": 1611.5, "card": {"brand": "amex", "last4": "1615"}}
+{"order_id": 810, "paid_at": "2025-01-19T10:47:45Z", "method": "paypal", "amount": 266.54, "card": {"brand": "amex", "last4": "0610"}}
+{"order_id": 811, "paid_at": "2025-06-07T22:00:12Z", "method": "paypal", "amount": 2329.86, "card": {"brand": "mc", "last4": "5875"}}
+{"order_id": 812, "paid_at": "2025-03-08T19:41:16Z", "method": "transfer", "amount": 2590.0, "card": {"brand": "visa", "last4": "5186"}}
+{"order_id": 813, "paid_at": "2025-01-20T16:12:01Z", "method": "paypal", "amount": 112.46, "card": {"brand": "mc", "last4": "5744"}}
+{"order_id": 814, "paid_at": "2025-06-06T11:55:16Z", "method": "transfer", "amount": 1584.95, "card": {"brand": "amex", "last4": "4853"}}
+{"order_id": 815, "paid_at": "2025-04-19T17:38:19Z", "method": "paypal", "amount": 145.18, "card": null}
+{"order_id": 816, "paid_at": "2025-04-14T11:29:26Z", "method": "transfer", "amount": 355.33, "card": {"brand": "mc", "last4": "3683"}}
+{"order_id": 817, "paid_at": "2025-06-10T10:08:49Z", "method": "card", "amount": 1175.0, "card": null}
+{"order_id": 818, "paid_at": "2025-06-16T12:37:08Z", "method": "paypal", "amount": 2209.08, "card": null}
+{"order_id": 819, "paid_at": "2025-03-04T04:27:44Z", "method": "transfer", "amount": 937.74, "card": {"brand": "visa", "last4": "8314"}}
+{"order_id": 820, "paid_at": "2025-04-03T09:23:54Z", "method": "card", "amount": 58.06, "card": {"brand": "amex", "last4": "0871"}}
+{"order_id": 821, "paid_at": "2025-05-01T04:02:40Z", "method": "card", "amount": 519.44, "card": {"brand": "mc", "last4": "9334"}}
+{"order_id": 822, "paid_at": "2025-06-24T02:18:39Z", "method": "card", "amount": 1055.68, "card": {"brand": "amex", "last4": "6670"}}
+{"order_id": 823, "paid_at": "2025-05-29T19:16:04Z", "method": "transfer", "amount": 528.64, "card": {"brand": "visa", "last4": "3188"}}
+{"order_id": 824, "paid_at": "2025-04-27T19:47:42Z", "method": "paypal", "amount": 3026.22, "card": {"brand": "visa", "last4": "4268"}}
+{"order_id": 825, "paid_at": "2025-02-08T23:12:51Z", "method": "paypal", "amount": 3091.44, "card": {"brand": "visa", "last4": "3088"}}
+{"order_id": 826, "paid_at": "2025-05-01T13:45:30Z", "method": "card", "amount": 698.64, "card": {"brand": "mc", "last4": "0497"}}
+{"order_id": 827, "paid_at": "2025-01-08T12:57:04Z", "method": "transfer", "amount": 1743.48, "card": {"brand": "mc", "last4": "7338"}}
+{"order_id": 828, "paid_at": "2025-05-10T20:25:29Z", "method": "paypal", "amount": 7.82, "card": null}
+{"order_id": 829, "paid_at": "2025-06-07T11:24:07Z", "method": "transfer", "amount": 946.32, "card": null}
+{"order_id": 830, "paid_at": "2025-05-05T21:45:20Z", "method": "paypal", "amount": 1636.89, "card": null}
+{"order_id": 831, "paid_at": "2025-04-06T09:23:29Z", "method": "paypal", "amount": 453.51, "card": {"brand": "amex", "last4": "9359"}}
+{"order_id": 832, "paid_at": "2025-02-03T16:11:37Z", "method": "transfer", "amount": 555.6, "card": {"brand": "amex", "last4": "6075"}}
+{"order_id": 833, "paid_at": "2025-05-16T18:48:46Z", "method": "card", "amount": 1335.28, "card": {"brand": "amex", "last4": "0255"}}
+{"order_id": 834, "paid_at": "2025-06-29T01:22:01Z", "method": "transfer", "amount": 2189.47, "card": {"brand": "mc", "last4": "9347"}}
+{"order_id": 835, "paid_at": "2025-06-17T17:34:09Z", "method": "paypal", "amount": 576.06, "card": null}
+{"order_id": 836, "paid_at": "2025-06-08T14:17:45Z", "method": "transfer", "amount": 715.04, "card": {"brand": "visa", "last4": "1874"}}
+{"order_id": 837, "paid_at": "2025-01-31T21:01:19Z", "method": "transfer", "amount": 453.43, "card": null}
+{"order_id": 838, "paid_at": "2025-02-25T15:10:08Z", "method": "paypal", "amount": 575.02, "card": null}
+{"order_id": 839, "paid_at": "2025-01-08T09:29:18Z", "method": "transfer", "amount": 236.14, "card": null}
+{"order_id": 840, "paid_at": "2025-05-30T08:36:22Z", "method": "card", "amount": 1515.29, "card": {"brand": "amex", "last4": "1042"}}
+{"order_id": 841, "paid_at": "2025-02-05T17:27:49Z", "method": "transfer", "amount": 854.68, "card": {"brand": "amex", "last4": "2639"}}
+{"order_id": 842, "paid_at": "2025-04-17T06:10:46Z", "method": "card", "amount": 365.01, "card": {"brand": "mc", "last4": "6068"}}
+{"order_id": 843, "paid_at": "2025-01-28T20:59:43Z", "method": "card", "amount": 846.99, "card": null}
+{"order_id": 844, "paid_at": "2025-04-21T23:40:42Z", "method": "paypal", "amount": 147.49, "card": null}
+{"order_id": 845, "paid_at": "2025-03-30T08:24:49Z", "method": "paypal", "amount": 2162.76, "card": {"brand": "amex", "last4": "3718"}}
+{"order_id": 846, "paid_at": "2025-01-25T06:52:18Z", "method": "paypal", "amount": 110.67, "card": null}
+{"order_id": 847, "paid_at": "2025-05-10T05:19:53Z", "method": "paypal", "amount": 1334.03, "card": null}
+{"order_id": 848, "paid_at": "2025-02-11T11:16:45Z", "method": "card", "amount": 246.01, "card": null}
+{"order_id": 849, "paid_at": "2025-04-18T03:26:33Z", "method": "transfer", "amount": 806.59, "card": {"brand": "amex", "last4": "6584"}}
+{"order_id": 850, "paid_at": "2025-06-01T19:54:35Z", "method": "transfer", "amount": 88.79, "card": {"brand": "amex", "last4": "8693"}}
+{"order_id": 851, "paid_at": "2025-05-02T23:12:28Z", "method": "transfer", "amount": 330.29, "card": null}
+{"order_id": 852, "paid_at": "2025-03-01T17:43:31Z", "method": "card", "amount": 881.8, "card": null}
+{"order_id": 853, "paid_at": "2025-06-05T19:39:23Z", "method": "paypal", "amount": 1956.23, "card": null}
+{"order_id": 854, "paid_at": "2025-01-27T08:26:09Z", "method": "paypal", "amount": 516.72, "card": {"brand": "visa", "last4": "7329"}}
+{"order_id": 855, "paid_at": "2025-04-06T11:52:01Z", "method": "transfer", "amount": 2715.31, "card": null}
+{"order_id": 856, "paid_at": "2025-03-04T06:40:49Z", "method": "transfer", "amount": 1301.43, "card": null}
+{"order_id": 857, "paid_at": "2025-06-25T14:29:58Z", "method": "paypal", "amount": 588.82, "card": null}
+{"order_id": 858, "paid_at": "2025-05-26T15:43:32Z", "method": "paypal", "amount": 774.96, "card": null}
+{"order_id": 859, "paid_at": "2025-05-16T00:34:41Z", "method": "card", "amount": 460.63, "card": {"brand": "mc", "last4": "1364"}}
+{"order_id": 860, "paid_at": "2025-06-28T09:51:25Z", "method": "card", "amount": 1229.03, "card": {"brand": "amex", "last4": "5589"}}
+{"order_id": 861, "paid_at": "2025-01-14T16:30:27Z", "method": "card", "amount": 859.7, "card": null}
+{"order_id": 862, "paid_at": "2025-01-18T19:09:16Z", "method": "transfer", "amount": 894.82, "card": null}
+{"order_id": 863, "paid_at": "2025-05-23T01:45:19Z", "method": "card", "amount": 1362.99, "card": null}
+{"order_id": 864, "paid_at": "2025-06-12T08:22:50Z", "method": "paypal", "amount": 1112.52, "card": {"brand": "visa", "last4": "1009"}}
+{"order_id": 865, "paid_at": "2025-04-06T22:09:53Z", "method": "paypal", "amount": 974.37, "card": {"brand": "amex", "last4": "1079"}}
+{"order_id": 866, "paid_at": "2025-02-20T23:13:47Z", "method": "transfer", "amount": 283.0, "card": {"brand": "visa", "last4": "3737"}}
+{"order_id": 867, "paid_at": "2025-02-03T03:05:03Z", "method": "paypal", "amount": 129.73, "card": {"brand": "visa", "last4": "6317"}}
+{"order_id": 868, "paid_at": "2025-01-05T18:11:03Z", "method": "card", "amount": 1320.26, "card": null}
+{"order_id": 869, "paid_at": "2025-04-02T17:10:21Z", "method": "card", "amount": 433.4, "card": null}
+{"order_id": 870, "paid_at": "2025-05-21T12:53:21Z", "method": "card", "amount": 25.89, "card": {"brand": "amex", "last4": "7810"}}
+{"order_id": 871, "paid_at": "2025-02-26T04:40:15Z", "method": "card", "amount": 339.86, "card": {"brand": "amex", "last4": "4618"}}
+{"order_id": 872, "paid_at": "2025-05-21T17:44:40Z", "method": "paypal", "amount": 604.7, "card": {"brand": "mc", "last4": "4596"}}
+{"order_id": 873, "paid_at": "2025-03-08T04:32:39Z", "method": "card", "amount": 680.81, "card": {"brand": "amex", "last4": "3883"}}
+{"order_id": 874, "paid_at": "2025-04-05T21:22:05Z", "method": "card", "amount": 1084.62, "card": null}
+{"order_id": 875, "paid_at": "2025-01-12T11:29:32Z", "method": "paypal", "amount": 440.76, "card": {"brand": "mc", "last4": "5147"}}
+{"order_id": 876, "paid_at": "2025-06-21T12:14:23Z", "method": "paypal", "amount": 1531.22, "card": null}
+{"order_id": 877, "paid_at": "2025-01-05T21:53:50Z", "method": "paypal", "amount": 903.36, "card": {"brand": "visa", "last4": "9937"}}
+{"order_id": 878, "paid_at": "2025-02-25T07:10:26Z", "method": "paypal", "amount": 554.88, "card": {"brand": "mc", "last4": "9013"}}
+{"order_id": 879, "paid_at": "2025-05-03T03:00:29Z", "method": "paypal", "amount": 257.94, "card": {"brand": "amex", "last4": "0645"}}
+{"order_id": 880, "paid_at": "2025-01-11T20:30:21Z", "method": "card", "amount": 1094.72, "card": {"brand": "visa", "last4": "8068"}}
+{"order_id": 881, "paid_at": "2025-04-16T20:39:11Z", "method": "card", "amount": 641.38, "card": null}
+{"order_id": 882, "paid_at": "2025-02-14T04:01:34Z", "method": "paypal", "amount": 1083.99, "card": null}
+{"order_id": 883, "paid_at": "2025-05-04T04:29:41Z", "method": "card", "amount": 222.18, "card": null}
+{"order_id": 884, "paid_at": "2025-01-08T00:08:53Z", "method": "transfer", "amount": 597.79, "card": {"brand": "mc", "last4": "9113"}}
+{"order_id": 885, "paid_at": "2025-04-10T04:54:17Z", "method": "paypal", "amount": 1056.08, "card": {"brand": "amex", "last4": "3368"}}
+{"order_id": 886, "paid_at": "2025-05-28T12:51:05Z", "method": "transfer", "amount": 1326.63, "card": null}
+{"order_id": 887, "paid_at": "2025-02-12T00:39:24Z", "method": "transfer", "amount": 2367.27, "card": null}
+{"order_id": 888, "paid_at": "2025-06-15T14:11:00Z", "method": "transfer", "amount": 1586.27, "card": {"brand": "visa", "last4": "0877"}}
+{"order_id": 889, "paid_at": "2025-02-11T19:27:39Z", "method": "transfer", "amount": 3350.58, "card": null}
+{"order_id": 890, "paid_at": "2025-05-15T22:36:19Z", "method": "paypal", "amount": 180.29, "card": {"brand": "visa", "last4": "0608"}}
+{"order_id": 891, "paid_at": "2025-03-25T23:57:16Z", "method": "paypal", "amount": 698.64, "card": {"brand": "amex", "last4": "7850"}}
+{"order_id": 892, "paid_at": "2025-06-05T17:36:57Z", "method": "transfer", "amount": 745.02, "card": {"brand": "visa", "last4": "0774"}}
+{"order_id": 893, "paid_at": "2025-03-12T16:55:30Z", "method": "transfer", "amount": 64.84, "card": {"brand": "mc", "last4": "5681"}}
+{"order_id": 894, "paid_at": "2025-02-03T19:05:30Z", "method": "transfer", "amount": 336.28, "card": {"brand": "mc", "last4": "1416"}}
+{"order_id": 895, "paid_at": "2025-02-19T04:05:56Z", "method": "card", "amount": 236.9, "card": null}
+{"order_id": 896, "paid_at": "2025-01-29T04:16:03Z", "method": "transfer", "amount": 1203.69, "card": null}
+{"order_id": 897, "paid_at": "2025-04-22T18:15:33Z", "method": "paypal", "amount": 1480.44, "card": {"brand": "visa", "last4": "3699"}}
+{"order_id": 898, "paid_at": "2025-05-06T01:09:07Z", "method": "card", "amount": 1134.6, "card": {"brand": "visa", "last4": "0385"}}
+{"order_id": 899, "paid_at": "2025-01-07T01:09:28Z", "method": "paypal", "amount": 127.1, "card": {"brand": "visa", "last4": "9790"}}
+{"order_id": 900, "paid_at": "2025-03-08T15:19:10Z", "method": "transfer", "amount": 444.78, "card": {"brand": "visa", "last4": "8191"}}
+{"order_id": 901, "paid_at": "2025-03-10T06:21:40Z", "method": "card", "amount": 429.81, "card": null}
+{"order_id": 902, "paid_at": "2025-05-28T09:55:36Z", "method": "card", "amount": 216.17, "card": {"brand": "amex", "last4": "5527"}}
+{"order_id": 903, "paid_at": "2025-04-28T05:15:14Z", "method": "card", "amount": 338.47, "card": null}
+{"order_id": 904, "paid_at": "2025-04-26T05:36:47Z", "method": "paypal", "amount": 734.6, "card": {"brand": "amex", "last4": "8466"}}
+{"order_id": 905, "paid_at": "2025-02-03T18:36:11Z", "method": "card", "amount": 496.72, "card": null}
+{"order_id": 906, "paid_at": "2025-02-18T08:45:22Z", "method": "transfer", "amount": 760.22, "card": {"brand": "amex", "last4": "1902"}}
+{"order_id": 907, "paid_at": "2025-02-01T22:36:52Z", "method": "card", "amount": 843.33, "card": {"brand": "visa", "last4": "4569"}}
+{"order_id": 908, "paid_at": "2025-04-19T05:24:13Z", "method": "card", "amount": 291.41, "card": {"brand": "visa", "last4": "1982"}}
+{"order_id": 909, "paid_at": "2025-02-01T11:13:10Z", "method": "card", "amount": 669.45, "card": {"brand": "amex", "last4": "3039"}}
+{"order_id": 910, "paid_at": "2025-03-22T06:06:41Z", "method": "card", "amount": 564.31, "card": {"brand": "visa", "last4": "1847"}}
+{"order_id": 911, "paid_at": "2025-05-10T07:29:15Z", "method": "card", "amount": 1849.54, "card": null}
+{"order_id": 912, "paid_at": "2025-05-04T00:02:30Z", "method": "card", "amount": 1681.08, "card": {"brand": "mc", "last4": "0977"}}
+{"order_id": 913, "paid_at": "2025-03-25T20:54:53Z", "method": "transfer", "amount": 289.65, "card": {"brand": "visa", "last4": "2086"}}
+{"order_id": 914, "paid_at": "2025-04-30T09:51:19Z", "method": "card", "amount": 1827.45, "card": {"brand": "amex", "last4": "2384"}}
+{"order_id": 915, "paid_at": "2025-05-05T13:35:28Z", "method": "transfer", "amount": 590.13, "card": {"brand": "mc", "last4": "7699"}}
+{"order_id": 916, "paid_at": "2025-04-05T17:36:16Z", "method": "paypal", "amount": 3135.84, "card": {"brand": "mc", "last4": "9739"}}
+{"order_id": 917, "paid_at": "2025-02-14T06:15:18Z", "method": "transfer", "amount": 2358.9, "card": null}
+{"order_id": 918, "paid_at": "2025-05-14T05:19:48Z", "method": "transfer", "amount": 1564.09, "card": {"brand": "visa", "last4": "8142"}}
+{"order_id": 919, "paid_at": "2025-02-17T16:45:11Z", "method": "card", "amount": 852.55, "card": null}
+{"order_id": 920, "paid_at": "2025-04-07T03:35:34Z", "method": "card", "amount": 1512.59, "card": null}
+{"order_id": 921, "paid_at": "2025-04-14T22:28:05Z", "method": "paypal", "amount": 478.91, "card": {"brand": "visa", "last4": "3611"}}
+{"order_id": 922, "paid_at": "2025-04-28T05:34:55Z", "method": "paypal", "amount": 587.02, "card": {"brand": "visa", "last4": "6279"}}
+{"order_id": 923, "paid_at": "2025-04-16T05:01:27Z", "method": "paypal", "amount": 1758.69, "card": {"brand": "visa", "last4": "1644"}}
+{"order_id": 924, "paid_at": "2025-03-21T08:12:33Z", "method": "paypal", "amount": 859.5, "card": null}
+{"order_id": 925, "paid_at": "2025-04-06T10:45:54Z", "method": "card", "amount": 1692.88, "card": null}
+{"order_id": 926, "paid_at": "2025-02-23T06:05:35Z", "method": "transfer", "amount": 94.15, "card": null}
+{"order_id": 927, "paid_at": "2025-01-13T13:36:01Z", "method": "card", "amount": 1409.06, "card": {"brand": "amex", "last4": "8473"}}
+{"order_id": 928, "paid_at": "2025-04-14T02:29:37Z", "method": "card", "amount": 1948.46, "card": null}
+{"order_id": 929, "paid_at": "2025-02-02T08:38:47Z", "method": "paypal", "amount": 228.46, "card": {"brand": "mc", "last4": "2751"}}
+{"order_id": 930, "paid_at": "2025-01-04T08:22:22Z", "method": "card", "amount": 738.48, "card": {"brand": "amex", "last4": "6044"}}
+{"order_id": 931, "paid_at": "2025-02-04T18:17:46Z", "method": "paypal", "amount": 1593.71, "card": {"brand": "mc", "last4": "7576"}}
+{"order_id": 932, "paid_at": "2025-03-30T08:24:36Z", "method": "card", "amount": 816.04, "card": null}
+{"order_id": 933, "paid_at": "2025-04-13T17:16:12Z", "method": "transfer", "amount": 1193.85, "card": {"brand": "mc", "last4": "8576"}}
+{"order_id": 934, "paid_at": "2025-02-02T09:51:22Z", "method": "transfer", "amount": 110.33, "card": {"brand": "mc", "last4": "6159"}}
+{"order_id": 935, "paid_at": "2025-03-14T13:27:40Z", "method": "transfer", "amount": 457.57, "card": {"brand": "amex", "last4": "2291"}}
+{"order_id": 936, "paid_at": "2025-06-04T03:26:31Z", "method": "transfer", "amount": 1061.34, "card": {"brand": "visa", "last4": "7590"}}
+{"order_id": 937, "paid_at": "2025-03-22T17:58:06Z", "method": "paypal", "amount": 920.04, "card": {"brand": "amex", "last4": "7100"}}
+{"order_id": 938, "paid_at": "2025-04-27T04:01:02Z", "method": "card", "amount": 3836.43, "card": {"brand": "amex", "last4": "8537"}}
+{"order_id": 939, "paid_at": "2025-01-05T16:55:59Z", "method": "transfer", "amount": 146.97, "card": {"brand": "mc", "last4": "7987"}}
+{"order_id": 940, "paid_at": "2025-05-29T07:13:07Z", "method": "transfer", "amount": 1654.71, "card": {"brand": "visa", "last4": "2329"}}
+{"order_id": 941, "paid_at": "2025-06-27T16:25:05Z", "method": "transfer", "amount": 795.27, "card": {"brand": "visa", "last4": "0009"}}
+{"order_id": 942, "paid_at": "2025-02-01T17:57:33Z", "method": "transfer", "amount": 1078.98, "card": {"brand": "visa", "last4": "7530"}}
+{"order_id": 943, "paid_at": "2025-04-30T18:40:19Z", "method": "transfer", "amount": 314.62, "card": {"brand": "amex", "last4": "2549"}}
+{"order_id": 944, "paid_at": "2025-05-13T10:25:04Z", "method": "transfer", "amount": 1298.56, "card": {"brand": "visa", "last4": "9694"}}
+{"order_id": 945, "paid_at": "2025-06-05T16:19:14Z", "method": "card", "amount": 453.38, "card": {"brand": "amex", "last4": "8883"}}
+{"order_id": 946, "paid_at": "2025-03-12T12:10:10Z", "method": "transfer", "amount": 584.4, "card": null}
+{"order_id": 947, "paid_at": "2025-06-29T20:15:10Z", "method": "card", "amount": 444.96, "card": null}
+{"order_id": 948, "paid_at": "2025-06-20T17:21:48Z", "method": "transfer", "amount": 1839.97, "card": null}
+{"order_id": 949, "paid_at": "2025-03-25T05:25:12Z", "method": "card", "amount": 1418.62, "card": null}
+{"order_id": 950, "paid_at": "2025-06-13T19:41:00Z", "method": "card", "amount": 452.17, "card": {"brand": "amex", "last4": "0003"}}
+{"order_id": 951, "paid_at": "2025-06-03T07:35:08Z", "method": "transfer", "amount": 317.13, "card": null}
+{"order_id": 952, "paid_at": "2025-03-31T19:01:40Z", "method": "paypal", "amount": 1111.6, "card": null}
+{"order_id": 953, "paid_at": "2025-05-10T03:36:52Z", "method": "paypal", "amount": 720.27, "card": {"brand": "visa", "last4": "5067"}}
+{"order_id": 954, "paid_at": "2025-03-05T10:11:40Z", "method": "card", "amount": 133.61, "card": {"brand": "visa", "last4": "2446"}}
+{"order_id": 955, "paid_at": "2025-01-15T06:45:54Z", "method": "transfer", "amount": 90.86, "card": {"brand": "amex", "last4": "9045"}}
+{"order_id": 956, "paid_at": "2025-04-25T02:57:39Z", "method": "card", "amount": 419.72, "card": {"brand": "mc", "last4": "6512"}}
+{"order_id": 957, "paid_at": "2025-06-17T12:21:17Z", "method": "transfer", "amount": 505.64, "card": null}
+{"order_id": 958, "paid_at": "2025-02-18T16:08:56Z", "method": "paypal", "amount": 216.12, "card": {"brand": "amex", "last4": "2957"}}
+{"order_id": 959, "paid_at": "2025-01-08T11:16:08Z", "method": "paypal", "amount": 1565.88, "card": {"brand": "amex", "last4": "8273"}}
+{"order_id": 960, "paid_at": "2025-04-14T02:11:45Z", "method": "transfer", "amount": 1438.57, "card": {"brand": "mc", "last4": "0729"}}
+{"order_id": 961, "paid_at": "2025-03-06T14:18:12Z", "method": "paypal", "amount": 856.92, "card": null}
+{"order_id": 962, "paid_at": "2025-06-15T11:30:31Z", "method": "card", "amount": 559.71, "card": null}
+{"order_id": 963, "paid_at": "2025-02-16T09:57:38Z", "method": "card", "amount": 1117.42, "card": {"brand": "amex", "last4": "5016"}}
+{"order_id": 964, "paid_at": "2025-04-27T13:48:39Z", "method": "card", "amount": 309.71, "card": {"brand": "mc", "last4": "9187"}}
+{"order_id": 965, "paid_at": "2025-03-05T19:25:41Z", "method": "transfer", "amount": 1042.07, "card": null}
+{"order_id": 966, "paid_at": "2025-03-22T17:01:22Z", "method": "transfer", "amount": 513.07, "card": {"brand": "visa", "last4": "1248"}}
+{"order_id": 967, "paid_at": "2025-06-19T13:56:20Z", "method": "card", "amount": 2373.13, "card": null}
+{"order_id": 968, "paid_at": "2025-03-10T14:25:06Z", "method": "card", "amount": 2438.67, "card": null}
+{"order_id": 969, "paid_at": "2025-06-03T22:26:17Z", "method": "paypal", "amount": 1037.0, "card": {"brand": "amex", "last4": "1096"}}
+{"order_id": 970, "paid_at": "2025-02-14T00:55:13Z", "method": "paypal", "amount": 2030.69, "card": {"brand": "visa", "last4": "5163"}}
+{"order_id": 971, "paid_at": "2025-01-17T13:28:42Z", "method": "transfer", "amount": 683.83, "card": {"brand": "mc", "last4": "1962"}}
+{"order_id": 972, "paid_at": "2025-06-07T10:55:18Z", "method": "paypal", "amount": 1339.17, "card": {"brand": "amex", "last4": "5960"}}
+{"order_id": 973, "paid_at": "2025-04-07T18:39:09Z", "method": "card", "amount": 494.66, "card": {"brand": "amex", "last4": "9822"}}
+{"order_id": 974, "paid_at": "2025-03-12T09:41:20Z", "method": "transfer", "amount": 1631.22, "card": {"brand": "visa", "last4": "6613"}}
+{"order_id": 975, "paid_at": "2025-01-08T22:00:00Z", "method": "card", "amount": 965.57, "card": {"brand": "amex", "last4": "4056"}}
+{"order_id": 976, "paid_at": "2025-03-06T21:07:44Z", "method": "card", "amount": 1542.57, "card": {"brand": "visa", "last4": "8568"}}
+{"order_id": 977, "paid_at": "2025-04-22T23:47:25Z", "method": "transfer", "amount": 690.22, "card": {"brand": "amex", "last4": "4713"}}
+{"order_id": 978, "paid_at": "2025-02-18T08:42:01Z", "method": "card", "amount": 726.49, "card": {"brand": "visa", "last4": "4095"}}
+{"order_id": 979, "paid_at": "2025-01-10T01:04:17Z", "method": "paypal", "amount": 798.95, "card": null}
+{"order_id": 980, "paid_at": "2025-01-29T13:07:41Z", "method": "paypal", "amount": 815.49, "card": null}
+{"order_id": 981, "paid_at": "2025-06-16T15:20:56Z", "method": "card", "amount": 649.0, "card": null}
+{"order_id": 982, "paid_at": "2025-05-26T07:40:38Z", "method": "card", "amount": 643.76, "card": {"brand": "amex", "last4": "1069"}}
+{"order_id": 983, "paid_at": "2025-03-30T05:48:34Z", "method": "card", "amount": 1422.08, "card": {"brand": "mc", "last4": "3586"}}
+{"order_id": 984, "paid_at": "2025-04-09T23:49:48Z", "method": "transfer", "amount": 800.96, "card": {"brand": "mc", "last4": "6614"}}
+{"order_id": 985, "paid_at": "2025-01-13T05:28:03Z", "method": "paypal", "amount": 2294.73, "card": {"brand": "amex", "last4": "6876"}}
+{"order_id": 986, "paid_at": "2025-03-08T06:59:21Z", "method": "paypal", "amount": 248.44, "card": {"brand": "amex", "last4": "6585"}}
+{"order_id": 987, "paid_at": "2025-06-13T11:53:06Z", "method": "paypal", "amount": 627.19, "card": {"brand": "mc", "last4": "9214"}}
+{"order_id": 988, "paid_at": "2025-05-14T22:37:17Z", "method": "transfer", "amount": 820.77, "card": null}
+{"order_id": 989, "paid_at": "2025-02-11T16:08:58Z", "method": "transfer", "amount": 342.96, "card": {"brand": "visa", "last4": "1531"}}
+{"order_id": 990, "paid_at": "2025-06-29T08:10:05Z", "method": "paypal", "amount": 122.99, "card": {"brand": "amex", "last4": "2736"}}
+{"order_id": 991, "paid_at": "2025-05-28T01:27:48Z", "method": "card", "amount": 571.52, "card": {"brand": "visa", "last4": "9431"}}
+{"order_id": 992, "paid_at": "2025-01-01T00:29:58Z", "method": "transfer", "amount": 483.89, "card": {"brand": "amex", "last4": "4509"}}
+{"order_id": 993, "paid_at": "2025-02-03T10:03:45Z", "method": "paypal", "amount": 658.91, "card": null}
+{"order_id": 994, "paid_at": "2025-02-13T19:56:22Z", "method": "transfer", "amount": 1497.04, "card": {"brand": "amex", "last4": "1036"}}
+{"order_id": 995, "paid_at": "2025-04-02T23:47:31Z", "method": "card", "amount": 259.91, "card": null}
+{"order_id": 996, "paid_at": "2025-03-22T14:34:11Z", "method": "transfer", "amount": 377.66, "card": {"brand": "amex", "last4": "5407"}}
+{"order_id": 997, "paid_at": "2025-01-31T13:57:26Z", "method": "card", "amount": 741.15, "card": null}
+{"order_id": 998, "paid_at": "2025-03-14T22:12:42Z", "method": "transfer", "amount": 519.66, "card": {"brand": "visa", "last4": "9176"}}
+{"order_id": 999, "paid_at": "2025-03-18T15:28:07Z", "method": "transfer", "amount": 1261.49, "card": {"brand": "visa", "last4": "3956"}}
+{"order_id": 1000, "paid_at": "2025-04-18T06:10:55Z", "method": "transfer", "amount": 690.99, "card": null}
+{"order_id": 1001, "paid_at": "2025-05-02T08:19:56Z", "method": "paypal", "amount": 797.61, "card": {"brand": "mc", "last4": "0490"}}
+{"order_id": 1002, "paid_at": "2025-05-29T15:34:34Z", "method": "card", "amount": 737.25, "card": {"brand": "amex", "last4": "9598"}}
+{"order_id": 1003, "paid_at": "2025-01-17T01:07:45Z", "method": "transfer", "amount": 127.46, "card": {"brand": "amex", "last4": "0423"}}
+{"order_id": 1004, "paid_at": "2025-01-30T02:09:11Z", "method": "card", "amount": 181.23, "card": null}
+{"order_id": 1005, "paid_at": "2025-04-27T13:51:32Z", "method": "transfer", "amount": 702.23, "card": {"brand": "visa", "last4": "0723"}}
+{"order_id": 1006, "paid_at": "2025-01-10T12:04:19Z", "method": "transfer", "amount": 820.94, "card": null}
+{"order_id": 1007, "paid_at": "2025-03-20T16:29:28Z", "method": "transfer", "amount": 641.36, "card": null}
+{"order_id": 1008, "paid_at": "2025-06-09T13:04:55Z", "method": "transfer", "amount": 1101.33, "card": null}
+{"order_id": 1009, "paid_at": "2025-05-30T23:56:19Z", "method": "transfer", "amount": 491.88, "card": null}
+{"order_id": 1010, "paid_at": "2025-06-27T17:34:14Z", "method": "paypal", "amount": 675.97, "card": {"brand": "visa", "last4": "8448"}}
+{"order_id": 1011, "paid_at": "2025-03-15T10:06:02Z", "method": "transfer", "amount": 528.42, "card": {"brand": "amex", "last4": "4835"}}
+{"order_id": 1012, "paid_at": "2025-02-03T04:43:01Z", "method": "transfer", "amount": 1598.07, "card": {"brand": "visa", "last4": "5072"}}
+{"order_id": 1013, "paid_at": "2025-02-18T22:00:20Z", "method": "transfer", "amount": 1570.51, "card": null}
+{"order_id": 1014, "paid_at": "2025-06-18T01:39:24Z", "method": "transfer", "amount": 545.47, "card": {"brand": "amex", "last4": "8277"}}
+{"order_id": 1015, "paid_at": "2025-05-30T22:08:09Z", "method": "transfer", "amount": 896.53, "card": {"brand": "mc", "last4": "9995"}}
+{"order_id": 1016, "paid_at": "2025-01-12T22:52:03Z", "method": "card", "amount": 702.43, "card": null}
+{"order_id": 1017, "paid_at": "2025-06-09T23:51:38Z", "method": "transfer", "amount": 2077.47, "card": {"brand": "visa", "last4": "9720"}}
+{"order_id": 1018, "paid_at": "2025-05-03T12:33:02Z", "method": "card", "amount": 616.87, "card": {"brand": "visa", "last4": "8272"}}
+{"order_id": 1019, "paid_at": "2025-05-28T06:46:32Z", "method": "paypal", "amount": 1047.52, "card": null}
+{"order_id": 1020, "paid_at": "2025-05-17T11:53:55Z", "method": "paypal", "amount": 167.81, "card": null}
+{"order_id": 1021, "paid_at": "2025-01-15T19:39:35Z", "method": "paypal", "amount": 933.52, "card": null}
+{"order_id": 1022, "paid_at": "2025-04-13T21:30:34Z", "method": "paypal", "amount": 4034.22, "card": {"brand": "amex", "last4": "4816"}}
+{"order_id": 1023, "paid_at": "2025-04-11T22:07:07Z", "method": "card", "amount": 1335.05, "card": {"brand": "visa", "last4": "0907"}}
+{"order_id": 1024, "paid_at": "2025-06-21T20:11:24Z", "method": "transfer", "amount": 792.32, "card": {"brand": "mc", "last4": "3487"}}
+{"order_id": 1025, "paid_at": "2025-02-04T02:09:38Z", "method": "transfer", "amount": 200.64, "card": null}
+{"order_id": 1026, "paid_at": "2025-06-14T13:48:04Z", "method": "transfer", "amount": 1146.8, "card": null}
+{"order_id": 1027, "paid_at": "2025-03-28T21:15:29Z", "method": "paypal", "amount": 833.69, "card": null}
+{"order_id": 1028, "paid_at": "2025-05-06T06:55:58Z", "method": "card", "amount": 936.82, "card": {"brand": "mc", "last4": "9405"}}
+{"order_id": 1029, "paid_at": "2025-01-04T01:49:31Z", "method": "transfer", "amount": 251.62, "card": {"brand": "mc", "last4": "9383"}}
+{"order_id": 1030, "paid_at": "2025-06-18T20:54:11Z", "method": "paypal", "amount": 521.49, "card": null}
+{"order_id": 1031, "paid_at": "2025-02-27T09:40:04Z", "method": "transfer", "amount": 568.19, "card": {"brand": "visa", "last4": "2869"}}
+{"order_id": 1032, "paid_at": "2025-01-22T01:18:13Z", "method": "transfer", "amount": 1293.58, "card": null}
+{"order_id": 1033, "paid_at": "2025-04-02T20:22:06Z", "method": "transfer", "amount": 866.48, "card": {"brand": "mc", "last4": "9869"}}
+{"order_id": 1034, "paid_at": "2025-05-07T06:19:11Z", "method": "transfer", "amount": 3660.64, "card": {"brand": "amex", "last4": "2402"}}
+{"order_id": 1035, "paid_at": "2025-05-09T08:10:14Z", "method": "transfer", "amount": 1448.44, "card": {"brand": "visa", "last4": "3117"}}
+{"order_id": 1036, "paid_at": "2025-03-02T22:17:23Z", "method": "transfer", "amount": 2781.11, "card": {"brand": "mc", "last4": "6378"}}
+{"order_id": 1037, "paid_at": "2025-01-11T17:29:18Z", "method": "transfer", "amount": 2705.03, "card": {"brand": "amex", "last4": "7263"}}
+{"order_id": 1038, "paid_at": "2025-03-21T20:17:40Z", "method": "paypal", "amount": 466.98, "card": {"brand": "mc", "last4": "6401"}}
+{"order_id": 1039, "paid_at": "2025-01-12T07:28:51Z", "method": "card", "amount": 708.57, "card": null}
+{"order_id": 1040, "paid_at": "2025-06-05T02:06:28Z", "method": "card", "amount": 1567.72, "card": null}
+{"order_id": 1041, "paid_at": "2025-02-15T02:13:31Z", "method": "paypal", "amount": 167.17, "card": null}
+{"order_id": 1042, "paid_at": "2025-01-16T08:58:10Z", "method": "card", "amount": 1184.2, "card": null}
+{"order_id": 1043, "paid_at": "2025-05-26T17:13:37Z", "method": "card", "amount": 966.6, "card": {"brand": "mc", "last4": "0782"}}
+{"order_id": 1044, "paid_at": "2025-06-17T19:22:15Z", "method": "transfer", "amount": 759.68, "card": null}
+{"order_id": 1045, "paid_at": "2025-06-25T18:06:18Z", "method": "card", "amount": 1129.97, "card": null}
+{"order_id": 1046, "paid_at": "2025-02-20T16:59:23Z", "method": "card", "amount": 1539.52, "card": {"brand": "mc", "last4": "0375"}}
+{"order_id": 1047, "paid_at": "2025-06-02T13:40:49Z", "method": "paypal", "amount": 1232.19, "card": {"brand": "visa", "last4": "0253"}}
+{"order_id": 1048, "paid_at": "2025-05-29T11:11:46Z", "method": "card", "amount": 1241.38, "card": {"brand": "amex", "last4": "7328"}}
+{"order_id": 1049, "paid_at": "2025-05-14T08:30:31Z", "method": "transfer", "amount": 1122.45, "card": {"brand": "amex", "last4": "4399"}}
+{"order_id": 1050, "paid_at": "2025-03-25T12:09:49Z", "method": "card", "amount": 892.7, "card": {"brand": "amex", "last4": "7096"}}
+{"order_id": 1051, "paid_at": "2025-04-27T04:15:14Z", "method": "transfer", "amount": 591.62, "card": {"brand": "visa", "last4": "1376"}}
+{"order_id": 1052, "paid_at": "2025-03-09T08:21:32Z", "method": "paypal", "amount": 1230.42, "card": {"brand": "amex", "last4": "3059"}}
+{"order_id": 1053, "paid_at": "2025-04-30T13:05:26Z", "method": "transfer", "amount": 1691.36, "card": {"brand": "mc", "last4": "8879"}}
+{"order_id": 1054, "paid_at": "2025-06-16T10:22:12Z", "method": "card", "amount": 2427.58, "card": {"brand": "visa", "last4": "6040"}}
+{"order_id": 1055, "paid_at": "2025-05-16T01:36:21Z", "method": "paypal", "amount": 509.74, "card": {"brand": "amex", "last4": "0627"}}
+{"order_id": 1056, "paid_at": "2025-05-11T16:36:35Z", "method": "card", "amount": 298.74, "card": {"brand": "mc", "last4": "7547"}}
+{"order_id": 1057, "paid_at": "2025-03-18T12:51:07Z", "method": "transfer", "amount": 424.27, "card": {"brand": "mc", "last4": "6412"}}
+{"order_id": 1058, "paid_at": "2025-06-18T05:37:50Z", "method": "paypal", "amount": 728.21, "card": {"brand": "mc", "last4": "2914"}}
+{"order_id": 1059, "paid_at": "2025-03-17T13:17:41Z", "method": "transfer", "amount": 1490.33, "card": {"brand": "mc", "last4": "5993"}}
+{"order_id": 1060, "paid_at": "2025-05-06T09:55:35Z", "method": "paypal", "amount": 658.9, "card": {"brand": "mc", "last4": "4287"}}
+{"order_id": 1061, "paid_at": "2025-01-02T11:42:45Z", "method": "transfer", "amount": 1540.37, "card": null}
+{"order_id": 1062, "paid_at": "2025-02-22T06:19:15Z", "method": "paypal", "amount": 6.89, "card": {"brand": "visa", "last4": "1756"}}
+{"order_id": 1063, "paid_at": "2025-05-22T13:05:17Z", "method": "transfer", "amount": 658.43, "card": null}
+{"order_id": 1064, "paid_at": "2025-05-16T09:15:32Z", "method": "paypal", "amount": 1502.23, "card": null}
+{"order_id": 1065, "paid_at": "2025-01-26T04:49:58Z", "method": "paypal", "amount": 1493.9, "card": {"brand": "amex", "last4": "8297"}}
+{"order_id": 1066, "paid_at": "2025-06-03T20:42:54Z", "method": "paypal", "amount": 1392.81, "card": {"brand": "mc", "last4": "5959"}}
+{"order_id": 1067, "paid_at": "2025-06-02T23:01:05Z", "method": "card", "amount": 1672.91, "card": {"brand": "visa", "last4": "2554"}}
+{"order_id": 1068, "paid_at": "2025-03-14T08:00:33Z", "method": "paypal", "amount": 738.95, "card": null}
+{"order_id": 1069, "paid_at": "2025-04-12T07:58:11Z", "method": "card", "amount": 934.35, "card": {"brand": "amex", "last4": "3638"}}
+{"order_id": 1070, "paid_at": "2025-03-29T05:00:43Z", "method": "paypal", "amount": 1512.84, "card": null}
+{"order_id": 1071, "paid_at": "2025-04-13T02:45:04Z", "method": "transfer", "amount": 654.13, "card": null}
+{"order_id": 1072, "paid_at": "2025-04-11T21:34:03Z", "method": "paypal", "amount": 553.51, "card": {"brand": "amex", "last4": "1426"}}
+{"order_id": 1073, "paid_at": "2025-03-30T13:32:31Z", "method": "transfer", "amount": 183.59, "card": null}
+{"order_id": 1074, "paid_at": "2025-03-15T14:14:48Z", "method": "card", "amount": 710.86, "card": null}
+{"order_id": 1075, "paid_at": "2025-06-18T18:05:30Z", "method": "paypal", "amount": 424.64, "card": {"brand": "amex", "last4": "3559"}}
+{"order_id": 1076, "paid_at": "2025-05-08T06:41:01Z", "method": "transfer", "amount": 903.92, "card": null}
+{"order_id": 1077, "paid_at": "2025-06-21T04:31:40Z", "method": "card", "amount": 752.45, "card": {"brand": "visa", "last4": "3874"}}
+{"order_id": 1078, "paid_at": "2025-03-05T03:26:15Z", "method": "paypal", "amount": 1826.8, "card": {"brand": "mc", "last4": "3585"}}
+{"order_id": 1079, "paid_at": "2025-06-06T23:00:47Z", "method": "transfer", "amount": 467.56, "card": {"brand": "visa", "last4": "7320"}}
+{"order_id": 1080, "paid_at": "2025-06-10T04:40:06Z", "method": "paypal", "amount": 999.21, "card": {"brand": "visa", "last4": "8033"}}
+{"order_id": 1081, "paid_at": "2025-06-23T21:13:09Z", "method": "transfer", "amount": 1504.56, "card": {"brand": "visa", "last4": "2207"}}
+{"order_id": 1082, "paid_at": "2025-03-19T03:15:04Z", "method": "paypal", "amount": 1397.33, "card": {"brand": "amex", "last4": "9321"}}
+{"order_id": 1083, "paid_at": "2025-03-09T20:21:58Z", "method": "card", "amount": 1787.24, "card": null}
+{"order_id": 1084, "paid_at": "2025-02-28T16:09:16Z", "method": "card", "amount": 1215.16, "card": null}
+{"order_id": 1085, "paid_at": "2025-02-10T19:16:37Z", "method": "card", "amount": 1056.64, "card": null}
+{"order_id": 1086, "paid_at": "2025-04-03T19:31:44Z", "method": "transfer", "amount": 1393.66, "card": null}
+{"order_id": 1087, "paid_at": "2025-01-23T10:37:48Z", "method": "card", "amount": 635.47, "card": null}
+{"order_id": 1088, "paid_at": "2025-05-25T21:02:36Z", "method": "transfer", "amount": 552.44, "card": null}
+{"order_id": 1089, "paid_at": "2025-05-21T09:38:16Z", "method": "paypal", "amount": 508.03, "card": null}
+{"order_id": 1090, "paid_at": "2025-05-09T05:41:40Z", "method": "transfer", "amount": 800.98, "card": null}
+{"order_id": 1091, "paid_at": "2025-01-28T07:43:44Z", "method": "transfer", "amount": 3704.86, "card": {"brand": "visa", "last4": "3516"}}
+{"order_id": 1092, "paid_at": "2025-05-10T12:16:53Z", "method": "card", "amount": 358.51, "card": {"brand": "visa", "last4": "2324"}}
+{"order_id": 1093, "paid_at": "2025-02-07T01:06:21Z", "method": "card", "amount": 527.3, "card": null}
+{"order_id": 1094, "paid_at": "2025-06-22T11:11:24Z", "method": "card", "amount": 1381.95, "card": {"brand": "amex", "last4": "8107"}}
+{"order_id": 1095, "paid_at": "2025-01-12T17:20:36Z", "method": "transfer", "amount": 979.28, "card": {"brand": "visa", "last4": "5609"}}
+{"order_id": 1096, "paid_at": "2025-02-20T17:06:11Z", "method": "paypal", "amount": 437.72, "card": null}
+{"order_id": 1097, "paid_at": "2025-01-25T05:22:09Z", "method": "paypal", "amount": 457.06, "card": {"brand": "mc", "last4": "1063"}}
+{"order_id": 1098, "paid_at": "2025-03-27T23:54:17Z", "method": "paypal", "amount": 653.53, "card": null}
+{"order_id": 1099, "paid_at": "2025-04-18T18:42:51Z", "method": "transfer", "amount": 170.62, "card": {"brand": "amex", "last4": "3765"}}
+{"order_id": 1100, "paid_at": "2025-03-29T06:05:35Z", "method": "transfer", "amount": 615.77, "card": null}
+{"order_id": 1101, "paid_at": "2025-01-22T00:36:46Z", "method": "paypal", "amount": 655.69, "card": null}
+{"order_id": 1102, "paid_at": "2025-02-23T12:27:44Z", "method": "paypal", "amount": 123.28, "card": null}
+{"order_id": 1103, "paid_at": "2025-06-16T21:10:55Z", "method": "transfer", "amount": 464.71, "card": null}
+{"order_id": 1104, "paid_at": "2025-05-11T07:22:23Z", "method": "paypal", "amount": 594.89, "card": {"brand": "amex", "last4": "3941"}}
+{"order_id": 1105, "paid_at": "2025-05-16T19:59:00Z", "method": "transfer", "amount": 1613.04, "card": {"brand": "visa", "last4": "1908"}}
+{"order_id": 1106, "paid_at": "2025-03-28T19:10:04Z", "method": "transfer", "amount": 1057.09, "card": {"brand": "amex", "last4": "4416"}}
+{"order_id": 1107, "paid_at": "2025-01-01T14:33:22Z", "method": "paypal", "amount": 290.03, "card": {"brand": "mc", "last4": "9930"}}
+{"order_id": 1108, "paid_at": "2025-04-06T16:47:41Z", "method": "card", "amount": 670.55, "card": null}
+{"order_id": 1109, "paid_at": "2025-01-10T13:00:31Z", "method": "transfer", "amount": 1789.68, "card": {"brand": "visa", "last4": "7308"}}
+{"order_id": 1110, "paid_at": "2025-01-14T00:35:19Z", "method": "transfer", "amount": 2733.86, "card": {"brand": "amex", "last4": "4251"}}
+{"order_id": 1111, "paid_at": "2025-06-14T23:45:47Z", "method": "card", "amount": 2526.78, "card": {"brand": "amex", "last4": "8251"}}
+{"order_id": 1112, "paid_at": "2025-04-25T03:02:07Z", "method": "card", "amount": 1976.3, "card": {"brand": "mc", "last4": "8304"}}
+{"order_id": 1113, "paid_at": "2025-03-26T23:53:47Z", "method": "transfer", "amount": 663.54, "card": null}
+{"order_id": 1114, "paid_at": "2025-03-20T07:40:08Z", "method": "transfer", "amount": 685.07, "card": null}
+{"order_id": 1115, "paid_at": "2025-05-27T01:34:13Z", "method": "transfer", "amount": 1940.67, "card": {"brand": "visa", "last4": "7987"}}
+{"order_id": 1116, "paid_at": "2025-05-11T22:10:52Z", "method": "card", "amount": 1396.67, "card": null}
+{"order_id": 1117, "paid_at": "2025-06-21T19:42:54Z", "method": "paypal", "amount": 778.13, "card": {"brand": "mc", "last4": "0419"}}
+{"order_id": 1118, "paid_at": "2025-03-29T23:30:41Z", "method": "paypal", "amount": 278.31, "card": {"brand": "visa", "last4": "6662"}}
+{"order_id": 1119, "paid_at": "2025-04-16T09:05:27Z", "method": "transfer", "amount": 1513.29, "card": {"brand": "amex", "last4": "0673"}}
+{"order_id": 1120, "paid_at": "2025-01-27T16:39:25Z", "method": "paypal", "amount": 2467.85, "card": null}
+{"order_id": 1121, "paid_at": "2025-01-18T07:49:03Z", "method": "transfer", "amount": 426.74, "card": {"brand": "amex", "last4": "2674"}}
+{"order_id": 1122, "paid_at": "2025-05-19T18:56:19Z", "method": "paypal", "amount": 148.63, "card": null}
+{"order_id": 1123, "paid_at": "2025-01-19T08:05:54Z", "method": "transfer", "amount": 851.72, "card": null}
+{"order_id": 1124, "paid_at": "2025-05-16T08:35:23Z", "method": "transfer", "amount": 574.2, "card": null}
+{"order_id": 1125, "paid_at": "2025-01-25T14:53:29Z", "method": "paypal", "amount": 819.83, "card": null}
+{"order_id": 1126, "paid_at": "2025-03-22T08:21:45Z", "method": "card", "amount": 2103.51, "card": null}
+{"order_id": 1127, "paid_at": "2025-02-20T17:26:05Z", "method": "card", "amount": 1173.34, "card": {"brand": "mc", "last4": "1013"}}
+{"order_id": 1128, "paid_at": "2025-06-11T16:02:35Z", "method": "transfer", "amount": 701.08, "card": null}
+{"order_id": 1129, "paid_at": "2025-01-02T12:09:01Z", "method": "paypal", "amount": 893.5, "card": {"brand": "amex", "last4": "9121"}}
+{"order_id": 1130, "paid_at": "2025-03-26T11:15:05Z", "method": "paypal", "amount": 1027.58, "card": null}
+{"order_id": 1131, "paid_at": "2025-04-06T03:50:07Z", "method": "card", "amount": 300.11, "card": {"brand": "amex", "last4": "0473"}}
+{"order_id": 1132, "paid_at": "2025-01-26T09:53:56Z", "method": "paypal", "amount": 308.6, "card": {"brand": "amex", "last4": "9965"}}
+{"order_id": 1133, "paid_at": "2025-02-14T10:50:40Z", "method": "paypal", "amount": 149.39, "card": null}
+{"order_id": 1134, "paid_at": "2025-06-05T00:03:37Z", "method": "card", "amount": 1989.59, "card": null}
+{"order_id": 1135, "paid_at": "2025-01-03T22:28:13Z", "method": "card", "amount": 877.15, "card": {"brand": "mc", "last4": "7309"}}
+{"order_id": 1136, "paid_at": "2025-05-20T11:55:10Z", "method": "card", "amount": 327.38, "card": null}
+{"order_id": 1137, "paid_at": "2025-02-18T19:15:35Z", "method": "transfer", "amount": 906.02, "card": null}
+{"order_id": 1138, "paid_at": "2025-04-10T19:52:30Z", "method": "paypal", "amount": 721.89, "card": null}
+{"order_id": 1139, "paid_at": "2025-03-25T08:38:26Z", "method": "paypal", "amount": 831.92, "card": {"brand": "amex", "last4": "8048"}}
+{"order_id": 1140, "paid_at": "2025-05-01T13:06:28Z", "method": "transfer", "amount": 1715.34, "card": {"brand": "visa", "last4": "9940"}}
+{"order_id": 1141, "paid_at": "2025-02-17T22:59:51Z", "method": "transfer", "amount": 634.89, "card": {"brand": "visa", "last4": "4370"}}
+{"order_id": 1142, "paid_at": "2025-06-23T13:49:58Z", "method": "paypal", "amount": 1575.26, "card": null}
+{"order_id": 1143, "paid_at": "2025-02-24T03:55:16Z", "method": "transfer", "amount": 827.63, "card": {"brand": "amex", "last4": "5251"}}
+{"order_id": 1144, "paid_at": "2025-05-06T00:01:24Z", "method": "paypal", "amount": 1675.65, "card": {"brand": "amex", "last4": "9490"}}
+{"order_id": 1145, "paid_at": "2025-04-24T20:37:35Z", "method": "paypal", "amount": 984.27, "card": {"brand": "mc", "last4": "6174"}}
+{"order_id": 1146, "paid_at": "2025-01-08T01:51:20Z", "method": "card", "amount": 1108.38, "card": {"brand": "amex", "last4": "9006"}}
+{"order_id": 1147, "paid_at": "2025-01-06T20:19:58Z", "method": "card", "amount": 3127.41, "card": {"brand": "visa", "last4": "1032"}}
+{"order_id": 1148, "paid_at": "2025-04-12T09:09:48Z", "method": "transfer", "amount": 100.52, "card": {"brand": "amex", "last4": "7878"}}
+{"order_id": 1149, "paid_at": "2025-03-17T00:28:48Z", "method": "paypal", "amount": 1247.43, "card": {"brand": "amex", "last4": "1393"}}
+{"order_id": 1150, "paid_at": "2025-04-10T02:30:56Z", "method": "transfer", "amount": 1456.1, "card": {"brand": "visa", "last4": "0059"}}
+{"order_id": 1151, "paid_at": "2025-05-23T10:02:23Z", "method": "paypal", "amount": 856.64, "card": {"brand": "amex", "last4": "9639"}}
+{"order_id": 1152, "paid_at": "2025-03-26T23:16:37Z", "method": "paypal", "amount": 451.53, "card": null}
+{"order_id": 1153, "paid_at": "2025-01-03T13:13:46Z", "method": "card", "amount": 448.1, "card": {"brand": "visa", "last4": "7323"}}
+{"order_id": 1154, "paid_at": "2025-03-04T21:51:40Z", "method": "paypal", "amount": 1045.13, "card": {"brand": "mc", "last4": "9076"}}
+{"order_id": 1155, "paid_at": "2025-03-15T09:33:16Z", "method": "card", "amount": 386.14, "card": {"brand": "amex", "last4": "7951"}}
+{"order_id": 1156, "paid_at": "2025-01-15T02:48:48Z", "method": "paypal", "amount": 688.79, "card": null}
+{"order_id": 1157, "paid_at": "2025-02-15T23:44:24Z", "method": "transfer", "amount": 1467.85, "card": null}
+{"order_id": 1158, "paid_at": "2025-01-15T03:37:26Z", "method": "transfer", "amount": 609.24, "card": null}
+{"order_id": 1159, "paid_at": "2025-01-27T19:17:08Z", "method": "card", "amount": 893.1, "card": null}
+{"order_id": 1160, "paid_at": "2025-05-19T10:11:57Z", "method": "transfer", "amount": 1673.09, "card": null}
+{"order_id": 1161, "paid_at": "2025-03-14T09:56:58Z", "method": "paypal", "amount": 1568.16, "card": null}
+{"order_id": 1162, "paid_at": "2025-06-24T11:18:13Z", "method": "transfer", "amount": 402.43, "card": null}
+{"order_id": 1163, "paid_at": "2025-04-29T15:38:24Z", "method": "card", "amount": 732.27, "card": {"brand": "visa", "last4": "6381"}}
+{"order_id": 1164, "paid_at": "2025-06-29T11:22:55Z", "method": "paypal", "amount": 972.97, "card": {"brand": "amex", "last4": "2916"}}
+{"order_id": 1165, "paid_at": "2025-06-22T00:38:59Z", "method": "card", "amount": 1151.88, "card": {"brand": "mc", "last4": "1419"}}
+{"order_id": 1166, "paid_at": "2025-04-22T11:30:43Z", "method": "paypal", "amount": 709.78, "card": null}
+{"order_id": 1167, "paid_at": "2025-02-19T22:24:48Z", "method": "card", "amount": 103.22, "card": {"brand": "visa", "last4": "5093"}}
+{"order_id": 1168, "paid_at": "2025-01-17T01:23:30Z", "method": "paypal", "amount": 949.71, "card": null}
+{"order_id": 1169, "paid_at": "2025-03-11T21:29:22Z", "method": "transfer", "amount": 585.22, "card": {"brand": "visa", "last4": "9638"}}
+{"order_id": 1170, "paid_at": "2025-02-12T13:15:03Z", "method": "paypal", "amount": 1751.9, "card": {"brand": "mc", "last4": "5899"}}
+{"order_id": 1171, "paid_at": "2025-05-01T09:09:30Z", "method": "card", "amount": 298.59, "card": {"brand": "mc", "last4": "5317"}}
+{"order_id": 1172, "paid_at": "2025-01-09T06:18:18Z", "method": "card", "amount": 1368.29, "card": {"brand": "amex", "last4": "0312"}}
+{"order_id": 1173, "paid_at": "2025-03-05T19:15:45Z", "method": "paypal", "amount": 607.67, "card": {"brand": "visa", "last4": "2902"}}
+{"order_id": 1174, "paid_at": "2025-06-23T10:00:10Z", "method": "card", "amount": 581.26, "card": null}
+{"order_id": 1175, "paid_at": "2025-05-28T11:54:36Z", "method": "card", "amount": 1003.92, "card": {"brand": "mc", "last4": "1636"}}
+{"order_id": 1176, "paid_at": "2025-03-28T00:35:37Z", "method": "card", "amount": 644.79, "card": {"brand": "amex", "last4": "0199"}}
+{"order_id": 1177, "paid_at": "2025-05-14T23:48:11Z", "method": "transfer", "amount": 574.45, "card": {"brand": "mc", "last4": "1055"}}
+{"order_id": 1178, "paid_at": "2025-04-16T09:56:59Z", "method": "paypal", "amount": 3349.71, "card": {"brand": "mc", "last4": "2400"}}
+{"order_id": 1179, "paid_at": "2025-03-12T04:00:39Z", "method": "paypal", "amount": 1636.08, "card": {"brand": "amex", "last4": "0963"}}
+{"order_id": 1180, "paid_at": "2025-04-17T04:15:16Z", "method": "paypal", "amount": 375.23, "card": {"brand": "visa", "last4": "3568"}}
+{"order_id": 1181, "paid_at": "2025-02-07T15:24:06Z", "method": "paypal", "amount": 329.23, "card": {"brand": "mc", "last4": "2575"}}
+{"order_id": 1182, "paid_at": "2025-03-05T17:12:05Z", "method": "paypal", "amount": 330.87, "card": null}
+{"order_id": 1183, "paid_at": "2025-02-05T16:13:50Z", "method": "card", "amount": 276.73, "card": null}
+{"order_id": 1184, "paid_at": "2025-03-01T18:32:25Z", "method": "paypal", "amount": 696.78, "card": {"brand": "visa", "last4": "5835"}}
+{"order_id": 1185, "paid_at": "2025-01-02T02:29:04Z", "method": "transfer", "amount": 3801.69, "card": {"brand": "amex", "last4": "3048"}}
+{"order_id": 1186, "paid_at": "2025-02-03T05:21:48Z", "method": "transfer", "amount": 797.89, "card": null}
+{"order_id": 1187, "paid_at": "2025-03-10T16:29:09Z", "method": "paypal", "amount": 228.87, "card": null}
+{"order_id": 1188, "paid_at": "2025-06-13T11:31:21Z", "method": "transfer", "amount": 1034.01, "card": {"brand": "amex", "last4": "9385"}}
+{"order_id": 1189, "paid_at": "2025-05-21T08:44:33Z", "method": "paypal", "amount": 349.64, "card": null}
+{"order_id": 1190, "paid_at": "2025-01-16T20:23:52Z", "method": "card", "amount": 1182.16, "card": null}
+{"order_id": 1191, "paid_at": "2025-04-29T04:38:41Z", "method": "transfer", "amount": 1815.68, "card": {"brand": "visa", "last4": "0019"}}
+{"order_id": 1192, "paid_at": "2025-02-04T11:58:34Z", "method": "paypal", "amount": 750.84, "card": {"brand": "amex", "last4": "3463"}}
+{"order_id": 1193, "paid_at": "2025-01-26T13:47:08Z", "method": "card", "amount": 653.98, "card": null}
+{"order_id": 1194, "paid_at": "2025-05-16T03:12:44Z", "method": "card", "amount": 1491.54, "card": {"brand": "mc", "last4": "3228"}}
+{"order_id": 1195, "paid_at": "2025-05-13T11:26:53Z", "method": "paypal", "amount": 1258.88, "card": null}
+{"order_id": 1196, "paid_at": "2025-01-19T15:13:37Z", "method": "paypal", "amount": 388.02, "card": {"brand": "amex", "last4": "1212"}}
+{"order_id": 1197, "paid_at": "2025-02-27T23:20:16Z", "method": "transfer", "amount": 1105.02, "card": null}
+{"order_id": 1198, "paid_at": "2025-01-30T07:04:44Z", "method": "transfer", "amount": 1820.31, "card": null}
+{"order_id": 1199, "paid_at": "2025-01-17T08:18:36Z", "method": "paypal", "amount": 1052.41, "card": null}
+{"order_id": 1200, "paid_at": "2025-05-06T16:19:43Z", "method": "paypal", "amount": 323.11, "card": {"brand": "mc", "last4": "3546"}}
+{"order_id": 1201, "paid_at": "2025-05-10T05:37:23Z", "method": "card", "amount": 1294.1, "card": {"brand": "mc", "last4": "2416"}}
+{"order_id": 1202, "paid_at": "2025-02-16T15:26:24Z", "method": "paypal", "amount": 2012.23, "card": {"brand": "mc", "last4": "8710"}}
+{"order_id": 1203, "paid_at": "2025-02-13T16:23:11Z", "method": "transfer", "amount": 1194.7, "card": {"brand": "mc", "last4": "8181"}}
+{"order_id": 1204, "paid_at": "2025-06-04T14:08:11Z", "method": "transfer", "amount": 1172.84, "card": {"brand": "mc", "last4": "6439"}}
+{"order_id": 1205, "paid_at": "2025-05-22T09:39:52Z", "method": "paypal", "amount": 301.02, "card": {"brand": "amex", "last4": "5019"}}
+{"order_id": 1206, "paid_at": "2025-01-18T00:10:29Z", "method": "paypal", "amount": 102.83, "card": null}
+{"order_id": 1207, "paid_at": "2025-02-05T07:14:40Z", "method": "transfer", "amount": 3040.58, "card": {"brand": "visa", "last4": "2579"}}
+{"order_id": 1208, "paid_at": "2025-06-08T14:00:45Z", "method": "card", "amount": 1095.72, "card": null}
+{"order_id": 1209, "paid_at": "2025-05-14T06:14:46Z", "method": "paypal", "amount": 813.74, "card": {"brand": "mc", "last4": "1513"}}
+{"order_id": 1210, "paid_at": "2025-02-24T13:20:43Z", "method": "transfer", "amount": 1233.34, "card": {"brand": "mc", "last4": "4375"}}
+{"order_id": 1211, "paid_at": "2025-05-07T07:59:18Z", "method": "transfer", "amount": 101.44, "card": null}
+{"order_id": 1212, "paid_at": "2025-03-21T19:29:09Z", "method": "card", "amount": 1302.49, "card": {"brand": "amex", "last4": "5850"}}
+{"order_id": 1213, "paid_at": "2025-06-08T00:05:00Z", "method": "transfer", "amount": 707.4, "card": null}
+{"order_id": 1214, "paid_at": "2025-02-06T04:32:39Z", "method": "transfer", "amount": 716.82, "card": {"brand": "mc", "last4": "2694"}}
+{"order_id": 1215, "paid_at": "2025-02-08T13:23:17Z", "method": "transfer", "amount": 177.24, "card": null}
+{"order_id": 1216, "paid_at": "2025-02-06T05:35:33Z", "method": "card", "amount": 490.88, "card": null}
+{"order_id": 1217, "paid_at": "2025-05-05T06:22:15Z", "method": "transfer", "amount": 579.03, "card": null}
+{"order_id": 1218, "paid_at": "2025-04-02T04:26:34Z", "method": "card", "amount": 2565.35, "card": null}
+{"order_id": 1219, "paid_at": "2025-02-13T04:13:47Z", "method": "paypal", "amount": 2811.56, "card": {"brand": "mc", "last4": "6595"}}
+{"order_id": 1220, "paid_at": "2025-02-08T21:46:05Z", "method": "card", "amount": 1150.68, "card": {"brand": "amex", "last4": "4784"}}
+{"order_id": 1221, "paid_at": "2025-01-30T21:59:45Z", "method": "transfer", "amount": 2061.68, "card": {"brand": "mc", "last4": "4008"}}
+{"order_id": 1222, "paid_at": "2025-06-16T01:08:42Z", "method": "card", "amount": 1070.41, "card": {"brand": "mc", "last4": "2432"}}
+{"order_id": 1223, "paid_at": "2025-06-22T12:58:37Z", "method": "paypal", "amount": 336.12, "card": null}
+{"order_id": 1224, "paid_at": "2025-04-02T22:58:37Z", "method": "paypal", "amount": 92.11, "card": {"brand": "visa", "last4": "1102"}}
+{"order_id": 1225, "paid_at": "2025-01-17T19:24:59Z", "method": "paypal", "amount": 2075.12, "card": {"brand": "visa", "last4": "9681"}}
+{"order_id": 1226, "paid_at": "2025-03-29T13:18:23Z", "method": "card", "amount": 644.03, "card": {"brand": "visa", "last4": "0244"}}
+{"order_id": 1227, "paid_at": "2025-05-01T22:32:20Z", "method": "card", "amount": 617.94, "card": {"brand": "mc", "last4": "6611"}}
+{"order_id": 1228, "paid_at": "2025-04-14T07:26:28Z", "method": "paypal", "amount": 251.82, "card": {"brand": "visa", "last4": "1309"}}
+{"order_id": 1229, "paid_at": "2025-05-30T15:03:57Z", "method": "transfer", "amount": 235.93, "card": {"brand": "mc", "last4": "8924"}}
+{"order_id": 1230, "paid_at": "2025-03-10T10:33:54Z", "method": "paypal", "amount": 1526.68, "card": null}
+{"order_id": 1231, "paid_at": "2025-05-11T12:42:33Z", "method": "paypal", "amount": 802.73, "card": null}
+{"order_id": 1232, "paid_at": "2025-04-20T08:13:29Z", "method": "paypal", "amount": 797.66, "card": null}
+{"order_id": 1233, "paid_at": "2025-04-26T04:21:49Z", "method": "card", "amount": 251.44, "card": null}
+{"order_id": 1234, "paid_at": "2025-01-07T10:18:48Z", "method": "paypal", "amount": 86.53, "card": {"brand": "amex", "last4": "6989"}}
+{"order_id": 1235, "paid_at": "2025-02-06T05:24:12Z", "method": "paypal", "amount": 224.8, "card": null}
+{"order_id": 1236, "paid_at": "2025-01-10T14:56:53Z", "method": "paypal", "amount": 1567.24, "card": {"brand": "amex", "last4": "9168"}}
+{"order_id": 1237, "paid_at": "2025-05-29T06:21:16Z", "method": "paypal", "amount": 223.28, "card": {"brand": "mc", "last4": "3627"}}
+{"order_id": 1238, "paid_at": "2025-05-18T16:40:01Z", "method": "card", "amount": 252.13, "card": {"brand": "visa", "last4": "4234"}}
+{"order_id": 1239, "paid_at": "2025-04-23T07:34:48Z", "method": "transfer", "amount": 522.45, "card": {"brand": "amex", "last4": "9197"}}
+{"order_id": 1240, "paid_at": "2025-01-29T09:12:40Z", "method": "paypal", "amount": 1665.07, "card": null}
+{"order_id": 1241, "paid_at": "2025-01-21T02:53:49Z", "method": "card", "amount": 1895.86, "card": null}
+{"order_id": 1242, "paid_at": "2025-02-24T00:40:55Z", "method": "paypal", "amount": 1166.22, "card": {"brand": "amex", "last4": "9746"}}
+{"order_id": 1243, "paid_at": "2025-02-06T23:21:48Z", "method": "card", "amount": 347.49, "card": {"brand": "amex", "last4": "3578"}}
+{"order_id": 1244, "paid_at": "2025-02-20T16:56:27Z", "method": "card", "amount": 722.18, "card": null}
+{"order_id": 1245, "paid_at": "2025-01-31T14:28:08Z", "method": "transfer", "amount": 265.55, "card": {"brand": "amex", "last4": "6810"}}
+{"order_id": 1246, "paid_at": "2025-05-24T23:53:52Z", "method": "transfer", "amount": 479.99, "card": null}
+{"order_id": 1247, "paid_at": "2025-04-05T14:59:42Z", "method": "card", "amount": 77.76, "card": null}
+{"order_id": 1248, "paid_at": "2025-01-10T02:44:02Z", "method": "card", "amount": 1814.39, "card": null}
+{"order_id": 1249, "paid_at": "2025-03-19T22:17:58Z", "method": "paypal", "amount": 1506.68, "card": {"brand": "amex", "last4": "2012"}}
+{"order_id": 1250, "paid_at": "2025-06-24T22:50:55Z", "method": "transfer", "amount": 300.73, "card": null}
+{"order_id": 1251, "paid_at": "2025-02-18T09:28:58Z", "method": "card", "amount": 523.83, "card": {"brand": "amex", "last4": "9530"}}
+{"order_id": 1252, "paid_at": "2025-05-30T10:32:51Z", "method": "card", "amount": 855.28, "card": {"brand": "mc", "last4": "1115"}}
+{"order_id": 1253, "paid_at": "2025-06-07T04:59:26Z", "method": "paypal", "amount": 2289.3, "card": {"brand": "amex", "last4": "8113"}}
+{"order_id": 1254, "paid_at": "2025-06-10T04:04:03Z", "method": "paypal", "amount": 408.68, "card": null}
+{"order_id": 1255, "paid_at": "2025-02-14T04:07:51Z", "method": "transfer", "amount": 1493.78, "card": null}
+{"order_id": 1256, "paid_at": "2025-06-27T15:34:51Z", "method": "card", "amount": 1385.62, "card": {"brand": "amex", "last4": "0687"}}
+{"order_id": 1257, "paid_at": "2025-05-16T08:07:18Z", "method": "card", "amount": 782.81, "card": {"brand": "visa", "last4": "9801"}}
+{"order_id": 1258, "paid_at": "2025-03-10T10:57:14Z", "method": "card", "amount": 2537.79, "card": null}
+{"order_id": 1259, "paid_at": "2025-03-15T04:31:27Z", "method": "paypal", "amount": 1450.81, "card": null}
+{"order_id": 1260, "paid_at": "2025-06-20T08:06:26Z", "method": "paypal", "amount": 1429.38, "card": {"brand": "visa", "last4": "0169"}}
+{"order_id": 1261, "paid_at": "2025-04-30T04:57:48Z", "method": "paypal", "amount": 487.62, "card": {"brand": "visa", "last4": "2620"}}
+{"order_id": 1262, "paid_at": "2025-05-24T21:47:14Z", "method": "paypal", "amount": 606.94, "card": {"brand": "visa", "last4": "6854"}}
+{"order_id": 1263, "paid_at": "2025-06-22T00:24:51Z", "method": "paypal", "amount": 531.68, "card": null}
+{"order_id": 1264, "paid_at": "2025-04-25T20:34:53Z", "method": "paypal", "amount": 711.81, "card": {"brand": "visa", "last4": "0700"}}
+{"order_id": 1265, "paid_at": "2025-03-15T04:54:08Z", "method": "paypal", "amount": 870.48, "card": {"brand": "visa", "last4": "2572"}}
+{"order_id": 1266, "paid_at": "2025-06-09T00:51:12Z", "method": "paypal", "amount": 927.24, "card": {"brand": "visa", "last4": "6102"}}
+{"order_id": 1267, "paid_at": "2025-01-30T20:22:41Z", "method": "card", "amount": 1768.36, "card": null}
+{"order_id": 1268, "paid_at": "2025-05-26T15:49:37Z", "method": "paypal", "amount": 1685.26, "card": {"brand": "mc", "last4": "5092"}}
+{"order_id": 1269, "paid_at": "2025-05-25T17:59:35Z", "method": "paypal", "amount": 242.44, "card": {"brand": "visa", "last4": "1230"}}
+{"order_id": 1270, "paid_at": "2025-02-05T13:21:35Z", "method": "transfer", "amount": 969.0, "card": {"brand": "visa", "last4": "7717"}}
+{"order_id": 1271, "paid_at": "2025-03-28T17:18:13Z", "method": "transfer", "amount": 857.94, "card": null}
+{"order_id": 1272, "paid_at": "2025-06-19T22:40:00Z", "method": "paypal", "amount": 374.93, "card": {"brand": "amex", "last4": "2642"}}
+{"order_id": 1273, "paid_at": "2025-03-07T09:23:06Z", "method": "card", "amount": 381.75, "card": null}
+{"order_id": 1274, "paid_at": "2025-06-24T14:21:00Z", "method": "paypal", "amount": 450.21, "card": null}
+{"order_id": 1275, "paid_at": "2025-03-25T22:39:38Z", "method": "card", "amount": 1361.72, "card": {"brand": "amex", "last4": "9984"}}
+{"order_id": 1276, "paid_at": "2025-05-11T17:16:21Z", "method": "card", "amount": 2531.73, "card": null}
+{"order_id": 1277, "paid_at": "2025-06-03T15:11:08Z", "method": "card", "amount": 2345.62, "card": {"brand": "mc", "last4": "8077"}}
+{"order_id": 1278, "paid_at": "2025-01-19T11:05:04Z", "method": "transfer", "amount": 585.83, "card": {"brand": "amex", "last4": "4364"}}
+{"order_id": 1279, "paid_at": "2025-05-30T14:21:21Z", "method": "card", "amount": 282.56, "card": null}
+{"order_id": 1280, "paid_at": "2025-03-23T09:03:40Z", "method": "paypal", "amount": 932.75, "card": null}
+{"order_id": 1281, "paid_at": "2025-06-09T14:51:57Z", "method": "paypal", "amount": 322.66, "card": null}
+{"order_id": 1282, "paid_at": "2025-04-09T12:07:43Z", "method": "card", "amount": 1092.18, "card": {"brand": "mc", "last4": "6931"}}
+{"order_id": 1283, "paid_at": "2025-03-01T03:33:57Z", "method": "transfer", "amount": 287.89, "card": {"brand": "amex", "last4": "8159"}}
+{"order_id": 1284, "paid_at": "2025-04-19T13:57:39Z", "method": "paypal", "amount": 1098.17, "card": {"brand": "amex", "last4": "5625"}}
+{"order_id": 1285, "paid_at": "2025-03-19T10:17:39Z", "method": "transfer", "amount": 1371.54, "card": {"brand": "mc", "last4": "0162"}}
+{"order_id": 1286, "paid_at": "2025-02-03T04:44:28Z", "method": "card", "amount": 1019.09, "card": {"brand": "visa", "last4": "9114"}}
+{"order_id": 1287, "paid_at": "2025-04-22T07:00:59Z", "method": "card", "amount": 1276.29, "card": {"brand": "mc", "last4": "6071"}}
+{"order_id": 1288, "paid_at": "2025-01-10T04:39:11Z", "method": "transfer", "amount": 180.27, "card": null}
+{"order_id": 1289, "paid_at": "2025-01-04T08:47:54Z", "method": "transfer", "amount": 2897.47, "card": {"brand": "visa", "last4": "1851"}}
+{"order_id": 1290, "paid_at": "2025-05-26T15:57:49Z", "method": "card", "amount": 827.69, "card": {"brand": "visa", "last4": "6445"}}
+{"order_id": 1291, "paid_at": "2025-02-23T06:36:18Z", "method": "card", "amount": 2614.9, "card": null}
+{"order_id": 1292, "paid_at": "2025-03-06T10:17:52Z", "method": "card", "amount": 1674.34, "card": {"brand": "mc", "last4": "0100"}}
+{"order_id": 1293, "paid_at": "2025-06-11T06:08:55Z", "method": "card", "amount": 189.38, "card": {"brand": "mc", "last4": "2092"}}
+{"order_id": 1294, "paid_at": "2025-02-05T21:41:34Z", "method": "paypal", "amount": 1253.42, "card": {"brand": "mc", "last4": "9079"}}
+{"order_id": 1295, "paid_at": "2025-02-03T05:06:27Z", "method": "card", "amount": 1015.31, "card": {"brand": "visa", "last4": "5504"}}
+{"order_id": 1296, "paid_at": "2025-04-13T18:01:07Z", "method": "card", "amount": 343.87, "card": {"brand": "amex", "last4": "3519"}}
+{"order_id": 1297, "paid_at": "2025-05-30T23:36:20Z", "method": "paypal", "amount": 381.78, "card": {"brand": "amex", "last4": "9356"}}
+{"order_id": 1298, "paid_at": "2025-02-08T17:33:07Z", "method": "paypal", "amount": 1333.96, "card": {"brand": "amex", "last4": "7773"}}
+{"order_id": 1299, "paid_at": "2025-04-14T21:16:16Z", "method": "paypal", "amount": 1914.54, "card": {"brand": "visa", "last4": "5364"}}
+{"order_id": 1300, "paid_at": "2025-02-13T23:32:21Z", "method": "paypal", "amount": 1243.77, "card": {"brand": "visa", "last4": "5085"}}
+{"order_id": 1301, "paid_at": "2025-02-10T18:21:20Z", "method": "paypal", "amount": 327.34, "card": null}
+{"order_id": 1302, "paid_at": "2025-04-22T16:21:58Z", "method": "transfer", "amount": 239.67, "card": null}
+{"order_id": 1303, "paid_at": "2025-06-11T16:37:41Z", "method": "transfer", "amount": 853.74, "card": {"brand": "amex", "last4": "4874"}}
+{"order_id": 1304, "paid_at": "2025-05-26T20:41:54Z", "method": "card", "amount": 2099.38, "card": {"brand": "visa", "last4": "2935"}}
+{"order_id": 1305, "paid_at": "2025-01-14T21:20:51Z", "method": "paypal", "amount": 1181.75, "card": {"brand": "mc", "last4": "0235"}}
+{"order_id": 1306, "paid_at": "2025-05-26T18:20:32Z", "method": "paypal", "amount": 807.5, "card": {"brand": "visa", "last4": "8570"}}
+{"order_id": 1307, "paid_at": "2025-04-12T15:32:52Z", "method": "transfer", "amount": 181.77, "card": null}
+{"order_id": 1308, "paid_at": "2025-04-23T06:42:41Z", "method": "paypal", "amount": 1546.0, "card": {"brand": "amex", "last4": "3403"}}
+{"order_id": 1309, "paid_at": "2025-06-09T20:23:58Z", "method": "transfer", "amount": 414.76, "card": {"brand": "amex", "last4": "0194"}}
+{"order_id": 1310, "paid_at": "2025-06-12T08:48:09Z", "method": "transfer", "amount": 158.04, "card": null}
+{"order_id": 1311, "paid_at": "2025-06-16T13:00:02Z", "method": "card", "amount": 1614.0, "card": null}
+{"order_id": 1312, "paid_at": "2025-06-20T18:21:35Z", "method": "transfer", "amount": 51.74, "card": {"brand": "mc", "last4": "6587"}}
+{"order_id": 1313, "paid_at": "2025-06-27T16:28:04Z", "method": "card", "amount": 194.2, "card": {"brand": "visa", "last4": "0116"}}
+{"order_id": 1314, "paid_at": "2025-03-06T20:07:58Z", "method": "transfer", "amount": 2207.6, "card": {"brand": "amex", "last4": "2195"}}
+{"order_id": 1315, "paid_at": "2025-06-26T21:50:51Z", "method": "paypal", "amount": 461.42, "card": null}
+{"order_id": 1316, "paid_at": "2025-02-27T06:46:51Z", "method": "card", "amount": 104.71, "card": {"brand": "amex", "last4": "7566"}}
+{"order_id": 1317, "paid_at": "2025-05-04T05:30:41Z", "method": "paypal", "amount": 858.08, "card": {"brand": "visa", "last4": "3095"}}
+{"order_id": 1318, "paid_at": "2025-04-19T18:52:53Z", "method": "transfer", "amount": 179.18, "card": {"brand": "mc", "last4": "4246"}}
+{"order_id": 1319, "paid_at": "2025-02-22T13:10:56Z", "method": "transfer", "amount": 396.05, "card": {"brand": "amex", "last4": "9942"}}
+{"order_id": 1320, "paid_at": "2025-05-15T09:16:43Z", "method": "transfer", "amount": 914.98, "card": null}
+{"order_id": 1321, "paid_at": "2025-03-05T20:02:33Z", "method": "transfer", "amount": 3080.68, "card": {"brand": "visa", "last4": "3327"}}
+{"order_id": 1322, "paid_at": "2025-02-10T10:41:59Z", "method": "paypal", "amount": 621.81, "card": null}
+{"order_id": 1323, "paid_at": "2025-03-29T07:03:18Z", "method": "card", "amount": 111.72, "card": {"brand": "amex", "last4": "6867"}}
+{"order_id": 1324, "paid_at": "2025-02-06T04:19:22Z", "method": "card", "amount": 177.72, "card": {"brand": "visa", "last4": "3811"}}
+{"order_id": 1325, "paid_at": "2025-04-29T16:36:34Z", "method": "card", "amount": 915.9, "card": {"brand": "visa", "last4": "4435"}}
+{"order_id": 1326, "paid_at": "2025-06-01T14:43:46Z", "method": "transfer", "amount": 1510.18, "card": {"brand": "amex", "last4": "7776"}}
+{"order_id": 1327, "paid_at": "2025-05-25T13:27:47Z", "method": "paypal", "amount": 150.81, "card": {"brand": "visa", "last4": "4745"}}
+{"order_id": 1328, "paid_at": "2025-02-21T11:07:29Z", "method": "transfer", "amount": 319.65, "card": null}
+{"order_id": 1329, "paid_at": "2025-04-03T05:38:11Z", "method": "paypal", "amount": 1622.59, "card": {"brand": "visa", "last4": "9359"}}
+{"order_id": 1330, "paid_at": "2025-02-08T04:12:37Z", "method": "card", "amount": 924.29, "card": {"brand": "visa", "last4": "7560"}}
+{"order_id": 1331, "paid_at": "2025-02-06T19:28:52Z", "method": "card", "amount": 784.4, "card": {"brand": "mc", "last4": "1238"}}
+{"order_id": 1332, "paid_at": "2025-03-17T17:14:16Z", "method": "paypal", "amount": 409.57, "card": {"brand": "visa", "last4": "8126"}}
+{"order_id": 1333, "paid_at": "2025-04-21T14:09:59Z", "method": "card", "amount": 968.64, "card": null}
+{"order_id": 1334, "paid_at": "2025-01-04T00:15:14Z", "method": "transfer", "amount": 685.97, "card": {"brand": "amex", "last4": "4449"}}
+{"order_id": 1335, "paid_at": "2025-05-25T02:02:27Z", "method": "card", "amount": 944.78, "card": {"brand": "visa", "last4": "7628"}}
+{"order_id": 1336, "paid_at": "2025-06-08T21:48:46Z", "method": "card", "amount": 766.87, "card": {"brand": "visa", "last4": "5237"}}
+{"order_id": 1337, "paid_at": "2025-04-23T21:53:01Z", "method": "transfer", "amount": 103.85, "card": {"brand": "amex", "last4": "6776"}}
+{"order_id": 1338, "paid_at": "2025-04-04T00:18:34Z", "method": "card", "amount": 1871.35, "card": {"brand": "visa", "last4": "7181"}}
+{"order_id": 1339, "paid_at": "2025-04-19T06:31:34Z", "method": "paypal", "amount": 1414.03, "card": {"brand": "mc", "last4": "8852"}}
+{"order_id": 1340, "paid_at": "2025-04-10T00:21:36Z", "method": "paypal", "amount": 583.1, "card": null}
+{"order_id": 1341, "paid_at": "2025-01-29T18:17:21Z", "method": "card", "amount": 395.14, "card": {"brand": "mc", "last4": "5387"}}
+{"order_id": 1342, "paid_at": "2025-06-20T15:12:07Z", "method": "transfer", "amount": 553.64, "card": {"brand": "mc", "last4": "3920"}}
+{"order_id": 1343, "paid_at": "2025-01-22T14:31:07Z", "method": "card", "amount": 822.99, "card": {"brand": "visa", "last4": "0379"}}
+{"order_id": 1344, "paid_at": "2025-06-16T04:55:42Z", "method": "card", "amount": 345.05, "card": {"brand": "amex", "last4": "9535"}}
+{"order_id": 1345, "paid_at": "2025-04-14T07:27:07Z", "method": "transfer", "amount": 1339.67, "card": {"brand": "mc", "last4": "6365"}}
+{"order_id": 1346, "paid_at": "2025-01-08T21:24:06Z", "method": "transfer", "amount": 2225.41, "card": {"brand": "amex", "last4": "6051"}}
+{"order_id": 1347, "paid_at": "2025-02-20T08:01:12Z", "method": "paypal", "amount": 1451.22, "card": {"brand": "amex", "last4": "0197"}}
+{"order_id": 1348, "paid_at": "2025-03-12T11:56:25Z", "method": "paypal", "amount": 1006.09, "card": {"brand": "visa", "last4": "0879"}}
+{"order_id": 1349, "paid_at": "2025-01-12T09:24:36Z", "method": "card", "amount": 529.67, "card": {"brand": "visa", "last4": "2257"}}
+{"order_id": 1350, "paid_at": "2025-02-13T05:02:19Z", "method": "transfer", "amount": 1639.53, "card": null}
+{"order_id": 1351, "paid_at": "2025-04-01T19:12:45Z", "method": "card", "amount": 2753.45, "card": {"brand": "amex", "last4": "6859"}}
+{"order_id": 1352, "paid_at": "2025-05-03T00:25:05Z", "method": "card", "amount": 663.21, "card": null}
+{"order_id": 1353, "paid_at": "2025-01-05T14:03:55Z", "method": "transfer", "amount": 792.43, "card": {"brand": "visa", "last4": "2083"}}
+{"order_id": 1354, "paid_at": "2025-05-23T17:48:09Z", "method": "paypal", "amount": 306.03, "card": null}
+{"order_id": 1355, "paid_at": "2025-06-23T01:35:06Z", "method": "transfer", "amount": 2666.24, "card": {"brand": "amex", "last4": "3358"}}
+{"order_id": 1356, "paid_at": "2025-03-02T00:52:21Z", "method": "transfer", "amount": 979.02, "card": null}
+{"order_id": 1357, "paid_at": "2025-05-27T23:44:02Z", "method": "paypal", "amount": 694.07, "card": {"brand": "mc", "last4": "2500"}}
+{"order_id": 1358, "paid_at": "2025-02-23T14:42:30Z", "method": "transfer", "amount": 3015.12, "card": {"brand": "mc", "last4": "2385"}}
+{"order_id": 1359, "paid_at": "2025-02-15T16:57:49Z", "method": "paypal", "amount": 612.55, "card": {"brand": "visa", "last4": "2470"}}
+{"order_id": 1360, "paid_at": "2025-03-07T07:29:15Z", "method": "card", "amount": 353.99, "card": null}
+{"order_id": 1361, "paid_at": "2025-05-09T03:36:21Z", "method": "paypal", "amount": 2136.8, "card": null}
+{"order_id": 1362, "paid_at": "2025-04-24T22:42:48Z", "method": "paypal", "amount": 1574.27, "card": null}
+{"order_id": 1363, "paid_at": "2025-01-04T13:23:17Z", "method": "card", "amount": 931.35, "card": {"brand": "mc", "last4": "1347"}}
+{"order_id": 1364, "paid_at": "2025-02-06T05:19:51Z", "method": "card", "amount": 126.32, "card": {"brand": "visa", "last4": "8137"}}
+{"order_id": 1365, "paid_at": "2025-01-20T12:36:16Z", "method": "transfer", "amount": 819.97, "card": {"brand": "visa", "last4": "1313"}}
+{"order_id": 1366, "paid_at": "2025-06-06T20:02:53Z", "method": "paypal", "amount": 2343.68, "card": {"brand": "visa", "last4": "5812"}}
+{"order_id": 1367, "paid_at": "2025-05-19T21:50:18Z", "method": "card", "amount": 1130.17, "card": null}
+{"order_id": 1368, "paid_at": "2025-03-08T03:58:55Z", "method": "paypal", "amount": 979.65, "card": {"brand": "visa", "last4": "3714"}}
+{"order_id": 1369, "paid_at": "2025-01-22T18:10:47Z", "method": "card", "amount": 256.39, "card": null}
+{"order_id": 1370, "paid_at": "2025-05-12T10:48:53Z", "method": "paypal", "amount": 1107.56, "card": {"brand": "visa", "last4": "0114"}}
+{"order_id": 1371, "paid_at": "2025-06-05T00:14:09Z", "method": "card", "amount": 696.89, "card": null}
+{"order_id": 1372, "paid_at": "2025-05-10T22:49:13Z", "method": "card", "amount": 512.48, "card": null}
+{"order_id": 1373, "paid_at": "2025-06-03T06:48:01Z", "method": "card", "amount": 687.88, "card": {"brand": "amex", "last4": "1939"}}
+{"order_id": 1374, "paid_at": "2025-04-23T06:28:27Z", "method": "card", "amount": 982.15, "card": null}
+{"order_id": 1375, "paid_at": "2025-01-10T00:44:09Z", "method": "paypal", "amount": 2293.54, "card": {"brand": "visa", "last4": "0253"}}
+{"order_id": 1376, "paid_at": "2025-06-16T15:34:35Z", "method": "paypal", "amount": 762.37, "card": {"brand": "mc", "last4": "4015"}}
+{"order_id": 1377, "paid_at": "2025-05-10T16:09:28Z", "method": "paypal", "amount": 300.76, "card": {"brand": "visa", "last4": "8037"}}
+{"order_id": 1378, "paid_at": "2025-06-09T07:11:07Z", "method": "paypal", "amount": 992.36, "card": {"brand": "mc", "last4": "1613"}}
+{"order_id": 1379, "paid_at": "2025-02-15T11:37:55Z", "method": "transfer", "amount": 1059.14, "card": null}
+{"order_id": 1380, "paid_at": "2025-02-27T10:00:45Z", "method": "card", "amount": 743.15, "card": null}
+{"order_id": 1381, "paid_at": "2025-03-27T18:09:21Z", "method": "transfer", "amount": 1088.72, "card": {"brand": "amex", "last4": "3766"}}
+{"order_id": 1382, "paid_at": "2025-05-10T01:38:53Z", "method": "paypal", "amount": 379.03, "card": null}
+{"order_id": 1383, "paid_at": "2025-06-13T05:38:04Z", "method": "paypal", "amount": 2752.41, "card": {"brand": "mc", "last4": "6825"}}
+{"order_id": 1384, "paid_at": "2025-02-18T16:40:52Z", "method": "transfer", "amount": 285.33, "card": null}
+{"order_id": 1385, "paid_at": "2025-02-10T10:48:45Z", "method": "transfer", "amount": 1487.61, "card": null}
+{"order_id": 1386, "paid_at": "2025-05-15T18:11:34Z", "method": "transfer", "amount": 868.91, "card": {"brand": "mc", "last4": "3277"}}
+{"order_id": 1387, "paid_at": "2025-03-23T05:02:50Z", "method": "card", "amount": 1411.95, "card": {"brand": "visa", "last4": "3952"}}
+{"order_id": 1388, "paid_at": "2025-02-20T10:16:32Z", "method": "card", "amount": 1337.82, "card": null}
+{"order_id": 1389, "paid_at": "2025-02-04T01:57:54Z", "method": "paypal", "amount": 272.13, "card": {"brand": "visa", "last4": "8057"}}
+{"order_id": 1390, "paid_at": "2025-03-24T03:07:01Z", "method": "card", "amount": 1212.41, "card": {"brand": "amex", "last4": "0128"}}
+{"order_id": 1391, "paid_at": "2025-04-24T12:27:59Z", "method": "transfer", "amount": 508.54, "card": null}
+{"order_id": 1392, "paid_at": "2025-02-05T19:20:42Z", "method": "paypal", "amount": 389.28, "card": {"brand": "visa", "last4": "3539"}}
+{"order_id": 1393, "paid_at": "2025-03-19T16:27:28Z", "method": "paypal", "amount": 347.45, "card": {"brand": "visa", "last4": "3026"}}
+{"order_id": 1394, "paid_at": "2025-06-12T04:05:28Z", "method": "transfer", "amount": 499.03, "card": null}
+{"order_id": 1395, "paid_at": "2025-03-26T03:20:14Z", "method": "card", "amount": 2056.5, "card": {"brand": "visa", "last4": "2084"}}
+{"order_id": 1396, "paid_at": "2025-05-17T02:00:55Z", "method": "paypal", "amount": 1339.25, "card": null}
+{"order_id": 1397, "paid_at": "2025-05-20T12:44:30Z", "method": "paypal", "amount": 353.47, "card": {"brand": "amex", "last4": "8015"}}
+{"order_id": 1398, "paid_at": "2025-05-02T01:48:17Z", "method": "paypal", "amount": 2285.72, "card": {"brand": "visa", "last4": "2779"}}
+{"order_id": 1399, "paid_at": "2025-04-16T23:21:05Z", "method": "card", "amount": 1568.41, "card": {"brand": "mc", "last4": "4244"}}
+{"order_id": 1400, "paid_at": "2025-04-22T03:45:52Z", "method": "paypal", "amount": 797.54, "card": {"brand": "mc", "last4": "5636"}}
+{"order_id": 1401, "paid_at": "2025-01-23T01:13:04Z", "method": "transfer", "amount": 812.61, "card": {"brand": "amex", "last4": "3172"}}
+{"order_id": 1402, "paid_at": "2025-05-31T15:44:34Z", "method": "paypal", "amount": 2378.16, "card": null}
+{"order_id": 1403, "paid_at": "2025-01-12T04:12:10Z", "method": "card", "amount": 49.68, "card": null}
+{"order_id": 1404, "paid_at": "2025-04-07T09:40:07Z", "method": "card", "amount": 603.17, "card": {"brand": "mc", "last4": "1522"}}
+{"order_id": 1405, "paid_at": "2025-02-09T11:07:42Z", "method": "card", "amount": 638.28, "card": null}
+{"order_id": 1406, "paid_at": "2025-02-15T02:13:12Z", "method": "transfer", "amount": 696.54, "card": {"brand": "mc", "last4": "4126"}}
+{"order_id": 1407, "paid_at": "2025-01-20T23:29:54Z", "method": "card", "amount": 530.46, "card": {"brand": "visa", "last4": "8733"}}
+{"order_id": 1408, "paid_at": "2025-03-03T06:21:38Z", "method": "paypal", "amount": 318.75, "card": null}
+{"order_id": 1409, "paid_at": "2025-01-19T06:49:40Z", "method": "card", "amount": 931.3, "card": null}
+{"order_id": 1410, "paid_at": "2025-01-25T15:39:46Z", "method": "transfer", "amount": 691.95, "card": {"brand": "amex", "last4": "2954"}}
+{"order_id": 1411, "paid_at": "2025-01-02T10:54:48Z", "method": "transfer", "amount": 2460.6, "card": {"brand": "visa", "last4": "5864"}}
+{"order_id": 1412, "paid_at": "2025-01-12T02:34:02Z", "method": "transfer", "amount": 279.82, "card": {"brand": "mc", "last4": "8639"}}
+{"order_id": 1413, "paid_at": "2025-02-07T07:32:34Z", "method": "card", "amount": 1281.33, "card": {"brand": "visa", "last4": "5937"}}
+{"order_id": 1414, "paid_at": "2025-06-29T10:27:54Z", "method": "card", "amount": 443.97, "card": {"brand": "mc", "last4": "6647"}}
+{"order_id": 1415, "paid_at": "2025-05-27T23:54:47Z", "method": "card", "amount": 226.64, "card": null}
+{"order_id": 1416, "paid_at": "2025-06-03T23:46:12Z", "method": "paypal", "amount": 1145.27, "card": {"brand": "visa", "last4": "9514"}}
+{"order_id": 1417, "paid_at": "2025-03-25T13:25:59Z", "method": "card", "amount": 425.12, "card": {"brand": "visa", "last4": "9419"}}
+{"order_id": 1418, "paid_at": "2025-02-17T16:40:37Z", "method": "transfer", "amount": 296.72, "card": null}
+{"order_id": 1419, "paid_at": "2025-05-15T22:08:56Z", "method": "transfer", "amount": 1017.28, "card": null}
+{"order_id": 1420, "paid_at": "2025-02-03T16:28:05Z", "method": "card", "amount": 453.94, "card": {"brand": "visa", "last4": "6723"}}
+{"order_id": 1421, "paid_at": "2025-01-03T09:59:54Z", "method": "transfer", "amount": 744.62, "card": null}
+{"order_id": 1422, "paid_at": "2025-04-01T02:27:59Z", "method": "card", "amount": 3005.91, "card": {"brand": "mc", "last4": "1639"}}
+{"order_id": 1423, "paid_at": "2025-04-17T21:51:05Z", "method": "card", "amount": 1617.33, "card": {"brand": "mc", "last4": "9381"}}
+{"order_id": 1424, "paid_at": "2025-03-29T02:58:30Z", "method": "card", "amount": 1958.37, "card": {"brand": "mc", "last4": "5127"}}
+{"order_id": 1425, "paid_at": "2025-05-25T01:36:27Z", "method": "card", "amount": 251.21, "card": {"brand": "visa", "last4": "7814"}}
+{"order_id": 1426, "paid_at": "2025-01-16T02:03:14Z", "method": "card", "amount": 371.99, "card": {"brand": "amex", "last4": "4291"}}
+{"order_id": 1427, "paid_at": "2025-02-11T05:46:25Z", "method": "paypal", "amount": 626.77, "card": null}
+{"order_id": 1428, "paid_at": "2025-06-14T21:11:52Z", "method": "transfer", "amount": 729.36, "card": {"brand": "amex", "last4": "0549"}}
+{"order_id": 1429, "paid_at": "2025-01-29T23:08:07Z", "method": "paypal", "amount": 1384.28, "card": {"brand": "visa", "last4": "4062"}}
+{"order_id": 1430, "paid_at": "2025-02-21T20:39:08Z", "method": "card", "amount": 995.63, "card": null}
+{"order_id": 1431, "paid_at": "2025-03-23T16:29:35Z", "method": "paypal", "amount": 1834.2, "card": {"brand": "amex", "last4": "6794"}}
+{"order_id": 1432, "paid_at": "2025-03-01T04:07:40Z", "method": "card", "amount": 599.33, "card": {"brand": "mc", "last4": "5286"}}
+{"order_id": 1433, "paid_at": "2025-06-13T20:56:27Z", "method": "transfer", "amount": 621.73, "card": {"brand": "amex", "last4": "1273"}}
+{"order_id": 1434, "paid_at": "2025-06-17T20:29:59Z", "method": "card", "amount": 818.56, "card": {"brand": "amex", "last4": "9524"}}
+{"order_id": 1435, "paid_at": "2025-05-29T21:39:23Z", "method": "card", "amount": 2554.38, "card": {"brand": "mc", "last4": "4299"}}
+{"order_id": 1436, "paid_at": "2025-03-20T16:37:09Z", "method": "card", "amount": 648.75, "card": {"brand": "visa", "last4": "5354"}}
+{"order_id": 1437, "paid_at": "2025-05-14T10:23:41Z", "method": "paypal", "amount": 653.5, "card": {"brand": "mc", "last4": "3110"}}
+{"order_id": 1438, "paid_at": "2025-03-13T10:27:20Z", "method": "transfer", "amount": 1415.63, "card": {"brand": "amex", "last4": "1234"}}
+{"order_id": 1439, "paid_at": "2025-05-21T17:23:59Z", "method": "transfer", "amount": 1030.62, "card": null}
+{"order_id": 1440, "paid_at": "2025-03-08T18:18:37Z", "method": "card", "amount": 1521.46, "card": {"brand": "amex", "last4": "8372"}}
+{"order_id": 1441, "paid_at": "2025-03-05T19:35:09Z", "method": "card", "amount": 1134.46, "card": {"brand": "mc", "last4": "2461"}}
+{"order_id": 1442, "paid_at": "2025-02-02T03:57:20Z", "method": "card", "amount": 229.28, "card": {"brand": "visa", "last4": "7498"}}
+{"order_id": 1443, "paid_at": "2025-04-11T06:41:10Z", "method": "card", "amount": 803.28, "card": {"brand": "mc", "last4": "1805"}}
+{"order_id": 1444, "paid_at": "2025-06-05T07:42:49Z", "method": "card", "amount": 773.41, "card": {"brand": "amex", "last4": "2870"}}
+{"order_id": 1445, "paid_at": "2025-02-07T19:23:13Z", "method": "paypal", "amount": 1671.21, "card": {"brand": "amex", "last4": "2336"}}
+{"order_id": 1446, "paid_at": "2025-02-01T12:32:07Z", "method": "paypal", "amount": 683.88, "card": null}
+{"order_id": 1447, "paid_at": "2025-02-05T11:29:44Z", "method": "paypal", "amount": 955.61, "card": {"brand": "mc", "last4": "0012"}}
+{"order_id": 1448, "paid_at": "2025-06-28T07:44:43Z", "method": "paypal", "amount": 91.66, "card": null}
+{"order_id": 1449, "paid_at": "2025-03-24T12:23:38Z", "method": "transfer", "amount": 748.25, "card": {"brand": "visa", "last4": "5771"}}
+{"order_id": 1450, "paid_at": "2025-04-21T16:18:07Z", "method": "card", "amount": 848.08, "card": null}
+{"order_id": 1451, "paid_at": "2025-03-16T00:24:55Z", "method": "paypal", "amount": 360.84, "card": {"brand": "amex", "last4": "7939"}}
+{"order_id": 1452, "paid_at": "2025-06-25T18:01:33Z", "method": "paypal", "amount": 846.96, "card": {"brand": "amex", "last4": "9558"}}
+{"order_id": 1453, "paid_at": "2025-02-04T08:57:37Z", "method": "card", "amount": 372.5, "card": {"brand": "amex", "last4": "9882"}}
+{"order_id": 1454, "paid_at": "2025-04-17T10:52:05Z", "method": "transfer", "amount": 598.46, "card": {"brand": "amex", "last4": "3068"}}
+{"order_id": 1455, "paid_at": "2025-06-27T23:02:05Z", "method": "paypal", "amount": 456.4, "card": {"brand": "visa", "last4": "1567"}}
+{"order_id": 1456, "paid_at": "2025-02-08T21:05:46Z", "method": "transfer", "amount": 321.19, "card": {"brand": "mc", "last4": "2405"}}
+{"order_id": 1457, "paid_at": "2025-05-21T16:18:24Z", "method": "paypal", "amount": 709.87, "card": {"brand": "amex", "last4": "1158"}}
+{"order_id": 1458, "paid_at": "2025-02-28T08:47:12Z", "method": "card", "amount": 104.68, "card": null}
+{"order_id": 1459, "paid_at": "2025-04-15T21:20:49Z", "method": "paypal", "amount": 512.47, "card": {"brand": "mc", "last4": "2479"}}
+{"order_id": 1460, "paid_at": "2025-04-11T17:08:19Z", "method": "card", "amount": 112.94, "card": {"brand": "mc", "last4": "9153"}}
+{"order_id": 1461, "paid_at": "2025-03-19T19:32:54Z", "method": "transfer", "amount": 1494.39, "card": {"brand": "visa", "last4": "8621"}}
+{"order_id": 1462, "paid_at": "2025-04-22T01:34:42Z", "method": "card", "amount": 1004.12, "card": null}
+{"order_id": 1463, "paid_at": "2025-04-06T07:20:21Z", "method": "paypal", "amount": 1045.7, "card": {"brand": "amex", "last4": "2778"}}
+{"order_id": 1464, "paid_at": "2025-04-07T09:05:39Z", "method": "card", "amount": 861.08, "card": {"brand": "amex", "last4": "9565"}}
+{"order_id": 1465, "paid_at": "2025-05-21T05:57:07Z", "method": "paypal", "amount": 453.58, "card": {"brand": "mc", "last4": "4506"}}
+{"order_id": 1466, "paid_at": "2025-02-25T15:56:17Z", "method": "card", "amount": 649.62, "card": {"brand": "mc", "last4": "1076"}}
+{"order_id": 1467, "paid_at": "2025-05-15T08:11:11Z", "method": "transfer", "amount": 1062.9, "card": {"brand": "mc", "last4": "1471"}}
+{"order_id": 1468, "paid_at": "2025-05-15T23:43:28Z", "method": "paypal", "amount": 1306.05, "card": {"brand": "mc", "last4": "5674"}}
+{"order_id": 1469, "paid_at": "2025-05-25T02:24:46Z", "method": "paypal", "amount": 1116.02, "card": null}
+{"order_id": 1470, "paid_at": "2025-06-09T11:30:25Z", "method": "paypal", "amount": 663.24, "card": {"brand": "visa", "last4": "8840"}}
+{"order_id": 1471, "paid_at": "2025-01-04T13:39:01Z", "method": "transfer", "amount": 393.21, "card": null}
+{"order_id": 1472, "paid_at": "2025-03-18T10:58:15Z", "method": "card", "amount": 825.27, "card": {"brand": "amex", "last4": "8855"}}
+{"order_id": 1473, "paid_at": "2025-01-30T10:30:56Z", "method": "transfer", "amount": 172.91, "card": {"brand": "visa", "last4": "3878"}}
+{"order_id": 1474, "paid_at": "2025-05-20T23:36:30Z", "method": "transfer", "amount": 175.84, "card": {"brand": "mc", "last4": "7985"}}
+{"order_id": 1475, "paid_at": "2025-04-09T04:39:57Z", "method": "transfer", "amount": 1093.33, "card": {"brand": "mc", "last4": "3643"}}
+{"order_id": 1476, "paid_at": "2025-01-18T20:23:15Z", "method": "card", "amount": 723.87, "card": null}
+{"order_id": 1477, "paid_at": "2025-06-05T02:47:24Z", "method": "card", "amount": 1675.03, "card": null}
+{"order_id": 1478, "paid_at": "2025-01-13T08:07:26Z", "method": "paypal", "amount": 672.22, "card": null}
+{"order_id": 1479, "paid_at": "2025-05-17T12:50:26Z", "method": "transfer", "amount": 430.63, "card": {"brand": "visa", "last4": "2125"}}
+{"order_id": 1480, "paid_at": "2025-04-05T10:09:41Z", "method": "transfer", "amount": 2011.53, "card": null}
+{"order_id": 1481, "paid_at": "2025-03-25T07:17:51Z", "method": "card", "amount": 256.86, "card": {"brand": "visa", "last4": "3887"}}
+{"order_id": 1482, "paid_at": "2025-01-06T14:41:33Z", "method": "paypal", "amount": 282.97, "card": {"brand": "amex", "last4": "9788"}}
+{"order_id": 1483, "paid_at": "2025-02-14T22:16:26Z", "method": "paypal", "amount": 733.1, "card": {"brand": "amex", "last4": "5270"}}
+{"order_id": 1484, "paid_at": "2025-06-07T13:05:35Z", "method": "transfer", "amount": 1467.78, "card": null}
+{"order_id": 1485, "paid_at": "2025-01-24T11:11:18Z", "method": "transfer", "amount": 1526.46, "card": null}
+{"order_id": 1486, "paid_at": "2025-04-06T19:07:14Z", "method": "paypal", "amount": 169.35, "card": {"brand": "mc", "last4": "8876"}}
+{"order_id": 1487, "paid_at": "2025-01-06T22:04:45Z", "method": "card", "amount": 416.37, "card": null}
+{"order_id": 1488, "paid_at": "2025-03-13T01:41:19Z", "method": "transfer", "amount": 1518.48, "card": {"brand": "visa", "last4": "6933"}}
+{"order_id": 1489, "paid_at": "2025-06-07T02:11:32Z", "method": "paypal", "amount": 193.16, "card": null}
+{"order_id": 1490, "paid_at": "2025-04-25T17:12:15Z", "method": "card", "amount": 296.52, "card": null}
+{"order_id": 1491, "paid_at": "2025-05-15T20:20:21Z", "method": "transfer", "amount": 1232.73, "card": null}
+{"order_id": 1492, "paid_at": "2025-03-17T10:10:38Z", "method": "paypal", "amount": 803.72, "card": null}
+{"order_id": 1493, "paid_at": "2025-02-17T04:16:14Z", "method": "paypal", "amount": 1314.28, "card": {"brand": "visa", "last4": "3555"}}
+{"order_id": 1494, "paid_at": "2025-06-15T03:11:35Z", "method": "transfer", "amount": 885.56, "card": {"brand": "mc", "last4": "3933"}}
+{"order_id": 1495, "paid_at": "2025-02-01T19:45:08Z", "method": "card", "amount": 1343.88, "card": null}
+{"order_id": 1496, "paid_at": "2025-02-05T10:16:48Z", "method": "card", "amount": 2396.13, "card": {"brand": "mc", "last4": "2265"}}
+{"order_id": 1497, "paid_at": "2025-02-27T16:07:31Z", "method": "paypal", "amount": 848.17, "card": null}
+{"order_id": 1498, "paid_at": "2025-06-17T09:40:37Z", "method": "paypal", "amount": 2012.44, "card": {"brand": "visa", "last4": "3497"}}
+{"order_id": 1499, "paid_at": "2025-01-31T01:33:22Z", "method": "transfer", "amount": 2162.81, "card": {"brand": "visa", "last4": "6527"}}
+{"order_id": 1500, "paid_at": "2025-02-28T00:26:07Z", "method": "card", "amount": 11.22, "card": null}
