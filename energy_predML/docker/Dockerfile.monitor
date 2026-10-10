@@ -1,0 +1,12 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+
+COPY docker/requirements-monitor.txt .
+RUN pip install --no-cache-dir -r requirements-monitor.txt
+
+COPY src/ src/
+
+RUN mkdir -p data/raw data/processed data/predictions data/drift_reports
+
+CMD ["python", "-m", "src.workflows.monitor"]

@@ -1,0 +1,16 @@
+# Ingest-only dependencies (docker ingest service).
+# Excludes all ML, serving, and monitoring packages.
+
+# Data
+requests>=2.31.0
+pandas>=2.1.0
+duckdb>=0.9.0
+pyarrow>=14.0.0
+
+# Orchestration
+prefect>=2.14.0
+
+# Utils
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
