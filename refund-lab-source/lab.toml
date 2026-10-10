@@ -1,0 +1,35 @@
+# refund-lab-source configuration.
+#
+# Changing [api].hostility, [clock].sim_days_per_real_hour or [drop].path takes
+# effect on the next service start and does NOT void the run.
+#
+# Changing [world], [faults] or [clock].sim_start changes the identity of the
+# world.  The service will refuse to start against a ledger built from different
+# values; you must re-initialise, which draws a new run-id and discards all
+# history.
+
+[world]
+scale = 1.0             # 1.0 ~= 12k orders / 60k events per 180 simulated days
+horizon_sim_days = 2200
+
+[clock]
+sim_start = "2026-01-01"
+# One simulated day per real hour: an hourly pipeline run sees exactly one new
+# simulated day, which is one new file per drop feed. The 2200-day horizon then
+# takes about three real months of uptime. Raising this burns the horizon
+# proportionally faster -- at 24 it is gone in under four days.
+sim_days_per_real_hour = 1.0
+
+[api]
+host = "127.0.0.1"
+port = 8088
+hostility = 1           # 0-3; see README
+token = "rl_live_8f2c1d94e6b74a03"
+
+[drop]
+# A sibling of both repos, so the pipeline never reads anything under
+# refund-lab-source/. Relative paths resolve against this repo's root.
+path = "../drop"
+
+[faults]
+n_sampled = 11          # 8-14
