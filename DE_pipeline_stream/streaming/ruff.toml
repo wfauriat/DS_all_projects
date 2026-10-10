@@ -1,0 +1,4 @@
+# The Spark image runs Python 3.10: lint this folder for 3.10, so that nothing
+# 3.11+ (datetime.UTC, tomllib, StrEnum, …) slips into code that only runs there.
+extend = "../pyproject.toml"
+target-version = "py310"

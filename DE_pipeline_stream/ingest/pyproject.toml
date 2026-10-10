@@ -1,0 +1,29 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# bikeshare-bridge: the first hop of the pipeline (source SSE → Kafka).
+#
+# It subscribes to the source's SSE stream, validates each event against the
+# consumer-side contract, and produces valid events to Kafka topics and invalid
+# ones to the DLQ topic. It is a long-running service, not an Airflow task.
+#
+# Installed locally as a workspace member (see ../pyproject.toml). In Docker
+# it is installed alone with `uv sync --package bikeshare-bridge`.
+# Implemented in layer 2 (see PLAN.md §8).
+# ─────────────────────────────────────────────────────────────────────────────
+[project]
+name = "bikeshare-bridge"
+version = "0.1.0"
+description = "SSE → Kafka bridge with contract validation and a dead-letter queue"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "httpx>=0.27",
+    "confluent-kafka>=2.5",
+    "pydantic>=2.8",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+# Flat layout: the package sits at ingest/bikeshare_bridge/
+module-root = ""

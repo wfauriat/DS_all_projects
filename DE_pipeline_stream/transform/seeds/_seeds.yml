@@ -1,0 +1,13 @@
+seeds:
+  - name: detection_checks
+    description: >
+      Which fault each check is meant to catch, and how a detection is matched to a
+      fault of the ground truth. A seed: a small CSV kept in git, loaded by `dbt build`.
+      match_on: event (same event_id) · trip (same trip_id) · episode (same station, overlapping
+      time) · stall (the detection's event_time falls inside the stall).
+    config:
+      column_types:
+        detector: varchar
+        check_name: varchar
+        fault_type: varchar
+        match_on: varchar

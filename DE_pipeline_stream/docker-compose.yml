@@ -1,0 +1,346 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# docker-compose.yml: the whole stack, one service per box of PLAN.md §5.
+#
+# Who reads it: `docker compose`, usually through the Makefile (make up / down
+# / logs / ps). ${VARS} come from .env (template: .env.example). The value
+# after ":-" is the default used when a variable is unset.
+#
+# Networking: every service joins the project network (de-modern_default) and
+# reaches the others by SERVICE NAME, e.g. http://source-api:8000. The host
+# ports (left side of "ports:") are only for you: browser, curl, local tools.
+#
+# This file grows layer by layer:
+#   1 source-api · 2 kafka, kafka-init, bridge, console · 3 spark
+#   4 airflow-db, airflow-init, airflow-apiserver, airflow-scheduler, airflow-dag-processor
+# ─────────────────────────────────────────────────────────────────────────────
+name: de-modern
+
+# ── Shared by every Airflow service (layer 4) ─────────────────────────────────
+# An "extension field" (x-…) with a YAML anchor (&…): each Airflow service
+# below merges it with `<<: *airflow-common`, so image, env and mounts are
+# declared once.
+x-airflow-common: &airflow-common
+  profiles: ["batch"]                     # started when COMPOSE_PROFILES includes "batch"
+  build:
+    context: .
+    dockerfile: orchestration/Dockerfile
+  image: de-modern/airflow:dev
+  # Your UID, group root: the Airflow image makes its folders group-root writable
+  # for exactly this, and files written into ./data stay yours.
+  user: "${HOST_UID:-1000}:0"
+  environment: &airflow-common-env
+    # ── Airflow itself (AIRFLOW__<SECTION>__<KEY> overrides airflow.cfg) ──
+    # LocalExecutor: the scheduler runs tasks as its own subprocesses. There
+    # is no Celery or Redis; a single machine doesn't need a worker fleet.
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@airflow-db/airflow
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    # Airflow 3: tasks talk to the API server (not to the database directly),
+    # through the Execution API, authenticated with JWTs signed by this shared secret.
+    AIRFLOW__CORE__EXECUTION_API_SERVER_URL: http://airflow-apiserver:8080/execution/
+    AIRFLOW__API_AUTH__JWT_SECRET: ${AIRFLOW_JWT_SECRET:-local-dev-only-jwt-secret}
+    AIRFLOW__API_AUTH__JWT_ISSUER: de-modern
+    # No login locally: the simple auth manager treats every visitor as admin.
+    AIRFLOW__CORE__AUTH_MANAGER: airflow.api_fastapi.auth.managers.simple.simple_auth_manager.SimpleAuthManager
+    AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_ALL_ADMINS: "true"
+    AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: "true"
+    # Recovering tasks whose process died. Until recovery, such a task stays
+    # "running" and HOLDS ITS POOL SLOT, and the `duckdb` pool has only one, so
+    # every write waits. Two mechanisms, both 300 s by default (measured here: a
+    # killed scheduler blocked landing for 5 minutes):
+    #   - the scheduler itself died: on restart, it resets its predecessor's tasks
+    #     at the next orphaned-tasks check;
+    #   - only the task process died: it is failed once its heartbeats have been
+    #     missing for the heartbeat timeout.
+    # Failed tasks are then retried (retries=2 in the DAGs).
+    AIRFLOW__SCHEDULER__ORPHANED_TASKS_CHECK_INTERVAL: "60"
+    AIRFLOW__SCHEDULER__TASK_INSTANCE_HEARTBEAT_TIMEOUT: "90"
+    # Pick up new or edited DAG files within 30 s (default: 5 min).
+    AIRFLOW__DAG_PROCESSOR__REFRESH_INTERVAL: "30"
+    # include/landing: the code the DAGs call, importable as `landing`.
+    PYTHONPATH: /opt/airflow/include
+    # ── What the DAGs connect to: Airflow Connections and Variables from env ──
+    # AIRFLOW_CONN_<ID> defines connection <id> (lower-cased), AIRFLOW_VAR_<KEY>
+    # variable <key>. Nothing is stored in Airflow's database, and nothing is clicked in the UI.
+    AIRFLOW_CONN_KAFKA_LANDING: '{"conn_type": "generic", "extra": {"bootstrap.servers": "kafka:9092"}}'
+    AIRFLOW_CONN_BIKESHARE_API: '{"conn_type": "http", "schema": "http", "host": "source-api", "port": 8000}'
+    AIRFLOW_VAR_WAREHOUSE_PATH: /data/warehouse/bikeshare.duckdb
+    AIRFLOW_VAR_SERVING_PATH: /data/warehouse/bikeshare_serving.duckdb   # readers use this copy (layer 5)
+    # ── dbt (layer 5), run by DAG dbt_transform from /opt/dbt-venv ──
+    DBT_PROFILES_DIR: /opt/airflow/transform              # → transform/profiles.yml
+    DUCKDB_PATH: /data/warehouse/bikeshare.duckdb         # read by profiles.yml (same file as the variable above)
+    LAKE_DIR: /data/lake                                  # read by models/sources.yml (Spark's Parquet)
+    DBT_SEND_ANONYMOUS_USAGE_STATS: "false"
+  volumes:
+    - ./orchestration/dags:/opt/airflow/dags          # DAG files: edit on the host, no rebuild
+    - ./orchestration/include:/opt/airflow/include    # the `landing` and `serving` packages
+    - ./transform:/opt/airflow/transform              # the dbt project (dbt writes target/ and logs/ here)
+    - airflow-logs:/opt/airflow/logs                  # task logs, shared by scheduler and API server
+    - ./data/warehouse:/data/warehouse                # the DuckDB file (written by the DAGs)
+    - ./data/lake:/data/lake:ro                       # Spark's Parquet output (read by dbt, layer 5)
+  depends_on: &airflow-common-depends-on
+    airflow-db:
+      condition: service_healthy
+
+services:
+  # ── Layer 1: the synthetic upstream system (the "vendor") ───────────────────
+  source-api:
+    build:
+      context: .                        # repo root: the Dockerfile needs uv.lock
+      dockerfile: source/Dockerfile
+    image: de-modern/source-api:dev
+    # Run as you, so data/source/state.pkl on the host belongs to you, not root.
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      # Read by bikeshare_sim/config.py. Paths are relative to WORKDIR /app.
+      BIKESHARE_CONFIG: config/source.toml
+      SIM_STATE_DIR: data/source
+      SIM_SEED: ${SIM_SEED:-42}
+      SIM_SPEED: ${SIM_SPEED:-60}
+      # Read by bikeshare_sim/__main__.py
+      SOURCE_PORT: "8000"
+    volumes:
+      - ./config:/app/config:ro         # edit config/source.toml on the host, then restart
+      - ./data/source:/app/data/source  # state.pkl: world, clock, event buffer, fault log
+    ports:
+      - "${SOURCE_API_PORT:-8000}:8000"  # host:container → http://localhost:8000/docs
+    healthcheck:
+      # Other services will wait for this (depends_on: condition: service_healthy).
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    # Time to close SSE streams and save state.pkl on `docker compose down`.
+    stop_grace_period: 20s
+    restart: unless-stopped
+
+  # ── Layer 2: the event backbone and the first hop of the pipeline ───────────
+  kafka:
+    image: apache/kafka:4.3.1           # pinned; the image turns KAFKA_* variables into server.properties
+    hostname: kafka
+    environment:
+      # One node that is both broker and KRaft controller: Kafka's own
+      # metadata quorum, with no ZooKeeper. A real cluster runs 3+ controllers.
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      # Formats the storage on first start. Generated with `kafka-storage.sh random-uuid`.
+      CLUSTER_ID: MoQ1R7PRSkaSfyAV5NC-sg
+
+      # Listeners: LISTENERS is where Kafka accepts connections; ADVERTISED is
+      # the address it tells clients to use afterwards. A client connects to its
+      # bootstrap address, gets the advertised address back, and reconnects there.
+      #   INTERNAL  kafka:9092      for containers (bridge, Spark, Airflow, Console)
+      #   EXTERNAL  localhost:9094  for tools on your machine (make bridge-run, notebooks)
+      # One advertised address cannot satisfy both: "kafka" does not resolve on
+      # your host, and "localhost" inside a container is the container itself.
+      KAFKA_LISTENERS: INTERNAL://:9092,EXTERNAL://:9094,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9092,EXTERNAL://localhost:${KAFKA_HOST_PORT:-9094}
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+
+      # Single node: Kafka's internal topics cannot have 3 replicas on 1 broker.
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_SHARE_COORDINATOR_STATE_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_SHARE_COORDINATOR_STATE_TOPIC_MIN_ISR: 1
+      KAFKA_GROUP_INITIAL_REBALANCE_DELAY_MS: 0
+
+      # Topics exist only if kafka/create-topics.sh declares them (see kafka-init).
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_LOG_DIRS: /var/lib/kafka/data  # "logs" = the partition data files, not text logs
+      KAFKA_HEAP_OPTS: -Xms512m -Xmx512m   # enough for this volume, and kind to your RAM
+    volumes:
+      - kafka-data:/var/lib/kafka/data     # named volume: survives `down`, wiped by `make reset`
+    ports:
+      - "${KAFKA_HOST_PORT:-9094}:9094"    # only the EXTERNAL listener is published
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server kafka:9092 > /dev/null 2>&1"]
+      interval: 10s
+      timeout: 15s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  kafka-init:
+    # One-shot: creates the topics, then exits. `docker compose ps -a` shows
+    # "Exited (0)" when it worked. The bridge waits for that.
+    image: apache/kafka:4.3.1
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      KAFKA_BOOTSTRAP: kafka:9092
+    volumes:
+      - ./kafka:/opt/de-modern/kafka:ro
+    entrypoint: ["/bin/bash", "/opt/de-modern/kafka/create-topics.sh"]
+    restart: "no"
+
+  bridge:
+    build:
+      context: .
+      dockerfile: ingest/Dockerfile
+    image: de-modern/bridge:dev
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      # Read by bikeshare_bridge/config.py. The two addresses use service names
+      # and CONTAINER ports: http://source-api:8000, not localhost:${SOURCE_API_PORT}.
+      SOURCE_URL: http://source-api:8000
+      KAFKA_BOOTSTRAP: kafka:9092          # the INTERNAL listener
+      BRIDGE_STATE_DIR: data/bridge
+      BRIDGE_START_FROM: oldest            # first start: replay the source's buffer
+      LOG_LEVEL: info
+    volumes:
+      - ./data/bridge:/app/data/bridge     # checkpoint.json: last seq safely in Kafka
+    depends_on:
+      source-api:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    stop_grace_period: 15s                 # time to flush Kafka and save the checkpoint
+    restart: unless-stopped
+
+  console:
+    # Redpanda Console: a web UI for Kafka (topics, messages, consumer groups and lag).
+    # It speaks the Kafka protocol, so it works with Apache Kafka.
+    image: redpandadata/console:v3.11.0
+    environment:
+      KAFKA_BROKERS: kafka:9092
+    ports:
+      - "${CONSOLE_PORT:-8081}:8080"       # → http://localhost:8081
+    depends_on:
+      kafka:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # ── Layer 3: the real-time analyzer ─────────────────────────────────────────
+  spark:
+    # Profile "stream": started when COMPOSE_PROFILES includes it. The Makefile
+    # sets that by default; `COMPOSE_PROFILES= make up` runs without Spark (~1.5 GB less RAM).
+    profiles: ["stream"]
+    build:
+      context: .
+      dockerfile: streaming/Dockerfile
+    image: de-modern/spark-analyzer:dev
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
+    environment:
+      # Read by streaming/analyzer/config.py
+      KAFKA_BOOTSTRAP: kafka:9092              # INTERNAL listener, like the bridge
+      SOURCE_URL: http://source-api:8000       # station reference data (/v1/stations)
+      LAKE_DIR: /data/lake
+      CHECKPOINT_DIR: /data/checkpoints
+      TRIGGER_SECONDS: "10"
+      WATERMARK: 30 minutes                    # simulated time: 30 real seconds at 60×
+      STATION_WINDOW_MIN: "30"                 # metrics windows (→ lake)
+      HEALTH_WINDOW_MIN: "120"                 # frozen/silent windows (→ alerts)
+      STATUS_INTERVAL_MIN: "5"                 # = config/source.toml [emission].status_interval_min
+    volumes:
+      # Spark's own config, editable without a rebuild (restart the container).
+      - ./streaming/conf/spark-defaults.conf:/opt/spark/conf/spark-defaults.conf:ro
+      - ./streaming/conf/log4j2.properties:/opt/spark/conf/log4j2.properties:ro
+      # Outputs, visible on the host: the Parquet lake and each query's checkpoint
+      # (Kafka offsets, state store, commit log). Worth a look.
+      - ./data/lake:/data/lake
+      - ./data/checkpoints:/data/checkpoints
+    ports:
+      - "${SPARK_UI_PORT:-4040}:4040"          # Spark UI → Structured Streaming tab
+    depends_on:
+      source-api:
+        condition: service_healthy
+      kafka-init:
+        condition: service_completed_successfully
+    stop_grace_period: 30s
+    restart: unless-stopped
+
+  # ── Layer 4: orchestration (Airflow 3) ──────────────────────────────────────
+  airflow-db:
+    # Airflow's metadata database: DAG runs, task states, pools. Not the warehouse.
+    profiles: ["batch"]
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - airflow-db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+    restart: unless-stopped                 # no host port: only Airflow talks to it
+
+  airflow-init:
+    # One-shot: migrates the metadata database, then creates the `duckdb` pool.
+    # It keeps the image's entrypoint, which does the setup: `airflow db migrate`
+    # (because of _AIRFLOW_DB_MIGRATE) and the environment for an arbitrary UID
+    # (HOME, and the PYTHONPATH where Airflow is installed). Only then does it run the command.
+    <<: *airflow-common
+    command: ["bash", "-c", "airflow pools set duckdb 1 'DuckDB allows one writer at a time: writing tasks queue here'"]
+    environment:
+      <<: *airflow-common-env
+      _AIRFLOW_DB_MIGRATE: "true"
+    restart: "no"
+
+  airflow-apiserver:
+    # REST API + web UI (http://localhost:8080), and the Execution API the tasks report to.
+    <<: *airflow-common
+    command: api-server
+    ports:
+      - "${AIRFLOW_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/api/v2/monitor/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+
+  airflow-scheduler:
+    # Decides what runs when, and runs it (LocalExecutor). The tasks execute in
+    # this container, which is why it needs Kafka and the source API reachable.
+    <<: *airflow-common
+    command: scheduler
+    healthcheck:
+      test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+      kafka-init:
+        condition: service_completed_successfully
+      source-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  airflow-dag-processor:
+    # Parses DAG files into the metadata DB (in Airflow 3 this is a separate process).
+    <<: *airflow-common
+    command: dag-processor
+    healthcheck:
+      test: ["CMD-SHELL", 'airflow jobs check --job-type DagProcessorJob --hostname "$${HOSTNAME}"']
+      interval: 30s
+      timeout: 30s
+      retries: 5
+      start_period: 30s
+    depends_on:
+      <<: *airflow-common-depends-on
+      airflow-init:
+        condition: service_completed_successfully
+    restart: unless-stopped
+    # No triggerer: none of these DAGs use deferrable operators. Add one if a DAG does.
+
+volumes:
+  kafka-data:
+  airflow-db:
+  airflow-logs:

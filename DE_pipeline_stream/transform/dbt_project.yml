@@ -1,0 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# transform/dbt_project.yml: the dbt project that turns `raw` into analytics tables.
+#
+# Who runs it:
+#   - Airflow DAG `dbt_transform` (orchestration/dags/dbt_transform.py), after
+#     each landing: /opt/dbt-venv/bin/dbt build, in /opt/airflow/transform
+#     (this folder, mounted).
+#   - You, on the host: `make dbt c="build -s staging"` (same dbt version, from the uv venv).
+# Where it writes: the DuckDB warehouse (see profiles.yml), one schema per layer.
+# Artifacts and logs: target/ and logs/ for Airflow; target-host/, target-docs/ and
+# logs-host/ for dbt on the host (set by the Makefile), so the two never mix.
+#
+# Layers, one folder and one schema each:
+#   staging       one view per raw table: JSON → typed columns, duplicates removed.
+#                 No business logic.
+#   intermediate  reusable building blocks: paired trips, status sequences, all detections.
+#   marts         what people query: dimension, fact, data quality, scorecard, pipeline health.
+# Plus: snapshots (history of changing reference data), seeds (small CSV tables
+# kept in git), tests (data tests and one unit test), macros (reusable SQL).
+# ─────────────────────────────────────────────────────────────────────────────
+name: bikeshare
+version: "1.0.0"
+profile: bikeshare # → profiles.yml
+
+model-paths: ["models"]
+snapshot-paths: ["snapshots"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+clean-targets: ["target", "target-host", "target-docs", "dbt_packages"]
+
+vars:
+  # (Spark's Parquet folder is not a var: it comes from env LAKE_DIR, read in
+  #  models/sources.yml and macros/lake_file_count.sql, because vars defined here
+  #  are not rendered inside YAML configs.)
+  # Thresholds shared with other components. Keep them in sync (both ends are commented).
+  status_interval_min: 5 # = config/source.toml [emission].status_interval_min
+  late_after_min: 25 # = Spark's LATE_AFTER_MIN (streaming/analyzer/config.py)
+  teleport_min_kmh: 45 # = Spark's TELEPORT_MIN_SPEED_KMH (streaming/analyzer/rules.py)
+  max_trip_hours: 3 # = Spark's MAX_TRIP_DURATION: a start with no end after this is an orphan
+  # The scorecard only judges recall for faults injected at least this long
+  # before the latest event: detecting a fresh fault may legitimately still be pending.
+  judge_after_hours: 4
+
+models:
+  bikeshare:
+    staging:
+      +schema: staging
+      +materialized: view # cheap: recomputed when queried, always current
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: marts
+      +materialized: table # built once per run, fast to query
+
+snapshots:
+  bikeshare:
+    +schema: snapshots
+
+seeds:
+  bikeshare:
+    +schema: reference

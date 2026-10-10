@@ -1,0 +1,51 @@
+models:
+  - name: int_trips
+    description: Trip halves paired by trip_id, with distance, speed and a pairing status.
+    columns:
+      - name: trip_id
+        data_tests: [unique, not_null]
+      - name: pairing
+        data_tests:
+          - accepted_values:
+              arguments: { values: [complete, in_progress, missing_end, missing_start] }
+
+  - name: int_status_sequence
+    description: Each station snapshot next to the previous one and the trips in between (exact frozen/silent checks).
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+
+  - name: int_detections
+    description: Every finding of every detector (bridge, Spark, dbt), in one shape.
+    columns:
+      - name: detection_id
+        data_tests: [unique, not_null]
+
+# A UNIT test checks a model's LOGIC on hand-written input rows, before the model
+# is trusted with real data. It is independent of what the warehouse holds today.
+unit_tests:
+  - name: int_trips_pairs_halves_and_spots_orphans
+    description: >
+      A complete trip, an end with no start, a start that is too old to still be riding, and
+      recent starts that are simply still under way ("latest event" = 12:00, max trip = 3 h).
+    model: int_trips
+    given:
+      - input: ref('stg_trip_events')
+        rows:
+          - { event_id: s1, event_type: trip_started, trip_id: T-OK, station_id: ST-A, event_time: "2026-03-02 08:00:00+00" }
+          - { event_id: e1, event_type: trip_ended, trip_id: T-OK, station_id: ST-B, start_station_id: ST-A, duration_s: 600, event_time: "2026-03-02 08:10:00+00" }
+          - { event_id: s2, event_type: trip_started, trip_id: T-NO-END, station_id: ST-A, event_time: "2026-03-02 08:05:00+00" }
+          - { event_id: e3, event_type: trip_ended, trip_id: T-NO-START, station_id: ST-B, start_station_id: ST-A, duration_s: 900, event_time: "2026-03-02 09:00:00+00" }
+          - { event_id: s4, event_type: trip_started, trip_id: T-RIDING, station_id: ST-A, event_time: "2026-03-02 11:30:00+00" }
+          - { event_id: s5, event_type: trip_started, trip_id: T-LATEST, station_id: ST-B, event_time: "2026-03-02 12:00:00+00" }
+      - input: ref('stg_stations')
+        rows:
+          - { station_id: ST-A, lat: 45.0, lon: 5.0 }
+          - { station_id: ST-B, lat: 45.0, lon: 5.0635 } # ~5 km east
+    expect: # every expected row lists the same columns (dbt compares them as one table)
+      rows:
+        - { trip_id: T-OK, pairing: complete, speed_kmh: 30.0 }
+        - { trip_id: T-NO-END, pairing: missing_end, speed_kmh: null }
+        - { trip_id: T-NO-START, pairing: missing_start, speed_kmh: 20.0 } # speed from its own payload
+        - { trip_id: T-RIDING, pairing: in_progress, speed_kmh: null }
+        - { trip_id: T-LATEST, pairing: in_progress, speed_kmh: null }

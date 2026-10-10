@@ -1,0 +1,76 @@
+# Documentation and data tests of the staging models. The tests run with `dbt build`,
+# right after the model they test. A failure at `error` severity stops that model's
+# downstream nodes; `warn` only reports.
+models:
+  - name: stg_trip_events
+    description: Trip events parsed from raw.trip_events, one row per event_id (duplicates removed).
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: event_type
+        data_tests:
+          - accepted_values:
+              arguments: { values: [trip_started, trip_ended] }
+      - name: trip_id
+        data_tests: [not_null]
+      - name: copies
+        description: How many times this event_id landed (source duplicates + bridge re-sends).
+      - name: source_copies
+        description: How many distinct source seqs carried it. More than 1 means the SOURCE duplicated it.
+      - name: lateness_min
+        description: emitted_at − event_time, in simulated minutes.
+
+  - name: stg_station_status
+    description: Station snapshots parsed from raw.station_status, one row per event_id.
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: bikes_available
+        data_tests:
+          - within_range: # the contract says ≥ 0; the bridge enforces it
+              arguments: { min_value: 0 }
+      - name: station_id
+        data_tests:
+          - relationships:
+              arguments: { to: ref('stg_stations'), field: station_id }
+              config: { severity: warn }
+
+  - name: stg_dead_letters
+    description: Events rejected by the bridge, one row per source seq.
+    columns:
+      - name: source_seq
+        data_tests: [unique, not_null]
+
+  - name: stg_alerts
+    description: Spark alerts, one row per alert_id.
+    columns:
+      - name: alert_id
+        data_tests: [unique, not_null]
+      - name: alert_type
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [over_capacity, teleport, late_event, frozen_station, silent_station, orphan_trip]
+
+  - name: stg_fault_log
+    description: The ground truth, every fault the source injected.
+    columns:
+      - name: fault_id
+        data_tests: [unique, not_null]
+
+  - name: stg_stations
+    columns:
+      - name: station_id
+        data_tests: [unique, not_null]
+      - name: capacity
+        data_tests:
+          - within_range:
+              arguments: { min_value: 1 }
+
+  - name: stg_weather
+    columns:
+      - name: observed_at
+        data_tests: [unique, not_null]
+
+  - name: stg_station_metrics
+    description: Spark's 30-minute windows from the lake. Empty until Spark has closed its first window.

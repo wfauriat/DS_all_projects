@@ -1,0 +1,22 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Snapshot: the HISTORY of the stations, as a type-2 slowly changing dimension
+# (SCD2).
+#
+# raw.stations only ever holds the current state: api_extract replaces it. At
+# each `dbt build`, this snapshot compares it with what it already holds. A
+# station whose `updated_at` moved (a capacity expansion) gets its current
+# version closed (dbt_valid_to) and a new version opened (dbt_valid_from).
+#
+# Why it matters here: "more bikes than docks" must be judged against the
+# capacity the station had AT THE TIME of the event, not today's.
+# ─────────────────────────────────────────────────────────────────────────────
+snapshots:
+  - name: snap_stations
+    relation: ref('stg_stations')
+    description: One row per version of a station (valid from updated_at until the next change).
+    config:
+      unique_key: station_id
+      strategy: timestamp
+      updated_at: updated_at # the source's own change time (simulated), not the extraction time
+      # The current version ends in 9999, not NULL: "valid at t" becomes a plain BETWEEN.
+      dbt_valid_to_current: "'9999-12-31 00:00:00+00'::timestamptz"
