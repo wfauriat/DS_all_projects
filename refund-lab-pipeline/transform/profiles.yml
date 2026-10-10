@@ -1,0 +1,12 @@
+refund_lab:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: 'warehouse.duckdb'
+      extensions:
+        - sqlite
+      attach:
+        - path: '../landing.db'
+          type: sqlite
+          alias: landing

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: landing
+    database: landing
+    schema: main
+    tables:
+      - name: orders_raw

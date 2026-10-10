@@ -1,0 +1,26 @@
+# secrets
+# lab.toml
+# env.sh
+
+# python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# scratch / exploratory outputs
+response.json
+*.jsonl
+!incidents.jsonl
+
+# db / build artifacts
+*.db
+*.duckdb
+
+# dbt
+transform/target/
+transform/logs/
+transform/dbt_packages/

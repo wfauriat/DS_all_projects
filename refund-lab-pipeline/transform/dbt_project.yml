@@ -1,0 +1,11 @@
+name: 'refund_lab'
+version: '1.0.0'
+config-version: 2
+
+profile: 'refund_lab'
+
+model-paths: ["models"]
+
+models:
+  refund_lab:
+    +materialized: view

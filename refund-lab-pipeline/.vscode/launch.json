@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug refund_lab.ingest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "refund_lab.ingest",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "console": "integratedTerminal"
+        }
+    ]
+}

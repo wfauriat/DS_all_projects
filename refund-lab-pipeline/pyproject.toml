@@ -1,0 +1,25 @@
+[project]
+name = "refund-lab"
+version = "0.1.0"
+description = "Pipeline processing refund order (training)"
+readme = "README.md"
+authors = [
+    { name = "wfauriat", email = "180698994+wfauriat@users.noreply.github.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "dbt-duckdb>=1.11.0",
+    "ipykernel>=7.3.0",
+    "ipython>=9.17.1",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+]
