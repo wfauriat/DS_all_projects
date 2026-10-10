@@ -1,0 +1,14 @@
+# === mediaElection27 ingest ===
+# Install with: crontab scripts/media27.cron
+# Inspect with: crontab -l
+# Logs:         tail -f ~/.local/state/media27/ingest.log
+
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=""
+
+# Catch-up run on every boot (wrapper waits up to 60s for postgres to be ready)
+@reboot /home/ai-user/Documents/Sandbox/mediaElection27/scripts/cron_ingest.sh >> /home/ai-user/.local/state/media27/ingest.log 2>&1
+
+# Recurring run every 4 hours at minute 15
+15 */4 * * * /home/ai-user/Documents/Sandbox/mediaElection27/scripts/cron_ingest.sh >> /home/ai-user/.local/state/media27/ingest.log 2>&1

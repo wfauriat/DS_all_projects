@@ -1,0 +1,119 @@
+name: deploy
+
+# Triggers: pushes to main (excluding docs-only changes), plus manual
+# dispatch from the Actions tab.
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+      - ".gitignore"
+  workflow_dispatch:
+
+# One-time AWS setup before this workflow can run:
+#
+# 1. Create an IAM OIDC identity provider for `token.actions.githubusercontent.com`
+#    in your AWS account (only need to do this once per account).
+#
+# 2. Create an IAM role `media27-github-deploy` with trust policy:
+#      Principal: that OIDC provider
+#      Condition: token.actions.githubusercontent.com:sub matches
+#                 "repo:<owner>/mediaElection27:ref:refs/heads/main"
+#      Permissions: AdministratorAccess  (or a tighter CDK-specific policy)
+#
+# 3. Save the role ARN as repo secret AWS_DEPLOY_ROLE_ARN
+#    (Settings → Secrets and variables → Actions).
+#
+# 4. Bootstrap CDK in the target region once:
+#      cdk bootstrap aws://<account-id>/eu-west-3
+#
+# After those four steps, every push to main runs this workflow.
+
+permissions:
+  id-token: write   # required to mint the OIDC token
+  contents: read
+
+env:
+  AWS_REGION: eu-west-3
+  NODE_VERSION: "22"
+  PYTHON_VERSION: "3.12"
+
+jobs:
+  deploy:
+    name: cdk deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+
+      - name: Install Python deps (project + infra extras)
+        run: pip install -e ".[infra]"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install CDK CLI
+        run: npm install -g aws-cdk
+
+      - name: cdk synth (sanity)
+        working-directory: infra/cdk
+        run: cdk synth --quiet
+
+      # === Phase 1: backend stacks =========================================
+      # Deploy everything except the frontend, so the API URL is available
+      # before we build the SPA.
+      - name: cdk deploy backend stacks
+        working-directory: infra/cdk
+        run: |
+          cdk deploy \
+            Media27Network \
+            Media27Runtime \
+            Media27Data \
+            Media27Ingest \
+            Media27Api \
+            Media27Observability \
+            --require-approval never \
+            --concurrency 3
+
+      - name: Read API URL from CloudFormation
+        id: api
+        run: |
+          url=$(aws cloudformation describe-stacks \
+            --stack-name Media27Api \
+            --query 'Stacks[0].Outputs[?OutputKey==`ApiUrl`].OutputValue' \
+            --output text \
+            --region ${{ env.AWS_REGION }})
+          echo "Got API URL: $url"
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      # === Phase 2: frontend ================================================
+      - name: Install frontend deps
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build frontend with API URL baked in
+        working-directory: frontend
+        env:
+          VITE_API_BASE_URL: ${{ steps.api.outputs.url }}
+        run: npm run build
+
+      - name: cdk deploy frontend stack
+        working-directory: infra/cdk
+        run: cdk deploy Media27Frontend --require-approval never
